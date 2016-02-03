@@ -1,0 +1,126 @@
+@import 'ui-variables';
+
+#crv {
+  width: 400px;
+  height: 100%;
+  overflow: scroll;
+}
+
+.cr-alert.success {
+  button {
+    span {
+      color: rgb(115, 201, 144);
+    }
+  }
+}
+.cr-alert.fail {
+  button {
+    span {
+      color: rgb(255, 64, 129);
+    }
+  }
+}
+
+.cr {
+  .cr-menu-bar {
+    z-index: 999 !important;
+  }
+}
+
+.cr {
+  &-chapter {
+    border: 2px solid red; // testing
+    border-sizing: border-box;
+    display: block;
+    height: 33px;
+    width: 100%;
+    border: 1px solid #181a1f;
+    border-bottom-color: #282c34;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.cr-page {
+  position: relative;
+  width: 400px;
+  .isCompletedTask {
+    background-color: #c8e6c9;
+  }
+  .isCompleteTask:hover {
+    background-color: #c8e6c9;
+  }
+  .isCurrentTask {}
+  .isDisabledTask {
+    color: grey;
+  }
+  &-toolbar {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+  }
+}
+.cr-tasks {
+  background-color: red;
+  .cr-task {
+    position: relative;
+    &-checkbox {
+      position: absolute;
+      top: 15px;
+    }
+    &-index {
+      position: absolute;
+      top: 20px;
+      left: 45px;
+    }
+    &-description {
+      display: inline-block;
+      padding-top: -10px;
+      padding-left: 55px;
+    }
+  }
+}
+
+.cr {
+  &-progress {
+    .chapter {
+      margin-bottom: 0;
+    }
+    .chapter.isActive {
+      background-color: darken(white, 10%);
+    }
+    .cr-page {
+      padding-left: 15px;
+      margin-top: 0;
+    }
+  }
+}
+
+.cr {
+  &-projects {
+    height: 100%;
+    text-align: center;
+    &-header {
+      display: block;
+      height: 300px;
+      background-color: lightblue;
+      padding-top: 100px;
+      .title {
+        color: white;
+        font-size: 2em;
+      }
+      .tagline {
+        color: white;
+        font-size: 1.5em;
+      }
+      .notes {
+        padding-top: 10px;
+        font-size: 1em;
+      }
+    }
+  }
+  &-tutorials {
+    padding: 10px;
+  }
+}
