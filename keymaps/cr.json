@@ -1,6 +1,6 @@
 {
   "atom-workspace": {
     "ctrl-alt-0": "cr-viewer:toggle",
-    "ctrl-alt-r": "cr-viewer:runTests"
+    "ctrl-alt-9": "cr-viewer:runTests"
   }
 }
