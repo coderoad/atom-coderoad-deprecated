@@ -18,6 +18,7 @@ To enable autosave in Atom, go to Atom > Preferences > Packages > search for "au
 ## Roadmap
 
 ##### v1.0.0
+* Log button
 * Autorun test setting
 * Improved test failure display
 * Lint input before running (ESLint)

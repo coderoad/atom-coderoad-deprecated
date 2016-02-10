@@ -1,9 +1,28 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
 @import 'ui-variables';
+@import '../src/components/_index';
+
+// root: ../styles/tut.less
+@import './menu/_menu';
+@import './page/_chapter';
+@import './page/_page';
+@import './progress/_progress';
+@import './alert/_alert';
+@import './projects/_projects';
 
 #crv {
   width: 400px;
   height: 100%;
   overflow: scroll;
+}
+
+.cr {
+  &-account {
+
+  }
 }
 
 .cr-alert.success {
@@ -63,6 +82,7 @@
 }
 .cr-tasks {
   background-color: red;
+  margin-bottom: 50px;
   .cr-task {
     position: relative;
     &-checkbox {
@@ -94,6 +114,13 @@
       padding-left: 15px;
       margin-top: 0;
     }
+    .cr-page .cr-page-isDisabled {
+      color: rgba(0, 0, 0, 0.5);
+      background: white;
+      &:hover {
+        background: white;
+      }
+    }
   }
 }
 
@@ -122,5 +149,11 @@
   }
   &-tutorials {
     padding: 10px;
+  }
+}
+
+.cr {
+  &--downloads {
+
   }
 }
