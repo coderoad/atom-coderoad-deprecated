@@ -19,17 +19,20 @@ To enable autosave in Atom, go to Atom > Preferences > Packages > search for "au
 ## Roadmap
 
 ##### v1.0.0
-* Log button
+* Extended demo
+* `@hints` API
+* Docs
 * Autorun test setting
 * Improved test failure display
 * Lint for input errors before running (ESLint)
-* Loaders for different file types (ES2015, TypeScript, CoffeeScript, etc.)
-* Hints
+* Loaders for different file types (TypeScript, CoffeeScript, etc.)
+* `@use` API for page feature choices
 * Improved animations
-* Test Tools
-* More test runners (currently only Mocha test runner for JS, would allow multiple programming languages)
+* Test Tools to generate common unit test configurations
+* More test runners to support different programming languages (currently only Mocha test runner for JS)
 
 ##### v2.0.0
+* Optional page templates
 * User accounts
 * Record progress to db
 * Tutorial ratings
