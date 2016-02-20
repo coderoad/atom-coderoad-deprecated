@@ -3,7 +3,12 @@
   height: 100%;
   overflow: scroll;
 }
-
+pre {
+  margin-bottom: 10px !important;
+}
+.cr {
+  &-account {}
+}
 .cr-alert.success {
   button {
     span {
@@ -18,13 +23,11 @@
     }
   }
 }
-
 .cr {
   .cr-menu-bar {
     z-index: 999 !important;
   }
 }
-
 .cr {
   &-chapter {
     border: 2px solid red; // testing
@@ -38,7 +41,6 @@
     text-align: center;
   }
 }
-
 .cr-page {
   position: relative;
   width: 400px;
@@ -60,9 +62,9 @@
   }
 }
 .cr-tasks {
-  background-color: red;
   margin-bottom: 50px;
   .cr-task {
+    padding: 10px;
     position: relative;
     &-checkbox {
       position: absolute;
@@ -77,10 +79,11 @@
       display: inline-block;
       padding-top: -10px;
       padding-left: 55px;
+      font-size: 14px;
+      line-height: 1.6;
     }
   }
 }
-
 .cr {
   &-progress {
     .chapter {
@@ -102,7 +105,6 @@
     }
   }
 }
-
 .cr {
   &-projects {
     height: 100%;
@@ -130,9 +132,6 @@
     padding: 10px;
   }
 }
-
 .cr {
-  &--downloads {
-
-  }
+  &--downloads {}
 }
