@@ -3,7 +3,7 @@
   "main": "./lib/atom/main",
   "version": "0.4.0",
   "description": "Interactive tutorial plugin for Atom",
-  "author": "Shawn McKay <shawn.j.mckay@gmail.com",
+  "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
   "keywords": [
     "atom",
     "coderoad"

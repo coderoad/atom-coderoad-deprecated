@@ -2,14 +2,16 @@
   width: 400px;
   height: 100%;
   overflow: scroll;
+  font-family: @font-family;
+  font-size: @font-size;
 }
+
 pre {
   margin-bottom: 10px !important;
+  padding-bottom: 0;
 }
-.cr {
-  &-account {}
-}
-.cr-alert.success {
+
+.cr-alert.pass {
   button {
     span {
       color: rgb(115, 201, 144);
@@ -23,11 +25,13 @@ pre {
     }
   }
 }
+
 .cr {
   .cr-menu-bar {
     z-index: 999 !important;
   }
 }
+
 .cr {
   &-chapter {
     border: 2px solid red; // testing
@@ -41,6 +45,7 @@ pre {
     text-align: center;
   }
 }
+
 .cr-page {
   position: relative;
   width: 400px;
@@ -62,7 +67,7 @@ pre {
   }
 }
 .cr-tasks {
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   .cr-task {
     padding: 10px;
     position: relative;
@@ -76,7 +81,7 @@ pre {
       left: 45px;
     }
     &-description {
-      display: inline-block;
+      background-color: inherit;
       padding-top: -10px;
       padding-left: 55px;
       font-size: 14px;
@@ -84,6 +89,7 @@ pre {
     }
   }
 }
+
 .cr {
   &-progress {
     .chapter {
@@ -105,6 +111,7 @@ pre {
     }
   }
 }
+
 .cr {
   &-projects {
     height: 100%;
@@ -131,7 +138,4 @@ pre {
   &-tutorials {
     padding: 10px;
   }
-}
-.cr {
-  &--downloads {}
 }
