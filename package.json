@@ -1,10 +1,13 @@
 {
   "name": "atom-coderoad",
   "main": "./lib/atom/main",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Interactive tutorial plugin for Atom",
   "author": "Shawn McKay <shawn.j.mckay@gmail.com",
-  "keywords": ["atom", "coderoad"],
+  "keywords": [
+    "atom",
+    "coderoad"
+  ],
   "activationCommands": {
     "atom-workspace": "cr-viewer:toggle"
   },
