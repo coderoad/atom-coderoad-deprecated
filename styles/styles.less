@@ -5,33 +5,44 @@
   font-family: @font-family;
   font-size: @font-size;
 }
-
 pre {
   margin-bottom: 10px !important;
   padding-bottom: 0;
 }
-
+@pass: rgb(115, 201, 144);
+@fail: rgb(255, 64, 129);
+@note: #9DA5B4;
 .cr-alert.pass {
   button {
     span {
-      color: rgb(115, 201, 144);
+      color: @pass;
     }
   }
 }
 .cr-alert.fail {
   button {
     span {
-      color: rgb(255, 64, 129);
+      color: @fail;
     }
   }
 }
-
+.cr-alert.note {
+  button {
+    span {
+      color: @note;
+    }
+  }
+}
+.cr-alert-replay {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .cr {
   .cr-menu-bar {
     z-index: 999 !important;
   }
 }
-
 .cr {
   &-chapter {
     border: 2px solid red; // testing
@@ -45,7 +56,6 @@ pre {
     text-align: center;
   }
 }
-
 .cr-page {
   position: relative;
   width: 400px;
@@ -89,7 +99,22 @@ pre {
     }
   }
 }
-
+.cr-task-hint {
+  &-index {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  &-description {
+    padding-top: -10px;
+    padding-left: 35px;
+  }
+  .cr-task-hint-box {
+    div > div {
+      padding: 0 10px;
+    }
+  }
+}
 .cr {
   &-progress {
     .chapter {
@@ -111,7 +136,6 @@ pre {
     }
   }
 }
-
 .cr {
   &-projects {
     height: 100%;
