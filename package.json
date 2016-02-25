@@ -15,10 +15,16 @@
     "url": "https://github.com/coderoad/atom-coderoad"
   },
   "repository": "https://github.com/coderoad/atom-coderoad",
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  },
   "license": "Apache",
   "engines": {
-    "atom": ">=1.0.0 <2.0.0",
-    "node": ">=0.10.3 <5.0.0"
+    "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
     "highlights": "1.3.1",
