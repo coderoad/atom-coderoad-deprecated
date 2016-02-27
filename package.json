@@ -22,6 +22,14 @@
       }
     }
   },
+  "files": [
+    "package.json",
+    "keymaps",
+    "lib",
+    "menus",
+    "styles",
+    "*.md"
+  ],
   "license": "Apache",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
