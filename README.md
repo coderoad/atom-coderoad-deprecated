@@ -1,39 +1,37 @@
 # CodeRoad Atom plugin
 
-Interactive coding tutorials inside of the Atom editor.
+Interactive coding tutorials inside of the Atom editor. Learn more at [coderoad.io](https://coderoad.github.io).
 
-** Currently early alpha. Expect issues & changes. **
-
-
-## Setup
-
-##### Install Atom Package
-
-    apm install atom-coderoad
-
-##### Enable Autosave
-
-To enable autosave in Atom, go to Atom > Preferences > Packages > search for "autosave" > settings > check "enabled".
+** Currently beta. Post issues. **
 
 
-## Roadmap
+### Setup Atom CodeRoad
 
-##### v1.0.0
-* Extended demo
-* `@hints` API
-* Docs
-* Autorun test setting
-* Improved test failure display
-* Lint for input errors before running (ESLint)
-* Loaders for different file types (TypeScript, CoffeeScript, etc.)
-* `@use` API for page feature choices
-* Improved animations
-* Test Tools to generate common unit test configurations
-* More test runners to support different programming languages (currently only Mocha test runner for JS)
+Use [Atom CodeRoad](https://github.com/coderoad/atom-coderoad) to view and play your tutorial
 
-##### v2.0.0
-* Optional page templates
-* User accounts
-* Record progress to db
-* Tutorial ratings
-* Suggestions?
+* Download the [Atom](https://atom.io/) editor
+
+* Install the *Atom-CodeRoad* package, or use the [apm](https://github.com/atom/apm) command-line tool
+
+      > apm install atom-coderoad
+
+* Open *Atom-CodeRoad* in *Atom* using the "packages" menu or press *ctrl-alt-1*.
+
+* It's recommended you also enable Autosave in Atom.
+
+To enable autosave in Atom, go to *Atom* > *Preferences* > *Packages* > search for *"autosave"* > *settings* > check *"enabled"*.
+
+* If CodeRoad is unavailable under *Atom* > *Packages* > *CodeRoad*, restart or reload atom.
+
+You can use the Atom [command-palette](https://atom.io/docs/latest/getting-started-atom-basics#command-palette) to find "reload" or simply use the reload hot-key.
+
+* Windows & Linux: alt-ctrl-r
+* Mac: ctrl-alt-cmd-l
+
+### Install a Tutorial
+
+To install a tutorial, setup a *package.json* file and save the tutorial as a dependency. Make sure [NodeJS](nodejs.org) is already installed.
+
+You can setup a project quickly by typing `npm init --y` into the command line in your project's folder. This agrees to all of the defaults for your newly created *package.json* file.
+
+Now you can install a tutorial. Run `npm install --save-dev $THE-PACKAGE-NAME$` to save the tutorial as a package development dependency. If you run *Atom-CodeRoad* you should see the tutorial appear on the first screen.
