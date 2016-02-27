@@ -2,7 +2,9 @@
 
 Interactive coding tutorials inside of the Atom editor. Learn more at [coderoad.io](https://coderoad.github.io).
 
-** Currently beta. Post issues. **
+*Currently beta. Please post issues.*
+
+Join the development conversation on [our Wekan board](https://coderoad.herokuapp.com).
 
 
 ### QuickStart
