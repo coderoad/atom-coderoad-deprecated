@@ -1,5 +1,6 @@
 import {store} from '../_base';
 import * as Type from './actionTypes';
+const _ = require('lodash');
 
 export function toggleAlert(alert?: cr.Alert): Action {
   const isOpen = store.getState().alert.open;

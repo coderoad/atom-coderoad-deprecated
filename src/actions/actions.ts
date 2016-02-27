@@ -2,7 +2,6 @@
 import * as Type from './actionTypes';
 import {store} from '../_base';
 import Package from '../services/package';
-const _ = require('lodash');
 
 /* Project */
 export function setProject(): Action {
