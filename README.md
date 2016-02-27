@@ -17,7 +17,7 @@ Use [Atom CodeRoad](https://github.com/coderoad/atom-coderoad) to view and play 
 
       > apm install atom-coderoad
 
-* Open *Atom-CodeRoad* in *Atom* using the "packages" menu or press *ctrl-alt-1*.
+* Toggle open *Atom-CodeRoad* in *Atom* using the "packages" menu or press *ctrl-alt-0*.
 
 * It's recommended you also enable Autosave in Atom.
 
