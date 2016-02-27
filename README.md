@@ -1,11 +1,11 @@
-# CodeRoad Atom plugin
+# Atom CodeRoad plugin
 
 Interactive coding tutorials inside of the Atom editor. Learn more at [coderoad.io](https://coderoad.github.io).
 
 ** Currently beta. Post issues. **
 
 
-### Setup Atom CodeRoad
+### QuickStart
 
 Use [Atom CodeRoad](https://github.com/coderoad/atom-coderoad) to view and play your tutorial
 
