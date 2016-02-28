@@ -45,5 +45,10 @@
     "redux": "3.3.1",
     "react-tap-event-plugin": "0.2.2",
     "classnames": "2.2.3"
+  },
+  "devDependencies": {
+    "enzyme": "2.0.0",
+    "jsdom": "8.0.4",
+    "react-addons-test-utils": "0.14.7"
   }
 }

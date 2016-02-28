@@ -1,0 +1,57 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "src/typings",
+  "bundle": "src/typings/tsd.d.ts",
+  "installed": {
+    "es6-promise/es6-promise.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "mocha/mocha.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "react-dom/react-dom.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "react/react.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "redux/redux.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "assertion-error/assertion-error.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "redux-thunk/redux-thunk.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "chai/chai.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "atom/atom.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "text-buffer/text-buffer.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "node/node.d.ts": {
+      "commit": "708609e0764daeb5eb64104af7aca50c520c4e6e"
+    },
+    "react-router/react-router.d.ts": {
+      "commit": "efd40e67ff323f7147651bdbef03c03ead7b1675"
+    },
+    "react-redux/react-redux.d.ts": {
+      "commit": "efd40e67ff323f7147651bdbef03c03ead7b1675"
+    },
+    "redux-devtools/redux-devtools.d.ts": {
+      "commit": "fa04c80f4a889613b96cb4f283848c61a9f64233"
+    },
+    "classnames/classnames.d.ts": {
+      "commit": "e5a27ea95e47b95333784f1f0d590127b4e39a89"
+    },
+    "react/react-addons-css-transition-group.d.ts": {
+      "commit": "5d0f2126c8dac8fce0ff020218aea06607213b0d"
+    }
+  }
+}
