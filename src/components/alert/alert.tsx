@@ -3,7 +3,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
 import {Snackbar} from 'material-ui';
-const classNames = require('classNames');
+const classNames = require('classnames');
 
 /**
  * Alert
