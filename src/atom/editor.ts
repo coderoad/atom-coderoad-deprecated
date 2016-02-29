@@ -3,12 +3,12 @@ import * as Action from '../actions/actions';
 
 export function setAtomGlobals() {
   if (atom.project.rootDirectories.length > 0) {
-    global.coderoad.dir = atom.project.rootDirectories[0].path;
+    window.coderoad.dir = atom.project.rootDirectories[0].path;
   } else {
     let message = 'Create a new Atom project. In Atom: File > Open > any folder';
     store.dispatch(Action.toggleAlert({ message, action: 'tip', duration: 6000 }));
     console.log(message);
-    global.coderoad.dir = false;
+    window.coderoad.dir = null;
   }
 }
 
@@ -35,11 +35,6 @@ export function getEditor() {
     resolve(findEditor());
   });
 }
-
-// export function packageDir(packageName: string) {
-//     global.coderoad.tutorialDir = path.join(global.coderoad.dir, 'node_modules', packageName);
-//     return path.join(global.coderoad.dir, 'node_modules', packageName);
-// }
 
 /**
  * Actions in Atom Editor

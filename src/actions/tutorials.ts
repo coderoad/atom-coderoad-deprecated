@@ -7,10 +7,10 @@ import {fileExists} from '../services/exists';
 
 export function loadTutorials(): CR.Action {
   let tutorials = [];
-  if (global.coderoad.dir) {
+  if (window.coderoad.dir) {
     let packageJson: PackageJson|boolean = loadRootPackageJson();
     if (!packageJson) {
-      global.coderoad.package = null;
+      window.coderoad.package = null;
       let message = 'No package.json file available. Try running "npm init --y" in terminal';
       console.log(message);
       store.dispatch(Action.toggleAlert({ message, action: 'tip', duration: 6000 }));
@@ -25,7 +25,7 @@ export function loadTutorials(): CR.Action {
 
 
 function loadRootPackageJson(): PackageJson|boolean {
-  let pathToPackageJson = path.join(global.coderoad.dir, 'package.json');
+  let pathToPackageJson = path.join(window.coderoad.dir, 'package.json');
   if (fileExists(pathToPackageJson)) {
     return JSON.parse(fs.readFileSync(pathToPackageJson, 'utf8'));
   }
@@ -33,13 +33,13 @@ function loadRootPackageJson(): PackageJson|boolean {
 }
 
 function isTutorial(name): boolean {
-  let pathToTutorialPackageJson = path.join(global.coderoad.dir, 'node_modules', name, 'package.json');
+  let pathToTutorialPackageJson = path.join(window.coderoad.dir, 'node_modules', name, 'package.json');
   if (fileExists(pathToTutorialPackageJson)) {
     // has package.json
     let packageJson = JSON.parse(fs.readFileSync(pathToTutorialPackageJson, 'utf8'));
     // main path to coderoad.json
     if (packageJson.main && packageJson.main.match(/coderoad.json$/)) {
-      let pathToCoderoadJson = path.join(global.coderoad.dir, 'node_modules', name, packageJson.main);
+      let pathToCoderoadJson = path.join(window.coderoad.dir, 'node_modules', name, packageJson.main);
       // coderoad.json file exists
       if (fileExists(pathToCoderoadJson)) {
         return true;

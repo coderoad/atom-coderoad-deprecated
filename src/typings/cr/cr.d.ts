@@ -93,6 +93,7 @@ declare namespace CR {
 
   interface Coderoad {
     dir: string;
+    package: string;
     testRunner: string;
     tutorial: string;
     tutorialDir: string;
@@ -101,6 +102,7 @@ declare namespace CR {
     repo: string;
     edit: boolean;
     runner: any;
+    taskPosition: number;
   }
 
   interface Config {

@@ -46,7 +46,7 @@ export default class Projects extends React.Component<{
             <div className='cr-tutorials'>
             <List subheader='Tutorials' >
 
-            {global.coderoad.dir ? null : <ListItem
+            {window.coderoad.dir ? null : <ListItem
                 primaryText='Create an Atom Project'
                 secondaryText='File > Open > any older' /> }
 

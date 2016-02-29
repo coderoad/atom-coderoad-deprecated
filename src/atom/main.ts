@@ -9,7 +9,7 @@ class Main {
   root: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
-    global.coderoad = {};
+    window.coderoad = {};
     loadPolyfills();
     setAtomGlobals();
     this.root = initRoot();

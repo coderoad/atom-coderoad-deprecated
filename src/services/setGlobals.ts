@@ -2,9 +2,9 @@ import * as path from 'path';
 import {fileExists} from './exists';
 
 export function setGlobals(config: PackageJson) {
-  global.coderoad = Object.assign(global.coderoad, {
+  window.coderoad = Object.assign(window.coderoad, {
     tutorial: config.name,
-    tutorialDir: path.join(global.coderoad.dir, 'node_modules', config.name, config.config.testDir),
+    tutorialDir: path.join(window.coderoad.dir, 'node_modules', config.name, config.config.testDir),
     testRunner: config.config.testRunner,
     testRunnerOptions: config.config.testRunnerOptions || {}
   });
@@ -15,8 +15,8 @@ export function setGlobals(config: PackageJson) {
 
 function loadRunnerDep(config: PackageJson) {
   // test runner dir
-  let flatDep = path.join(global.coderoad.dir, 'node_modules', config.config.testRunner, 'package.json');
-  let treeDep = path.join(global.coderoad.dir, 'node_modules', config.name, 'node_modules', config.config.testRunner, 'package.json');
+  let flatDep = path.join(window.coderoad.dir, 'node_modules', config.config.testRunner, 'package.json');
+  let treeDep = path.join(window.coderoad.dir, 'node_modules', config.name, 'node_modules', config.config.testRunner, 'package.json');
 
   var runnerMain;
   var runnerRoot;
@@ -36,24 +36,24 @@ function loadRunnerDep(config: PackageJson) {
   let pathToMain = path.join(runnerRoot, runnerMain);
 
   if (!!require(pathToMain).default) {
-    global.coderoad.runner = require(pathToMain).default;
+    window.coderoad.runner = require(pathToMain).default;
   } else {
-    global.coderoad.runner = require(pathToMain);
+    window.coderoad.runner = require(pathToMain);
   }
 
 }
 
 function loadRepo(config) {
   if (config.bugs && config.bugs.url) {
-    global.coderoad.issuesPath = config.bugs.url;
+    window.coderoad.issuesPath = config.bugs.url;
   }
   if (config.repo && config.repo.url) {
     let repo: string = config.repo.url;
     if (!!repo.match(/\.git$/)) {
       repo = repo.slice(0, repo.length - 4);
     }
-    global.coderoad.repo = repo;
+    window.coderoad.repo = repo;
   }
 
-  global.coderoad.edit = config.config.edit && !!global.coderoad.repo || false;
+  window.coderoad.edit = config.config.edit && !!window.coderoad.repo || false;
 }

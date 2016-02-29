@@ -1,4 +1,4 @@
-interface Global {
+interface Window {
   coderoad: CR.Coderoad;
 }
 

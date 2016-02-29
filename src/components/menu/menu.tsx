@@ -74,8 +74,8 @@ export default class extends React.Component<{
         {/* Menu Items */}
         {this.menuOptions()}
         {}
-        {global.coderoad.issuesPath ? <MenuItem>
-          <a href={global.coderoad.issuesPath}>
+        {window.coderoad.issuesPath ? <MenuItem>
+          <a href={window.coderoad.issuesPath}>
             post issue
           </a>
           </MenuItem> : null}
