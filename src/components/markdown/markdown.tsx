@@ -4,7 +4,7 @@ const Highlights = require('highlights');
 let highlighter = new Highlights({registry: atom.grammars});
 
 var options = {
-  highlight: function (code, lang) {
+  highlight: function (code: string, lang: string) {
     return highlighter.highlightSync({
       fileContents: code,
       scopeName: 'source.' + (lang || 'js')

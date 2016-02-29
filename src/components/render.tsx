@@ -28,7 +28,7 @@ export function unmount(target: HTMLElement) {
   ReactDOM.unmountComponentAtNode(target);
 }
 
-export function initRoot(canStart: boolean) {
+export function initRoot(): HTMLElement {
   var root = document.createElement('div');
   root.setAttribute('id', rootName);
   // mark panel visibility as hidden, triggers immediately

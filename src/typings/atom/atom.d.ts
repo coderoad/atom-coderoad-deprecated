@@ -165,7 +165,7 @@ declare module AtomCore {
 	}
 
 	interface ICommandRegistry {
-		add(selector: string, name: string, callback: (event: any) => void): void; // selector:'atom-editor'|'atom-workspace'
+		add(target: string, commandName: Object, callback?: (event: any) => void): any; // selector:'atom-editor'|'atom-workspace'
 		findCommands(params: Object): Object[];
 		dispatch(selector: any, name:string): void;
 	}
@@ -893,6 +893,8 @@ declare module AtomCore {
 
 		decorateMarker(marker: Marker, options: any): Decoration;
 		getLastCursor(): ICursor;
+		moveToBottom():any;
+		destroy():void;
 	}
 
 	interface IGrammar {
@@ -1282,6 +1284,7 @@ declare module AtomCore {
 		syntax:ISyntax;
 		views: IViewRegistry;
 		windowEventHandler: IWindowEventHandler;
+		grammars: IGrammar[];
 
 		// really exists? start
 		subscribe:Function;

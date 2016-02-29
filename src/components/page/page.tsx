@@ -40,7 +40,7 @@ export default class extends React.Component<{
   page: CR.Page, tasks: CR.Task[], taskPosition: number,
   editorActions: string[], log: any,
   runTests: boolean, callNextPage?: any, callRunTests?: any, callNextTask?: any
-}, {}> {
+}, {hintPos: number, taskPos: number}> {
 constructor() {
   super();
   this.state = {
@@ -51,7 +51,7 @@ constructor() {
 componentDidUpdate() {
   let taskPosition = this.props.taskPosition;
   if (taskPosition > 0 && taskPosition < this.props.tasks.length) {
-    ReactDOM.findDOMNode(this.refs['task' + taskPosition]).scrollIntoView();
+    ReactDOM.findDOMNode<HTMLElement>(this.refs['task' + taskPosition]).scrollIntoView();
   }
   if (this.state.taskPos !== taskPosition) {
     this.setState({
@@ -59,7 +59,7 @@ componentDidUpdate() {
       taskPos: taskPosition
     });
   } else if (this.state.hintPos > -1) {
-    ReactDOM.findDOMNode(this.refs['hint' + this.state.hintPos]).scrollIntoView();
+    ReactDOM.findDOMNode<HTMLElement>(this.refs['hint' + this.state.hintPos]).scrollIntoView();
   }
 }
 visibleTasks() {
@@ -78,10 +78,10 @@ getIcon(index, position) {
 displayHint(task) {
   if (task && task.hints && task.hints.length) {
     if (this.state.hintPos < task.hints.length - 1) {
-      this.setState({hintPos: this.state.hintPos += 1});
+      this.setState({hintPos: this.state.hintPos += 1, taskPos: this.state.taskPos});
     }
   } else {
-    this.setState({hintPos: -1});
+    this.setState({hintPos: -1, taskPos: this.state.taskPos});
   }
 }
 hintsShown(task) {

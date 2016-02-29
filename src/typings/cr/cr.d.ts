@@ -36,6 +36,7 @@ declare namespace CR {
     alert: Alert;
     tutorials: string[];
     runTests: boolean;
+    log: Log;
   }
 
   interface Project {
@@ -93,16 +94,16 @@ declare namespace CR {
 
   interface Coderoad {
     dir: string;
-    package: string;
-    testRunner: string;
-    tutorial: string;
-    tutorialDir: string;
-    tutorialOptions: Object;
-    issuesPath: string;
-    repo: string;
-    edit: boolean;
-    runner: any;
-    taskPosition: number;
+    package?: string;
+    testRunner?: string;
+    tutorial?: string;
+    tutorialDir?: string;
+    tutorialOptions?: Object;
+    issuesPath?: string;
+    repo?: string;
+    edit?: boolean;
+    runner?: any;
+    taskPosition?: number;
   }
 
   interface Config {

@@ -1,5 +1,5 @@
 export let parseParams = {
-  trim(text) {
+  trim(text: string): string {
     text = text.trim();
     var firstBracket = text.charAt(0).match(/["']/);
     if (firstBracket && !!text.charAt(text.length - 1).match(firstBracket[0])) {
@@ -45,7 +45,7 @@ export let parseParams = {
     }
     return this.params.concat(this.trim(this.current));
   },
-  reset() {
+  reset(): void {
     this.round = 0;
     this.square = 0;
     this.curly = 0;

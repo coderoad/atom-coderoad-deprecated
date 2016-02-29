@@ -4,7 +4,7 @@ import * as Action from '../actions/actions';
 import {store} from '../_base';
 const _ = require('lodash');
 
-function configTestString(config: PackageJson.config, packageName: string, test: string): string {
+function configTestString(config: CR.Config, packageName: string, test: string): string {
   if (config.testDir) {
     test = path.join(window.coderoad.dir, 'node_modules', packageName, config.testDir, test);
   } else {
@@ -45,13 +45,15 @@ class PackageService {
   configTaskTests(tasks: CR.Task[]): CR.Task[] {
     let config = this.config.config;
     return !tasks ? [] : tasks.map((task) => {
-        task.tests = !task.tests ? [] : task.tests.map((tests: string) => {
+      if (task.tests) {
+        task.tests = task.tests.map((tests: string) => {
           if (_.isString(tests)) {
             return [].concat(configTestString(config, this.packageName, tests));
           } else {
             console.error('Invalid task test', tests);
           }
         });
+      }
       return task;
     });
   }

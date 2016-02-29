@@ -14,5 +14,6 @@
 /// <reference path="redux/redux.d.ts" />
 /// <reference path="text-buffer/text-buffer.d.ts" />
 /// <reference path="react/react-addons-css-transition-group.d.ts" />
+/// <reference path="marked/marked" />
 /// <reference path="cr/cr.d.ts" />
 /// <reference path="cr/globals.d.ts" />

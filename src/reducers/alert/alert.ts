@@ -10,7 +10,7 @@ const defaultAlert: CR.Alert = {
 let current: CR.Alert = defaultAlert;
 
 export default function alertReducer(alert = defaultAlert, action: CR.Action): CR.Alert {
-  let statusBarAlert = document.getElementsByClassName('cr-alert-replay')[0];
+  let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
   switch (action.type) {
     case Type.REPLAY_ALERT:
       return {

@@ -7,7 +7,7 @@ const EditorAction = {
   insert: 'insert'
 };
 
-export function getCommand(actionString: string) {
+export function getCommand(actionString: string): string {
   // content before bracket
   let command = actionString.substring(0, actionString.indexOf('('));
   if (!command.length) {
@@ -18,16 +18,16 @@ export function getCommand(actionString: string) {
 }
 
 
-export function getParams(actionString: string) {
+export function getParams(actionString: string): string[] {
   // content in brackets, split by comma
   let command = getCommand(actionString);
   let params = actionString.substring(command.length + 1, actionString.length - 1); // trim brackets
   if (!params.length) {
     console.error('Error loading editor action params ', actionString);
-    return '';
+    return null;
   }
-  params = parseParams.getParams(params);
-  return params;
+  let paramsList:string[] = parseParams.getParams(params);
+  return paramsList;
 }
 
 function createObjectFromKeyValString(string: string): Object {
@@ -62,10 +62,10 @@ export function getOptions(paramString: string): { param: string, options: Objec
   };
 }
 
-export function editorActions(actionString: string): boolean {
+export function editorActions(actionString: string): Promise<void> {
   return new Promise((resolve, reject) => {
     let command: string = getCommand(actionString);
-    let params: string = getParams(actionString);
+    let params: string[] = getParams(actionString);
     switch (command) {
       case EditorAction.open:
         let obj = getOptions(params[0]);

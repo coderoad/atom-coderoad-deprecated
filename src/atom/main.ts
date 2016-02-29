@@ -9,7 +9,9 @@ class Main {
   root: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
-    window.coderoad = {};
+    window.coderoad = {
+      dir: null
+    };
     loadPolyfills();
     setAtomGlobals();
     this.root = initRoot();
@@ -28,7 +30,7 @@ class Main {
   }
   deactivate(): void {
     if (this.statusBarTile) {
-      this.statusBarTile.dispose();
+      this.statusBarTile.destroy();
       this.statusBarTile = null;
     }
     onDeactivateSubscriptionsAndUnmount();

@@ -13,7 +13,6 @@ import runTests from './run-tests/run-tests';
 import editorActions from './editor-actions/editor-actions';
 import tutorials from './tutorials/tutorials';
 import log from './log/log';
-import hint from './hint/hint';
 
 export default combineReducers({
   project: project,
@@ -28,6 +27,5 @@ export default combineReducers({
   runTests: runTests,
   editorActions: editorActions,
   tutorials: tutorials,
-  log: log,
-  hint: hint
+  log: log
 });
