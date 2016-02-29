@@ -1,6 +1,6 @@
 import Package from '../services/package';
 
-export function getStateFromPackage(name: string) {
+export function getStateFromPackage(name: string): CR.State {
   Package.selectPackage(name);
   return Object.assign({}, {
     project: Package.getProject(),
@@ -12,7 +12,7 @@ export function getStateFromPackage(name: string) {
   });
 }
 
-export function getInitialState() {
+export function getInitialState(): Object {
   return {
     project: {},
     route: 'projects',
@@ -23,8 +23,7 @@ export function getInitialState() {
     editorActions: false,
     runTests: false,
     tutorials: [],
-    alert: {},
-    log: { open: false, message: '' },
-    hint: []
+    alert: {}
+    // log: { open: false, message: '' },
   };
 }

@@ -1,15 +1,7 @@
 import {store} from '../../_base';
 import * as Action from '../../actions/actions';
 
-interface Result {
-  msg: string;
-  taskPosition: number;
-  timedOut?: boolean;
-  change?: number;
-  pass?: boolean;
-};
-
-export function handleResult(result: Result) {
+export function handleResult(result: CR.TestResult) {
 
   store.dispatch(Action.testComplete());
 
@@ -25,7 +17,7 @@ export function handleResult(result: Result) {
   }
 };
 
-export function handleLog(message: string) {
+export function handleLog(message: string): void {
   console.log(message);
   store.dispatch(Action.logMessage(message));
 }

@@ -2,7 +2,7 @@ import {store} from '../_base';
 import * as Type from './actionTypes';
 const _ = require('lodash');
 
-export function toggleAlert(alert?: cr.Alert): Action {
+export function toggleAlert(alert?: CR.Alert): CR.Action {
   const isOpen = store.getState().alert.open;
   if (!alert) {
     alert = { message: '', action: '', open: false };
@@ -12,6 +12,6 @@ export function toggleAlert(alert?: cr.Alert): Action {
   return { type: Type.TOGGLE_ALERT, payload: { alert } };
 }
 
-export function replayAlert(): Action {
+export function replayAlert(): CR.Action {
   return { type: Type.REPLAY_ALERT };
 }

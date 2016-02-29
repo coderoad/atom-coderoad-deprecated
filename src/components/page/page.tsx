@@ -37,7 +37,7 @@ function taskProgress(current: number, max: number) {
   };
 })
 export default class extends React.Component<{
-  page: cr.Page, tasks: cr.Task[], taskPosition: number,
+  page: CR.Page, tasks: CR.Task[], taskPosition: number,
   editorActions: string[], log: any,
   runTests: boolean, callNextPage?: any, callRunTests?: any, callNextTask?: any
 }, {}> {
@@ -113,7 +113,7 @@ render() {
 
     {/* Task List (tasks, isComplete)*/}
     <List subheader='Tasks' className='cr-tasks' ref='tasks'>
-        {tasks.map((task: cr.Task, index) => {
+        {tasks.map((task: CR.Task, index) => {
           let isCurrentTask = index === taskPosition;
           let isDisabledTask = index > taskPosition;
           let isCompletedTask = index < taskPosition;

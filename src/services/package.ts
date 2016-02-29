@@ -4,7 +4,7 @@ import * as Action from '../actions/actions';
 import {store} from '../_base';
 const _ = require('lodash');
 
-function configTestString(config, packageName, test): string {
+function configTestString(config: PackageJson.config, packageName: string, test: string): string {
   if (config.testDir) {
     test = path.join(global.coderoad.dir, 'node_modules', packageName, config.testDir, test);
   } else {
@@ -35,14 +35,14 @@ class PackageService {
     this.data = require(path.join(packagePath, this.config.main));
     this.packageName = packageName;
   }
-  page(position: cr.Position): cr.Page {
+  page(position: CR.Position): CR.Page {
     let page = _.cloneDeep(this.data.chapters[position.chapter].pages[position.page]);
     return page;
   }
   getConfig() {
     return this.config;
   }
-  configTaskTests(tasks: cr.Task[]): cr.Task[] {
+  configTaskTests(tasks: CR.Task[]): CR.Task[] {
     let config = this.config.config;
     return !tasks ? [] : tasks.map((task) => {
         task.tests = !task.tests ? [] : task.tests.map((tests: string) => {
@@ -55,12 +55,12 @@ class PackageService {
       return task;
     });
   }
-  getTasks(position: cr.Position): cr.Task[] {
-    let tasks: cr.Task[] = this.page(position).tasks || [];
+  getTasks(position: CR.Position): CR.Task[] {
+    let tasks: CR.Task[] = this.page(position).tasks || [];
     tasks = this.configTaskTests(tasks);
     return tasks;
   }
-  getPage(position: cr.Position): cr.Page {
+  getPage(position: CR.Position): CR.Page {
     const page = this.page(position);
     return {
       title: page.title,
@@ -69,7 +69,7 @@ class PackageService {
       completed: page.completed || false,
     };
   }
-  getSavedPosition(): cr.Position {
+  getSavedPosition(): CR.Position {
     // TODO: resolve to get saved position
     return { chapter: 0, page: 0 };
   }
@@ -77,7 +77,7 @@ class PackageService {
     // TODO: resolve to get saved route
     return 'progress';
   }
-  getNextPosition(position: cr.Position): cr.Position {
+  getNextPosition(position: CR.Position): CR.Position {
     const chapters = this.data.chapters;
     if (position.page < chapters[position.chapter].pages.length - 1) {
       return { chapter: position.chapter, page: position.page + 1 };
@@ -88,19 +88,19 @@ class PackageService {
       return position;
     }
   }
-  getProject(): cr.Project {
+  getProject(): CR.Project {
     return this.data.project;
   }
-  getProgress(): cr.Progress {
+  getProgress(): CR.Progress {
     const chapters = this.data.chapters;
     return {
       completed: false,
-      chapters: !chapters ? [] : chapters.map((chapter: cr.Chapter) => {
+      chapters: !chapters ? [] : chapters.map((chapter: CR.Chapter) => {
         return {
           title: chapter.title,
           description: chapter.description,
           completed: chapter.completed || false,
-          pages: !chapter.pages ? [] : chapter.pages.map((page: cr.Page) => {
+          pages: !chapter.pages ? [] : chapter.pages.map((page: CR.Page) => {
             return {
               title: page.title,
               description: page.description,

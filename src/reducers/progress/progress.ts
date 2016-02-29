@@ -1,7 +1,7 @@
 import * as Type from '../../actions/actionTypes';
 import Package from '../../services/package';
 
-const defaultProgress: cr.Progress = {
+const defaultProgress: CR.Progress = {
   completed: false,
   chapters: [{
     title: '',
@@ -15,7 +15,7 @@ const defaultProgress: cr.Progress = {
   }]
 };
 
-export default function progressReducer(progress = defaultProgress, action): cr.Progress {
+export default function progressReducer(progress = defaultProgress, action: CR.Action): CR.Progress {
   switch (action.type) {
     case Type.SET_PROGRESS:
       return Package.getProgress();

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Page, Progress, Projects} from '../_components';
 
-export default class extends React.Component<{state: cr.State}, {}> {
-  chooseRoute(state: cr.State) {
+export default class extends React.Component<{state: CR.State}, {}> {
+  chooseRoute(state: CR.State) {
     switch (state.route) {
       case 'page':
         return <Page page={state.page}

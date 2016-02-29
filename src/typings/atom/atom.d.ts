@@ -165,8 +165,7 @@ declare module AtomCore {
 	}
 
 	interface ICommandRegistry {
-		// add(selector: string, name: string, callback: (event: any) => any): any; // selector:'atom-editor'|'atom-workspace'
-		add: any;
+		add(selector: string, name: string, callback: (event: any) => void): void; // selector:'atom-editor'|'atom-workspace'
 		findCommands(params: Object): Object[];
 		dispatch(selector: any, name:string): void;
 	}
@@ -629,7 +628,6 @@ declare module AtomCore {
 		saveAs(filePath:any):void;
 		copyPathToClipboard():void;
 		getPath():string;
-		getPaths():string[];
 		getText():string;
 		setText(text:any):void;
 		getTextInRange(range:any):any;
@@ -1018,9 +1016,7 @@ declare module AtomCore {
 		destroyRepo():any;
 		destroyUnretainedBuffers():any;
 		getRepo():IGit;
-		getRepositories():any;
 		getPath():string;
-		getPaths(): string[];
 		setPath(projectPath:string):any;
 		getRootDirectory():PathWatcher.IDirectory;
 		resolve(uri:string):string;
@@ -1104,7 +1100,7 @@ declare module AtomCore {
 		itemOpened(item:any):void;
 		onPaneItemDestroyed(item:any):void;
 		destroyed():void;
-		project: IProject;
+		isTextEditor(object: any): boolean;
 
 		onDidChangeActivePaneItem(item:any):Disposable;
 	}

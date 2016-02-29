@@ -1,9 +1,9 @@
-declare module cr {
+declare namespace CR {
 
   interface Info {
     title: string;
     description: string;
-    completed?: boolean;
+    completed: boolean;
   }
 
   interface Chapter extends Info {
@@ -66,16 +66,49 @@ declare module cr {
     pass: boolean;
     taskPosition: number;
     msg?: string;
-    desc?: string;
+    timedOut?: boolean;
+    change: number;
   }
+
+  type TaskTest = string[];
 
   interface Alert {
     message: string;
-    open: boolean;
-    duration: number;
     action: string;
+    open?: boolean;
+    duration?: number;
   }
 
-  export type TaskTest = string[];
+  interface Action {
+    type: string;
+    payload?;
+    error?: boolean;
+    meta?;
+  }
+
+  interface Log {
+    open: boolean;
+    message: string;
+  }
+
+  interface Coderoad {
+    dir: string;
+    testRunner: string;
+    tutorial: string;
+    tutorialDir: string;
+    tutorialOptions: Object;
+    issuesPath: string;
+    repo: string;
+    edit: boolean;
+    runner: any;
+  }
+
+  interface Config {
+    testDir?: string;
+    testSuffix?: string;
+    testRunner: string;
+    edit?: boolean;
+    testRunnerOptions?: Object;
+  }
 
 }

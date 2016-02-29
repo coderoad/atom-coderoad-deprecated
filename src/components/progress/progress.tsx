@@ -12,13 +12,13 @@ let Incomplete = require('material-ui/lib/svg-icons/toggle/check-box-outline-bla
 // page
 @connect(null, (dispatch) => {
   return {
-    selectPage: (position: cr.Position) => {
+    selectPage: (position: CR.Position) => {
       dispatch(Action.setPage(position));
       dispatch(Action.setRoute('page'));
     }
   };
 })
-class ProgressPage extends React.Component<{page: cr.Page, itemPosition: cr.Position, position: cr.Position, selectPage?: () => void}, {}> {
+class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Position, position: CR.Position, selectPage?: () => void}, {}> {
   getProgressIcon(completed, current) {
     if (completed) {
       return <Completed />;
@@ -79,7 +79,7 @@ export default ({progress, position}) => (
   <Paper style={style} zDepth={1} className='cr-progress'>
     {/*}<ProjectDescription project={project} />*/}
     <List subheader='Progress'>
-    {progress.chapters.map((chapter: cr.Chapter, chapterIndex: number) => {
+    {progress.chapters.map((chapter: CR.Chapter, chapterIndex: number) => {
       const isActive = chapterIndex === position.chapter;
       return <ListItem  primaryText={`${chapterIndex + 1}. ${chapter.title}`}
           className={classNames({
@@ -91,7 +91,7 @@ export default ({progress, position}) => (
           initiallyOpen={chapterIndex === 0}
           leftIcon={chapter.completed ? <AllCompleted /> : null}
           primaryTogglesNestedList={chapterIndex === position.chapter && !chapter.completed}
-          nestedItems={chapter.pages.map((page: cr.Page, pageIndex: number) => {
+          nestedItems={chapter.pages.map((page: CR.Page, pageIndex: number) => {
             const itemPosition = {chapter: chapterIndex, page: pageIndex};
             return <ProgressPage page={page} itemPosition={itemPosition} position={position}/>;
          })}/>;

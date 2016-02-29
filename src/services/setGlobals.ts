@@ -1,7 +1,7 @@
 import * as path from 'path';
 import {fileExists} from './exists';
 
-export function setGlobals(config) {
+export function setGlobals(config: PackageJson) {
   global.coderoad = Object.assign(global.coderoad, {
     tutorial: config.name,
     tutorialDir: path.join(global.coderoad.dir, 'node_modules', config.name, config.config.testDir),
@@ -13,7 +13,7 @@ export function setGlobals(config) {
   loadRunnerDep(config);
 }
 
-function loadRunnerDep(config) {
+function loadRunnerDep(config: PackageJson) {
   // test runner dir
   let flatDep = path.join(global.coderoad.dir, 'node_modules', config.config.testRunner, 'package.json');
   let treeDep = path.join(global.coderoad.dir, 'node_modules', config.name, 'node_modules', config.config.testRunner, 'package.json');
@@ -48,12 +48,12 @@ function loadRepo(config) {
     global.coderoad.issuesPath = config.bugs.url;
   }
   if (config.repo && config.repo.url) {
-    let repo = config.repo.url;
+    let repo: string = config.repo.url;
     if (!!repo.match(/\.git$/)) {
       repo = repo.slice(0, repo.length - 4);
     }
     global.coderoad.repo = repo;
   }
 
-  global.coderoad.edit = config.config.edit && !!repo || false;
+  global.coderoad.edit = config.config.edit && !!global.coderoad.repo || false;
 }

@@ -15,7 +15,7 @@ let currentTaskPosition = 0;
 /**
  * Test is running, return true, else false
  */
-export default function editorActionsReducer(editorActions = [], action): boolean {
+export default function editorActionsReducer(editorActions = [], action: CR.Action): boolean {
   switch (action.type) {
     case Type.SET_PAGE:
       let actions = action.payload.actions;

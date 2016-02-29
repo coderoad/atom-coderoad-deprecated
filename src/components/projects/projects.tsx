@@ -10,7 +10,7 @@ import {Paper, RaisedButton, List, ListItem} from 'material-ui';
       Action.loadTutorial(name);
       dispatch(Action.setRoute('progress'));
     },
-    toggleAlert: (item: cr.Alert): void => {
+    toggleAlert: (item: CR.Alert): void => {
       dispatch(Action.toggleAlert(item));
     },
     loadTutorials: () => {

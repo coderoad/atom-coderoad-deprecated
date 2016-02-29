@@ -14,7 +14,6 @@ import editorActions from './editor-actions/editor-actions';
 import tutorials from './tutorials/tutorials';
 import log from './log/log';
 import hint from './hint/hint';
-import solution from './solution/solution';
 
 export default combineReducers({
   project: project,
@@ -30,6 +29,5 @@ export default combineReducers({
   editorActions: editorActions,
   tutorials: tutorials,
   log: log,
-  hint: hint,
-  solution: solution
+  hint: hint
 });

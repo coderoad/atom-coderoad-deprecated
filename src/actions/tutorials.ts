@@ -5,10 +5,10 @@ import * as fs from 'fs';
 import * as Type from './actionTypes';
 import {fileExists} from '../services/exists';
 
-export function loadTutorials(): Action {
+export function loadTutorials(): CR.Action {
   let tutorials = [];
   if (global.coderoad.dir) {
-    let packageJson = loadRootPackageJson();
+    let packageJson: PackageJson|boolean = loadRootPackageJson();
     if (!packageJson) {
       global.coderoad.package = null;
       let message = 'No package.json file available. Try running "npm init --y" in terminal';
@@ -24,7 +24,7 @@ export function loadTutorials(): Action {
 }
 
 
-function loadRootPackageJson() {
+function loadRootPackageJson(): PackageJson|boolean {
   let pathToPackageJson = path.join(global.coderoad.dir, 'package.json');
   if (fileExists(pathToPackageJson)) {
     return JSON.parse(fs.readFileSync(pathToPackageJson, 'utf8'));

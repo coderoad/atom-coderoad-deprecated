@@ -45,14 +45,14 @@ export function getEditor() {
  * Actions in Atom Editor
  * @return {[type]} [description]
  */
-export function open(filePath: string, options?: object) {
+export function open(filePath: string, options?: Object) {
   atom.workspace.open(filePath, options);
   return true;
 }
 
 // Set text, removes any previous content in file
 export function set(text: string) {
-  getEditor().then((editor) => {
+  return getEditor().then((editor: AtomCore.IEditor) => {
     editor.setText(text);
     editor.insertNewline();
     editor.moveToBottom();
@@ -60,11 +60,11 @@ export function set(text: string) {
   });
 }
 
-export function insert(text: string, options?: object) {
+export function insert(text: string, options?: Object) {
   options = Object.assign(options, {
     autoIndent: true
   });
-  getEditor().then((editor) => {
+  return getEditor().then((editor: AtomCore.IEditor) => {
     editor.moveToBottom();
     editor.insertText(text, options);
     editor.insertNewline();
@@ -80,8 +80,8 @@ export function insert(text: string, options?: object) {
 // export function decorate() { }
 
 export function closeAllPanels() {
-  var editors = atom.workspace.getTextEditors();
-  editors.forEach((editor) => {
+  var editors: AtomCore.IEditor[] = atom.workspace.getTextEditors();
+  editors.forEach((editor: AtomCore.IEditor) => {
     // if (editor !== activeEditor) {
     editor.destroy();
     //  }

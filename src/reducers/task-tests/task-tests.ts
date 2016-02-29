@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as Type from '../../actions/actionTypes';
 import {concatTests} from './concat-tests';
 
-export default function taskTestsReducer(taskTests = '', action): string {
+export default function taskTestsReducer(taskTests = '', action: CR.Action): string {
   switch (action.type) {
     case Type.SET_PAGE:
       let target = path.join(global.coderoad.tutorialDir || global.coderoad.dir, '.tmp.js');

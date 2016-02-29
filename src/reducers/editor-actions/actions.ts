@@ -30,7 +30,7 @@ export function getParams(actionString: string) {
   return params;
 }
 
-function createObjectFromKeyValString(string: string): object {
+function createObjectFromKeyValString(string: string): Object {
   let keyValList: string[] = string.split(/[:,]/);
   let obj = {};
   for (let i = 0; i < keyValList.length; i += 2) {
@@ -48,7 +48,7 @@ function createObjectFromKeyValString(string: string): object {
   return obj;
 }
 
-export function getOptions(paramString: string): { param: string, options: object } {
+export function getOptions(paramString: string): { param: string, options: Object } {
   let hasOptions = paramString.match(/\{(.+)?\}/);
   let options = {};
   let param = paramString;

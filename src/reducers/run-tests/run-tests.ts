@@ -6,12 +6,12 @@ const pageTimeout = 2000;
 /**
  * Test is running, return true, else false
  */
-let previous = new Date();
+let previous: Date = new Date();
 
-export default function runTestReducer(runTests = false, action): boolean {
+export default function runTestReducer(runTests = false, action: CR.Action): boolean {
   switch (action.type) {
     case Type.RUN_TESTS:
-      let current = new Date();
+      let current: Date = new Date();
       if (current - previous > pageTimeout) {
         previous = current;
         return runTaskTests();

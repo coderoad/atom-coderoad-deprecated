@@ -1,13 +1,16 @@
 'use strict';
 import * as React from 'react';
 import {render, initRoot, togglePanel} from '../components/render';
+import loadPolyfills from '../services/polyfills';
 import {onActivateSubscriptions, onDeactivateSubscriptionsAndUnmount, addToStatusBar} from './subscriptions';
 import {setAtomGlobals} from './editor';
 
 class Main {
   root: HTMLElement;
+  statusBarTile: StatusBar.IStatusBarView;
   constructor() {
     global.coderoad = {};
+    loadPolyfills();
     setAtomGlobals();
     this.root = initRoot();
   }

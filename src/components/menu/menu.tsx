@@ -31,7 +31,7 @@ let NavigationClose = require('material-ui/lib/svg-icons/navigation/close');
   };
 })
 export default class extends React.Component<{
-  route: string, position: cr.Position, routeToProgress?: any, routeToPage?: any, routeToProjects?: any, quit?: any
+  route: string, position: CR.Position, routeToProgress?: any, routeToPage?: any, routeToProjects?: any, quit?: any
 }, {}> {
   navOptions(): React.ReactElement<{}> {
     switch (this.props.route) {

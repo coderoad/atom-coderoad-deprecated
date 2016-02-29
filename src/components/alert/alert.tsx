@@ -16,7 +16,7 @@ const classNames = require('classnames');
     }
   };
 })
-export default class extends React.Component<{alert: cr.Alert, toggleAlert?: any}, cr.Alert> {
+export default class extends React.Component<{alert: CR.Alert, toggleAlert?: any}, CR.Alert> {
   render() {
     const alert = this.props.alert;
     return (

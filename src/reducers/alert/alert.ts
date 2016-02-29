@@ -1,15 +1,15 @@
 import * as Type from '../../actions/actionTypes';
 
-const defaultAlert: cr.Alert = {
+const defaultAlert: CR.Alert = {
   message: '',
   open: false,
   action: '',
   duration: 0
 };
 
-let current = {};
+let current: CR.Alert = defaultAlert;
 
-export default function alertReducer(alert = defaultAlert, action): cr.Alert {
+export default function alertReducer(alert = defaultAlert, action: CR.Action): CR.Alert {
   let statusBarAlert = document.getElementsByClassName('cr-alert-replay')[0];
   switch (action.type) {
     case Type.REPLAY_ALERT:
@@ -54,7 +54,6 @@ export default function alertReducer(alert = defaultAlert, action): cr.Alert {
         };
         return current;
       }
-      return defaultAlert;
     default:
       return alert;
   }

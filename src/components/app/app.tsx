@@ -8,10 +8,10 @@ import Theme from '../theme/theme';
 /**
  * App Component
  */
-@connect((state: cr.State) => {
+@connect((state: CR.State) => {
   return { state };
 })
-export default class extends React.Component<{state?: cr.State}, {}> {
+export default class extends React.Component<{state?: CR.State}, {}> {
   static childContextTypes = {
       muiTheme: React.PropTypes.object,
     };

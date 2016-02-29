@@ -4,37 +4,37 @@ import {store} from '../_base';
 import Package from '../services/package';
 
 /* Project */
-export function setProject(): Action {
+export function setProject(): CR.Action {
   return { type: Type.SET_PROJECT };
 }
 
-export function setProgress(): Action {
+export function setProgress(): CR.Action {
   return { type: Type.SET_PROGRESS };
 }
 
 /* Navigation */
-export function setRoute(route: string): Action {
+export function setRoute(route: string): CR.Action {
   return { type: Type.SET_ROUTE, payload: { route } };
 }
 
 /* Position */
-export function setPosition(position: cr.Position): Action {
+export function setPosition(position: CR.Position): CR.Action {
   return { type: Type.SET_POSITION, payload: { position } };
 }
 
-export function loadTutorial(name) {
+export function loadTutorial(name: string): void {
   Package.selectPackage(name);
   store.dispatch(setProject());
   store.dispatch(setPosition({chapter: 0, page: 0}));
   store.dispatch(setProgress());
 }
 
-export function toggleLog(): Action {
+export function toggleLog(): CR.Action {
   let open = !store.getState().log.open;
   return { type: Type.TOGGLE_LOG, payload: { open } };
 }
 
-export function logMessage(message: string): Action {
+export function logMessage(message: string): CR.Action {
   return { type: Type.LOG_MESSAGE, payload: { message }};
 }
 

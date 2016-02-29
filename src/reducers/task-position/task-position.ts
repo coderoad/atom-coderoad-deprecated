@@ -2,7 +2,7 @@ import * as Type from '../../actions/actionTypes';
 
 const defaultTaskPosition: number = 0;
 
-export default function taskPositionReducer(taskPosition = defaultTaskPosition, action): number {
+export default function taskPositionReducer(taskPosition = defaultTaskPosition, action: CR.Action): number {
   switch (action.type) {
     case Type.SET_PAGE:
       return 0;
