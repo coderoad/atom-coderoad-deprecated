@@ -8,7 +8,7 @@ import {fileExists} from '../services/exists';
 export function loadTutorials(): CR.Action {
   let tutorials = [];
   if (window.coderoad.dir) {
-    let packageJson: PackageJson|boolean = loadRootPackageJson();
+    let packageJson: PackageJson = loadRootPackageJson();
     if (!packageJson) {
       window.coderoad.package = null;
       let message = 'No package.json file available. Try running "npm init --y" in terminal';
@@ -24,12 +24,12 @@ export function loadTutorials(): CR.Action {
 }
 
 
-function loadRootPackageJson(): PackageJson|boolean {
+function loadRootPackageJson(): PackageJson {
   let pathToPackageJson = path.join(window.coderoad.dir, 'package.json');
   if (fileExists(pathToPackageJson)) {
     return JSON.parse(fs.readFileSync(pathToPackageJson, 'utf8'));
   }
-  return false;
+  return null;
 }
 
 function isTutorial(name): boolean {
@@ -49,7 +49,7 @@ function isTutorial(name): boolean {
   return false;
 }
 
-function searchForTutorials(location): string[] {
+function searchForTutorials(location: Object): string[] {
   if (!!location && Object.keys(location).length > 0) {
     return Object.keys(location).filter((name) => isTutorial(name));
   } else {

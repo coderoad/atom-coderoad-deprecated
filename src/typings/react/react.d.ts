@@ -323,6 +323,7 @@ declare namespace __React {
         children?: ReactNode;
         key?: string | number;
         ref?: string | ((component: T) => any);
+        className?: string;
     }
 
     interface HTMLProps<T> extends HTMLAttributes, Props<T> {

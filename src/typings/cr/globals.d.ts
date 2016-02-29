@@ -11,5 +11,17 @@ interface PackageJson {
 }
 
 interface ObjectConstructor {
-    assign(target: any, ...sources: any[]): any;
+  assign(target: any, ...sources: any[]): any;
+}
+
+interface IntrinsicAttributes {
+  index: number;
+  style: Object;
+  className: string;
+  targetOrigin: string;
+  anchorOrigin: string;
+  onClick: () => any;
+  primaryText: string;
+  primaryTogglesNestedList: any;
+
 }

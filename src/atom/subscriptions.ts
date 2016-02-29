@@ -24,7 +24,7 @@ export function onActivateSubscriptions() {
   // }
 
   // run tests on save
-  atom.workspace.observeTextEditors((editor) => {
+  atom.workspace.observeTextEditors((editor: AtomCore.IEditor) => {
     subscriptions.add(
       editor.onDidSave(() => {
           store.dispatch(Action.runTests());

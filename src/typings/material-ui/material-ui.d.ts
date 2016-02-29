@@ -24,6 +24,7 @@ declare module "material-ui" {
     export import DatePicker = __MaterialUI.DatePicker.DatePicker; // require('material-ui/lib/date-picker/date-picker');
     export import DatePickerDialog = __MaterialUI.DatePicker.DatePickerDialog; // require('material-ui/lib/date-picker/date-picker-dialog');
     export import Dialog = __MaterialUI.Dialog // require('material-ui/lib/dialog');
+    export import Divider = __MaterialUI.Divider // require('material-ui/lib/divider')
     export import DropDownIcon = __MaterialUI.DropDownIcon; // require('material-ui/lib/drop-down-icon');
     export import DropDownMenu = __MaterialUI.DropDownMenu; // require('material-ui/lib/drop-down-menu');
     export import EnhancedButton = __MaterialUI.EnhancedButton; // require('material-ui/lib/enhanced-button');
@@ -112,6 +113,7 @@ declare namespace __MaterialUI {
         iconElementRight?: React.ReactElement<any>;
         iconStyleRight?: string;
         style?: React.CSSProperties;
+        className?: string;
         showMenuIconButton?: boolean;
         title?: React.ReactNode;
         zDepth?: number;
@@ -197,7 +199,7 @@ declare namespace __MaterialUI {
             subtitleStyle?: React.CSSProperties;
             textStyle?: React.CSSProperties;
             style?: React.CSSProperties;
-            avatar: React.ReactElement<any> | string;
+            avatar?: React.ReactElement<any> | string;
         }
         export class CardHeader extends React.Component<CardHeaderProps, {}> {
         }
@@ -454,6 +456,11 @@ declare namespace __MaterialUI {
         onTouchTap?: TouchTapEventHandler;
     }
 
+    interface DividerProps extends React.Props<Divider>{
+      inset?: boolean;
+    }
+    export class Divider extends React.Component<DividerProps, {}> {}
+
     interface EnhancedButtonProps extends SharedEnhancedButtonProps<EnhancedButton> {
         touchRippleColor?: string;
         focusRippleColor?: string;
@@ -538,6 +545,7 @@ declare namespace __MaterialUI {
         value?: number;
         min?: number;
         max?: number;
+        style?: React.CSSProperties;
     }
     export class LinearProgress extends React.Component<LinearProgressProps, {}> {
     }
@@ -582,6 +590,7 @@ declare namespace __MaterialUI {
             secondaryText?: React.ReactNode;
             secondaryTextLines?: number;
             style?: React.CSSProperties;
+            primaryTogglesNestedList?: boolean;
         }
         export class ListItem extends React.Component<ListItemProps, {}> {
         }
@@ -630,7 +639,8 @@ declare namespace __MaterialUI {
         }
 
         interface MenuItemProps extends React.Props<MenuItem> {
-            index: number;
+            index?: number;
+            primaryText?: string;
             icon?: React.ReactElement<any>;
             iconClassName?: string;
             iconRightClassName?: string;
@@ -645,6 +655,7 @@ declare namespace __MaterialUI {
             selected?: boolean;
             active?: boolean;
             style?: React.CSSProperties;
+            onClick?: () => void;
         }
         export class MenuItem extends React.Component<MenuItemProps, {}> {
             static Types: { LINK: string, SUBHEADER: string, NESTED: string, }
@@ -878,7 +889,6 @@ declare namespace __MaterialUI {
             desktopSubheaderHeight?: number;
             desktopToolbarHeight?: number;
         }
-        export var Spacing: Spacing;
 
         interface ThemePalette {
             primary1Color?: string;
@@ -1129,6 +1139,7 @@ declare namespace __MaterialUI {
     }
 
     interface SnackbarProps extends React.Props<Snackbar> {
+        open: boolean;
         message: string;
         action?: string;
         autoHideDuration?: number;
@@ -1490,6 +1501,9 @@ declare namespace __MaterialUI {
             onKeyboardFocus?: React.FocusEventHandler;
             onItemTouchTap?: (e: TouchTapEvent, item: React.ReactElement<any>) => void;
             onChange?: (e: React.FormEvent, value: string | Array<string>) => void;
+
+            targetOrigin?: { horizontal: string, vertical: string};
+            anchorOrigin?: { horizontal: string, vertical: string};
         }
         export class IconMenu extends React.Component<IconMenuProps, {}> {
         }
@@ -1825,7 +1839,7 @@ declare module 'material-ui/lib/svg-icons/navigation/chevron-right' {
 declare module 'material-ui/lib/styles/' {
     export import AutoPrefix = __MaterialUI.Styles.AutoPrefix; // require('material-ui/lib/styles/auto-prefix');
     export import Colors = __MaterialUI.Styles.Colors; // require('material-ui/lib/styles/colors');
-    export import Spacing = require('material-ui/lib/styles/spacing');
+    export import Spacing = __MaterialUI.Styles.Spacing; // require('material0ui/lib/styles/spacing')
     export import ThemeManager = __MaterialUI.Styles.ThemeManager; // require('material-ui/lib/styles/theme-manager');
     export import Transitions = __MaterialUI.Styles.Transitions; // require('material-ui/lib/styles/transitions');
     export import Typography = __MaterialUI.Styles.Typography; // require('material-ui/lib/styles/typography');
@@ -1840,9 +1854,8 @@ declare module 'material-ui/lib/styles/auto-prefix' {
 }
 
 declare module 'material-ui/lib/styles/spacing' {
-    type Spacing = __MaterialUI.Styles.Spacing;
-    var Spacing: Spacing;
-    export = Spacing;
+    var Spacing: number;
+    export default Spacing;
 }
 
 declare module 'material-ui/lib/styles/theme-manager' {
@@ -1875,6 +1888,11 @@ declare module 'material-ui/lib/styles/theme-decorator' {
     export = ThemeDecorator;
 }
 
+declare module 'material-ui/lib/styles/zIndex' {
+  import ZIndex = __MaterialUI.Styles.ZIndex;
+  var zIndex: ZIndex;
+  export default zIndex;
+}
 
 declare module 'material-ui/lib/snackbar' {
     import Snackbar = __MaterialUI.Snackbar;
@@ -2052,6 +2070,11 @@ declare module "material-ui/lib/menus/menu-item" {
 declare module "material-ui/lib/menus/menu-divider" {
     import MenuDivider = __MaterialUI.Menus.MenuDivider;
     export = MenuDivider;
+}
+
+declare module "material-ui/lib/divider" {
+  import Divider = __MaterialUI.Divider;
+  export = Divider;
 }
 
 declare module "material-ui/lib/grid-list/grid-list" {
@@ -2358,6 +2381,8 @@ declare namespace __MaterialUI.Styles {
         lightWhite: string;
     }
     export var Colors: Colors;
+
+    export type ZIndex = number;
 }
 
 declare module "material-ui/lib/svg-icons" {

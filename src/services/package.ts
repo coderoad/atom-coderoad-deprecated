@@ -44,7 +44,7 @@ class PackageService {
   }
   configTaskTests(tasks: CR.Task[]): CR.Task[] {
     let config = this.config.config;
-    return !tasks ? [] : tasks.map((task) => {
+    return !tasks ? [] : tasks.map((task: CR.Task) => {
       if (task.tests) {
         task.tests = task.tests.map((tests: string) => {
           if (_.isString(tests)) {
