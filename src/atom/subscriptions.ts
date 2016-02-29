@@ -23,7 +23,6 @@ export function onActivateSubscriptions() {
   //     }));
   // }
 
-  // if (config.runTestsOnSave) {
   // run tests on save
   atom.workspace.observeTextEditors((editor) => {
     subscriptions.add(
@@ -31,7 +30,6 @@ export function onActivateSubscriptions() {
           store.dispatch(Action.runTests());
       }));
   });
-  // }
   /**
    * Key subscriptions
    */
