@@ -54,6 +54,27 @@ export default function alertReducer(alert = defaultAlert, action: CR.Action): C
         };
         return current;
       }
+      case Type.PAGE_COMPLETE:
+      return {
+        message: `Page ${action.payload.position.page + 1} Complete`,
+        open: true,
+        action: 'pass',
+        duration: 2000
+      };
+      case Type.CHAPTER_COMPLETE:
+        return {
+          message: `Chapter ${action.payload.chapter + 1} Complete`,
+          open: true,
+          action: 'pass',
+          duration: 2000
+        };
+      case Type.PROJECT_COMPLETE:
+        return {
+          message: 'Tutorial Complete',
+          open: true,
+          action: 'pass',
+          duration: 2000
+        };
     default:
       return alert;
   }

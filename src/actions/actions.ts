@@ -45,7 +45,7 @@ export {setPage, nextPage} from './page-actions';
 export {pageComplete, chapterComplete, projectComplete} from './progress-actions';
 
 /* Tasks */
-export {setTaskPosition, showHint, runTests, testComplete, testResult} from './task-actions';
+export {showHint, runTests, testComplete, testResult} from './task-actions';
 
 /* Tutorials */
 export {loadTutorials} from './tutorials';

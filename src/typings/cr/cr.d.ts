@@ -69,6 +69,7 @@ declare namespace CR {
     msg?: string;
     timedOut?: boolean;
     change: number;
+    completed: boolean;
   }
 
   type TaskTest = string[];

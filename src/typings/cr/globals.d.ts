@@ -23,5 +23,4 @@ interface IntrinsicAttributes {
   onClick: () => any;
   primaryText: string;
   primaryTogglesNestedList: any;
-
 }
