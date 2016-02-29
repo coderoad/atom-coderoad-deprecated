@@ -17,9 +17,9 @@ You'll need to download the [Atom](https://atom.io/) editor and install *Atom Sh
 
 Install the *Atom-CodeRoad* package: `> apm install atom-coderoad`
 
-For an example of how to do this, *hover* over the image below:
+For an example of how to do this, see the image below:
 
-![Install atom-coderoad](https://coderoad.github.io/img/gif/install-atom-coderoad.png)
+![Install atom-coderoad](https://coderoad.github.io/img/gif/install-atom-coderoad.gif)
 
 You may also want to install [terminal-plus](https://atom.io/packages/terminal-plus) used in the example above.
 
@@ -31,8 +31,8 @@ Toggle open *Atom-CodeRoad* using the *Packages* menu or press *ctrl-alt-0*.
 
 To install a tutorial, setup a *package.json* file and save the tutorial as a dependency. Make sure [NodeJS](nodejs.org) is already installed.
 
-![Install a Tutorial](https://coderoad.github.io/img/gif/install-tutorial.png)
-
 You can setup a project quickly by typing `> npm init --y` into the command line in your project's folder. This agrees to all of the defaults for your newly created *package.json* file.
 
 Now you can install a tutorial. Run `> npm install --save-dev $THE-PACKAGE-NAME$` to save the tutorial as a package development dependency. If you run *Atom-CodeRoad* you should see the tutorial appear on the first screen.
+
+![Install a Tutorial](https://coderoad.github.io/img/gif/install-tutorial.gif)
