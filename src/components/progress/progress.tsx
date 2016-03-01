@@ -3,7 +3,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
 import {Paper, List, ListItem, RaisedButton} from 'material-ui';
-import * as classNames from 'classnames';
+import * as classnames from 'classnames';
 let Completed = require('material-ui/lib/svg-icons/toggle/check-box');
 let Current = require('material-ui/lib/svg-icons/av/play-circle-filled');
 let AllCompleted = require('material-ui/lib/svg-icons/action/done-all');
@@ -51,7 +51,7 @@ class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Posi
     const isActive = itemPosition.chapter === position.chapter && itemPosition.page === position.page;
     return (<ListItem
             key={itemPosition.page}
-            className={classNames({
+            className={classnames({
               'cr-page': true,
               'cr-page-isDisabled': !this.canActivate(isActive, itemPosition, position)
             })}
@@ -82,7 +82,7 @@ export default ({progress, position}) => (
     {progress.chapters.map((chapter: CR.Chapter, chapterIndex: number) => {
       const isActive = chapterIndex === position.chapter;
       return <ListItem  primaryText={`${chapterIndex + 1}. ${chapter.title}`}
-          className={classNames({
+          className={classnames({
             'chapter': true,
             'isActive': isActive
           })}

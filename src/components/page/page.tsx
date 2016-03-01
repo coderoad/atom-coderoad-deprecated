@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
 import {MarkdownText} from '../_components';
-const classNames = require('classnames');
+import * as classnames from 'classnames';
 const iconPath = 'material-ui/lib/svg-icons/';
 
 import {Paper, Card, CardHeader, CardText, LinearProgress, Divider,
@@ -123,7 +123,7 @@ render() {
           <div>
               <ListItem
                 ref={'task' + index}
-                className={classNames({
+                className={classnames({
                   'cr-task': true,
                   'isCompletedTask': isCompletedTask,
                   'isCurrentTask': isCurrentTask,
@@ -145,6 +145,10 @@ render() {
                 })
               : null}
               {isFinalTask ? null : <Divider />}
+              {page.completed && page.continue ? <ListItem className='cr-task-continue' ref='continue'>
+                <div className='cr-task-continue-description'><MarkdownText text={page.continue} />
+                </div>
+              </ListItem>: null}
             </div>
           );
         })

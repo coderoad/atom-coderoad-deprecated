@@ -32,7 +32,7 @@ function loadRootPackageJson(): PackageJson {
   return null;
 }
 
-function isTutorial(name): boolean {
+function isTutorial(name: string): boolean {
   let pathToTutorialPackageJson = path.join(window.coderoad.dir, 'node_modules', name, 'package.json');
   if (fileExists(pathToTutorialPackageJson)) {
     // has package.json
@@ -49,9 +49,9 @@ function isTutorial(name): boolean {
   return false;
 }
 
-function searchForTutorials(location: Object): string[] {
-  if (!!location && Object.keys(location).length > 0) {
-    return Object.keys(location).filter((name) => isTutorial(name));
+function searchForTutorials(deps: Object): string[] {
+  if (!!deps && Object.keys(deps).length > 0) {
+    return Object.keys(deps).filter((name) => isTutorial(name));
   } else {
     return [];
   }

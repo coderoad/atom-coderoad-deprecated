@@ -11,6 +11,14 @@ export default function pageReducer(page = defaultPage, action: CR.Action): CR.P
   switch (action.type) {
     case Type.SET_PAGE:
       return action.payload.page;
+    case Type.PAGE_COMPLETE:
+      return {
+        title: page.title,
+        description: page.description,
+        explanation: page.explanation,
+        continue: page.continue,
+        completed: true
+      };
     default:
       return page;
   }
