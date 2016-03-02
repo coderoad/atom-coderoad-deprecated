@@ -12,13 +12,14 @@ declare namespace CR {
   interface Page extends Info {
     explanation?: string;
     tasks?: Task[];
-    continue?: string;
+    onComplete?: string;
   }
   interface Task {
     description: string;
     tests?: string[];
     hints?: string[];
     actions?: string[];
+    completed?: boolean;
   }
 
   /**

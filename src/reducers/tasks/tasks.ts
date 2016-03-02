@@ -1,7 +1,6 @@
 import * as Type from '../../actions/actionTypes';
 
 const defaultTasks: CR.Task[] = [{
-  title: '',
   description: '',
   completed: false,
   tests: [],

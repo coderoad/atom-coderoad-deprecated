@@ -136,19 +136,19 @@ render() {
               </ListItem>
               {isCurrentTask && hints ?
                 hints.map((hint, indexHint) => {
-                  return <ListItem className='cr-task-hint' ref={'hint'+indexHint}>
+                  return <ListItem className='cr-task-hint' ref={'hint' + indexHint}>
                     <div class='cr-task-hint-box'>
                       <span className='cr-task-hint-index'>{indexHint + 1}.</span>
                       <div className='cr-task-hint-description'><MarkdownText text={hint} /></div>
                     </div>
-                  </ListItem>
+                  </ListItem>;
                 })
               : null}
               {isFinalTask ? null : <Divider />}
-              {page.completed && page.continue ? <ListItem className='cr-task-continue' ref='continue'>
-                <div className='cr-task-continue-description'><MarkdownText text={page.continue} />
+              {page.completed && page.onComplete ? <ListItem className='cr-task-onComplete' ref='onComplete'>
+                <div className='cr-task-onComplete-description'><MarkdownText text={page.onComplete} />
                 </div>
-              </ListItem>: null}
+              </ListItem> : null}
             </div>
           );
         })

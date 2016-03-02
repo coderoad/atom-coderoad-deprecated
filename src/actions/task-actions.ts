@@ -1,5 +1,4 @@
 import * as Type from './actionTypes';
-import * as Action from './actions';
 import {store} from '../_base';
 
 export function showHint(): CR.Action {

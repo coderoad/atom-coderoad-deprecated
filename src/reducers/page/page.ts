@@ -16,7 +16,7 @@ export default function pageReducer(page = defaultPage, action: CR.Action): CR.P
         title: page.title,
         description: page.description,
         explanation: page.explanation,
-        continue: page.continue,
+        onComplete: page.onComplete,
         completed: true
       };
     default:

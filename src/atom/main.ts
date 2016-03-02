@@ -25,7 +25,7 @@ class Main {
     // render React component
     render(this.root);
   }
-  consumeStatusBar(statusBar){
+  consumeStatusBar(statusBar) {
     this.statusBarTile = addToStatusBar(statusBar);
   }
   deactivate(): void {

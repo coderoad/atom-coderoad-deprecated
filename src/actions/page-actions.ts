@@ -1,5 +1,4 @@
 import * as Type from './actionTypes';
-import * as Action from './actions';
 import {store} from '../_base';
 import Package from '../services/package';
 const _ = require('lodash');
