@@ -60,6 +60,8 @@ componentDidUpdate() {
     });
   } else if (this.state.hintPos > -1) {
     ReactDOM.findDOMNode<HTMLElement>(this.refs['hint' + this.state.hintPos]).scrollIntoView();
+  } else if (this.props.page.completed && this.props.page.onPageComplete) {
+    ReactDOM.findDOMNode<HTMLElement>(this.refs.onPageComplete).scrollIntoView();
   }
 }
 visibleTasks() {
@@ -97,15 +99,14 @@ render() {
   var currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
   // let log = this.props.log;
   let allComplete = taskPosition >= tasks.length;
+  console.log(page);
   return (
   <Paper style={style} zDepth={1} className='cr-page'>
     {/* Content */}
     <Card>
-
-      <CardHeader title={page.title}
-                  subtitle={page.description} />
+      <CardHeader title={page.title} />
       <CardText>
-        <MarkdownText text={page.explanation} />
+        <MarkdownText text={page.description} />
       </CardText>
     </Card>
 
@@ -145,14 +146,15 @@ render() {
                 })
               : null}
               {isFinalTask ? null : <Divider />}
-              {page.completed && page.onComplete ? <ListItem className='cr-task-onComplete' ref='onComplete'>
-                <div className='cr-task-onComplete-description'><MarkdownText text={page.onComplete} />
-                </div>
-              </ListItem> : null}
             </div>
           );
         })
       }
+      {page.completed && !!page.onPageComplete ? <ListItem className='cr-task-onComplete' ref='onPageComplete'>
+        <div className='cr-task-onComplete-description'>
+          <MarkdownText text={page.onPageComplete} />
+        </div>
+      </ListItem> : null}
     </List>
 
     {/* Options */}

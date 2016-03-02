@@ -67,7 +67,7 @@ class PackageService {
     return {
       title: page.title,
       description: page.description,
-      explanation: page.explanation,
+      onPageComplete: page.onPageComplete,
       completed: page.completed || false,
     };
   }

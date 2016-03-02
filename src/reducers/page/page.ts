@@ -3,7 +3,6 @@ import * as Type from '../../actions/actionTypes';
 const defaultPage: CR.Page = {
   title: '',
   description: '',
-  explanation: '',
   completed: false
 };
 
@@ -15,8 +14,7 @@ export default function pageReducer(page = defaultPage, action: CR.Action): CR.P
       return {
         title: page.title,
         description: page.description,
-        explanation: page.explanation,
-        onComplete: page.onComplete,
+        onPageComplete: page.onPageComplete,
         completed: true
       };
     default:

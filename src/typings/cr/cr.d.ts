@@ -10,9 +10,8 @@ declare namespace CR {
     pages: Page[];
   }
   interface Page extends Info {
-    explanation?: string;
     tasks?: Task[];
-    onComplete?: string;
+    onPageComplete?: string;
   }
   interface Task {
     description: string;
