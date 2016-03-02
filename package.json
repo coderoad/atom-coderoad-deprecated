@@ -1,7 +1,7 @@
 {
   "name": "atom-coderoad",
   "main": "./lib/atom/main",
-  "version": "0.4.21",
+  "version": "0.5.0",
   "description": "Interactive tutorial plugin for Atom",
   "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
   "keywords": [
