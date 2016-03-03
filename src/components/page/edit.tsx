@@ -1,4 +1,3 @@
-'use strict';
 import * as React from 'react';
 import * as path from 'path';
 const Edit = require('material-ui/lib/svg-icons/editor/mode-edit');

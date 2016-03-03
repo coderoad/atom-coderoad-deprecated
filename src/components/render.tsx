@@ -15,7 +15,7 @@ const rootName = 'crv';
 export function render(target: HTMLElement) {
   ReactDOM.render(
       <Provider store={store}>
-        <App />
+          <App />
       </Provider>,
     target
   );

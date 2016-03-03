@@ -3,16 +3,52 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
-import {MarkdownText} from '../_components';
-import * as classnames from 'classnames';
 const iconPath = 'material-ui/lib/svg-icons/';
 
-import {Paper, Card, CardHeader, CardText, LinearProgress, Divider,
-  Toolbar, ToolbarGroup, RaisedButton, List, ListItem, FlatButton} from 'material-ui';
+// tasks
+import {MarkdownText} from '../_components';
+import {List, ListItem, Divider} from 'material-ui';
 import {green500, orange500} from 'material-ui/lib/styles/colors';
+import * as classnames from 'classnames';
 let Complete = require(iconPath + 'toggle/check-box');
 let Incomplete = require(iconPath + 'toggle/check-box-outline-blank');
 let RunningTest = require(iconPath + 'toggle/indeterminate-check-box');
+
+// Page
+function hintsShown(task: CR.Task, hintPos: number) {
+  if (hintPos > -1 && task.hints && task.hints.length > 0) {
+    return task.hints.slice(0, hintPos + 1);
+  }
+  return null;
+}
+
+function visibleTasks(tasks: CR.Task[], taskPosition: number) {
+  return tasks.slice(0, taskPosition + 1);
+}
+
+const TaskCheckbox = ({index, taskPosition, runTests}) => {
+  let icon = null;
+  if (index < taskPosition) {
+    icon = <Complete color={green500} />;
+  } else if (index === taskPosition && runTests) {
+    // TODO: loading animation inside of checkbox
+    icon = <RunningTest color={orange500} />;
+  } else {
+    icon = <Incomplete />;
+  }
+  return (
+  <span className='cr-task-checkbox'>
+    {icon}
+  </span>
+);
+};
+
+
+import {Paper, LinearProgress, Toolbar, ToolbarGroup, RaisedButton, FlatButton} from 'material-ui';
+
+import PageContent from './content';
+// import PageToolbar from './toolbar';
+
 let Info = require(iconPath + 'action/info');
 let InfoOutline = require(iconPath + 'action/info-outline');
 
@@ -64,19 +100,6 @@ componentDidUpdate() {
     ReactDOM.findDOMNode<HTMLElement>(this.refs.onPageComplete).scrollIntoView();
   }
 }
-visibleTasks() {
-  return this.props.tasks.slice(0, this.props.taskPosition + 1);
-}
-getIcon(index, position) {
-  if (index < position) {
-    return <Complete color={green500} />;
-  } else if (index === position && this.props.runTests) {
-    // TODO: loading animation inside of checkbox
-    return <RunningTest color={orange500} />;
-  } else {
-    return <Incomplete />;
-  }
-}
 displayHint(task) {
   if (task && task.hints && task.hints.length) {
     if (this.state.hintPos < task.hints.length - 1) {
@@ -86,40 +109,35 @@ displayHint(task) {
     this.setState({hintPos: -1, taskPos: this.state.taskPos});
   }
 }
-hintsShown(task) {
-  if (this.state.hintPos > -1 && task.hints && task.hints.length > 0) {
-    return task.hints.slice(0, this.state.hintPos + 1);
-  }
-  return null;
-}
+// hintsShown(task) {
+//   if (this.state.hintPos > -1 && task.hints && task.hints.length > 0) {
+//     return task.hints.slice(0, this.state.hintPos + 1);
+//   }
+//   return null;
+// }
 render() {
   let page = this.props.page;
-  let tasks = this.visibleTasks();
   let taskPosition = this.props.taskPosition;
+  let tasks = visibleTasks(this.props.tasks, taskPosition);
   var currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
   // let log = this.props.log;
   let allComplete = taskPosition >= tasks.length;
-  console.log(page);
+
   return (
   <Paper style={style} zDepth={1} className='cr-page'>
     {/* Content */}
-    <Card>
-      <CardHeader title={page.title} />
-      <CardText>
-        <MarkdownText text={page.description} />
-      </CardText>
-    </Card>
+    <PageContent page={page} />
 
     <Divider />
 
-    {/* Task List (tasks, isComplete)*/}
-    <List subheader='Tasks' className='cr-tasks' ref='tasks'>
+    {/* Task List (tasks, isComplete) */}
+     <List subheader='Tasks' className='cr-tasks' ref='tasks'>
         {tasks.map((task: CR.Task, index) => {
           let isCurrentTask = index === taskPosition;
           let isDisabledTask = index > taskPosition;
           let isCompletedTask = index < taskPosition;
           let isFinalTask = index >= tasks.length - 1;
-          let hints = this.hintsShown(task);
+          let hints = hintsShown(task, this.state.hintPos);
           return (
           <div>
               <ListItem
@@ -130,7 +148,7 @@ render() {
                   'isCurrentTask': isCurrentTask,
                   'isDisabledTask': isDisabledTask
                 })} >
-                    <span className='cr-task-checkbox'>{this.getIcon(index, taskPosition)}</span>
+                    <TaskCheckbox index={index} taskPosition={taskPosition} runTests={this.props.runTests}/>
                     <span className='cr-task-index'>{index + 1}.</span>
                     <div className='cr-task-description'><MarkdownText text={task.description} />
                     </div>

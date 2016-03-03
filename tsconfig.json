@@ -101,10 +101,13 @@
     "src/components/markdown/markdown.tsx",
     "src/components/menu/menu.tsx",
     "src/components/page/chapter.tsx",
+    "src/components/page/content.tsx",
     "src/components/page/edit.tsx",
     "src/components/page/hint.tsx",
     "src/components/page/log.tsx",
     "src/components/page/page.tsx",
+    "src/components/page/tasks.tsx",
+    "src/components/page/toolbar.tsx",
     "src/components/progress/progress.tsx",
     "src/components/projects/projects.tsx",
     "src/components/render.tsx"
