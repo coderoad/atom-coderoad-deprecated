@@ -24,7 +24,7 @@ export function getInitialState(): Object {
     runTests: false,
     tutorials: [],
     alert: {},
-    hintPosition: -1
+    hintPosition: 0
     // log: { open: false, message: '' },
   };
 }

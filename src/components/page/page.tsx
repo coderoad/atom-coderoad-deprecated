@@ -19,7 +19,7 @@ import {Paper, LinearProgress, Toolbar, ToolbarGroup, RaisedButton, FlatButton} 
 
 import PageContent from './content';
 import {Tasks} from './task';
-import {TaskHints} from './hint';
+import Hints from './hint';
 import {PageCompleteMessage} from './page-complete';
 import PageToolbar from './toolbar';
 // import PageToolbar from './toolbar';
@@ -75,12 +75,10 @@ render() {
     <PageContent page={page} />
     <Divider />
 
-    <List subheader='Tasks' className='cr-page-list' ref='tasks'>
-      <Tasks tasks={tasks} taskPosition={taskPosition} runTests={runTests} />
-      <TaskHints task={currentTask} hintPosition={hintPosition} />
-      <PageCompleteMessage page={page} />
-      <div ref='listEnd'></div>
-    </List>
+    <Tasks tasks={tasks} taskPosition={taskPosition} runTests={runTests} />
+    <Hints task={currentTask} hintPosition={hintPosition} />
+    <PageCompleteMessage page={page} />
+    <div ref='listEnd'></div>
 
     <PageToolbar tasks={tasks} taskPosition={taskPosition} hintPosition={hintPosition} />
   </Paper>

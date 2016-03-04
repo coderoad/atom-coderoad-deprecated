@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {MarkdownText} from '../_components';
-import {ListItem} from 'material-ui';
+import {List, ListItem} from 'material-ui';
 import {green500, orange500} from 'material-ui/lib/styles/colors';
 const iconPath = 'material-ui/lib/svg-icons/';
 let Complete = require(iconPath + 'toggle/check-box');
@@ -52,12 +52,13 @@ export const Task = ({task, taskPosition, index, runTests}) => {
 
 export const Tasks = ({tasks, taskPosition, runTests}) => {
   const visTasks = visibleTasks(tasks, taskPosition);
-  return <div className='cr-tasks'>
+
+  return <List subheader='Tasks' className='cr-tasks'>
       {visTasks.map((task, index) => <Task
-        key={'task' + index}
+        key={index}
         task={task}
         taskPosition={taskPosition}
         index={index}
         runTests={runTests} />)}
-    </div>;
+    </List>;
 };
