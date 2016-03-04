@@ -5,7 +5,7 @@ import * as Action from '../../actions/actions';
 import {togglePanel} from '../render';
 import {onDeactivateSubscriptionsAndUnmount} from '../../atom/subscriptions';
 
-import {AppBar, IconButton, IconMenu, MenuItem, Divider} from 'material-ui';
+import {AppBar, IconButton, IconMenu, MenuItem, ListDivider} from 'material-ui';
 let MoreVertIcon = require('material-ui/lib/svg-icons/navigation/more-vert');
 let NavigationClose = require('material-ui/lib/svg-icons/navigation/close');
 // let Feedback = require('material-ui/lib/svg-icons/action/feedback');
@@ -36,9 +36,9 @@ export default class extends React.Component<{
   navOptions(): React.ReactElement<{}> {
     switch (this.props.route) {
       case 'page':
-        return <button onClick={this.props.routeToProgress}>progress</button>;
+        return <button onTouchTap={this.props.routeToProgress}>progress</button>;
       case 'progress':
-        return <button onClick={this.props.routeToPage}>page</button>;
+        return <button onTouchTap={this.props.routeToPage}>page</button>;
       default: return null;
     }
   }
@@ -47,11 +47,11 @@ export default class extends React.Component<{
       case 'page':
         return (
           <div>
-        <MenuItem primaryText='progress' onClick={this.props.routeToProgress} />
-        <MenuItem primaryText='projects' onClick={this.props.routeToProjects} />
+        <MenuItem primaryText='progress' onTouchTap={this.props.routeToProgress} key='progress' />
+        <MenuItem primaryText='projects' onTouchTap={this.props.routeToProjects} key='projects' />
       </div>);
       case 'progress':
-        return <MenuItem primaryText='projects' onClick={this.props.routeToProjects} />;
+        return <MenuItem primaryText='projects' onTouchTap={this.props.routeToProjects} key='projects' />;
       default: return null;
     }
   }
@@ -62,7 +62,7 @@ export default class extends React.Component<{
     return (
       <AppBar title={'CodeRoad'}
               className='cr-menu-bar'
-              iconElementLeft={<IconButton onClick={this.closePanel}><NavigationClose /></IconButton>}
+              iconElementLeft={<IconButton onTouchTap={this.closePanel}><NavigationClose /></IconButton>}
               iconElementRight={
               <IconMenu
         iconButtonElement={
@@ -74,14 +74,14 @@ export default class extends React.Component<{
         {/* Menu Items */}
         {this.menuOptions()}
         {}
-        {window.coderoad.issuesPath ? <MenuItem>
+        {window.coderoad.issuesPath ? <MenuItem key='issue'>
           <a href={window.coderoad.issuesPath}>
             post issue
           </a>
           </MenuItem> : null}
 
-        <Divider />
-        <MenuItem primaryText='quit' onClick={this.props.quit}/>
+        <ListDivider />
+        <MenuItem primaryText='quit' onTouchTap={this.props.quit}/>
 
       </IconMenu>
     } />

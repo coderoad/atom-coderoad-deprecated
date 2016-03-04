@@ -6,7 +6,6 @@ import {Card, CardActions, CardHeader, CardText, FlatButton} from 'material-ui';
 import {MarkdownText} from '../_components';
 const iconPath = 'material-ui/lib/svg-icons/';
 let Help = require(iconPath + 'action/help');
-let HelpOutline = require(iconPath + 'action/help-outline');
 
 @connect(null, (dispatch, state) => {
   return {
@@ -23,26 +22,25 @@ export default class extends React.Component<{
   const hints = task && task.hints ? task.hints : null;
   if (hintPosition < 0 || !hints || !hints.length) {
     return <div></div>;
-  } else {
+  }
   const hint = hints[hintPosition];
   return (
-  <Card className='cr-task-hints'>
-    <CardHeader
-      title='Hints'
-      avatar={<Help />}
-      actAsExpander={true}
-      showExpandableButton={true} />
-    <CardText className='cr-task-hint' expandable={true}>
-      <MarkdownText text={hint} />
-    </CardText>
-    <CardActions expandable={true}>
-      <FlatButton label='Previous' disabled={hintPosition < 1}
-        onClick={prevHint.bind(this, hintPosition - 1)} />
-      <FlatButton label='Next' disabled={hintPosition > hints.length - 2}
-        onClick={nextHint.bind(this, hintPosition + 1)} />
-    </CardActions>
-  </Card>
-  );
+    <Card className='cr-task-hints'>
+      <CardHeader
+        title='Hints'
+        avatar={<Help />}
+        actAsExpander={true}
+        showExpandableButton={true} />
+      <CardText className='cr-task-hint' expandable={true}>
+        <MarkdownText text={hint} />
+      </CardText>
+      <CardActions expandable={true}>
+        <FlatButton label='Previous' disabled={hintPosition < 1}
+          onTouchTap={prevHint.bind(this, hintPosition - 1)} />
+        <FlatButton label='Next' disabled={hintPosition > hints.length - 2}
+          onTouchTap={nextHint.bind(this, hintPosition + 1)} />
+      </CardActions>
+    </Card>
+    );
   }
-}
 }

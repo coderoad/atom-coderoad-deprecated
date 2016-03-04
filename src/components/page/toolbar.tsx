@@ -37,9 +37,9 @@ export default class extends React.Component<{
 
         {/* check work || continue */}
         {allComplete ?
-          <RaisedButton label='Continue' primary={true} onClick={callNextPage}/>
+          <RaisedButton label='Continue' primary={true} onTouchTap={callNextPage}/>
           :
-          <RaisedButton label='Run' secondary={true} onClick={callRunTests}/>
+          <RaisedButton label='Run' secondary={true} onTouchTap={callRunTests}/>
         }
       </ToolbarGroup>
 
