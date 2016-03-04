@@ -18,9 +18,10 @@ let RunningTest = require(iconPath + 'toggle/indeterminate-check-box');
 import {Paper, LinearProgress, Toolbar, ToolbarGroup, RaisedButton, FlatButton} from 'material-ui';
 
 import PageContent from './content';
+import {Tasks} from './task';
 import {TaskHints} from './hint';
 import {PageCompleteMessage} from './page-complete';
-import {Tasks} from './task';
+import PageToolbar from './toolbar';
 // import PageToolbar from './toolbar';
 
 let Info = require(iconPath + 'action/info');
@@ -92,36 +93,14 @@ render() {
     <PageContent page={page} />
     <Divider />
 
-    <List subheader='Tasks' className='cr-tasks' ref='tasks'>
+    <List subheader='Tasks' className='cr-page-list' ref='tasks'>
       <Tasks tasks={tasks} taskPosition={taskPosition} runTests={runTests} />
       <TaskHints task={currentTask} hintPosition={hintPosition} />
       <PageCompleteMessage page={page} />
       <div ref='listEnd'></div>
     </List>
 
-    {/* Options */}
-    <section className='cr-page-toolbar'>
-    <LinearProgress mode='determinate' value={taskProgress(taskPosition, tasks.length)} style={{height: '6px'}}/>
-    <Toolbar>
-      {currentTask && currentTask.hints && currentTask.hints.length ?
-      <ToolbarGroup float='left'>
-          {hintPosition <= currentTask.hints.length - 2 ?
-          <FlatButton className='cr-task-showHint' icon={<InfoOutline/>} onClick={this.displayHint.bind(this, currentTask)}></FlatButton>
-          : <FlatButton className='cr-task-showHint-disabled' icon={<Info />} disabled={true} />}
-      </ToolbarGroup>
-      : null}
-      <ToolbarGroup float='right'>
-        {/* add log here */}
-
-        {/* check work || continue */}
-        {allComplete ?
-          <RaisedButton label='Continue' primary={true} onClick={this.props.callNextPage}/>
-          :
-          <RaisedButton label='Run' secondary={true} onClick={this.props.callRunTests}/>
-        }
-      </ToolbarGroup>
-    </Toolbar>
-    </section>
+    <PageToolbar tasks={tasks} taskPosition={taskPosition} hintPosition={hintPosition} />
   </Paper>
   );
   }

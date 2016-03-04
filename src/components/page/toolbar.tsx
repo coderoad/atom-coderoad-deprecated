@@ -18,11 +18,21 @@ function taskProgress(current: number, max: number) {
     callNextPage: () => dispatch(Action.nextPage()),
     callRunTests: () => dispatch(Action.runTests()),
     toggleLog: () => dispatch(Action.toggleLog()),
-    showHint: (newHintPos: number) => dispatch(Action.setHintPosition(newHintPos))
-  };
+    showHint: (task, hintPosition) => {
+      if (task && task.hints && task.hints.length) {
+        if (hintPosition < task.hints.length - 1) {
+          // next
+          dispatch(Action.setHintPosition(hintPosition + 1));
+        }
+    } else {
+      // reset
+      dispatch(Action.setHintPosition(-1));
+    }
+  }
+};
 })
 export default class extends React.Component<{
-  tasks: CR.Task[], taskPosition: number, hintPosition: number, displayHint: () => void,
+  tasks: CR.Task[], taskPosition: number, hintPosition: number,
   callNextPage?: () => void, callRunTests?: () => void, callNextTask?: () => void, showHint?: (pos: number) => void
 }, {}> {
   displayHint(task) {
@@ -36,7 +46,7 @@ export default class extends React.Component<{
     }
   }
   render() {
-    const {tasks, taskPosition, hintPosition, callNextPage, callRunTests} = this.props;
+    const {tasks, taskPosition, hintPosition, callNextPage, callRunTests, showHint} = this.props;
     const currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
     const progress: number = taskProgress(taskPosition, tasks.length);
     const allComplete = taskPosition >= tasks.length;
@@ -48,7 +58,8 @@ export default class extends React.Component<{
         {currentTask && currentTask.hints && currentTask.hints.length ?
           <ToolbarGroup float='left'>
             {hintPosition <= currentTask.hints.length - 2 ?
-              <FlatButton className='cr-task-showHint' icon={<InfoOutline/>} onClick={this.displayHint.bind(this)}></FlatButton>
+              <FlatButton className='cr-task-showHint' icon={<InfoOutline/>}
+              onClick={showHint.bind(this, currentTask, hintPosition)}></FlatButton>
               : <FlatButton className='cr-task-showHint-disabled' icon={<Info />} disabled={true} />}
           </ToolbarGroup>
           : null}
