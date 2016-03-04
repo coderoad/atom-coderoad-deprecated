@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Page, Progress, Projects} from './_components';
+import {Page, Progress, Projects} from './../_components';
 import * as ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class extends React.Component<{state: CR.State}, {}> {

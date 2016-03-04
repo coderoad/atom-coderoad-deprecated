@@ -97,6 +97,7 @@
     "src/components/account/signup.tsx",
     "src/components/alert/alert.tsx",
     "src/components/app/app.tsx",
+    "src/components/app/router.tsx",
     "src/components/markdown/markdown.tsx",
     "src/components/menu/menu.tsx",
     "src/components/page/chapter.tsx",
@@ -110,8 +111,7 @@
     "src/components/page/toolbar.tsx",
     "src/components/progress/progress.tsx",
     "src/components/projects/projects.tsx",
-    "src/components/render.tsx",
-    "src/components/router.tsx"
+    "src/components/render.tsx"
   ],
   "exclude": [
     "node_modules"

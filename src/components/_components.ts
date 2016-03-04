@@ -5,7 +5,7 @@
 export {default as App} from './app/app';
 
 // Router
-export {default as Router} from './router';
+export {default as Router} from './app/router';
 
 // Components
 export {default as Page} from './page/page';
