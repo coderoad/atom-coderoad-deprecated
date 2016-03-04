@@ -71,6 +71,7 @@ export default ({progress, position}) => (
     {progress.chapters.map((chapter: CR.Chapter, chapterIndex: number) => {
       const isActive = chapterIndex === position.chapter;
       return <ListItem  primaryText={`${chapterIndex + 1}. ${chapter.title}`}
+          key={'c' + chapterIndex}
           className={classnames({
             'chapter': true,
             'isActive': isActive

@@ -21,7 +21,6 @@ export default class extends React.Component<{
   render() {
   const {task, hintPosition, nextHint, prevHint} = this.props;
   const hints = task && task.hints ? task.hints : null;
-  console.log(hintPosition, hints, nextHint);
   if (hintPosition < 0 || !hints || !hints.length) {
     return <div></div>;
   } else {

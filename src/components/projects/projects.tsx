@@ -47,17 +47,21 @@ export default class Projects extends React.Component<{
             <List subheader='Tutorials' >
 
             {window.coderoad.dir ? null : <ListItem
+                key='open'
                 primaryText='Create an Atom Project'
                 secondaryText='File > Open > any older' /> }
 
               {this.props.tutorials.length > 0 ?
-                this.props.tutorials.map((tutorial: string) => {
+                this.props.tutorials.map((tutorial: string, index) => {
               return (<ListItem
+                  key={index}
                   primaryText={this.trim(tutorial)}
                   onClick={this.props.selectProject.bind(this,
                     tutorial)}/>);
-            }) : <ListItem primaryText='Try a Demo'
-              secondaryText='npm i -s coderoad-functional-school'/>}
+            }) : <ListItem
+                key='demo'
+                primaryText='Try a Demo'
+                secondaryText='npm i -s coderoad-functional-school'/>}
 
             </List>
             <br />
