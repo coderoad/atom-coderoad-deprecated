@@ -1,4 +1,6 @@
 import {store} from '../_base';
+import * as fs from 'fs';
+import {fileExists} from '../services/exists';
 import * as Action from '../actions/actions';
 
 export function setAtomGlobals() {
@@ -41,6 +43,9 @@ export function getEditor() {
  * @return {[type]} [description]
  */
 export function open(filePath: string, options?: Object) {
+  if (fileExists(filePath)) {
+    fs.unlink(filePath);
+  }
   atom.workspace.open(filePath, options);
   return true;
 }
