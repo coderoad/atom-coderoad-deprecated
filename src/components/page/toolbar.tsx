@@ -14,16 +14,15 @@ function taskProgress(current: number, max: number) {
 @connect(null, (dispatch, state) => {
   return {
     callNextPage: () => dispatch(Action.nextPage()),
-    callSave: () => save(),
     toggleLog: () => dispatch(Action.toggleLog())
   };
 })
 export default class extends React.Component<{
   tasks: CR.Task[], taskPosition: number, hintPosition: number,
-  callNextPage?: () => void, callRunTests?: () => void, callNextTask?: () => void, showHint?: (pos: number) => void
+  callNextPage?: () => void, callNextTask?: () => void, showHint?: (pos: number) => void
 }, {}> {
   render() {
-    const {tasks, taskPosition, hintPosition, callNextPage, callRunTests, showHint} = this.props;
+    const {tasks, taskPosition, hintPosition, callNextPage, showHint} = this.props;
     const currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
     const progress: number = taskProgress(taskPosition, tasks.length);
     const allComplete = taskPosition >= tasks.length;
@@ -40,7 +39,7 @@ export default class extends React.Component<{
         {allComplete ?
           <RaisedButton label='Continue' primary={true} onTouchTap={callNextPage}/>
           :
-          <RaisedButton label='Save' secondary={true} onTouchTap={callRunTests}/>
+          <RaisedButton label='Save' secondary={true} onTouchTap={save}/>
         }
       </ToolbarGroup>
 

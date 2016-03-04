@@ -1,7 +1,7 @@
 'use strict';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {Paper, ListDivider} from 'material-ui';
+import {Paper, Divider} from 'material-ui';
 import PageContent from './content';
 import {Tasks} from './task';
 import Hints from './hint';
@@ -37,7 +37,7 @@ render() {
   return (
   <Paper style={pageStyle} zDepth={1} className='cr-page'>
     <PageContent page={page} />
-    <ListDivider />
+    <Divider />
 
     <Tasks tasks={tasks} taskPosition={taskPosition} runTests={runTests} />
     <Hints task={currentTask} hintPosition={hintPosition} />

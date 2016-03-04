@@ -5,7 +5,7 @@ import * as Action from '../../actions/actions';
 import {togglePanel} from '../render';
 import {onDeactivateSubscriptionsAndUnmount} from '../../atom/subscriptions';
 
-import {AppBar, IconButton, IconMenu, MenuItem, ListDivider} from 'material-ui';
+import {AppBar, IconButton, IconMenu, MenuItem, Divider} from 'material-ui';
 let MoreVertIcon = require('material-ui/lib/svg-icons/navigation/more-vert');
 let NavigationClose = require('material-ui/lib/svg-icons/navigation/close');
 // let Feedback = require('material-ui/lib/svg-icons/action/feedback');
@@ -80,7 +80,7 @@ export default class extends React.Component<{
           </a>
           </MenuItem> : null}
 
-        <ListDivider />
+        <Divider />
         <MenuItem primaryText='quit' onTouchTap={this.props.quit}/>
 
       </IconMenu>

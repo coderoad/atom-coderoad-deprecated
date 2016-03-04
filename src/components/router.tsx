@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Page, Progress, Projects} from './_components';
+import * as ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class extends React.Component<{state: CR.State}, {}> {
   chooseRoute(state: CR.State) {
@@ -23,6 +24,10 @@ export default class extends React.Component<{state: CR.State}, {}> {
   }
   render() {
     const state = this.props.state;
-    return this.chooseRoute(state);
+    return (
+       <ReactCSSTransitionGroup transitionName='route' transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+        {this.chooseRoute(state)}
+       </ReactCSSTransitionGroup>
+    );
   }
 }

@@ -12,6 +12,20 @@ atom-panel-container > atom-panel > #crv {
     width: 400px;
   }
 }
+.route-enter {
+  opacity: 0.01;
+}
+.route-enter.route-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.route-leave {
+  opacity: 1;
+}
+.route-leave.route-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
 .cr .cr-menu-bar {
   z-index: 999 !important;
 }

@@ -18,6 +18,7 @@ let getEditorCount = 0;
 
 export function save() {
   const editor = findEditor();
+  console.log(editor);
   editor.save();
 }
 
