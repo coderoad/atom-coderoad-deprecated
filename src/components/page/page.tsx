@@ -47,6 +47,7 @@ const TaskCheckbox = ({index, taskPosition, runTests}) => {
 import {Paper, LinearProgress, Toolbar, ToolbarGroup, RaisedButton, FlatButton} from 'material-ui';
 
 import PageContent from './content';
+import {TaskHints} from './hint';
 // import PageToolbar from './toolbar';
 
 let Info = require(iconPath + 'action/info');
@@ -115,10 +116,9 @@ displayHint(task) {
 // }
 render() {
   const {page, taskPosition, hintPosition} = this.props;
-  let tasks = visibleTasks(this.props.tasks, taskPosition);
-  var currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
-  // let log = this.props.log;
-  let allComplete = taskPosition >= tasks.length;
+  const tasks = visibleTasks(this.props.tasks, taskPosition);
+  const currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
+  const allComplete = taskPosition >= tasks.length;
 
   return (
   <Paper style={style} zDepth={1} className='cr-page'>
@@ -130,11 +130,10 @@ render() {
     {/* Task List (tasks, isComplete) */}
      <List subheader='Tasks' className='cr-tasks' ref='tasks'>
         {tasks.map((task: CR.Task, index) => {
-          let isCurrentTask = index === taskPosition;
-          let isDisabledTask = index > taskPosition;
-          let isCompletedTask = index < taskPosition;
-          let isFinalTask = index >= tasks.length - 1;
-          let hints = hintsShown(task, hintPosition);
+          const isCurrentTask = index === taskPosition;
+          const isDisabledTask = index > taskPosition;
+          const isCompletedTask = index < taskPosition;
+          const isFinalTask = index >= tasks.length - 1;
           return (
           <div>
               <ListItem
@@ -150,21 +149,11 @@ render() {
                     <div className='cr-task-description'><MarkdownText text={task.description} />
                     </div>
               </ListItem>
-              {isCurrentTask && hints ?
-                hints.map((hint, indexHint) => {
-                  return <ListItem className='cr-task-hint' ref={'hint' + indexHint}>
-                    <div class='cr-task-hint-box'>
-                      <span className='cr-task-hint-index'>{indexHint + 1}.</span>
-                      <div className='cr-task-hint-description'><MarkdownText text={hint} /></div>
-                    </div>
-                  </ListItem>;
-                })
-              : null}
-              {isFinalTask ? null : <Divider />}
-            </div>
+              </div>
           );
         })
       }
+      <TaskHints task={currentTask} hintPosition={hintPosition} />
       {page.completed && !!page.onPageComplete ? <ListItem className='cr-task-onComplete' ref='onPageComplete'>
         <div className='cr-task-onComplete-description'>
           <MarkdownText text={page.onPageComplete} />
