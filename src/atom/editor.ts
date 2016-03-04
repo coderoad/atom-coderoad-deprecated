@@ -43,6 +43,7 @@ export function getEditor() {
  * @return {[type]} [description]
  */
 export function open(filePath: string, options?: Object) {
+  // delete file first, to avoid bug
   if (fileExists(filePath)) {
     fs.unlink(filePath);
   }

@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
 import {Paper, List, ListItem, RaisedButton} from 'material-ui';
 import * as classnames from 'classnames';
+import * as Colors from 'material-ui/lib/styles/colors';
 let Completed = require('material-ui/lib/svg-icons/toggle/check-box');
 let Current = require('material-ui/lib/svg-icons/av/play-circle-filled');
 let AllCompleted = require('material-ui/lib/svg-icons/action/done-all');
@@ -23,18 +24,9 @@ class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Posi
     if (completed) {
       return <Completed />;
     } else if (current) {
-      return <Current />;
+      return <Current color={Colors.pink500} />;
     } else {
       return <Incomplete />;
-    }
-  }
-  getButton(isActive, itemPosition) {
-    if (isActive && itemPosition.chapter === 0 && itemPosition.page === 0) {
-      return <RaisedButton label='Start' primary={true} style={{height: '35px'}} />;
-  } else if (isActive) {
-      return <RaisedButton label='Continue' secondary={true} style={{height: '35px', width: '100px'}} />;
-    } else {
-      return null;
     }
   }
   canActivate(isActive, itemPosition, position) {
@@ -57,7 +49,6 @@ class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Posi
             secondaryText={page.description}
             secondaryTextLines={page.description.length > 50 ? 2 : 1}
             leftIcon={this.getProgressIcon(page.completed, isActive)}
-            rightIcon={this.getButton(isActive, itemPosition)}
             onClick={this.canActivate(isActive, itemPosition, position) ? this.props.selectPage.bind(this, itemPosition) : null } />
             );
           };
