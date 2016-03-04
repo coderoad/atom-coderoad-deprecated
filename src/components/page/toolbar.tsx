@@ -1,13 +1,10 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
-import {LinearProgress, Toolbar, ToolbarGroup, RaisedButton, FlatButton} from 'material-ui';
-const iconPath = 'material-ui/lib/svg-icons/';
-let Info = require(iconPath + 'action/info');
-let InfoOutline = require(iconPath + 'action/info-outline');
+import {LinearProgress, Toolbar, ToolbarGroup, RaisedButton} from 'material-ui';
 
 const ProgressBar = ({progress}) => <LinearProgress mode='determinate'
- value={progress} style={{height: '6px'}}/>;
+ value={progress} style={{height: '8px'}}/>;
 
 function taskProgress(current: number, max: number) {
   return (current / max) * 100;
@@ -17,34 +14,13 @@ function taskProgress(current: number, max: number) {
   return {
     callNextPage: () => dispatch(Action.nextPage()),
     callRunTests: () => dispatch(Action.runTests()),
-    toggleLog: () => dispatch(Action.toggleLog()),
-    showHint: (task, hintPosition) => {
-      if (task && task.hints && task.hints.length) {
-        if (hintPosition < task.hints.length - 1) {
-          // next
-          dispatch(Action.setHintPosition(hintPosition + 1));
-        }
-    } else {
-      // reset
-      dispatch(Action.setHintPosition(-1));
-    }
-  }
-};
+    toggleLog: () => dispatch(Action.toggleLog())
+  };
 })
 export default class extends React.Component<{
   tasks: CR.Task[], taskPosition: number, hintPosition: number,
   callNextPage?: () => void, callRunTests?: () => void, callNextTask?: () => void, showHint?: (pos: number) => void
 }, {}> {
-  displayHint(task) {
-    const {hintPosition} = this.props;
-    if (task && task.hints && task.hints.length) {
-      if (hintPosition < task.hints.length - 1) {
-        this.props.showHint(hintPosition + 1);
-      }
-    } else {
-      this.props.showHint(-1);
-    }
-  }
   render() {
     const {tasks, taskPosition, hintPosition, callNextPage, callRunTests, showHint} = this.props;
     const currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
@@ -55,14 +31,6 @@ export default class extends React.Component<{
       <ProgressBar progress={progress} />
 
       <Toolbar>
-        {currentTask && currentTask.hints && currentTask.hints.length ?
-          <ToolbarGroup float='left'>
-            {hintPosition <= currentTask.hints.length - 2 ?
-              <FlatButton className='cr-task-showHint' icon={<InfoOutline/>}
-              onClick={showHint.bind(this, currentTask, hintPosition)}></FlatButton>
-              : <FlatButton className='cr-task-showHint-disabled' icon={<Info />} disabled={true} />}
-          </ToolbarGroup>
-          : null}
 
       <ToolbarGroup float='right'>
         {/* add log here */}
@@ -74,6 +42,7 @@ export default class extends React.Component<{
           <RaisedButton label='Run' secondary={true} onClick={callRunTests}/>
         }
       </ToolbarGroup>
+
     </Toolbar>
   </section>
   );

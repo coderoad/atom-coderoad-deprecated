@@ -4,6 +4,9 @@ import * as Action from '../../actions/actions';
 
 import {Card, CardActions, CardHeader, CardText, FlatButton} from 'material-ui';
 import {MarkdownText} from '../_components';
+const iconPath = 'material-ui/lib/svg-icons/';
+let Help = require(iconPath + 'action/help');
+let HelpOutline = require(iconPath + 'action/help-outline');
 
 @connect(null, (dispatch, state) => {
   return {
@@ -18,7 +21,7 @@ export default class extends React.Component<{
   render() {
   const {task, hintPosition, nextHint, prevHint} = this.props;
   const hints = task && task.hints ? task.hints : null;
-  console.log(hintPosition);
+  console.log(hintPosition, hints, nextHint);
   if (hintPosition < 0 || !hints || !hints.length) {
     return <div></div>;
   } else {
@@ -27,14 +30,16 @@ export default class extends React.Component<{
   <Card className='cr-task-hints'>
     <CardHeader
       title='Hints'
+      avatar={<Help />}
       actAsExpander={true}
       showExpandableButton={true} />
     <CardText className='cr-task-hint' expandable={true}>
       <MarkdownText text={hint} />
     </CardText>
     <CardActions expandable={true}>
-      {hintPosition > 0 ? <FlatButton label='Previous' onClick={prevHint.bind(this, hintPosition - 1)} /> : null}
-      {hintPosition < task.hints.length - 1 ? <FlatButton label='Next' onClick={nextHint.bind(this, hintPosition + 1)} /> : null }
+      {hintPosition > 0 ? <FlatButton label='Previous' onClick={prevHint.bind(this, hintPosition - 1)} /> : <div />}
+      {hintPosition >= 0 && hintPosition < hints.length - 1 ?
+        <FlatButton label='Next' onClick={nextHint.bind(this, hintPosition + 1)} /> : <div /> }
     </CardActions>
   </Card>
   );
