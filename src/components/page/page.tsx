@@ -48,6 +48,7 @@ import {Paper, LinearProgress, Toolbar, ToolbarGroup, RaisedButton, FlatButton} 
 
 import PageContent from './content';
 import {TaskHints} from './hint';
+import {PageCompleteMessage} from './page-complete';
 // import PageToolbar from './toolbar';
 
 let Info = require(iconPath + 'action/info');
@@ -154,11 +155,7 @@ render() {
         })
       }
       <TaskHints task={currentTask} hintPosition={hintPosition} />
-      {page.completed && !!page.onPageComplete ? <ListItem className='cr-task-onComplete' ref='onPageComplete'>
-        <div className='cr-task-onComplete-description'>
-          <MarkdownText text={page.onPageComplete} />
-        </div>
-      </ListItem> : null}
+      <PageCompleteMessage page={page} />
       <div ref='listEnd'></div>
     </List>
 
