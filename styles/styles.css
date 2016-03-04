@@ -1,3 +1,17 @@
+atom-panel-container > atom-panel > #crv {
+  animation: slide 0.3s forwards;
+  animation-timing-function: ease-in-out;
+}
+@keyframes slide {
+  0% {
+    width: 0px;
+  }
+}
+@keyframes slide {
+  100% {
+    width: 400px;
+  }
+}
 .cr .cr-menu-bar {
   z-index: 999 !important;
 }
@@ -113,22 +127,7 @@
 .cr-tutorials {
   padding: 10px;
 }
-.example-enter {
-  opacity: 0.01;
-}
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-.example-leave {
-  opacity: 1;
-}
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
 #crv {
-  width: 400px;
   height: 100%;
   overflow: scroll;
 }

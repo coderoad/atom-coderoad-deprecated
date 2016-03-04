@@ -16,6 +16,11 @@ export function setAtomGlobals() {
 
 let getEditorCount = 0;
 
+export function save() {
+  const editor = findEditor();
+  editor.save();
+}
+
 export function findEditor() {
   let editor = atom.workspace.getActiveTextEditor();
   if (!editor) {

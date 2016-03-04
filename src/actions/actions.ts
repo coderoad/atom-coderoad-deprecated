@@ -38,6 +38,7 @@ export function logMessage(message: string): CR.Action {
   return { type: Type.LOG_MESSAGE, payload: { message }};
 }
 
+
 /* Page */
 export {setPage, nextPage} from './page-actions';
 

@@ -2,9 +2,10 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
 import {LinearProgress, Toolbar, ToolbarGroup, RaisedButton} from 'material-ui';
+import {save} from '../../atom/editor';
 
 const ProgressBar = ({progress}) => <LinearProgress mode='determinate'
- value={progress} style={{height: '8px'}}/>;
+ value={progress} style={{height: '10px'}}/>;
 
 function taskProgress(current: number, max: number) {
   return (current / max) * 100;
@@ -13,7 +14,7 @@ function taskProgress(current: number, max: number) {
 @connect(null, (dispatch, state) => {
   return {
     callNextPage: () => dispatch(Action.nextPage()),
-    callRunTests: () => dispatch(Action.runTests()),
+    callSave: () => save(),
     toggleLog: () => dispatch(Action.toggleLog())
   };
 })
@@ -39,7 +40,7 @@ export default class extends React.Component<{
         {allComplete ?
           <RaisedButton label='Continue' primary={true} onTouchTap={callNextPage}/>
           :
-          <RaisedButton label='Run' secondary={true} onTouchTap={callRunTests}/>
+          <RaisedButton label='Save' secondary={true} onTouchTap={callRunTests}/>
         }
       </ToolbarGroup>
 
