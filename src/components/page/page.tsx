@@ -45,7 +45,7 @@ function taskProgress(current: number, max: number) {
     callNextPage: () => dispatch(Action.nextPage()),
     callRunTests: () => dispatch(Action.runTests()),
     toggleLog: () => dispatch(Action.toggleLog()),
-    showHint: (newHintPos) => dispatch(Action.setHintPosition(newHintPos))
+    showHint: (newHintPos: number) => dispatch(Action.setHintPosition(newHintPos))
   };
 })
 export default class extends React.Component<{
@@ -62,25 +62,7 @@ constructor() {
   super();
 }
 componentDidUpdate() {
-  const {taskPosition, hintPosition, tasks, page} = this.props;
-  if (taskPosition > 0 && taskPosition < tasks.length) {
-    ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
-  }
-  if (hintPosition > -1) {
-    ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
-  } else if (page.completed && page.onPageComplete) {
-    ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
-  }
-}
-displayHint(task) {
-  const {hintPosition} = this.props;
-  if (task && task.hints && task.hints.length) {
-    if (hintPosition < task.hints.length - 1) {
-      this.props.showHint(hintPosition + 1);
-    }
-  } else {
-    this.props.showHint(-1);
-  }
+  ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
 }
 render() {
   const {page, taskPosition, hintPosition, tasks, runTests} = this.props;

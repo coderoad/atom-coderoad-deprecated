@@ -35,12 +35,10 @@ const TaskContent = ({task}) => (
 );
 
 export const Task = ({task, taskPosition, index, runTests}) => {
-  const isCurrentTask = index === taskPosition;
-  const isCompletedTask = index < taskPosition;
   let taskClass = 'cr-task';
-  if (isCompletedTask) {
+  if (index < taskPosition) {
     taskClass += ' isCompletedTask';
-  } else if (isCurrentTask) {
+  } else if (index === taskPosition) {
     taskClass += 'isCurrentTask';
   }
   return (
