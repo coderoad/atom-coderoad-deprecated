@@ -45,9 +45,7 @@ class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Posi
     }
   }
   render() {
-    const page = this.props.page;
-    const itemPosition = this.props.itemPosition;
-    const position = this.props.position;
+    const {page, itemPosition, position} = this.props;
     const isActive = itemPosition.chapter === position.chapter && itemPosition.page === position.page;
     return (<ListItem
             key={itemPosition.page}

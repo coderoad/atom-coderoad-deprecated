@@ -87,13 +87,13 @@ constructor() {
   super();
 }
 componentDidUpdate() {
-  const {taskPosition, hintPosition} = this.props;
-  if (taskPosition > 0 && taskPosition < this.props.tasks.length) {
+  const {taskPosition, hintPosition, tasks, page} = this.props;
+  if (taskPosition > 0 && taskPosition < tasks.length) {
     ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
   }
   if (hintPosition > -1) {
     ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
-  } else if (this.props.page.completed && this.props.page.onPageComplete) {
+  } else if (page.completed && page.onPageComplete) {
     ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
   }
 }
