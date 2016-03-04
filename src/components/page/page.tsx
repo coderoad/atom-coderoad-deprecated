@@ -14,41 +14,13 @@ let Complete = require(iconPath + 'toggle/check-box');
 let Incomplete = require(iconPath + 'toggle/check-box-outline-blank');
 let RunningTest = require(iconPath + 'toggle/indeterminate-check-box');
 
-// Page
-function hintsShown(task: CR.Task, hintPos: number) {
-  if (hintPos > -1 && task.hints && task.hints.length > 0) {
-    return task.hints.slice(0, hintPos + 1);
-  }
-  return null;
-}
-
-function visibleTasks(tasks: CR.Task[], taskPosition: number) {
-  return tasks.slice(0, taskPosition + 1);
-}
-
-const TaskCheckbox = ({index, taskPosition, runTests}) => {
-  let icon = null;
-  if (index < taskPosition) {
-    icon = <Complete color={green500} />;
-  } else if (index === taskPosition && runTests) {
-    // TODO: loading animation inside of checkbox
-    icon = <RunningTest color={orange500} />;
-  } else {
-    icon = <Incomplete />;
-  }
-  return (
-  <span className='cr-task-checkbox'>
-    {icon}
-  </span>
-);
-};
-
 
 import {Paper, LinearProgress, Toolbar, ToolbarGroup, RaisedButton, FlatButton} from 'material-ui';
 
 import PageContent from './content';
 import {TaskHints} from './hint';
 import {PageCompleteMessage} from './page-complete';
+import {Tasks} from './task';
 // import PageToolbar from './toolbar';
 
 let Info = require(iconPath + 'action/info');
@@ -109,15 +81,8 @@ displayHint(task) {
     this.props.showHint(-1);
   }
 }
-// hintsShown(task) {
-//   if (this.state.hintPos > -1 && task.hints && task.hints.length > 0) {
-//     return task.hints.slice(0, this.state.hintPos + 1);
-//   }
-//   return null;
-// }
 render() {
-  const {page, taskPosition, hintPosition} = this.props;
-  const tasks = visibleTasks(this.props.tasks, taskPosition);
+  const {page, taskPosition, hintPosition, tasks, runTests} = this.props;
   const currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
   const allComplete = taskPosition >= tasks.length;
 
@@ -125,35 +90,10 @@ render() {
   <Paper style={style} zDepth={1} className='cr-page'>
     {/* Content */}
     <PageContent page={page} />
-
     <Divider />
 
-    {/* Task List (tasks, isComplete) */}
-     <List subheader='Tasks' className='cr-tasks' ref='tasks'>
-        {tasks.map((task: CR.Task, index) => {
-          const isCurrentTask = index === taskPosition;
-          const isDisabledTask = index > taskPosition;
-          const isCompletedTask = index < taskPosition;
-          const isFinalTask = index >= tasks.length - 1;
-          return (
-          <div>
-              <ListItem
-                ref={'task' + index}
-                className={classnames({
-                  'cr-task': true,
-                  'isCompletedTask': isCompletedTask,
-                  'isCurrentTask': isCurrentTask,
-                  'isDisabledTask': isDisabledTask
-                })} >
-                    <TaskCheckbox index={index} taskPosition={taskPosition} runTests={this.props.runTests}/>
-                    <span className='cr-task-index'>{index + 1}.</span>
-                    <div className='cr-task-description'><MarkdownText text={task.description} />
-                    </div>
-              </ListItem>
-              </div>
-          );
-        })
-      }
+    <List subheader='Tasks' className='cr-tasks' ref='tasks'>
+      <Tasks tasks={tasks} taskPosition={taskPosition} runTests={runTests} />
       <TaskHints task={currentTask} hintPosition={hintPosition} />
       <PageCompleteMessage page={page} />
       <div ref='listEnd'></div>
