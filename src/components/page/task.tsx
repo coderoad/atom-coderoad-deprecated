@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {MarkdownText} from '../_components';
 import {List, ListItem} from 'material-ui';
-import {green500, orange500} from 'material-ui/lib/styles/colors';
+import * as Colors from 'material-ui/lib/styles/colors';
 const iconPath = 'material-ui/lib/svg-icons/';
 let Complete = require(iconPath + 'toggle/check-box');
 let Incomplete = require(iconPath + 'toggle/check-box-outline-blank');
@@ -14,10 +14,10 @@ function visibleTasks(tasks: CR.Task[], taskPosition: number) {
 const TaskCheckbox = ({index, taskPosition, runTests}) => {
   let icon = null;
   if (index < taskPosition) {
-    icon = <Complete color={green500} />;
+    icon = <Complete color={Colors.green500} />;
   } else if (index === taskPosition && runTests) {
     // TODO: loading animation inside of checkbox
-    icon = <RunningTest color={orange500} />;
+    icon = <RunningTest color={Colors.orange500} />;
   } else {
     icon = <Incomplete />;
   }

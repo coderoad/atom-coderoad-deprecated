@@ -1,0 +1,148 @@
+.cr .cr-menu-bar {
+  z-index: 999 !important;
+}
+.cr-chapter {
+  border: 2px solid red;
+  border-sizing: border-box;
+  display: block;
+  height: 33px;
+  width: 100%;
+  border: 1px solid #181a1f;
+  border-bottom-color: #282c34;
+  padding: 10px;
+  text-align: center;
+}
+.cr-page {
+  position: relative;
+  width: 400px;
+}
+.cr-page .isCompletedTask {
+  background-color: #c8e6c9;
+}
+.cr-page .isCompleteTask:hover {
+  background-color: #c8e6c9;
+}
+.cr-page .isDisabledTask {
+  color: grey;
+}
+.cr-page-toolbar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+}
+.cr-page-toolbar-completed {
+  height: 200px;
+}
+.cr-tasks .cr-task {
+  padding: 10px;
+  position: relative;
+}
+.cr-tasks .cr-task-checkbox {
+  position: absolute;
+  top: 15px;
+}
+.cr-tasks .cr-task-index {
+  position: absolute;
+  top: 20px;
+  left: 45px;
+}
+.cr-tasks .cr-task-description {
+  background-color: inherit;
+  padding-top: -10px;
+  padding-left: 55px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.cr-task-hints {
+  margin-bottom: 100px;
+}
+.cr-progress .chapter {
+  margin-bottom: 0;
+}
+.cr-progress .chapter.isActive {
+  background-color: #e6e6e6;
+}
+.cr-progress .cr-page {
+  padding-left: 15px;
+  margin-top: 0;
+}
+.cr-progress .cr-page .cr-page-isDisabled {
+  color: rgba(0, 0, 0, 0.5);
+  background: white;
+}
+.cr-progress .cr-page .cr-page-isDisabled:hover {
+  background: white;
+}
+.cr-alert.pass button span {
+  color: #73c990;
+}
+.cr-alert.fail button span {
+  color: #ff4081;
+}
+.cr-alert.note button span {
+  color: #9DA5B4;
+}
+.cr-alert-replay {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.cr-projects {
+  height: 100%;
+  text-align: center;
+}
+.cr-projects-header {
+  display: block;
+  height: 300px;
+  background-color: lightblue;
+  padding-top: 100px;
+}
+.cr-projects-header .title {
+  color: white;
+  font-size: 2em;
+}
+.cr-projects-header .tagline {
+  color: white;
+  font-size: 1.5em;
+}
+.cr-projects-header .notes {
+  padding-top: 10px;
+  font-size: 1em;
+}
+.cr-tutorials {
+  padding: 10px;
+}
+.example-enter {
+  opacity: 0.01;
+}
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.example-leave {
+  opacity: 1;
+}
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+#crv {
+  width: 400px;
+  height: 100%;
+  overflow: scroll;
+}
+#crv a {
+  color: black;
+  text-decoration: none;
+}
+#crv a:hover {
+  text-decoration: none;
+}
+#crv a:visited {
+  text-decoration: none;
+}
+pre {
+  margin-bottom: 10px !important;
+  padding-bottom: 0;
+}

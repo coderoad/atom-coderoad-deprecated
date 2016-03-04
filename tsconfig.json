@@ -40,7 +40,6 @@
     "src/typings/react-dom/react-dom.d.ts",
     "src/typings/react-redux/batched-subscribe.d.ts",
     "src/typings/react-redux/react-redux.d.ts",
-    "src/typings/react-router/react-router.d.ts",
     "src/typings/react/react-addons-css-transition-group.d.ts",
     "src/typings/react/react-addons-transition-group.d.ts",
     "src/typings/react/react-tap-event-plugin.d.ts",
