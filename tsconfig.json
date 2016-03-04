@@ -109,7 +109,6 @@
     "src/components/page/page-complete.tsx",
     "src/components/page/page.tsx",
     "src/components/page/task.tsx",
-    "src/components/page/tasks.tsx",
     "src/components/page/toolbar.tsx",
     "src/components/progress/progress.tsx",
     "src/components/projects/projects.tsx",
