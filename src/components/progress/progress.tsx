@@ -83,7 +83,7 @@ export default ({progress, position}) => (
           primaryTogglesNestedList={chapterIndex === position.chapter && !chapter.completed}
           nestedItems={chapter.pages.map((page: CR.Page, pageIndex: number) => {
             const itemPosition = {chapter: chapterIndex, page: pageIndex};
-            return <ProgressPage page={page} itemPosition={itemPosition} position={position}/>;
+            return <ProgressPage key={'c' + chapterIndex + 'p' + pageIndex} page={page} itemPosition={itemPosition} position={position}/>;
          })}/>;
     })}
     </List>
