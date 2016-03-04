@@ -69,44 +69,42 @@ function taskProgress(current: number, max: number) {
   return {
     callNextPage: () => dispatch(Action.nextPage()),
     callRunTests: () => dispatch(Action.runTests()),
-    toggleLog: () => dispatch(Action.toggleLog())
+    toggleLog: () => dispatch(Action.toggleLog()),
+    showHint: (newHintPos) => dispatch(Action.setHintPosition(newHintPos))
   };
 })
 export default class extends React.Component<{
   page: CR.Page, tasks: CR.Task[], taskPosition: number,
-  editorActions: string[], log: any,
-  runTests: boolean, callNextPage?: any, callRunTests?: any, callNextTask?: any
+  editorActions: string[], log: any, hintPosition: number,
+  runTests: boolean, callNextPage?: any, callRunTests?: any, callNextTask?: any, showHint?: any
 }, {hintPos: number, taskPos: number}> {
+
+refs: {
+  [key: string]: (Element);
+  listEnd: Element;
+};
 constructor() {
   super();
-  this.state = {
-      hintPos: -1,
-      taskPos: 0
-  };
 }
 componentDidUpdate() {
-  let taskPosition = this.props.taskPosition;
+  const {taskPosition, hintPosition} = this.props;
   if (taskPosition > 0 && taskPosition < this.props.tasks.length) {
-    ReactDOM.findDOMNode<HTMLElement>(this.refs['task' + taskPosition]).scrollIntoView();
+    ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
   }
-  if (this.state.taskPos !== taskPosition) {
-    this.setState({
-      hintPos: -1,
-      taskPos: taskPosition
-    });
-  } else if (this.state.hintPos > -1) {
-    ReactDOM.findDOMNode<HTMLElement>(this.refs['hint' + this.state.hintPos]).scrollIntoView();
+  if (hintPosition > -1) {
+    ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
   } else if (this.props.page.completed && this.props.page.onPageComplete) {
-    ReactDOM.findDOMNode<HTMLElement>(this.refs.onPageComplete).scrollIntoView();
+    ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
   }
 }
 displayHint(task) {
+  const {hintPosition} = this.props;
   if (task && task.hints && task.hints.length) {
-    if (this.state.hintPos < task.hints.length - 1) {
-      this.setState({hintPos: this.state.hintPos += 1, taskPos: this.state.taskPos});
+    if (hintPosition < task.hints.length - 1) {
+      this.props.showHint(hintPosition + 1);
     }
   } else {
-    this.setState({hintPos: -1, taskPos: this.state.taskPos});
+    this.props.showHint(-1);
   }
 }
 // hintsShown(task) {
@@ -116,8 +114,7 @@ displayHint(task) {
 //   return null;
 // }
 render() {
-  let page = this.props.page;
-  let taskPosition = this.props.taskPosition;
+  const {page, taskPosition, hintPosition} = this.props;
   let tasks = visibleTasks(this.props.tasks, taskPosition);
   var currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
   // let log = this.props.log;
@@ -137,7 +134,7 @@ render() {
           let isDisabledTask = index > taskPosition;
           let isCompletedTask = index < taskPosition;
           let isFinalTask = index >= tasks.length - 1;
-          let hints = hintsShown(task, this.state.hintPos);
+          let hints = hintsShown(task, hintPosition);
           return (
           <div>
               <ListItem
@@ -173,6 +170,7 @@ render() {
           <MarkdownText text={page.onPageComplete} />
         </div>
       </ListItem> : null}
+      <div ref='listEnd'></div>
     </List>
 
     {/* Options */}
@@ -181,7 +179,7 @@ render() {
     <Toolbar>
       {currentTask && currentTask.hints && currentTask.hints.length ?
       <ToolbarGroup float='left'>
-          {this.state.hintPos <= currentTask.hints.length - 2 ?
+          {hintPosition <= currentTask.hints.length - 2 ?
           <FlatButton className='cr-task-showHint' icon={<InfoOutline/>} onClick={this.displayHint.bind(this, currentTask)}></FlatButton>
           : <FlatButton className='cr-task-showHint-disabled' icon={<Info />} disabled={true} />}
       </ToolbarGroup>

@@ -6,8 +6,6 @@ export default function taskPositionReducer(taskPosition = defaultTaskPosition, 
   switch (action.type) {
     case Type.SET_PAGE:
       return 0;
-    case Type.SET_TASK_POSITION:
-      return action.payload.taskPosition;
     case Type.TEST_RESULT:
       return action.payload.result.taskPosition;
     default:

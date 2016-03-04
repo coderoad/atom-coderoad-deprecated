@@ -34,6 +34,7 @@ declare namespace CR {
     tasks: Task[];
     taskTests: string[];
     taskPosition: number;
+    hintPosition: number;
     editorActions: string[];
     alert: Alert;
     tutorials: string[];

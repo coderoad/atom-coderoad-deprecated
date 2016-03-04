@@ -8,6 +8,7 @@ export default class extends React.Component<{state: CR.State}, {}> {
         return <Page page={state.page}
                     tasks={state.tasks}
                     taskPosition={state.taskPosition}
+                    hintPosition={state.hintPosition}
                     editorActions={state.editorActions}
                     runTests={state.runTests}
                     log={state.log} />;

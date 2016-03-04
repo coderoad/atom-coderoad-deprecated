@@ -23,7 +23,8 @@ export function getInitialState(): Object {
     editorActions: false,
     runTests: false,
     tutorials: [],
-    alert: {}
+    alert: {},
+    hintPosition: -1
     // log: { open: false, message: '' },
   };
 }

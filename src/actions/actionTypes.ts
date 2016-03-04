@@ -24,10 +24,10 @@ export const CHAPTER_COMPLETE = 'CHAPTER_COMPLETE';
 export const PROJECT_COMPLETE = 'PROJECT_COMPLETE';
 
 // Tasks
-export const SET_TASK_POSITION = 'SET_TASK_POSITION';
 export const EDITOR_ACTIONS = 'EDITOR_ACTIONS';
 export const SHOW_HINT = 'SHOW_HINT';
 export const SHOW_SOLUTION = 'SHOW_SOLUTION';
+export const SET_HINT_POSITION = 'SET_HINT_POSITION';
 
 // Tests
 export const RUN_TESTS = 'RUN_TESTS';
