@@ -37,9 +37,10 @@ export default class extends React.Component<{
       <MarkdownText text={hint} />
     </CardText>
     <CardActions expandable={true}>
-      {hintPosition > 0 ? <FlatButton label='Previous' onClick={prevHint.bind(this, hintPosition - 1)} /> : <div />}
-      {hintPosition >= 0 && hintPosition < hints.length - 1 ?
-        <FlatButton label='Next' onClick={nextHint.bind(this, hintPosition + 1)} /> : <div /> }
+      <FlatButton label='Previous' disabled={hintPosition < 1}
+        onClick={prevHint.bind(this, hintPosition - 1)} />
+      <FlatButton label='Next' disabled={hintPosition > hints.length - 2}
+        onClick={nextHint.bind(this, hintPosition + 1)} />
     </CardActions>
   </Card>
   );
