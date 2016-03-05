@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {List, ListItem} from 'material-ui';
+import {List, ListItem, RaisedButton} from 'material-ui';
 import {MarkdownText} from '../_components';
-import {createPackageJson} from '../../services/start';
-import {openFolder} from '../../atom/editor';
+import {fileExists} from '../../services/exists';
+import * as path from 'path';
+import {open, set, openFolder} from '../../atom/editor';
 
 export const SetupGuide = ({tutorials}) => {
   let warnings = [];
@@ -45,5 +46,37 @@ export const SetupGuide = ({tutorials}) => {
           </ListItem>)}
 
       </List>
+
+      <br />
+      <RaisedButton label='Verify Setup' secondary={true} onTouchTap={checkSetup} />
     </div>);
 };
+
+const packageData = `{
+  "name": "demo",
+  "dependencies": {
+    "coderoad-functional-school": "^0.1.9"
+  }
+}`;
+
+function createPackageJson() {
+  const packagePath = path.join(window.coderoad.dir, 'package.json');
+  return new Promise((resolve, reject) => {
+    open(packagePath);
+    setTimeout(function() {
+      resolve();
+    });
+  }).then(function() {
+    set(packageData);
+    window.coderoad.setup.hasPackageJson = true;
+  });
+}
+
+// verify package.json, tutorial installed
+function checkSetup() {
+  const packagePath = path.join(window.coderoad.dir, 'package.json');
+  if (fileExists(packagePath)) {
+    window.coderoad.setup.hasPackageJson = true;
+  }
+
+}

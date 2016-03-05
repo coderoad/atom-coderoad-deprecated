@@ -8,6 +8,10 @@ export function setProject(): CR.Action {
   return { type: Type.SET_PROJECT };
 }
 
+export function setSetup(setup: CR.Setup): CR.Action {
+  return { type: Type.SET_SETUP, payload: setup };
+}
+
 export function setProgress(): CR.Action {
   return { type: Type.SET_PROGRESS };
 }

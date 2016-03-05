@@ -111,8 +111,10 @@ declare namespace CR {
   }
 
   interface Setup {
+    hasDirectory?: boolean;
     hasPackageJson?: boolean;
     hasTutorial?: boolean;
+    hasTutorialDep?: boolean;
     hasTestRunner?: boolean;
   }
 
