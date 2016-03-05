@@ -98,3 +98,7 @@ export function closeAllPanels() {
 export function quit() {
   // TODO: quit without destroying ALL subscriptions
 }
+
+export function openFolder() {
+  atom.open();
+}

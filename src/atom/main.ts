@@ -10,7 +10,8 @@ class Main {
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
     window.coderoad = {
-      dir: null
+      dir: null,
+      setup: {}
     };
     loadPolyfills();
     setAtomGlobals();

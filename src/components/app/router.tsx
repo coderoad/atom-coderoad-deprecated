@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Page, Progress, Projects} from './../_components';
+import {Page, Progress, Start} from './../_components';
 import * as ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class extends React.Component<{state: CR.State}, {}> {
@@ -17,7 +17,7 @@ export default class extends React.Component<{state: CR.State}, {}> {
         return <Progress progress={state.progress}
                         position={state.position} />;
       case 'projects':
-        return <Projects tutorials={state.tutorials} />;
+        return <Start tutorials={state.tutorials} />;
       default:
         throw 'Error: Route not found.';
     }

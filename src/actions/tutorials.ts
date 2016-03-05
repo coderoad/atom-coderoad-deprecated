@@ -10,7 +10,7 @@ export function loadTutorials(): CR.Action {
   if (window.coderoad.dir) {
     let packageJson: PackageJson = loadRootPackageJson();
     if (!packageJson) {
-      window.coderoad.package = null;
+      window.coderoad.setup.hasPackageJson = null;
       let message = 'No package.json file available. Try running "npm init --y" in terminal';
       console.log(message);
       store.dispatch(Action.toggleAlert({ message, action: 'tip', duration: 6000 }));

@@ -98,7 +98,6 @@ declare namespace CR {
 
   interface Coderoad {
     dir: string;
-    package?: string;
     testRunner?: string;
     tutorial?: string;
     tutorialDir?: string;
@@ -108,6 +107,13 @@ declare namespace CR {
     edit?: boolean;
     runner?: any;
     taskPosition?: number;
+    setup: Setup;
+  }
+
+  interface Setup {
+    hasPackageJson?: boolean;
+    hasTutorial?: boolean;
+    hasTestRunner?: boolean;
   }
 
   interface Config {
@@ -115,7 +121,9 @@ declare namespace CR {
     testSuffix?: string;
     testRunner: string;
     edit?: boolean;
-    testRunnerOptions?: Object;
+    testRunnerOptions?: TestRunnerOptions;
   }
+
+  interface TestRunnerOptions {}
 
 }

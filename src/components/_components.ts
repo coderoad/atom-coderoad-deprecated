@@ -13,7 +13,7 @@ export {default as Chapter} from './page/chapter';
 export {default as Menu} from './menu/menu';
 export {default as Account} from './account/account';
 export {default as Progress} from './progress/progress';
-export {default as Projects} from './projects/projects';
+export {Start} from './start/start';
 
 // Common
 export {default as MarkdownText} from './markdown/markdown';

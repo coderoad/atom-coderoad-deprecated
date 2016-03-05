@@ -15,14 +15,6 @@ export function onActivateSubscriptions() {
       'cr-viewer:toggle': togglePanel
     }));
 
-  // if (config.runTestsOnChange) {
-  //   // run tests when document changes
-  //   subscriptions.add(
-  //     atom.workspace.onDidStopChanging(() => {
-  //       store.dispatch(Action.runTests());
-  //     }));
-  // }
-
   // run tests on save
   atom.workspace.observeTextEditors((editor: AtomCore.IEditor) => {
     subscriptions.add(
@@ -48,6 +40,7 @@ export function onActivateSubscriptions() {
 
 export function onDeactivateSubscriptionsAndUnmount() {
   // unmount React
+  // TODO: animate close first
   unmount(document.getElementById('crv'));
   // cleanup subscriptions
   subscriptions.dispose();

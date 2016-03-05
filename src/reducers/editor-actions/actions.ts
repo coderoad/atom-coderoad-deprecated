@@ -26,7 +26,7 @@ export function getParams(actionString: string): string[] {
     console.error('Error loading editor action params ', actionString);
     return null;
   }
-  let paramsList:string[] = parseParams.getParams(params);
+  let paramsList: string[] = parseParams.getParams(params);
   return paramsList;
 }
 
@@ -106,4 +106,8 @@ export function editorActions(actionString: string): Promise<void> {
   }).catch((err) => {
     console.error('Error with editor', err);
   });
+}
+
+export function openFolder() {
+  atom.open();
 }

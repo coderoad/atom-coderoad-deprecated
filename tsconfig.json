@@ -89,6 +89,7 @@
     "src/services/package.ts",
     "src/services/polyfills.ts",
     "src/services/setGlobals.ts",
+    "src/services/start.ts",
     "src/store/initialState.ts",
     "src/store/middleware.ts",
     "src/store/store.ts",
@@ -110,8 +111,13 @@
     "src/components/page/task.tsx",
     "src/components/page/toolbar.tsx",
     "src/components/progress/progress.tsx",
-    "src/components/projects/projects.tsx",
-    "src/components/render.tsx"
+    "src/components/projects/setup.tsx",
+    "src/components/projects/start.tsx",
+    "src/components/projects/tutorials.tsx",
+    "src/components/render.tsx",
+    "src/components/start/setup.tsx",
+    "src/components/start/start.tsx",
+    "src/components/start/tutorials.tsx"
   ],
   "exclude": [
     "node_modules"
