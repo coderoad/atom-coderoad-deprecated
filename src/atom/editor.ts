@@ -6,6 +6,7 @@ import * as Action from '../actions/actions';
 export function setAtomGlobals() {
   if (atom.project.rootDirectories.length > 0) {
     window.coderoad.dir = atom.project.rootDirectories[0].path;
+    store.dispatch(Action.setSetup({hasDirectory: true}));
   } else {
     let message = 'Create a new Atom project. In Atom: File > Open > any folder';
     store.dispatch(Action.toggleAlert({ message, action: 'tip', duration: 6000 }));
@@ -48,7 +49,7 @@ export function getEditor() {
  * Actions in Atom Editor
  * @return {[type]} [description]
  */
-export function open(filePath: string, options?: Object) {
+export function open(filePath: string, options = {}) {
   // delete file first, to avoid bug
   if (fileExists(filePath)) {
     fs.unlink(filePath);
@@ -67,7 +68,7 @@ export function set(text: string) {
   });
 }
 
-export function insert(text: string, options?: Object) {
+export function insert(text: string, options = {}) {
   options = Object.assign(options, {
     autoIndent: true
   });

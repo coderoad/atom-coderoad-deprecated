@@ -20,13 +20,14 @@ const defaultAlert = {
 export default class extends React.Component<{alert: CR.Alert, toggleAlert?: any}, CR.Alert> {
   render() {
     const {alert, toggleAlert} = this.props;
+    const {action, open, message, duration} = alert;
     return (
     <Snackbar
-          className={classNames('cr-alert', alert.action)}
-          open={alert.open || false}
-          message={alert.message || ''}
-          action={alert.action}
-          autoHideDuration={alert.duration || 1500}
+          className={classNames('cr-alert', action)}
+          open={open || false}
+          message={message || ''}
+          action={action}
+          autoHideDuration={duration || 1500}
           onActionTouchTap={toggleAlert}
           onRequestClose={toggleAlert}
         />

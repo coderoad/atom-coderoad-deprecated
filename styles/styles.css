@@ -12,6 +12,9 @@ atom-panel-container > atom-panel > #crv {
     width: 400px;
   }
 }
+#crv code {
+  background-color: #161719;
+}
 .route-enter {
   opacity: 0.01;
 }

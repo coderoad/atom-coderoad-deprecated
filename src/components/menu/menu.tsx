@@ -34,24 +34,26 @@ export default class extends React.Component<{
   route: string, position: CR.Position, routeToProgress?: any, routeToPage?: any, routeToProjects?: any, quit?: any
 }, {}> {
   navOptions(): React.ReactElement<{}> {
+    const {routeToProgress, routeToPage} = this.props;
     switch (this.props.route) {
       case 'page':
-        return <button onTouchTap={this.props.routeToProgress}>progress</button>;
+        return <button onTouchTap={routeToProgress}>progress</button>;
       case 'progress':
-        return <button onTouchTap={this.props.routeToPage}>page</button>;
+        return <button onTouchTap={routeToPage}>page</button>;
       default: return null;
     }
   }
   menuOptions() {
+    const {routeToProgress, routeToProjects} = this.props;
     switch (this.props.route) {
       case 'page':
         return (
           <div>
-        <MenuItem primaryText='progress' onTouchTap={this.props.routeToProgress} key='progress' />
-        <MenuItem primaryText='projects' onTouchTap={this.props.routeToProjects} key='projects' />
+        <MenuItem primaryText='progress' onTouchTap={routeToProgress} key='progress' />
+        <MenuItem primaryText='projects' onTouchTap={routeToProjects} key='projects' />
       </div>);
       case 'progress':
-        return <MenuItem primaryText='projects' onTouchTap={this.props.routeToProjects} key='projects' />;
+        return <MenuItem primaryText='projects' onTouchTap={routeToProjects} key='projects' />;
       default: return null;
     }
   }
@@ -59,6 +61,8 @@ export default class extends React.Component<{
     togglePanel();
   }
   render(): React.ReactElement<{}> {
+    const origin = {horizontal: 'right', vertical: 'top'};
+    const {quit} = this.props;
     return (
       <AppBar title={'CodeRoad'}
               className='cr-menu-bar'
@@ -68,12 +72,11 @@ export default class extends React.Component<{
         iconButtonElement={
           <IconButton><MoreVertIcon /></IconButton>
         }
-        targetOrigin={{horizontal: 'right', vertical: 'top'}}
-        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-      >
+        targetOrigin={origin}
+        anchorOrigin={origin}>
         {/* Menu Items */}
         {this.menuOptions()}
-        {}
+
         {window.coderoad.issuesPath ? <MenuItem key='issue'>
           <a href={window.coderoad.issuesPath}>
             post issue
@@ -81,7 +84,7 @@ export default class extends React.Component<{
           </MenuItem> : null}
 
         <Divider />
-        <MenuItem primaryText='quit' onTouchTap={this.props.quit}/>
+        <MenuItem primaryText='quit' onTouchTap={quit}/>
 
       </IconMenu>
     } />

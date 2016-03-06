@@ -35,9 +35,8 @@ class PackageService {
     this.data = require(path.join(packagePath, this.config.main));
     this.packageName = packageName;
   }
-  page(position: CR.Position): CR.Page {
-    let page = _.cloneDeep(this.data.chapters[position.chapter].pages[position.page]);
-    return page;
+  page({chapter, page}: CR.Position): CR.Page {
+    return _.cloneDeep(this.data.chapters[chapter].pages[page]);
   }
   getConfig() {
     return this.config;
@@ -63,12 +62,9 @@ class PackageService {
     return tasks;
   }
   getPage(position: CR.Position): CR.Page {
-    const page = this.page(position);
+    const {title, description, onPageComplete, completed} = this.page(position);
     return {
-      title: page.title,
-      description: page.description,
-      onPageComplete: page.onPageComplete,
-      completed: page.completed || false,
+      title, description, onPageComplete, completed: completed || false
     };
   }
   getSavedPosition(): CR.Position {
@@ -79,15 +75,15 @@ class PackageService {
     // TODO: resolve to get saved route
     return 'progress';
   }
-  getNextPosition(position: CR.Position): CR.Position {
+  getNextPosition({chapter, page}: CR.Position): CR.Position {
     const chapters = this.data.chapters;
-    if (position.page < chapters[position.chapter].pages.length - 1) {
-      return { chapter: position.chapter, page: position.page + 1 };
-    } else if (position.chapter < chapters.length - 1) {
-      return { chapter: position.chapter + 1, page: 0 };
+    if (page < chapters[chapter].pages.length - 1) {
+      return { chapter, page: page + 1 };
+    } else if (chapter < chapters.length - 1) {
+      return { chapter: chapter + 1, page: 0 };
     } else {
       store.dispatch(Action.projectComplete());
-      return position;
+      return {chapter, page};
     }
   }
   getProject(): CR.Project {
@@ -97,12 +93,10 @@ class PackageService {
     const chapters = this.data.chapters;
     return {
       completed: false,
-      chapters: !chapters ? [] : chapters.map((chapter: CR.Chapter) => {
+      chapters: !chapters ? [] : chapters.map(({title, description, completed, pages}) => {
         return {
-          title: chapter.title,
-          description: chapter.description,
-          completed: chapter.completed || false,
-          pages: !chapter.pages ? [] : chapter.pages.map((page: CR.Page) => {
+          title, description, completed: completed || false,
+          pages: !pages ? [] : pages.map((page: CR.Page) => {
             return {
               title: page.title,
               description: page.description,

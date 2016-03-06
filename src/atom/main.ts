@@ -30,10 +30,12 @@ class Main {
     this.statusBarTile = addToStatusBar(statusBar);
   }
   deactivate(): void {
+    // remove bottom status bar icon
     if (this.statusBarTile) {
       this.statusBarTile.destroy();
       this.statusBarTile = null;
     }
+    // remove subscriptions & unmount react app
     onDeactivateSubscriptionsAndUnmount();
   }
   toggle(): void {

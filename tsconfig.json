@@ -111,6 +111,7 @@
     "src/components/page/task.tsx",
     "src/components/page/toolbar.tsx",
     "src/components/progress/progress.tsx",
+    "src/components/projects/projects.tsx",
     "src/components/render.tsx",
     "src/components/start/setup.tsx",
     "src/components/start/start.tsx",
