@@ -43,8 +43,8 @@ class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Posi
     return (<ListItem
             key={itemPosition.page}
             className={classnames({
-              'cr-page': true,
-              'cr-page-isDisabled': !this.canActivate(isActive, itemPosition, position)
+              'page': true,
+              'page-isDisabled': !this.canActivate(isActive, itemPosition, position)
             })}
             primaryText={`${itemPosition.page + 1}. ${page.title}`}
             secondaryText={page.description}
@@ -68,7 +68,7 @@ const style = {
 export default ({progress, position}) => (
   <Paper style={style} zDepth={1} className='cr-progress'>
     {/*}<ProjectDescription project={project} />*/}
-    <List subheader='Chapters'>
+    <List subheader='Progress'>
     {progress.chapters.map((chapter: CR.Chapter, chapterIndex: number) => {
       const isActive = chapterIndex === position.chapter;
       return <ListItem
@@ -84,9 +84,9 @@ export default ({progress, position}) => (
             const itemPosition = {chapter: chapterIndex, page: pageIndex};
             return <ProgressPage key={'c' + chapterIndex + 'p' + pageIndex} page={page} itemPosition={itemPosition} position={position}/>;
          })}>
-            <h4>{chapterIndex + 1}. {chapter.title}</h4>
-            <span className='cr-chapter-description'>
-              <MarkdownText text={chapter.description} />
+            <h3>{chapterIndex + 1}. {chapter.title}</h3>
+            <span className='chapter-description'>
+              <MarkdownText  text={chapter.description} />
             </span>
          </ListItem>;
     })}

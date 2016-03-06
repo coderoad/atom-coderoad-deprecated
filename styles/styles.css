@@ -97,15 +97,15 @@ atom-panel-container > atom-panel > #crv {
 .cr-progress .chapter.isActive {
   background-color: #e6e6e6;
 }
-.cr-progress .cr-page {
+.cr-progress .page {
   padding-left: 15px;
   margin-top: 0;
 }
-.cr-progress .cr-page .cr-page-isDisabled {
+.cr-progress .page .page-isDisabled {
   color: rgba(0, 0, 0, 0.5);
   background: white;
 }
-.cr-progress .cr-page .cr-page-isDisabled:hover {
+.cr-progress .page .page-isDisabled:hover {
   background: white;
 }
 .cr-alert.pass button span {
