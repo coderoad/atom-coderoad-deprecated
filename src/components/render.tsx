@@ -33,9 +33,6 @@ export function initRoot(): HTMLElement {
   root.setAttribute('id', rootName);
   // mark panel visibility as hidden, triggers immediately
   root.hidden = true;
-  if (!!window.coderoad.dir) {
-    store.dispatch(Action.loadTutorials());
-  }
   return root;
 }
 

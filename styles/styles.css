@@ -122,27 +122,37 @@ atom-panel-container > atom-panel > #crv {
   margin-left: 10px;
   margin-right: 10px;
 }
-.cr-projects {
+.cr-start {
   height: 100%;
   text-align: center;
 }
-.cr-projects-header {
+.cr-start-header {
   display: block;
   height: 300px;
   background-color: lightblue;
   padding-top: 100px;
 }
-.cr-projects-header .title {
+.cr-start-header .title {
   color: white;
   font-size: 2em;
 }
-.cr-projects-header .tagline {
+.cr-start-header .tagline {
   color: white;
   font-size: 1.5em;
 }
-.cr-projects-header .notes {
+.cr-start-header .notes {
   padding-top: 10px;
   font-size: 1em;
+}
+.cr-setup .setupGuide {
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+}
+.cr-setup .setupGuide a,
+.cr-setup .setupGuide a:link,
+.cr-setup .setupGuide a:visited {
+  color: white;
 }
 .cr-tutorials {
   padding: 10px;
@@ -151,13 +161,8 @@ atom-panel-container > atom-panel > #crv {
   height: 100%;
   overflow: scroll;
 }
-#crv a {
-  color: black;
-  text-decoration: none;
-}
-#crv a:hover {
-  text-decoration: none;
-}
+#crv a,
+#crv a:hover,
 #crv a:visited {
   text-decoration: none;
 }

@@ -40,6 +40,7 @@ declare namespace CR {
     tutorials: string[];
     runTests: boolean;
     log: Log;
+    warning: SetupWarning;
   }
 
   interface Project {
@@ -107,15 +108,6 @@ declare namespace CR {
     edit?: boolean;
     runner?: any;
     taskPosition?: number;
-    setup: Setup;
-  }
-
-  interface Setup {
-    hasDirectory?: boolean;
-    hasPackageJson?: boolean;
-    hasTutorial?: boolean;
-    hasTutorialDep?: boolean;
-    hasTestRunner?: boolean;
   }
 
   interface Config {
@@ -124,6 +116,13 @@ declare namespace CR {
     testRunner: string;
     edit?: boolean;
     testRunnerOptions?: TestRunnerOptions;
+  }
+
+  interface SetupWarning {
+    key: string;
+    title: string;
+    click: () => void;
+    text: string;
   }
 
   interface TestRunnerOptions {}

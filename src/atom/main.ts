@@ -4,17 +4,18 @@ import {render, initRoot, togglePanel} from '../components/render';
 import loadPolyfills from '../services/polyfills';
 import {onActivateSubscriptions, onDeactivateSubscriptionsAndUnmount, addToStatusBar} from './subscriptions';
 import {setAtomGlobals} from './editor';
+import {verifySetupComplete} from '../services/setup-checks';
 
 class Main {
   root: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
     window.coderoad = {
-      dir: null,
-      setup: {}
+      dir: null
     };
     loadPolyfills();
     setAtomGlobals();
+    verifySetupComplete();
     this.root = initRoot();
   }
   activate(): void {

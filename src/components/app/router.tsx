@@ -16,7 +16,7 @@ export default class extends React.Component<{state: CR.State}, {}> {
         return <Progress progress={state.progress}
                         position={state.position} />;
       case 'projects':
-        return <Start tutorials={state.tutorials} />;
+        return <Start tutorials={state.tutorials} warning={state.warning} />;
       default:
         throw 'Error: Route not found.';
     }

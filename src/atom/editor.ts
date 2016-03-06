@@ -1,16 +1,10 @@
-import {store} from '../_base';
 import * as fs from 'fs';
 import {fileExists} from '../services/exists';
-import * as Action from '../actions/actions';
 
 export function setAtomGlobals() {
   if (atom.project.rootDirectories.length > 0) {
     window.coderoad.dir = atom.project.rootDirectories[0].path;
-    store.dispatch(Action.setSetup({hasDirectory: true}));
   } else {
-    let message = 'Create a new Atom project. In Atom: File > Open > any folder';
-    store.dispatch(Action.toggleAlert({ message, action: 'tip', duration: 6000 }));
-    console.log(message);
     window.coderoad.dir = null;
   }
 }
