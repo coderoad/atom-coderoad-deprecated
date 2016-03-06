@@ -61,7 +61,7 @@ export default class Projects extends React.Component<{
             }) : <ListItem
                 key='demo'
                 primaryText='Try a Demo'
-                secondaryText='npm i -s coderoad-functional-school'/>}
+                secondaryText='npm i --save-dev coderoad-functional-school'/>}
 
             </List>
             <br />

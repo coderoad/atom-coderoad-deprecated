@@ -91,6 +91,9 @@ atom-panel-container > atom-panel > #crv {
 .cr-progress .chapter {
   margin-bottom: 0;
 }
+.cr-progress .chapter-description {
+  font-size: 14px;
+}
 .cr-progress .chapter.isActive {
   background-color: #e6e6e6;
 }
