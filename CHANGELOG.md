@@ -15,3 +15,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - basic animations
 - bug fixes
 - @onPageComplete message
+
+## [0.5.1] - 2016-03-06
+### Added
+- smoother setup process
+- style, ui improvements
