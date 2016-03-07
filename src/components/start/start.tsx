@@ -9,7 +9,7 @@ export const Start = ({tutorials, warning}) => (
     <div className='cr-start-header'>
       <span className='title'>CodeRoad</span>
       <p className='tagline'>Tutorials in the Editor</p>
-      <p className='notes'>Beta</p>
+      <p className='version'>Beta</p>
 
       {!warning ? <Tutorials tutorials={tutorials}/> : <SetupGuide warning={warning} />}
 

@@ -1,6 +1,6 @@
 import {fileExists} from './exists';
 import {packageJsonExists, loadRootPackageJson, searchForTutorials} from './tutorials';
-import {createPackageJson, openDirectory} from './setup-actions';
+import {createPackageJson, openDirectory, installTutorial} from './setup-actions';
 import * as path from 'path';
 import {store} from '../_base';
 import * as Action from '../actions/actions';
@@ -15,7 +15,6 @@ export function verifySetupComplete() {
     store.dispatch(Action.loadTutorials());
   })
   .catch((warning: CR.SetupWarning) => {
-    console.log(warning);
     store.dispatch(Action.setupWarning(warning));
   });
 }
@@ -29,7 +28,8 @@ function hasDirectory(): Promise<CR.SetupWarning> {
         key: 'noProject',
         title: 'Create an Atom Project',
         click: openDirectory,
-        text: 'File > Open > a workspace folder'
+        text: 'Start by opening a folder to work in.\nFile > Open',
+        verify: null
       });
     } else {
       resolve();
@@ -46,7 +46,8 @@ function hasPackageJson(): Promise<CR.SetupWarning> {
         key: 'noPackageJson',
         title: 'Create a `package.json` file',
         click: createPackageJson,
-        text: '`npm init`'
+        text: 'Open a terminal in this directory and run:\n`npm init` or `npm init --y`.\n',
+        verify: 'Package.json created'
       });
     }
     resolve();
@@ -63,8 +64,9 @@ function hasTutorialDep(): Promise<CR.SetupWarning> {
       reject({
         key: 'noTutorialDep',
         title: 'Install a Tutorial',
-        click: null,
-        text: '`npm i --save coderoad-functional-school`'
+        click: installTutorial,
+        text: 'In terminal in this project directory run:\n`npm i --save coderoad-functional-school`',
+        verify: 'Tutorial Installed'
       });
     }
     resolve();

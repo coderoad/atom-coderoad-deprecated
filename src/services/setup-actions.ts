@@ -29,5 +29,5 @@ export function openDirectory() {
 }
 
 export function installTutorial() {
-  // TODO
+  return;
 }

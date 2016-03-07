@@ -123,6 +123,7 @@ declare namespace CR {
     title: string;
     click: () => void;
     text: string;
+    verify?: string;
   }
 
   interface TestRunnerOptions {}
