@@ -86,6 +86,7 @@
     "src/reducers/tasks/tasks.ts",
     "src/reducers/tutorials/tutorials.ts",
     "src/reducers/warning/warning.ts",
+    "src/services/child-process.ts",
     "src/services/exists.ts",
     "src/services/package.ts",
     "src/services/polyfills.ts",

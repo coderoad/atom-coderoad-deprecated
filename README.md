@@ -2,9 +2,9 @@
 
 Interactive coding tutorials inside of the Atom editor. [Learn more](https://coderoad.github.io).
 
-See a [video](https://youtu.be/DbLpdgrYVOU).
-
 ![Atom-CodeRoad](https://coderoad.github.io/img/gif/atom-coderoad-0.5.1.gif)
+
+See a [video](https://youtu.be/DbLpdgrYVOU).
 
 ## Docs
 

@@ -59,6 +59,7 @@ export function set(text: string) {
     editor.insertNewline();
     editor.moveToBottom();
     editor.save();
+    setCursorPosition(editor);
   });
 }
 
@@ -72,6 +73,15 @@ export function insert(text: string, options = {}) {
     editor.insertNewline();
     editor.moveToBottom();
     editor.save();
+    setCursorPosition(editor);
+  });
+}
+
+function setCursorPosition(editor: AtomCore.IEditor) {
+  editor.scan(/::>/g, function (match) {
+    let start = match.range.start;
+    match.replace('');
+    editor.setCursorScreenPosition(start, {autoscroll: true});
   });
 }
 

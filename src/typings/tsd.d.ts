@@ -15,6 +15,5 @@
 /// <reference path="text-buffer/text-buffer.d.ts" />
 /// <reference path="react/react-addons-css-transition-group.d.ts" />
 /// <reference path="marked/marked" />
-/// <reference path="enpeem/enpeem" />
 /// <reference path="cr/cr.d.ts" />
 /// <reference path="cr/globals.d.ts" />

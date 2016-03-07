@@ -1,21 +1,15 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {Menu, Router, Alert} from '../_components';
+import * as ThemeDecorator from 'material-ui/lib/styles/theme-decorator';
 import * as ThemeManager from 'material-ui/lib/styles/theme-manager';
 import Theme from '../theme/theme';
 
+@ThemeDecorator(ThemeManager.getMuiTheme(Theme))
 @connect((state: CR.State) => {
   return { state };
 })
 export default class extends React.Component<{state?: CR.State}, {}> {
-  static childContextTypes = {
-    muiTheme: React.PropTypes.object,
-  };
-  getChildContext() {
-    return {
-      muiTheme: ThemeManager.getMuiTheme(Theme)
-    };
-  }
   render(): React.ReactElement<{}> {
     const state = this.props.state;
     return (

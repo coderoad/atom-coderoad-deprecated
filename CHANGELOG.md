@@ -21,5 +21,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - smoother setup process
 - style, ui improvements
 
-## [0.5.3] - in progress
+## [0.5.3] - 2016-03-07
 - fix tutorial progress issues
+- use `::>` to set cursor position
