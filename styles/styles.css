@@ -47,15 +47,6 @@ atom-panel-container > atom-panel > #crv {
   position: relative;
   width: 400px;
 }
-.cr-page .isCompletedTask {
-  background-color: #c8e6c9;
-}
-.cr-page .isCompleteTask:hover {
-  background-color: #c8e6c9;
-}
-.cr-page .isDisabledTask {
-  color: grey;
-}
 .cr-page-toolbar {
   position: fixed;
   bottom: 0;

@@ -35,14 +35,9 @@ const TaskContent = ({task}) => (
 );
 
 export const Task = ({task, taskPosition, index, runTests}) => {
-  let taskClass = 'cr-task';
-  if (index < taskPosition) {
-    taskClass += ' isCompletedTask';
-  } else if (index === taskPosition) {
-    taskClass += 'isCurrentTask';
-  }
+  const isCompleted = index < taskPosition;
   return (
-    <ListItem key={index} className={taskClass} >
+    <ListItem key={index} className='cr-task' style={{backgroundColor: isCompleted ? '#c8e6c9' : 'inherit'}}>
         <TaskCheckbox index={index} taskPosition={taskPosition} runTests={runTests}/>
         <TaskIndex index={index} />
         <TaskContent task={task} />
