@@ -36,6 +36,7 @@ export default class extends React.Component<{
   navOptions(): React.ReactElement<{}> {
     const {routeToProgress, routeToPage} = this.props;
     switch (this.props.route) {
+      case 'final':
       case 'page':
         return <button onTouchTap={routeToProgress}>progress</button>;
       case 'progress':
@@ -46,6 +47,7 @@ export default class extends React.Component<{
   menuOptions() {
     const {routeToProgress, routeToProjects} = this.props;
     switch (this.props.route) {
+      case 'final':
       case 'page':
         return (
           <div>
