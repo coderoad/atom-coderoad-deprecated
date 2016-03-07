@@ -20,3 +20,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - smoother setup process
 - style, ui improvements
+
+## [0.5.3] - in progress
+- fix tutorial progress issues

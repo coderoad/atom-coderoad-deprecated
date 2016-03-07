@@ -4,6 +4,9 @@ import Package from '../services/package';
 const _ = require('lodash');
 
 export function setPage(selectedPosition: CR.Position = { chapter: 0, page: 0 }): CR.Action {
+  if (selectedPosition.completed) {
+    return { type: Type.SET_ROUTE, payload: { route: 'final'} };
+  }
   const page: CR.Page = Package.getPage(selectedPosition);
   const tasks: CR.Task[] = Package.getTasks(selectedPosition);
   const taskTests: CR.TaskTest[] = _.flatten(tasks.map((task) => task.tests || []));

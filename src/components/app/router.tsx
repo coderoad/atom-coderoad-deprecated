@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Page, Progress, Start} from './../_components';
+import {Page, Progress, Start, FinalPage} from './../_components';
 
 export default class extends React.Component<{state: CR.State}, {}> {
   chooseRoute(state: CR.State) {
@@ -17,6 +17,8 @@ export default class extends React.Component<{state: CR.State}, {}> {
                         position={state.position} />;
       case 'projects':
         return <Start tutorials={state.tutorials} warning={state.warning} />;
+      case 'final':
+        return <FinalPage />;
       default:
         throw 'Error: Route not found.';
     }

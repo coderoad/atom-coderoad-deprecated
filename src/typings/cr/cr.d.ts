@@ -51,6 +51,7 @@ declare namespace CR {
   interface Position {
     chapter: number;
     page: number;
+    completed?: boolean;
   }
 
   interface Progress {

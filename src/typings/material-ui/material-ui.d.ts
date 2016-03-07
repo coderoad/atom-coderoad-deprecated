@@ -37,7 +37,7 @@ declare module "material-ui" {
   export import LeftNav = __MaterialUI.LeftNav; // require('material-ui/lib/left-nav');
   export import LinearProgress = __MaterialUI.LinearProgress; // require('material-ui/lib/linear-progress');
   export import List = __MaterialUI.Lists.List; // require('material-ui/lib/lists/list');
-  export import ListDivider = __MaterialUI.Lists.ListDivider; // require('material-ui/lib/lists/list-divider');
+  export import Divider = __MaterialUI.Divider; // require('material-ui/lib/divider');
   export import ListItem = __MaterialUI.Lists.ListItem; // require('material-ui/lib/lists/list-item');
   export import Menu = __MaterialUI.Menus.Menu; // require('material-ui/lib/menus/menu');
   export import MenuItem = __MaterialUI.Menus.MenuItem; // require('material-ui/lib/menus/menu-item');

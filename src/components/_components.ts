@@ -14,6 +14,7 @@ export {default as Menu} from './menu/menu';
 export {default as Account} from './account/account';
 export {default as Progress} from './progress/progress';
 export {Start} from './start/start';
+export {FinalPage} from './final-page/final-page';
 
 // Common
 export {default as MarkdownText} from './markdown/markdown';

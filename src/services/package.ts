@@ -83,7 +83,7 @@ class PackageService {
       return { chapter: chapter + 1, page: 0 };
     } else {
       store.dispatch(Action.projectComplete());
-      return {chapter, page};
+      return {chapter, page, completed: true};
     }
   }
   getProject(): CR.Project {

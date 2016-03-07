@@ -32,6 +32,13 @@ atom-panel-container > atom-panel > #crv {
 .cr .cr-menu-bar {
   z-index: 999 !important;
 }
+.cr .cr-menu-bar a,
+.cr .cr-menu-bar a:visited,
+.cr .cr-menu-bar a:link,
+.cr .cr-menu-bar a:hover {
+  color: black;
+  text-decoration: none;
+}
 .cr-chapter {
   border: 2px solid red;
   border-sizing: border-box;

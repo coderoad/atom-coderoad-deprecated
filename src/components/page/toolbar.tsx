@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
 import {LinearProgress, Toolbar, ToolbarGroup, RaisedButton} from 'material-ui';
 import {save} from '../../atom/editor';
+import {store} from '../../_base';
 
 const ProgressBar = ({progress}) => <LinearProgress mode='determinate'
  value={progress} style={{height: '10px'}}/>;
@@ -18,14 +19,22 @@ function taskProgress(current: number, max: number) {
   };
 })
 export default class extends React.Component<{
-  tasks: CR.Task[], taskPosition: number, hintPosition: number,
+  tasks: CR.Task[], taskPosition: number,
   callNextPage?: () => void, callNextTask?: () => void, showHint?: (pos: number) => void
 }, {}> {
+  getButton() {
+    const {callNextPage, showHint, taskPosition, tasks} = this.props;
+    switch (true) {
+      case taskPosition >= tasks.length:
+        return <RaisedButton label='Continue' primary={true} onTouchTap={callNextPage}/>;
+      default:
+        return <RaisedButton label='Save' secondary={true} onTouchTap={save}/>;
+    }
+  }
   render() {
-    const {tasks, taskPosition, hintPosition, callNextPage, showHint} = this.props;
-    const currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
+    const {tasks, taskPosition} = this.props;
     const progress: number = taskProgress(taskPosition, tasks.length);
-    const allComplete = taskPosition >= tasks.length;
+
     return (
     <section className='cr-page-toolbar'>
       <ProgressBar progress={progress} />
@@ -34,13 +43,7 @@ export default class extends React.Component<{
 
       <ToolbarGroup float='right'>
         {/* add log here */}
-
-        {/* check work || continue */}
-        {allComplete ?
-          <RaisedButton label='Continue' primary={true} onTouchTap={callNextPage}/>
-          :
-          <RaisedButton label='Save' secondary={true} onTouchTap={save}/>
-        }
+        {this.getButton()}
       </ToolbarGroup>
 
     </Toolbar>

@@ -1,4 +1,3 @@
-'use strict';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {Paper, Divider} from 'material-ui';
@@ -44,7 +43,7 @@ render() {
     <PageCompleteMessage page={page} />
     <div ref='listEnd'></div>
 
-    <PageToolbar tasks={tasks} taskPosition={taskPosition} hintPosition={hintPosition} />
+    <PageToolbar tasks={tasks} taskPosition={taskPosition} />
   </Paper>
   );
   }
