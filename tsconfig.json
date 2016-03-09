@@ -63,6 +63,7 @@
     "src/atom/main.ts",
     "src/atom/subscriptions.ts",
     "src/components/_components.ts",
+    "src/components/dialog/dialog.ts",
     "src/components/remove-later.ts",
     "src/components/theme/theme.ts",
     "src/reducers/alert/alert.ts",

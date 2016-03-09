@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
-import {LinearProgress, Toolbar, ToolbarGroup, RaisedButton} from 'material-ui';
-import {save} from '../../atom/editor';
+import {LinearProgress, Toolbar, ToolbarGroup, RaisedButton, FlatButton} from 'material-ui';
+import {save, toggleDevTools} from '../../atom/editor';
 import {store} from '../../_base';
 
 const ProgressBar = ({progress}) => <LinearProgress mode='determinate'
@@ -40,6 +40,10 @@ export default class extends React.Component<{
       <ProgressBar progress={progress} />
 
       <Toolbar>
+
+      <ToolbarGroup float='left'>
+        <FlatButton label='Log' onTouchTap={toggleDevTools} />
+      </ToolbarGroup>
 
       <ToolbarGroup float='right'>
         {/* add log here */}

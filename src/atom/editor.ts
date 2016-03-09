@@ -107,3 +107,7 @@ export function quit() {
 export function openFolder() {
   atom.open();
 }
+
+export function toggleDevTools() {
+  atom.toggleDevTools();
+}
