@@ -26,9 +26,9 @@ export default class extends React.Component<{
     const {callNextPage, showHint, taskPosition, tasks} = this.props;
     switch (true) {
       case taskPosition >= tasks.length:
-        return <RaisedButton label='Continue' primary={true} onTouchTap={callNextPage}/>;
+        return <RaisedButton label='Continue' primary={true} onTouchTap={callNextPage} />;
       default:
-        return <RaisedButton label='Save' secondary={true} onTouchTap={save}/>;
+        return <RaisedButton label='Save' secondary={true} onTouchTap={save} />;
     }
   }
   render() {

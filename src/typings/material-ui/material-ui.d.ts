@@ -25,6 +25,7 @@ declare module "material-ui" {
   export import DatePicker = __MaterialUI.DatePicker.DatePicker; // require('material-ui/lib/date-picker/date-picker');
   export import DatePickerDialog = __MaterialUI.DatePicker.DatePickerDialog; // require('material-ui/lib/date-picker/date-picker-dialog');
   export import Dialog = __MaterialUI.Dialog // require('material-ui/lib/dialog');
+  export import Divider = __MaterialUI.Divider // require('material-ui/lib/divider');
   export import DropDownMenu = __MaterialUI.Menus.DropDownMenu; // require('material-ui/lib/DropDownMenu/DropDownMenu');
   export import EnhancedButton = __MaterialUI.EnhancedButton; // require('material-ui/lib/enhanced-button');
   export import FlatButton = __MaterialUI.FlatButton; // require('material-ui/lib/flat-button');
@@ -37,7 +38,7 @@ declare module "material-ui" {
   export import LeftNav = __MaterialUI.LeftNav; // require('material-ui/lib/left-nav');
   export import LinearProgress = __MaterialUI.LinearProgress; // require('material-ui/lib/linear-progress');
   export import List = __MaterialUI.Lists.List; // require('material-ui/lib/lists/list');
-  export import Divider = __MaterialUI.Divider; // require('material-ui/lib/divider');
+  export import ListDivider = __MaterialUI.Lists.ListDivider; // require('material-ui/lib/lists/list-divider');
   export import ListItem = __MaterialUI.Lists.ListItem; // require('material-ui/lib/lists/list-item');
   export import Menu = __MaterialUI.Menus.Menu; // require('material-ui/lib/menus/menu');
   export import MenuItem = __MaterialUI.Menus.MenuItem; // require('material-ui/lib/menus/menu-item');
@@ -456,7 +457,7 @@ interface AppBarProps extends React.Props<AppBar> {
   titleStyle?: React.CSSProperties;
   zDepth?: number;
 }
-export class AppBar extends React.Component<AppBarProps, {}> {
+export class AppBar extends React.Component<AppBarProps, {}>{
 }
 
 interface AppCanvasProps extends React.Props<AppCanvas> {
@@ -702,7 +703,7 @@ export class CardExpandable extends React.Component<CardExpandableProps, {}> {
 }
 
 interface CardHeaderProps extends React.Props<CardHeader> {
-  actAsExpander?: boolean
+  actAsExpander?: boolean;
   avatar?: React.ReactNode;
   expandable?: boolean;
   showExpandableButton?: boolean;

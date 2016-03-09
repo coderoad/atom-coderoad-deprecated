@@ -1,10 +1,10 @@
 .cr-page {
   position: relative;
-  width: 400px;
   &-toolbar {
     position: fixed;
     bottom: 0;
     right: 0;
+    height: 60px;
     width: 400px;
     &-completed {
       height: 200px;
@@ -12,6 +12,7 @@
   }
 }
 .cr-tasks {
+  overflow-y: scroll;
   .cr-task {
     padding: 10px;
     position: relative;

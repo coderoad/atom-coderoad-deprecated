@@ -52,16 +52,19 @@ atom-panel-container > atom-panel > #crv {
 }
 .cr-page {
   position: relative;
-  width: 400px;
 }
 .cr-page-toolbar {
   position: fixed;
   bottom: 0;
   right: 0;
+  height: 60px;
   width: 400px;
 }
 .cr-page-toolbar-completed {
   height: 200px;
+}
+.cr-tasks {
+  overflow-y: scroll;
 }
 .cr-tasks .cr-task {
   padding: 10px;
@@ -155,8 +158,10 @@ atom-panel-container > atom-panel > #crv {
   padding: 10px;
 }
 #crv {
+  min-height: 600px;
   height: 100%;
-  overflow: scroll;
+  position: relative;
+  overflow-y: scroll;
 }
 #crv a,
 #crv a:hover,

@@ -1,4 +1,3 @@
-'use strict';
 import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
@@ -31,7 +30,10 @@ class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Posi
     }
   }
   canActivate(isActive, itemPosition, position) {
-    if (isActive && itemPosition.chapter <= position.chapter && itemPosition.page <= position.page) {
+    const earlierChapter = itemPosition.chapter < position.chapter;
+    const currentChapter = itemPosition.chapter = position.chapter;
+    const earlierOrCurrentPage = itemPosition.page <= position.page;
+    if (isActive || earlierChapter || (currentChapter && earlierOrCurrentPage)) {
       return true;
     } else {
       return null;
