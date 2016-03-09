@@ -1245,7 +1245,6 @@ declare module AtomCore {
     loadOrCreate(mode: 'spec'): IAtom;
     /* Load or create the Atom environment in the given mode */
     loadOrCreate(mode: string): IAtom;
-
     loadState(mode: any): void;
     getStatePath(mode: any): string;
     getConfigDirPath(): string;
@@ -1302,6 +1301,7 @@ declare module AtomCore {
     // registerRepresentationClasses:Function;
     setBodyPlatformClass: Function;
     getCurrentWindow(): IBrowserWindow;
+    getSize(): {height: number, width: number};
     getWindowDimensions: Function;
     setWindowDimensions: Function;
     restoreWindowDimensions: Function;

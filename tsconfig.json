@@ -101,8 +101,7 @@
     "src/components/account/login.tsx",
     "src/components/account/signup.tsx",
     "src/components/alert/alert.tsx",
-    "src/components/app/app.tsx",
-    "src/components/app/router.tsx",
+    "src/components/app.tsx",
     "src/components/final-page/final-page.tsx",
     "src/components/markdown/markdown.tsx",
     "src/components/menu/menu.tsx",
@@ -117,6 +116,7 @@
     "src/components/page/toolbar.tsx",
     "src/components/progress/progress.tsx",
     "src/components/render.tsx",
+    "src/components/routes/routes.tsx",
     "src/components/start/setup.tsx",
     "src/components/start/start.tsx",
     "src/components/start/tutorials.tsx"

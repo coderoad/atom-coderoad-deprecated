@@ -41,6 +41,7 @@ export function onActivateSubscriptions() {
 export function onDeactivateSubscriptionsAndUnmount() {
   // unmount React
   // TODO: animate close first
+  window.onresize = null;
   unmount(document.getElementById('crv'));
   // cleanup subscriptions
   subscriptions.dispose();

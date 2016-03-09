@@ -1,11 +1,9 @@
-/**
- * Component List
- */
 // Root App
-export {default as App} from './app/app';
+export {default as App} from './app';
+export {default as Theme} from './theme/theme';
 
 // Router
-export {default as Router} from './app/router';
+export {default as Routes} from './routes/routes';
 
 // Components
 export {default as Page} from './page/page';

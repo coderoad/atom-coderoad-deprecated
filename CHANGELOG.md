@@ -21,3 +21,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.5.3] - 2016-03-07
 - fix tutorial progress issues
 - use `::>` to set cursor position
+
+## [0.5.4] - 2016-03
+- fix bug that prevented scroll in Atom 1.6+

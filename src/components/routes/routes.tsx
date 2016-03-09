@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Page, Progress, Start, FinalPage} from './../_components';
+import {Page, Progress, Start, FinalPage} from '../_components';
 
 export default class extends React.Component<{state: CR.State}, {}> {
   chooseRoute(state: CR.State) {

@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import * as Action from '../actions/actions';
 import {store} from '../_base';
-import App from './app/app';
+import App from './app';
 import './remove-later';
 
 const rootName = 'crv';
