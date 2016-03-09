@@ -4,6 +4,7 @@ import * as Action from '../../actions/actions';
 import {LinearProgress, Toolbar, ToolbarGroup, RaisedButton, FlatButton} from 'material-ui';
 import {save, toggleDevTools} from '../../atom/editor';
 import {store} from '../../_base';
+const Code = require('material-ui/lib/svg-icons/action/code');
 
 const ProgressBar = ({progress}) => <LinearProgress mode='determinate'
  value={progress} style={{height: '10px'}}/>;
@@ -42,7 +43,7 @@ export default class extends React.Component<{
       <Toolbar>
 
       <ToolbarGroup float='left'>
-        <FlatButton label='Log' onTouchTap={toggleDevTools} />
+        <FlatButton icon={<Code />} onTouchTap={toggleDevTools} />
       </ToolbarGroup>
 
       <ToolbarGroup float='right'>

@@ -111,9 +111,10 @@ export function openFolder() {
 let consoleHasOpened = false;
 export function toggleDevTools() {
   if (!consoleHasOpened) {
+    // clear console on first run
     atom.executeJavaScriptInDevTools(console.clear());
     consoleHasOpened = true;
-    console.log('Atom-CodeRoad: file runs on save')
+    console.log('Atom-CodeRoad: runs on save')
   }
   atom.toggleDevTools();
 }
