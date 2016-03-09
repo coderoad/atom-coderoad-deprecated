@@ -158,8 +158,6 @@ atom-panel-container > atom-panel > #crv {
   padding: 10px;
 }
 #crv {
-  min-height: 600px;
-  height: 100%;
   position: relative;
   overflow-y: scroll;
 }

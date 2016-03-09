@@ -13,27 +13,27 @@ let getEditorCount = 0;
 
 export function save() {
   const editor = findEditor();
-  console.log(editor);
   editor.save();
 }
 
-export function findEditor() {
+export function findEditor(): AtomCore.IEditor {
   let editor = atom.workspace.getActiveTextEditor();
+  const max = 1000;
   if (!editor) {
     getEditorCount += 1;
     setTimeout(function() {
       return findEditor();
     }, 10);
-  } else if (getEditorCount > 1000) {
+  } else if (getEditorCount > max) {
     console.log('Failed to find active editor');
-    return undefined;
+    return null;
   } else {
     getEditorCount = 0;
     return editor;
   }
 }
 
-export function getEditor() {
+export function getEditor(): Promise<AtomCore.IEditor> {
   return new Promise((resolve, reject) => {
     resolve(findEditor());
   });

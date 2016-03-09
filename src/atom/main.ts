@@ -21,7 +21,8 @@ class Main {
   activate(): void {
     // create atom panel
     atom.workspace.addRightPanel({
-      item: this.root
+      item: this.root,
+      priority: 0
     });
     onActivateSubscriptions();
     // render React component
