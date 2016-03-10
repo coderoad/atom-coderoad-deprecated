@@ -6,9 +6,13 @@
 @import './alert/_alert';
 @import './start/_start';
 
+@import "ui-variables";
+@import "ui-mixins";
+
 atom-panel-container > atom-panel > #crv {
   animation: slide 0.3s forwards;
   animation-timing-function: ease-in-out;
+  font-size: @input-font-size;
 }
 
 @keyframes slide {
@@ -23,7 +27,8 @@ atom-panel-container > atom-panel > #crv {
   overflow-y: scroll;
 
   code {
-    background-color: rgb(22, 23, 25);
+    background-color:  @input-background-color;
+    border-radius: @component-border-radius;
   }
 }
 

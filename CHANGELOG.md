@@ -24,3 +24,5 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.5.4] - coming soon
 - fix bug that prevented scroll in Atom 1.6+
+- `< >` button to open console
+- match colors to theme

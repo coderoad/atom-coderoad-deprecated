@@ -1,25 +1,23 @@
-@pass: rgb(115, 201, 144);
-@fail: rgb(255, 64, 129);
-@note: #9DA5B4;
+@import "ui-variables";
 
 .cr-alert.pass {
   button {
     span {
-      color: @pass;
+      color: @background-color-success;
     }
   }
 }
 .cr-alert.fail {
   button {
     span {
-      color: @fail;
+      color: @background-color-error;
     }
   }
 }
 .cr-alert.note {
   button {
     span {
-      color: @note;
+      color: @background-color-info;
     }
   }
 }
