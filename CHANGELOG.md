@@ -22,7 +22,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - fix tutorial progress issues
 - use `::>` to set cursor position
 
-## [0.5.4] - coming soon
+## [0.5.4] - 2016-03-09
 - fix bug that prevented scroll in Atom 1.6+
 - `< >` button to open console
 - match colors to theme
