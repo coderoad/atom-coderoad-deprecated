@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.5] - in progress
+- fixes for Windows
+
 ## [0.5.4] - 2016-03-09
 - fix bug that prevented scroll in Atom 1.6+
 - `< >` button to open console

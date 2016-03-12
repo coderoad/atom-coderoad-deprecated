@@ -8,6 +8,7 @@ export function setGlobals(config: PackageJson) {
     testRunner: config.config.testRunner,
     testRunnerOptions: config.config.testRunnerOptions || {}
   });
+  // issues, bugs
   loadRepo(config);
   // set PackageDeps
   loadRunnerDep(config);
@@ -32,7 +33,12 @@ function loadRunnerDep(config: PackageJson) {
     throw message;
   }
 
+  // fix main path for Windows
+  let slash = navigator.appVersion.indexOf('Win') !== -1 ? '\\' : '/';
+  runnerMain = path.join.apply(null, runnerMain.split(slash));
+  // trim root path to folder
   runnerRoot = runnerRoot.substring(0, runnerRoot.lastIndexOf('/'));
+
   let pathToMain = path.join(runnerRoot, runnerMain);
 
   if (!!require(pathToMain).default) {
@@ -40,7 +46,6 @@ function loadRunnerDep(config: PackageJson) {
   } else {
     window.coderoad.runner = require(pathToMain);
   }
-
 }
 
 function loadRepo(config) {
