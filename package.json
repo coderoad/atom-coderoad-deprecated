@@ -58,8 +58,7 @@
   },
   "scripts": {
     "test": "ava",
-    "styles": "lessc src/components/_app.less styles/styles.css",
     "compile": "tsc",
-    "build": "npm run styles && npm run compile"
+    "build": "npm run compile"
   }
 }

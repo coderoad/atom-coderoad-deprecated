@@ -115,9 +115,14 @@ let consoleHasOpened = false;
 export function toggleDevTools() {
   if (!consoleHasOpened) {
     // clear console on first run
-    atom.executeJavaScriptInDevTools(console.clear());
+    // atom.executeJavaScriptInDevTools(console.clear());
     consoleHasOpened = true;
-    console.log('Atom-CodeRoad: runs on save')
+    console.log('Atom-CodeRoad: runs on save');
   }
   atom.toggleDevTools();
+}
+
+export function openDevTools() {
+  atom.openDevTools();
+  consoleHasOpened = true;
 }

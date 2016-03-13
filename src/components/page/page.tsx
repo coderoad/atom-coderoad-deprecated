@@ -41,7 +41,7 @@ render() {
     <Tasks tasks={tasks} taskPosition={taskPosition} runTests={runTests} />
     <Hints task={currentTask} hintPosition={hintPosition} />
     <PageCompleteMessage page={page} />
-    <div ref='listEnd'></div>
+    <div className='listEnd' ref='listEnd'></div>
 
     <PageToolbar tasks={tasks} taskPosition={taskPosition} />
   </Paper>

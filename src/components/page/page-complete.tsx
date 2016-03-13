@@ -3,9 +3,9 @@ import {ListItem} from 'material-ui';
 import {MarkdownText} from '../_components';
 
 export const PageCompleteMessage = ({page}) => (
-  <div className='cr-task-onComplete-description'>
+  <div className='cr-page-onComplete'>
     {page.completed && page.onPageComplete ?
-      <ListItem className='cr-task-onComplete' key='page-complete'>
+      <ListItem key='page-complete'>
         <MarkdownText text={page.onPageComplete} />
       </ListItem>
    : null}

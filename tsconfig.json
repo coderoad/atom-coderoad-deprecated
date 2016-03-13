@@ -66,6 +66,7 @@
     "src/components/remove-later.ts",
     "src/components/theme/theme.ts",
     "src/reducers/alert/alert.ts",
+    "src/reducers/editor-actions/action-helpers.ts",
     "src/reducers/editor-actions/actions.ts",
     "src/reducers/editor-actions/editor-actions.ts",
     "src/reducers/editor-actions/parser.ts",

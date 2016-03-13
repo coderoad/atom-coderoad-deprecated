@@ -1,17 +1,24 @@
 import * as fs from 'fs';
 
+function unlink(targetFile) {
+  return new Promise((resolve) => {
+    if (fs.existsSync(targetFile)) {
+      fs.unlink(targetFile);
+    }
+    resolve();
+  });
+}
+
 export function concatTests(targetFile: string, files: any): string {
   console.log('files', files);
   // delete previous file
-  if (fs.existsSync(targetFile)) {
-    fs.unlink(targetFile);
-  }
-
-  // load tests in order
-  files.forEach((test: string) => {
-    // ensure loaded synchronously
-    return new Promise((resolve, reject) => {
-      resolve(readAppend(targetFile, test));
+  unlink(targetFile).then(function () {
+    // load tests in order
+    files.forEach((test: string) => {
+      // ensure loaded synchronously
+      return new Promise((resolve) => {
+        resolve(readAppend(targetFile, test));
+      });
     });
   });
   return targetFile;
