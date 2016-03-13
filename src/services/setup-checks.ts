@@ -9,7 +9,6 @@ export function verifySetupComplete() {
   hasDirectory()
   .then(hasPackageJson)
   .then(hasTutorialDep)
-  .then(hasTestRunner)
   .then(() => {
     store.dispatch(Action.setupWarning(null));
     store.dispatch(Action.loadTutorials());
@@ -72,23 +71,6 @@ function hasTutorialDep(): Promise<CR.SetupWarning> {
     resolve();
   });
 }
-
-// 4
-function hasTestRunner(): Promise<CR.SetupWarning> {
-  return new Promise((resolve, reject) => {
-    const hasTestRunner = true;
-    if (!hasTestRunner) {
-      reject({
-        key: 'noTestRunner',
-        title: 'Error with Tutorial',
-        click: null,
-        text: 'no test runner found'
-      });
-    }
-    resolve();
-  });
-}
-
 
 function _hasKeys(obj: Object): boolean {
   return Object.keys(obj).length > 0;

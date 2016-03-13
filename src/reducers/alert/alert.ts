@@ -26,33 +26,30 @@ export default function alertReducer(alert = defaultAlert, action: CR.Action): C
       if (result.pass && result.change > 0) {
         // Pass
         statusBarAlert.style.color = '#73C990';
-        current = {
+        return {
           message: result.msg,
           open: true,
           action: 'pass',
           duration: result.duration || 1500
         };
-        return current;
       } else if (result.pass === false && result.change < 1) {
         // Fail
         statusBarAlert.style.color = '#FF4081';
-        current = {
+        return {
           message: result.msg,
           open: true,
           action: 'fail',
           duration: result.duration || 2500
         };
-        return current;
       }
       // Alert
       statusBarAlert.style.color = '#9DA5B4';
-      current = {
+      return {
         message: result.msg,
         open: true,
         action: 'note',
         duration: result.duration || 2500
       };
-      return current;
     case Type.PAGE_COMPLETE:
       return {
         message: `Page ${action.payload.position.page + 1} Complete`,

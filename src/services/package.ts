@@ -45,11 +45,12 @@ class PackageService {
     let config = this.config.config;
     return !tasks ? [] : tasks.map((task: CR.Task) => {
       if (task.tests) {
-        task.tests = task.tests.map((tests: string) => {
-          if (_.isString(tests)) {
-            return [].concat(configTestString(config, this.packageName, tests));
+        task.tests = task.tests.map((test: string) => {
+          // add unique string to tests
+          if (_.isString(test) && task.tests.indexOf(test) === -1) {
+            return configTestString(config, this.packageName, test);
           } else {
-            console.error('Invalid task test', tests);
+            console.error('Invalid task test', test);
           }
         });
       }
