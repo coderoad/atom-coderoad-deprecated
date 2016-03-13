@@ -37,7 +37,7 @@ function loadRunnerDep(config: PackageJson) {
   let slash = navigator.appVersion.indexOf('Win') !== -1 ? '\\' : '/';
   runnerMain = path.join.apply(null, runnerMain.split(slash));
   // trim root path to folder
-  runnerRoot = runnerRoot.substring(0, runnerRoot.lastIndexOf('/'));
+  runnerRoot = runnerRoot.substring(0, runnerRoot.lastIndexOf(slash));
 
   let pathToMain = path.join(runnerRoot, runnerMain);
 
