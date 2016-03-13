@@ -5,6 +5,9 @@ import {store} from '../_base';
 const _ = require('lodash');
 
 function configTestString(config: CR.Config, packageName: string, test: string): string {
+  if (window.coderoad.win) {
+    test = test.split('/').join('\\');
+  }
   if (config.testDir) {
     test = path.join(window.coderoad.dir, 'node_modules', packageName, config.testDir, test);
   } else {
@@ -47,7 +50,7 @@ class PackageService {
       if (task.tests) {
         task.tests = task.tests.map((test: string) => {
           // add unique string to tests
-          if (_.isString(test) && task.tests.indexOf(test) === -1) {
+          if (_.isString(test)) {
             return configTestString(config, this.packageName, test);
           } else {
             console.error('Invalid task test', test);

@@ -34,7 +34,7 @@ function loadRunnerDep(config: PackageJson) {
   }
 
   // fix main path for Windows
-  let slash = navigator.appVersion.indexOf('Win') !== -1 ? '\\' : '/';
+  let slash = window.coderoad.win ? '\\' : '/';
   runnerMain = path.join.apply(null, runnerMain.split(slash));
   // trim root path to folder
   runnerRoot = runnerRoot.substring(0, runnerRoot.lastIndexOf(slash));

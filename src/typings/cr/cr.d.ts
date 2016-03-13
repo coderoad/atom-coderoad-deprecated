@@ -109,6 +109,7 @@ declare namespace CR {
     edit?: boolean;
     runner?: any;
     taskPosition?: number;
+    win?: boolean;
   }
 
   interface Config {
