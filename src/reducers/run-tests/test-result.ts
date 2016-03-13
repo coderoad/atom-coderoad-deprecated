@@ -19,8 +19,3 @@ export function handleResult(result: CR.TestResult) {
     store.dispatch(Action.testResult(result));
   }
 };
-
-export function handleLog(message: string): void {
-  console.log(message);
-  store.dispatch(Action.logMessage(message));
-}

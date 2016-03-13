@@ -1,4 +1,4 @@
-import {handleResult, handleLog} from './test-result';
+import {handleResult} from './test-result';
 import {store} from '../../_base';
 
 export function runTaskTests(setup?: boolean): boolean {
@@ -7,7 +7,7 @@ export function runTaskTests(setup?: boolean): boolean {
     let config = window.coderoad;
     config.taskPosition = store.getState().taskPosition;
     // call test runner
-    window.coderoad.runner(tests, config, handleResult, handleLog);
+    window.coderoad.runner(tests, config, handleResult);
   }
   return true;
 }
