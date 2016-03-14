@@ -7,7 +7,7 @@ import {verifySetupComplete} from './setup-checks';
 const packageData = `{
   "name": "demo",
   "dependencies": {
-    "coderoad-functional-school": "^0.1.9"
+    "coderoad-functional-school": "^0.2.1"
   }
 }`;
 

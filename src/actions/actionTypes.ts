@@ -1,8 +1,3 @@
-/**
- * Action Types
- */
-
-
 // Project
 export const SET_PROJECT = 'SET_PROJECT';
 export const SETUP_WARNING = 'SETUP_WARNING';

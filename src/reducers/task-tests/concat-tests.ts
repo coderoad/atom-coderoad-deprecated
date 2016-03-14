@@ -10,7 +10,6 @@ function unlink(targetFile) {
 }
 
 export function concatTests(targetFile: string, files: any): string {
-  console.log('files', files);
   // delete previous file
   unlink(targetFile).then(function () {
     // load tests in order

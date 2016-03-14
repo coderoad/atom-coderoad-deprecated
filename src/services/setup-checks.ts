@@ -28,6 +28,7 @@ function hasDirectory(): Promise<CR.SetupWarning> {
         title: 'Create an Atom Project',
         click: openDirectory,
         text: 'Start by opening a folder to work in.\nFile > Open',
+        button: 'Open Folder',
         verify: null
       });
     } else {
@@ -46,6 +47,7 @@ function hasPackageJson(): Promise<CR.SetupWarning> {
         title: 'Create a `package.json` file',
         click: createPackageJson,
         text: 'Open a terminal in this directory and run:\n`npm init` or `npm init --y`.\n',
+        button: 'Create Package.json',
         verify: 'Package.json created'
       });
     }
@@ -64,6 +66,7 @@ function hasTutorialDep(): Promise<CR.SetupWarning> {
         key: 'noTutorialDep',
         title: 'Install a Tutorial',
         click: installTutorial,
+        button: 'Install functional-school',
         text: 'In terminal in this project directory run:\n`npm i --save coderoad-functional-school`',
         verify: 'Tutorial Installed'
       });
