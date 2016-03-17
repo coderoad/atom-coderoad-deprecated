@@ -54,7 +54,8 @@
     "enzyme": "2.1.0",
     "jsdom": "8.1.0",
     "react-addons-test-utils": "0.14.7",
-    "tsc": "^1.20150623.0"
+    "tsc": "^1.20150623.0",
+    "uglify-js": "^2.6.2"
   },
   "scripts": {
     "test": "ava",
