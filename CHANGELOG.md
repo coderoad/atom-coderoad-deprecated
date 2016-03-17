@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.5.7] - 2016-03-17
 - @action(openConsole)
 - style improvements
-- bug fixes
+- bug fixes for Atom 1.6-beta
 
 ## [0.5.6] - 2016-03-12
 - fixes for Windows

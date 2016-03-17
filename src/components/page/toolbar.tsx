@@ -2,7 +2,8 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
 import {LinearProgress, Toolbar, ToolbarGroup, RaisedButton, FlatButton} from 'material-ui';
-import {save, toggleDevTools} from '../../atom/editor';
+import {save} from '../../atom/editor';
+import {toggleDevTools} from '../../atom/actions';
 import {store} from '../../_base';
 const Code = require('material-ui/lib/svg-icons/action/code');
 
