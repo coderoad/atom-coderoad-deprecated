@@ -5,7 +5,7 @@ import {unmount, togglePanel} from '../components/render';
 
 let subscriptions = null;
 
-export function onActivateSubscriptions() {
+export function onActivate() {
   subscriptions = new CompositeDisposable;
   /**
    * Atom Listeners
@@ -38,11 +38,11 @@ export function onActivateSubscriptions() {
   return subscriptions;
 }
 
-export function onDeactivateSubscriptionsAndUnmount() {
+export function onDeactivate() {
   // unmount React
   // TODO: animate close first
   window.onresize = null;
-  unmount(document.getElementById('crv'));
+  unmount();
   // cleanup subscriptions
   subscriptions.dispose();
 }

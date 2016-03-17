@@ -7,8 +7,6 @@ import {store} from '../_base';
 import App from './app';
 import './remove-later';
 
-const rootName = 'crv';
-
 /**
  * Render react component on activate
  */
@@ -21,21 +19,22 @@ export function render(target: HTMLElement) {
   );
 }
 
+const rootName = 'crv';
+var root = null;
+
 /**
  * Unmount React on deactivate
  */
-export function unmount(target: HTMLElement) {
-  ReactDOM.unmountComponentAtNode(target);
+export function unmount() {
+  ReactDOM.unmountComponentAtNode(root);
 }
-
 export function initRoot(): HTMLElement {
-  var root = document.createElement('div');
+  root = document.createElement('div');
   root.setAttribute('id', rootName);
   // mark panel visibility as hidden, triggers immediately
   root.hidden = true;
   return root;
 }
-
 export function togglePanel() {
-  document.getElementById(rootName).hidden = !document.getElementById(rootName).hidden;
+  root.hidden = !root.hidden;
 }

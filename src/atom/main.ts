@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {render, initRoot, togglePanel} from '../components/render';
 import loadPolyfills from '../services/polyfills';
-import {onActivateSubscriptions, onDeactivateSubscriptionsAndUnmount, addToStatusBar} from './subscriptions';
+import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 import {setAtomGlobals} from './editor';
 import {verifySetupComplete} from '../services/setup-checks';
 
@@ -24,7 +24,7 @@ class Main {
       item: this.root,
       priority: 0
     });
-    onActivateSubscriptions();
+    onActivate();
     // render React component
     render(this.root);
   }
@@ -38,7 +38,7 @@ class Main {
       this.statusBarTile = null;
     }
     // remove subscriptions & unmount react app
-    onDeactivateSubscriptionsAndUnmount();
+    onDeactivate();
   }
   toggle(): void {
     togglePanel();
