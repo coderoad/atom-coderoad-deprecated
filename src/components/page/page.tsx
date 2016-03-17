@@ -34,15 +34,14 @@ render() {
   const allComplete = taskPosition >= tasks.length;
 
   return (
-  <Paper style={pageStyle} zDepth={1} className='cr-page'>
+  <Paper style={pageStyle} zDepth={1} className='cr-page' ref='page'>
     <PageContent page={page} />
     <Divider />
 
     <Tasks tasks={tasks} taskPosition={taskPosition} runTests={runTests} />
+    <div className='listEnd' ref='listEnd'></div>
     <Hints task={currentTask} hintPosition={hintPosition} />
     <PageCompleteMessage page={page} />
-    <div className='listEnd' ref='listEnd'></div>
-
     <PageToolbar tasks={tasks} taskPosition={taskPosition} />
   </Paper>
   );

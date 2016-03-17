@@ -28,7 +28,7 @@ function loadRunnerDep(config: PackageJson) {
     runnerMain = require(treeDep).main;
     runnerRoot = treeDep;
   } else {
-    let message = 'Error loading test runner. Post an issue.';
+    let message = 'Error loading test runner. Post an issue. https://github.com/coderoad/atom-coderoad/issues';
     console.log(message);
     throw message;
   }

@@ -7,7 +7,7 @@ import * as ThemeManager from 'material-ui/lib/styles/theme-manager';
 let height: number = atom.getSize().height;
 window.onresize = function() {
   height = atom.getSize().height;
-}
+};
 
 @ThemeDecorator(ThemeManager.getMuiTheme(Theme))
 @connect((state: CR.State) => {
