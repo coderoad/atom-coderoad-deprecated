@@ -1,4 +1,5 @@
 import * as Editor from '../../atom/editor';
+import {openDevTools} from '../../atom/actions';
 import {getCommand, getParams, getOptions} from './action-helpers';
 
 const Type = {
@@ -48,7 +49,7 @@ export function editorActions(actionString: string): Promise<void> {
       case Type.openConsole:
         if (params.length === 0) {
           setTimeout(function() {
-            Editor.openDevTools();
+            openDevTools();
             resolve(true);
           });
         }

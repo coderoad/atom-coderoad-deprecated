@@ -93,36 +93,3 @@ function setCursorPosition(editor: AtomCore.IEditor) {
 // export function select() { }
 
 // export function decorate() { }
-
-export function closeAllPanels() {
-  var editors: AtomCore.IEditor[] = atom.workspace.getTextEditors();
-  editors.forEach((editor: AtomCore.IEditor) => {
-    // if (editor !== activeEditor) {
-    editor.destroy();
-    //  }
-  });
-}
-
-export function quit() {
-  // TODO: quit without destroying ALL subscriptions
-}
-
-export function openFolder() {
-  atom.open();
-}
-
-let consoleHasOpened = false;
-export function toggleDevTools() {
-  if (!consoleHasOpened) {
-    // clear console on first run
-    // atom.executeJavaScriptInDevTools(console.clear());
-    consoleHasOpened = true;
-    console.log('Atom-CodeRoad: runs on save');
-  }
-  atom.toggleDevTools();
-}
-
-export function openDevTools() {
-  atom.openDevTools();
-  consoleHasOpened = true;
-}
