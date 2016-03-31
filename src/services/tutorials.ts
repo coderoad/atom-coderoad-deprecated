@@ -42,10 +42,10 @@ function _isTutorial(name: string): boolean {
     return false;
   }
   let pathToTestRunner = path.join(window.coderoad.dir, 'node_modules', packageJson.config.testRunner);
-  if (!fileExists(pathToTestRunner)) {
-    console.log(`Error with ${name}: ${packageJson.config.testRunner} test runner not installed`);
-    return false;
-  }
+  // if (!fileExists(pathToTestRunner)) {
+  //   console.log(`Error with ${name}: ${packageJson.config.testRunner} test runner not installed`);
+  //   return false;
+  // }
   return true;
 }
 
