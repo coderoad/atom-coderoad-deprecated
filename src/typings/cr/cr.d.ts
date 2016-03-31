@@ -101,6 +101,7 @@ declare namespace CR {
   interface Coderoad {
     dir: string;
     testRunner?: string;
+    suffix: string;
     tutorial?: string;
     tutorialDir?: string;
     tutorialOptions?: Object;

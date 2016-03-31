@@ -6,7 +6,7 @@ import {concatTests} from './concat-tests';
 export default function taskTestsReducer(taskTests = '', action: CR.Action): string {
   switch (action.type) {
     case Type.SET_PAGE:
-      let target = path.join(window.coderoad.tutorialDir || window.coderoad.dir, '.tmp.js');
+      let target = path.join(window.coderoad.tutorialDir || window.coderoad.dir, `.tmp${window.coderoad.suffix}`);
       return concatTests(target, action.payload.taskTests);
     default:
       return taskTests;
