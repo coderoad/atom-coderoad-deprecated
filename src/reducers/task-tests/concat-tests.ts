@@ -20,7 +20,7 @@ function readAppend(targetFile: string, file: string): boolean {
   }
 }
 
-function concatTests(targetFile: string, files: any): string {
+export default function concatTests(targetFile: string, files: any): string {
   // delete previous file
   unlink(targetFile).then(() => {
     // load tests in order
@@ -32,8 +32,4 @@ function concatTests(targetFile: string, files: any): string {
     });
   });
   return;
-}
-
-export default function load(targetFile: string, files: any) {
-  concatTests(targetFile, files);
 }

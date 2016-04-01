@@ -2,12 +2,12 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 const supportedFileTypes = ['js', 'jsx', 'ts', 'py'];
-const js = /^\/\/\s?load\(['"`](.+)['"`]\)$/;
+const js = /^\/\/\s?load\(['"`](.+)['"`]\)$/m;
 const loaderMatch = {
   js,  // // load('file'),
   ts: js,
   jsx: js,
-  py: /\#\s?load\(['"`](.+)['"`]\)$/      // # load('file')
+  py: /^#\s?load\(['"`](.+)['"`]\)$/m      // # load('file')
 };
 
 export default function parseLoaders(data: string, fileType: string) {
@@ -19,7 +19,7 @@ export default function parseLoaders(data: string, fileType: string) {
 
   let imports = '';
   // loop over lines and add editor files
-  let i = 0;
+  let i = -1;
   let lines = data.split('\n');
 
   while (i < lines.length - 1) {
