@@ -2,12 +2,12 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 const supportedFileTypes = ['js', 'jsx', 'ts', 'py'];
-const js = /^\/\/\s?load\(['"`](.+)['"`]\)$/m; // // load('file'),
+const js = /^\/\/\s?load\(['"`](.+)['"`](\,\s?true)?\)/m; // // load('file'),
 const loaderMatch = {
   js,
   ts: js,
   jsx: js,
-  py: /^#\s?load\(['"`](.+)['"`]\)$/m      // # load('file')
+  py: /^#\s?load\(['"`](.+)['"`](,\s?true)?\)/m      // # load('file')
 };
 
 export default function parseLoaders(data: string, fileType: string) {
@@ -36,7 +36,15 @@ export default function parseLoaders(data: string, fileType: string) {
         continue;
       }
 
-      let pathToFile: string = path.normalize(path.join(window.coderoad.dir, fileToLoad));
+      let pathToFile: string = null;
+      if (loader[2]) {
+        // path to file from tutorial directory
+        pathToFile = path.normalize(path.join(window.coderoad.tutorialDir, fileToLoad));
+      } else {
+        // path to file from working directory
+        pathToFile = path.normalize(path.join(window.coderoad.dir, fileToLoad));
+      }
+
       lines[i] = fs.readFileSync(pathToFile, 'utf8');
     }
   }
