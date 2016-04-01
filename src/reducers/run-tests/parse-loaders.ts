@@ -11,7 +11,7 @@ function loaderRegex(fileType: string) {
   if (comments[fileType]) {
     comment = comments[fileType];
   }
-  return new RegExp(`^${comment} ?load\\(['"](.+)['"](\,\s?true)?\\)`, 'm');
+  return new RegExp(`^${comment} ?load\\(['"](.+)['"](\, ?true)?\\)`, 'm');
 }
 
 export default function parseLoaders(data: string, fileType: string) {
@@ -45,7 +45,13 @@ export default function parseLoaders(data: string, fileType: string) {
         pathToFile = path.normalize(path.join(window.coderoad.dir, fileToLoad));
       }
 
-      lines[i] = fs.readFileSync(pathToFile, 'utf8');
+      try {
+        lines[i] = fs.readFileSync(pathToFile, 'utf8');
+      } catch (e) {
+        let message = 'File not found: ' + pathToFile;
+        lines[i] = message;
+        console.log(message);
+      }
     }
   }
   return lines.join('\n');
