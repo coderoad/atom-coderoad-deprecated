@@ -2,9 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.5.8] - current
+## [0.6.0] - 2016-04-01
 - fixes
-- fixes for different programming languages
+- loaders now built into atom-coderoad
+  `// load('file.js')`        - loads from workspace directory
+  `// load('data.js', true)`  - loads from tutorial directory
+- now allows for easy configuration of different language test runners
 
 ## [0.5.7] - 2016-03-17
 - @action(openConsole)
