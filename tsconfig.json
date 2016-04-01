@@ -95,6 +95,7 @@
     "src/services/setup-actions.ts",
     "src/services/setup-checks.ts",
     "src/services/tutorials.ts",
+    "src/services/write.ts",
     "src/store/initialState.ts",
     "src/store/store.ts",
     "src/components/account/account.tsx",
