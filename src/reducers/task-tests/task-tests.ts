@@ -1,7 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs';
 import * as Type from '../../actions/actionTypes';
-import concatTests from './concat-tests';
 
 export default function taskTestsReducer(taskTests = '', action: CR.Action): string {
   switch (action.type) {
