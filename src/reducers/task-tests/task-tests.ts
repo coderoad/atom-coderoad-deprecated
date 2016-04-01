@@ -6,9 +6,16 @@ import concatTests from './concat-tests';
 export default function taskTestsReducer(taskTests = '', action: CR.Action): string {
   switch (action.type) {
     case Type.SET_PAGE:
-      let target = path.join(window.coderoad.tutorialDir || window.coderoad.dir, `_tmpTests${window.coderoad.suffix}`);
-      concatTests(target, action.payload.taskTests);
-      return target;
+      let tests = '';
+      action.payload.taskTests.forEach(function(file: string) {
+        try {
+          let data = fs.readFileSync(file, 'utf8');
+          tests += data + '\n';
+        } catch (e) {
+          console.log('Error reading test file', e);
+        }
+      });
+      return tests;
     default:
       return taskTests;
   }

@@ -84,7 +84,6 @@
     "src/reducers/run-tests/run.ts",
     "src/reducers/run-tests/test-result.ts",
     "src/reducers/task-position/task-position.ts",
-    "src/reducers/task-tests/concat-tests.ts",
     "src/reducers/task-tests/task-tests.ts",
     "src/reducers/tasks/tasks.ts",
     "src/reducers/tutorials/tutorials.ts",

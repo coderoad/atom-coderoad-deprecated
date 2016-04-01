@@ -4,7 +4,7 @@ import {fileExists} from './exists';
 export function setGlobals(config: PackageJson) {
   window.coderoad = Object.assign(window.coderoad, {
     tutorial: config.name,
-    suffix: config.config.testSuffix.substring(config.config.testSuffix.lastIndexOf('.'), config.config.testSuffix.length),
+    suffix: config.config.testSuffix.substring(config.config.testSuffix.lastIndexOf('.') + 1, config.config.testSuffix.length),
     tutorialDir: path.join(window.coderoad.dir, 'node_modules', config.name, config.config.testDir),
     testRunner: config.config.testRunner,
     testRunnerOptions: config.config.testRunnerOptions || {}
