@@ -24,3 +24,5 @@ interface IntrinsicAttributes {
   primaryText: string;
   primaryTogglesNestedList: any;
 }
+
+type fileType = 'js'|'jsx'|'ts'|'py';

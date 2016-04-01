@@ -79,6 +79,7 @@
     "src/reducers/project/project.ts",
     "src/reducers/reducer.ts",
     "src/reducers/route/route.ts",
+    "src/reducers/run-tests/parse-loaders.ts",
     "src/reducers/run-tests/run-tests.ts",
     "src/reducers/run-tests/run.ts",
     "src/reducers/run-tests/test-result.ts",
