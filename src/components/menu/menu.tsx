@@ -3,7 +3,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
 import {togglePanel} from '../render';
-import {onDeactivateSubscriptionsAndUnmount} from '../../atom/subscriptions';
+import {onDeactivate} from '../../atom/subscriptions';
 
 import {AppBar, IconButton, IconMenu, MenuItem, Divider} from 'material-ui';
 let MoreVertIcon = require('material-ui/lib/svg-icons/navigation/more-vert');
@@ -26,7 +26,7 @@ let NavigationClose = require('material-ui/lib/svg-icons/navigation/close');
     routeToProjects: () => dispatch(Action.setRoute('projects')),
     quit: () => {
       togglePanel();
-      onDeactivateSubscriptionsAndUnmount();
+      onDeactivate();
     }
   };
 })

@@ -1,4 +1,3 @@
-'use strict';
 import * as Type from './actionTypes';
 import {store} from '../_base';
 import Package from '../services/package';
