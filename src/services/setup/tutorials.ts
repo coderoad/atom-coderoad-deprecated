@@ -2,6 +2,7 @@ import {store} from '../../_base';
 import * as path from 'path';
 import * as fs from 'fs';
 import {fileExists} from '../exists';
+import {canUpdateTutorial} from './update-tutorial';
 
 let tutorialError = 'This is an error with the tutorial itself';
 
@@ -41,11 +42,15 @@ function _isTutorial(name: string): boolean {
     console.log(`Error with ${name}: no test runner specified. ${tutorialError}`);
     return false;
   }
-  let pathToTestRunner = path.join(window.coderoad.dir, 'node_modules', packageJson.config.testRunner);
-  // if (!fileExists(pathToTestRunner)) {
-  //   console.log(`Error with ${name}: ${packageJson.config.testRunner} test runner not installed`);
-  //   return false;
-  // }
+
+  let currentTutorialVersion: string = packageJson.dependencies[name] || packageJson.devDependencies[name];
+  canUpdateTutorial(name, currentTutorialVersion);
+
+  // let pathToTestRunner = path.join(window.coderoad.dir, 'node_modules', packageJson.config.testRunner);
+  // // if (!fileExists(pathToTestRunner)) {
+  // //   console.log(`Error with ${name}: ${packageJson.config.testRunner} test runner not installed`);
+  // //   return false;
+  // // }
   return true;
 }
 

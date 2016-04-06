@@ -8,9 +8,7 @@ export function npmVersionThreeOrLater(): Promise<CR.SetupWarning> {
       reject({
         key: 'updateNpm',
         title: 'Please update to NPM version 3+',
-        click: null,
         text: 'Open a terminal and run:\n `npm install npm -g`',
-        button: 'Update NPM',
         verify: 'NPM updated to version 3 or later'
       });
     } else {

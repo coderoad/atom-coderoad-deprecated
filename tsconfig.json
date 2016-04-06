@@ -94,6 +94,7 @@
         "src/services/setup/setup.ts",
         "src/services/setup/system-checks.ts",
         "src/services/setup/tutorials.ts",
+        "src/services/setup/update-tutorial.ts",
         "src/services/write.ts",
         "src/store/initialState.ts",
         "src/store/store.ts",
