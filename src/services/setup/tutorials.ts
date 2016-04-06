@@ -1,7 +1,7 @@
-import {store} from '../_base';
+import {store} from '../../_base';
 import * as path from 'path';
 import * as fs from 'fs';
-import {fileExists} from '../services/exists';
+import {fileExists} from '../exists';
 
 let tutorialError = 'This is an error with the tutorial itself';
 

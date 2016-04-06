@@ -1,5 +1,5 @@
 import * as path from 'path';
-import {fileExists} from './exists';
+import {fileExists} from '../exists';
 
 export function setGlobals(config: PackageJson) {
   window.coderoad = Object.assign(window.coderoad, {

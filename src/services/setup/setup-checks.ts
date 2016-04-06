@@ -1,25 +1,9 @@
-import {fileExists} from './exists';
+import {fileExists} from '../exists';
 import {packageJsonExists, loadRootPackageJson, searchForTutorials} from './tutorials';
 import {createPackageJson, openDirectory, installTutorial} from './setup-actions';
 import * as path from 'path';
-import {store} from '../_base';
-import * as Action from '../actions/actions';
 
-export function verifySetupComplete() {
-  hasDirectory()
-  .then(hasPackageJson)
-  .then(hasTutorialDep)
-  .then(() => {
-    store.dispatch(Action.setupWarning(null));
-    store.dispatch(Action.loadTutorials());
-  })
-  .catch((warning: CR.SetupWarning) => {
-    store.dispatch(Action.setupWarning(warning));
-  });
-}
-
-// 1
-function hasDirectory(): Promise<CR.SetupWarning> {
+export function hasDirectory(): Promise<CR.SetupWarning> {
   return new Promise((resolve, reject) => {
     const hasDirectory = !!window.coderoad.dir;
     if (!hasDirectory) {
@@ -37,8 +21,7 @@ function hasDirectory(): Promise<CR.SetupWarning> {
   });
 }
 
-// 2
-function hasPackageJson(): Promise<CR.SetupWarning> {
+export function hasPackageJson(): Promise<CR.SetupWarning> {
   return new Promise((resolve, reject) => {
     const hasPackageJson = packageJsonExists();
     if (!hasPackageJson) {
@@ -55,8 +38,7 @@ function hasPackageJson(): Promise<CR.SetupWarning> {
   });
 }
 
-// 3
-function hasTutorialDep(): Promise<CR.SetupWarning> {
+export function hasTutorialDep(): Promise<CR.SetupWarning> {
   return new Promise((resolve, reject) => {
     const packageJson = hasPackageJson ? loadRootPackageJson() : null;
     const hasTutorialDep = !!packageJson && _tutorialInstalled(packageJson.dependencies) ||

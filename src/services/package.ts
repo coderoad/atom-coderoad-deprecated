@@ -1,5 +1,5 @@
 import * as path from 'path';
-import {setGlobals} from './set-globals';
+import {setGlobals} from './setup/set-globals';
 import * as Action from '../actions/actions';
 import {store} from '../_base';
 const _ = require('lodash');

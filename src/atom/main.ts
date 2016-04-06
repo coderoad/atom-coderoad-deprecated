@@ -4,7 +4,7 @@ import {render, initRoot, togglePanel} from '../components/render';
 import loadPolyfills from '../services/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 import {setAtomGlobals} from './editor';
-import {verifySetupComplete} from '../services/setup-checks';
+import {verifySetupComplete} from '../services/setup/setup';
 
 class Main {
   root: HTMLElement;

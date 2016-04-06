@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {List, ListItem, RaisedButton} from 'material-ui';
 import {MarkdownText} from '../_components';
-import {verifySetupComplete} from '../../services/setup-checks';
+import {verifySetupComplete} from '../../services/setup/setup';
 
 export default class extends React.Component<{warning: CR.SetupWarning}, {}> {
   render() {
