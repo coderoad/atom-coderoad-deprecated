@@ -8,7 +8,7 @@ import ListItem from 'material-ui/lib/lists/list-item';
 import Subheader from 'material-ui/lib/Subheader';
 import {MarkdownText} from '../_components';
 import * as classnames from 'classnames';
-import {pink500} from 'material-ui/lib/styles/colors';
+import * as Colors from 'material-ui/lib/styles/colors';
 import CheckBox from 'material-ui/lib/svg-icons/toggle/check-box';
 import PlayCircleFilled from 'material-ui/lib/svg-icons/av/play-circle-filled';
 import CheckBoxOutlineBlank from 'material-ui/lib/svg-icons/toggle/check-box-outline-blank';
@@ -27,7 +27,7 @@ class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Posi
     if (completed) {
       return <CheckBox />;
     } else if (current) {
-      return <PlayCircleFilled color={pink500} />;
+      return <PlayCircleFilled color={Colors.pink500} />;
     } else {
       return <CheckBoxOutlineBlank />;
     }

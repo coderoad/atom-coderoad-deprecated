@@ -1,8 +1,11 @@
 import * as React from 'react';
-import List from 'material-ui/lib/lists/list';
-import ListItem from 'material-ui/lib/lists/list-item';
 import RaisedButton from 'material-ui/lib/raised-button';
-import Subheader from 'material-ui/lib/Subheader';
+import Table from 'material-ui/lib/table/table';
+import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
+import TableRow from 'material-ui/lib/table/table-row';
+import TableHeader from 'material-ui/lib/table/table-header';
+import TableRowColumn from 'material-ui/lib/table/table-row-column';
+import TableBody from 'material-ui/lib/table/table-body';
 import {MarkdownText} from '../_components';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
@@ -38,18 +41,29 @@ export default class extends React.Component<{
     const {tutorials, loadTutorials, selectProject, toggleAlert} = this.props;
     return (
   <div className='cr-tutorials'>
-    <List>
-    <Subheader>Tutorials</Subheader>
-    {/* List of Tutorials */}
-    {tutorials.map((tutorial: string, index) => {
-    return (
-      <ListItem
-        key={index}
-        primaryText={this.trim(tutorial)}
-        onClick={selectProject.bind(this, tutorial)}/>);
-      })}
+    <Table>
+      <TableHeader
+            displaySelectAll={false}
+            adjustForCheckbox={false}>
+       <TableRow>
+        <TableHeaderColumn>Tutorial</TableHeaderColumn>
+        <TableHeaderColumn>Version</TableHeaderColumn>
+      </TableRow>
+      </TableHeader>
+      <TableBody displayRowCheckbox={false}>
 
-    </List>
+        {tutorials.map((tutorial: string, index) => {
+        return (
+          <TableRow>
+            <TableRowColumn onClick={selectProject.bind(this, tutorial)}>{this.trim(tutorial)}</TableRowColumn>
+            <TableRowColumn>v1.0.0</TableRowColumn>
+            />
+          </TableRow>
+          );
+          })
+        }
+      </TableBody>
+    </Table>
 
     <br />
     <RaisedButton label='Load Tutorials' secondary={true} onTouchTap={loadTutorials} />
