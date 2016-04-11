@@ -1,6 +1,7 @@
 'use strict';
 import * as React from 'react';
-import {Paper, RaisedButton} from 'material-ui';
+import Paper from 'material-ui/lib/paper';
+import RaisedButton from 'material-ui/lib/raised-button';
 import SetupGuide from './setup';
 import Tutorials from './tutorials';
 

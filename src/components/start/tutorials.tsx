@@ -1,5 +1,8 @@
 import * as React from 'react';
-import {List, ListItem, RaisedButton} from 'material-ui';
+import List from 'material-ui/lib/lists/list';
+import ListItem from 'material-ui/lib/lists/list-item';
+import RaisedButton from 'material-ui/lib/raised-button';
+import Subheader from 'material-ui/lib/Subheader';
 import {MarkdownText} from '../_components';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
@@ -35,8 +38,8 @@ export default class extends React.Component<{
     const {tutorials, loadTutorials, selectProject, toggleAlert} = this.props;
     return (
   <div className='cr-tutorials'>
-    <List subheader='Tutorials' >
-
+    <List>
+    <Subheader>Tutorials</Subheader>
     {/* List of Tutorials */}
     {tutorials.map((tutorial: string, index) => {
     return (

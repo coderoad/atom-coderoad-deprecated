@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ListItem} from 'material-ui';
+import ListItem from 'material-ui/lib/lists/list-item';
 import {MarkdownText} from '../_components';
 
 export const PageCompleteMessage = ({page}) => (

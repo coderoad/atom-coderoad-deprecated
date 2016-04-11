@@ -1,5 +1,8 @@
 import * as React from 'react';
-import {List, ListItem, RaisedButton} from 'material-ui';
+import List from 'material-ui/lib/lists/list';
+import ListItem from 'material-ui/lib/lists/list-item';
+import RaisedButton from 'material-ui/lib/raised-button';
+import Subheader from 'material-ui/lib/Subheader';
 import {MarkdownText} from '../_components';
 import {verifySetupComplete} from '../../services/setup/setup';
 
@@ -8,7 +11,8 @@ export default class extends React.Component<{warning: CR.SetupWarning}, {}> {
     const {warning} = this.props;
   return (
     <div className='cr-setup'>
-      <List subheader='Setup'>
+      <List>
+      <Subheader>Setup</Subheader>
       <ListItem key={warning.key}>
           <h4>{warning.title}</h4>
           <MarkdownText text={warning.text} />

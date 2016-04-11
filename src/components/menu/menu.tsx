@@ -1,20 +1,18 @@
-'use strict';
 import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
 import {togglePanel} from '../render';
 import {onDeactivate} from '../../atom/subscriptions';
 
-import {AppBar, IconButton, IconMenu, MenuItem, Divider} from 'material-ui';
-let MoreVertIcon = require('material-ui/lib/svg-icons/navigation/more-vert');
-let NavigationClose = require('material-ui/lib/svg-icons/navigation/close');
-// let Feedback = require('material-ui/lib/svg-icons/action/feedback');
+import AppBar from 'material-ui/lib/app-bar';
+import IconButton from 'material-ui/lib/icon-button';
+import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+import IconMenu from 'material-ui/lib/menus/icon-menu';
+import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
+import MenuItem from 'material-ui/lib/menus/menu-item';
 
-/**
- * Menu Component
- * 	title
- * 	navigation
- */
+const origin = {horizontal: 'right', vertical: 'top'};
+
 @connect(null, (dispatch) => {
   return {
     routeToProgress: () => dispatch(Action.setRoute('progress')),
@@ -63,19 +61,17 @@ export default class extends React.Component<{
     togglePanel();
   }
   render(): React.ReactElement<{}> {
-    const origin = {horizontal: 'right', vertical: 'top'};
     const {quit} = this.props;
-    return (
-      <AppBar title={'CodeRoad'}
+    return <AppBar title='CodeRoad'
               className='cr-menu-bar'
-              iconElementLeft={<IconButton onTouchTap={this.closePanel}><NavigationClose /></IconButton>}
+              iconElementLeft={
+                <IconButton><NavigationClose /></IconButton>}
               iconElementRight={
-              <IconMenu
-        iconButtonElement={
-          <IconButton><MoreVertIcon /></IconButton>
-        }
+              <IconMenu iconButtonElement={
+          <IconButton><MoreVertIcon /></IconButton>}
         targetOrigin={origin}
         anchorOrigin={origin}>
+
         {/* Menu Items */}
         {this.menuOptions()}
 
@@ -84,12 +80,7 @@ export default class extends React.Component<{
             post issue
           </a>
           </MenuItem> : null}
-
-        <Divider />
-        <MenuItem primaryText='quit' onTouchTap={quit}/>
-
       </IconMenu>
-    } />
-  );
+    } />;
   }
 }

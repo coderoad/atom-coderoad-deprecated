@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {MarkdownText} from '../_components';
-import {List, ListItem} from 'material-ui';
+import List from 'material-ui/lib/lists/list';
+import ListItem from 'material-ui/lib/lists/list-item';
+import Subheader from 'material-ui/lib/Subheader';
 import * as Colors from 'material-ui/lib/styles/colors';
 const iconPath = 'material-ui/lib/svg-icons/';
 let Complete = require(iconPath + 'toggle/check-box');
@@ -48,7 +50,8 @@ export const Task = ({task, taskPosition, index, runTests}) => {
 export const Tasks = ({tasks, taskPosition, runTests}) => {
   const visTasks = visibleTasks(tasks, taskPosition);
 
-  return <List subheader='Tasks' className='cr-tasks'>
+  return <List className='cr-tasks'>
+      <Subheader>Tasks</Subheader>
       {visTasks.map((task, index) => <Task
         key={index}
         task={task}
