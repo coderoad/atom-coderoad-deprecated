@@ -9,9 +9,9 @@ import * as Action from '../../actions/actions';
 
 export function verifySetupComplete() {
   // system checks
-  npmVersionThreeOrLater()
+  // npmVersionThreeOrLater()
   // setup checks
-    .then(hasDirectory)
+  hasDirectory()
     .then(hasPackageJson)
     .then(hasTutorialDep)
     .then(() => {

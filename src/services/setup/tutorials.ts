@@ -43,8 +43,8 @@ function _isTutorial(name: string): boolean {
     return false;
   }
 
-  let currentTutorialVersion: string = packageJson.dependencies[name] || packageJson.devDependencies[name];
-  canUpdateTutorial(name, currentTutorialVersion);
+  // let currentTutorialVersion: string = packageJson.dependencies[name] || packageJson.devDependencies[name];
+  // canUpdateTutorial(name, currentTutorialVersion);
 
   // let pathToTestRunner = path.join(window.coderoad.dir, 'node_modules', packageJson.config.testRunner);
   // // if (!fileExists(pathToTestRunner)) {
