@@ -64,23 +64,23 @@ export default class extends React.Component<{
     const {quit} = this.props;
     return <AppBar title='CodeRoad'
               className='cr-menu-bar'
-              iconElementLeft={
-                <IconButton><NavigationClose /></IconButton>}
+              // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
               iconElementRight={
-              <IconMenu iconButtonElement={
-          <IconButton><MoreVertIcon /></IconButton>}
-        targetOrigin={origin}
-        anchorOrigin={origin}>
+                <IconMenu iconButtonElement={
+                  <IconButton><MoreVertIcon /></IconButton>
+                }
+                  targetOrigin={origin}
+                  anchorOrigin={origin}>
 
-        {/* Menu Items */}
-        {this.menuOptions()}
+                    {/* Menu Items */}
+                    {this.menuOptions()}
 
-        {window.coderoad.issuesPath ? <MenuItem key='issue' className='link'>
-          <a href={window.coderoad.issuesPath}>
-            post issue
-          </a>
-          </MenuItem> : null}
-      </IconMenu>
+                    {window.coderoad.issuesPath ? <MenuItem key='issue' className='link'>
+                      <a href={window.coderoad.issuesPath}>
+                      post issue
+                      </a>
+                  </MenuItem> : null}
+                </IconMenu>
     } />;
   }
 }

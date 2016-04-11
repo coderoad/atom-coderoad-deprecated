@@ -46,7 +46,7 @@
     "react": "15.0.1",
     "react-dom": "15.0.1",
     "react-redux": "4.4.2",
-    "react-tap-event-plugin": "0.2.2",
+    "react-tap-event-plugin": "git+https://github.com/zilverline/react-tap-event-plugin.git",
     "redux": "3.4.0"
   },
   "scripts": {
