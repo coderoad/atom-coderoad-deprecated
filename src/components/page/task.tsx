@@ -3,11 +3,10 @@ import {MarkdownText} from '../_components';
 import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';
 import Subheader from 'material-ui/lib/Subheader';
-import * as Colors from 'material-ui/lib/styles/colors';
-const iconPath = 'material-ui/lib/svg-icons/';
-let Complete = require(iconPath + 'toggle/check-box');
-let Incomplete = require(iconPath + 'toggle/check-box-outline-blank');
-let RunningTest = require(iconPath + 'toggle/indeterminate-check-box');
+import {green500, orange500} from 'material-ui/lib/styles/colors';
+import CheckBox from 'material-ui/lib/svg-icons/toggle/check-box';
+import CheckBoxOutlineBlank from 'material-ui/lib/svg-icons/toggle/check-box-outline-blank';
+import IndeterminateCheckBox from 'material-ui/lib/svg-icons/toggle/indeterminate-check-box';
 
 function visibleTasks(tasks: CR.Task[], taskPosition: number) {
   return tasks.slice(0, taskPosition + 1);
@@ -16,12 +15,12 @@ function visibleTasks(tasks: CR.Task[], taskPosition: number) {
 const TaskCheckbox = ({index, taskPosition, runTests}) => {
   let icon = null;
   if (index < taskPosition) {
-    icon = <Complete color={Colors.green500} />;
+    icon = <CheckBox color={green500} />;
   } else if (index === taskPosition && runTests) {
     // TODO: loading animation inside of checkbox
-    icon = <RunningTest color={Colors.orange500} />;
+    icon = <IndeterminateCheckBox color={orange500} />;
   } else {
-    icon = <Incomplete />;
+    icon = <CheckBoxOutlineBlank />;
   }
   return <span className='cr-task-checkbox'>{icon}</span>;
 };

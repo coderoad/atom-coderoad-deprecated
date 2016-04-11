@@ -25,11 +25,11 @@ import CheckBoxOutlineBlank from 'material-ui/lib/svg-icons/toggle/check-box-out
 class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Position, position: CR.Position, selectPage?: () => void}, {}> {
   getProgressIcon(completed, current) {
     if (completed) {
-      return <CheckBoxOutlineBlank />;
+      return <CheckBox />;
     } else if (current) {
       return <PlayCircleFilled color={pink500} />;
     } else {
-      return <CheckBox />;
+      return <CheckBoxOutlineBlank />;
     }
   }
   canActivate(isActive, itemPosition, position) {
@@ -53,7 +53,7 @@ class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Posi
             primaryText={`${itemPosition.page + 1}. ${page.title}`}
             secondaryText={page.description}
             leftIcon={this.getProgressIcon(page.completed, isActive)}
-            onTouchTap={this.canActivate(isActive, itemPosition, position) ? this.props.selectPage.bind(this, itemPosition) : null }
+            onClick={this.canActivate(isActive, itemPosition, position) ? this.props.selectPage.bind(this, itemPosition) : null }
             />;
     };
 };

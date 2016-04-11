@@ -7,8 +7,7 @@ import CardHeader from 'material-ui/lib/card/card-header';
 import CardText from 'material-ui/lib/card/card-text';
 import FlatButton from 'material-ui/lib/flat-button';
 import {MarkdownText} from '../_components';
-const iconPath = 'material-ui/lib/svg-icons/';
-let Help = require(iconPath + 'action/help');
+import Help from 'material-ui/lib/svg-icons/action/help';
 
 @connect(null, (dispatch, state) => {
   return {
