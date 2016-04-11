@@ -4,7 +4,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as Type from './actionTypes';
 import {fileExists} from '../services/exists';
-import {loadRootPackageJson, searchForTutorials} from '../services/tutorials';
+import {loadRootPackageJson, searchForTutorials} from '../services/setup/tutorials';
 
 export function loadTutorials(): CR.Action {
   let tutorials = [];
