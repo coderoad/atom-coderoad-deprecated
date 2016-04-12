@@ -12,8 +12,8 @@ import * as Action from '../../actions/actions';
 
 @connect(null, (dispatch) => {
   return {
-    selectProject: (name: string) => {
-      Action.loadTutorial(name);
+    selectTutorial: (tutorial: CR.Tutorial) => {
+      Action.loadTutorial(tutorial);
       dispatch(Action.setRoute('progress'));
     },
     toggleAlert: (item: CR.Alert): void => {
@@ -26,7 +26,7 @@ import * as Action from '../../actions/actions';
 })
 export default class extends React.Component<{
   tutorials: CR.Tutorial[], loadTutorials?: () => void,
-  selectProject?: (name: string) => void, toggleAlert?: (item: CR.Alert) => void
+  selectTutorial?: (tutorial: CR.Tutorial) => void, toggleAlert?: (item: CR.Alert) => void
 }, {}> {
     trim(name: string): string {
       if (name.match(/^coderoad-tutorial-/)) {
@@ -38,7 +38,7 @@ export default class extends React.Component<{
       return name;
     }
   render() {
-    const {tutorials, loadTutorials, selectProject, toggleAlert} = this.props;
+    const {tutorials, loadTutorials, selectTutorial, toggleAlert} = this.props;
     return (
   <div className='cr-tutorials'>
     <Table>
@@ -56,7 +56,7 @@ export default class extends React.Component<{
         return (
           <TableRow>
             <TableRowColumn>
-            <FlatButton label={this.trim(tutorial.name)} primary={true} onTouchTap={selectProject.bind(this, tutorial)} />
+            <FlatButton label={this.trim(tutorial.name)} primary={true} onTouchTap={selectTutorial.bind(this, tutorial)} />
             </TableRowColumn>
             <TableRowColumn>{tutorial.version}</TableRowColumn>
             />

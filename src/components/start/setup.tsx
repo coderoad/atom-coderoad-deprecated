@@ -6,10 +6,9 @@ import Subheader from 'material-ui/lib/Subheader';
 import {MarkdownText} from '../_components';
 import {verifySetupComplete} from '../../services/setup/setup';
 
-export default class extends React.Component<{warning: CR.SetupWarning}, {}> {
-  render() {
-    const {warning} = this.props;
-  return (
+// export default class extends React.Component<{warning: CR.SetupWarning}, {}> {
+//   render() {
+export const SetupGuide = ({warning}) => (
     <div className='cr-setup'>
       <List>
       <Subheader>Setup</Subheader>
@@ -32,6 +31,5 @@ export default class extends React.Component<{warning: CR.SetupWarning}, {}> {
         <span>Check the
         <a href='https://coderoad.github.io/docs#install'> <strong>Install Guide</strong></a></span>
       </div>
-    </div>);
-  };
-}
+    </div>
+);

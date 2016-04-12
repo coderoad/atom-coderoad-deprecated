@@ -114,8 +114,10 @@
         "src/components/progress/progress.tsx",
         "src/components/render.tsx",
         "src/components/routes/routes.tsx",
+        "src/components/start/setup-steps.tsx",
         "src/components/start/setup.tsx",
         "src/components/start/start.tsx",
+        "src/components/start/steps.tsx",
         "src/components/start/tutorials.tsx"
     ],
     "exclude": [
