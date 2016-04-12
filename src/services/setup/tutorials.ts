@@ -54,9 +54,29 @@ function _isTutorial(name: string): boolean {
   return true;
 }
 
-export function searchForTutorials(deps: Object): string[] {
+export function searchForTutorials(deps: Object): CR.Tutorial[] {
   if (!!deps && Object.keys(deps).length > 0) {
-    return Object.keys(deps).filter((name) => _isTutorial(name));
+    return Object.keys(deps)
+      .filter((name: string) => _isTutorial(name))
+      .map(function(name: string) {
+
+        const pathToTutorialPackageJson = path.join(window.coderoad.dir, 'node_modules', name, 'package.json');
+        if (!fileExists(pathToTutorialPackageJson)) {
+          console.log(`Error with ${name}: no package.json file found. ${tutorialError}`);
+          return {
+            name,
+            version: 'NOT INSTALLED'
+          };
+        }
+
+        let packageJson = JSON.parse(fs.readFileSync(pathToTutorialPackageJson, 'utf8'));
+
+      return {
+        name,
+        version: packageJson.version,
+        latest: true
+      };
+    });
   } else {
     return [];
   }

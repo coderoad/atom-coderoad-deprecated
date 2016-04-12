@@ -25,7 +25,7 @@ import * as Action from '../../actions/actions';
   };
 })
 export default class extends React.Component<{
-  tutorials: string[], loadTutorials?: () => void,
+  tutorials: CR.Tutorial[], loadTutorials?: () => void,
   selectProject?: (name: string) => void, toggleAlert?: (item: CR.Alert) => void
 }, {}> {
     trim(name: string): string {
@@ -52,13 +52,13 @@ export default class extends React.Component<{
       </TableHeader>
       <TableBody displayRowCheckbox={false}>
 
-        {tutorials.map((tutorial: string, index) => {
+        {tutorials.map((tutorial: CR.Tutorial, index) => {
         return (
           <TableRow>
             <TableRowColumn>
-            <FlatButton label={this.trim(tutorial)} primary={true} onTouchTap={selectProject.bind(this, tutorial)} />
+            <FlatButton label={this.trim(tutorial.name)} primary={true} onTouchTap={selectProject.bind(this, tutorial)} />
             </TableRowColumn>
-            <TableRowColumn>v1.0.0</TableRowColumn>
+            <TableRowColumn>{tutorial.version}</TableRowColumn>
             />
           </TableRow>
           );

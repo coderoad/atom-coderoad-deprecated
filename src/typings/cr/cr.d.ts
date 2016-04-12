@@ -37,7 +37,7 @@ declare namespace CR {
     hintPosition: number;
     editorActions: string[];
     alert: Alert;
-    tutorials: string[];
+    tutorials: Tutorial[];
     runTests: boolean;
     log: Log;
     warning: SetupWarning;
@@ -91,6 +91,12 @@ declare namespace CR {
     payload?;
     error?: boolean;
     meta?;
+  }
+
+  interface Tutorial {
+    name: string;
+    version: string;
+    latest?: boolean;
   }
 
   interface Log {
