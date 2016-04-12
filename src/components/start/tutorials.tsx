@@ -1,5 +1,5 @@
 import * as React from 'react';
-import RaisedButton from 'material-ui/lib/raised-button';
+import FlatButton from 'material-ui/lib/flat-button';
 import Table from 'material-ui/lib/table/table';
 import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
 import TableRow from 'material-ui/lib/table/table-row';
@@ -55,7 +55,9 @@ export default class extends React.Component<{
         {tutorials.map((tutorial: string, index) => {
         return (
           <TableRow>
-            <TableRowColumn onClick={selectProject.bind(this, tutorial)}>{this.trim(tutorial)}</TableRowColumn>
+            <TableRowColumn>
+            <FlatButton label={this.trim(tutorial)} primary={true} onTouchTap={selectProject.bind(this, tutorial)} />
+            </TableRowColumn>
             <TableRowColumn>v1.0.0</TableRowColumn>
             />
           </TableRow>
@@ -66,7 +68,7 @@ export default class extends React.Component<{
     </Table>
 
     <br />
-    <RaisedButton label='Load Tutorials' secondary={true} onTouchTap={loadTutorials} />
+    <FlatButton label='Check for Tutorials' secondary={true} onTouchTap={loadTutorials} />
   </div>
     );
   }

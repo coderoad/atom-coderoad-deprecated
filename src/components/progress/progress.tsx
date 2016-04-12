@@ -82,7 +82,7 @@ export default ({progress, position}) => (
             'isActive': isActive
           })}
           initiallyOpen={chapterIndex === 0}
-          leftIcon={chapter.completed ? <AllCompleted /> : null}
+          leftIcon={chapter.completed ? <CheckBox /> : null}
           primaryTogglesNestedList={chapterIndex === position.chapter && !chapter.completed}
           nestedItems={chapter.pages.map((page: CR.Page, pageIndex: number) => {
             const itemPosition = {chapter: chapterIndex, page: pageIndex};

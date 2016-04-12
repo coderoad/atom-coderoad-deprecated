@@ -10,6 +10,7 @@ import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 import IconMenu from 'material-ui/lib/menus/icon-menu';
 import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/lib/menus/menu-item';
+import Divider from 'material-ui/lib/divider';
 
 const origin = {horizontal: 'right', vertical: 'top'};
 
@@ -80,6 +81,8 @@ export default class extends React.Component<{
                       post issue
                       </a>
                   </MenuItem> : null}
+                  <Divider />
+                  <MenuItem key='quit' onClick={quit}>quit</MenuItem>
                 </IconMenu>
     } />;
   }

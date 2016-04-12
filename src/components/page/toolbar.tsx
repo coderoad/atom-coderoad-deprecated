@@ -45,7 +45,7 @@ export default class extends React.Component<{
       <ToolbarGroup float='right'>
         {taskPosition >= tasks.length ?
           <RaisedButton label='Continue' primary={true} onTouchTap={callNextPage} /> :
-          <RaisedButton label='Save' secondary={true} onTouchTap={save} />
+          <FlatButton label='Save' secondary={true} onTouchTap={save} />
         }
       </ToolbarGroup>
 
