@@ -25,8 +25,8 @@ export function setPosition(position: CR.Position): CR.Action {
   return { type: Type.SET_POSITION, payload: { position } };
 }
 
-export function loadTutorial(name: string): void {
-  Package.selectPackage(name);
+export function loadTutorial(tutorial: CR.Tutorial): void {
+  Package.selectPackage(tutorial.name);
   store.dispatch(setProject());
   store.dispatch(setPosition({chapter: 0, page: 0}));
   store.dispatch(setProgress());
