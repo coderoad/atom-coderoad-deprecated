@@ -12,6 +12,7 @@ interface PackageJson {
 
 interface ObjectConstructor {
   assign(target: any, ...sources: any[]): any;
+  values(obj: Object): any[];
 }
 
 interface IntrinsicAttributes {
