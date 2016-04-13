@@ -5,14 +5,29 @@ import DynamicStepper from './dynamic-stepper';
 import Step from 'material-ui/lib/Stepper/VerticalStep';
 import FlatButton from 'material-ui/lib/flat-button';
 
-export const Checks = ({checks}) => (
-  <Paper className='cr-start'>
+import {connect} from 'react-redux';
+import {store} from '../../store/store';
+import * as Action from '../../actions/actions';
+
+@connect(null, (dispatch) => {
+  return {
+    routeToTutorials: () => store.dispatch(Action.setRoute('tutorials'))
+  };
+})
+export class Checks extends React.Component<{
+  checks: CR.Checks, routeToTutorials?: any
+}, {}> {
+  render() {
+    const {checks, routeToTutorials} = this.props;
+  return <Paper className='cr-start'>
     <div className='cr-start-header'>
       <span className='title'>CodeRoad</span>
       <p className='tagline'>Tutorials in the Editor</p>
       <p className='version'>Beta</p>
 
-        <DynamicStepper title='Dependency Checks'>
+        {/* System Checks */}
+
+        {checks.system.passed ? null : <DynamicStepper title='Dependency Checks'>
           <Step orderStepLabel='1'
              stepLabel='Node >= 0.10'
              actions={[
@@ -38,9 +53,11 @@ export const Checks = ({checks}) => (
               `> npm update -g npm`
               </div>
             </Step>
-         </DynamicStepper>
+         </DynamicStepper>}
 
-        <DynamicStepper title='Setup Checks'>
+         {/* Setup Checks */}
+
+        {checks.setup.passed ? null : <DynamicStepper title='Setup Checks'>
           <Step orderStepLabel='1'
            stepLabel='working directory'
            actions={[
@@ -79,13 +96,18 @@ export const Checks = ({checks}) => (
              `> npm install coderoad-functional-school --save-dev`
              </div>
           </Step>
-          </DynamicStepper>
+          </DynamicStepper>}
 
-        <div className='setup-guide'>
+          {/* Install Guide || Continue */}
+
+        {checks.passed
+          ?  <FlatButton label='Begin' primary={true} onTouchTap={routeToTutorials}/>
+          : <div className='setup-guide'>
           <span>Check the
           <a href='https://coderoad.github.io/docs#install'> <strong>Install Guide</strong></a></span>
-        </div>
+        </div>}
 
     </div>
-  </Paper>
-);
+  </Paper>;
+  }
+}
