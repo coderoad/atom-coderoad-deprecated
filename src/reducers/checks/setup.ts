@@ -9,10 +9,6 @@ function allTrue(obj: Object): boolean {
   return Object.values(obj).every((x) => x === true);
 }
 
-function verified(checks: CR.Checks): boolean {
-  return allTrue(checks.system) && allTrue(checks.setup);
-}
-
 function result(x) {
   return x;
 }
@@ -30,6 +26,8 @@ export default function verifySetup(): CR.Checks {
     }
   };
 
-  checks.passed = verified(checks);
+  checks.system.passed = allTrue(checks.system);
+  checks.setup.passed = allTrue(checks.system);
+  checks.passed = checks.system.passed && checks.setup.passed;
   return checks;
 }

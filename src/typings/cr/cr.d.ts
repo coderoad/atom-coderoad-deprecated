@@ -81,10 +81,12 @@ declare namespace CR {
   interface Checks {
     passed?: boolean;
     system: {
+      passed?: boolean;
       node: boolean;
       npm: boolean;
     };
     setup: {
+      passed?: boolean;
       dir: boolean;
       packageJson: boolean;
       tutorial: boolean;
