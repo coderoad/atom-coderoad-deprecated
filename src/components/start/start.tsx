@@ -20,7 +20,7 @@ export const Start = ({tutorials, warning}) => (
         ? <Tutorials tutorials={tutorials}/>
         : <SetupGuide warning={warning} />}
 
-        <DynamicStepper>
+        <DynamicStepper title='Dependency Checks'>
           <Step orderStepLabel='1'
              stepLabel='Node >= 0.10'
              actions={[
@@ -48,7 +48,7 @@ export const Start = ({tutorials, warning}) => (
             </Step>
          </DynamicStepper>
 
-        <DynamicStepper>
+        <DynamicStepper title='Setup Checks'>
           <Step orderStepLabel='1'
            stepLabel='working directory'
            actions={[
