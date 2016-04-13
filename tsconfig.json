@@ -52,6 +52,7 @@
         "src/actions/alert.ts",
         "src/actions/page-actions.ts",
         "src/actions/progress-actions.ts",
+        "src/actions/routes.ts",
         "src/actions/task-actions.ts",
         "src/actions/tutorials.ts",
         "src/atom/actions.ts",

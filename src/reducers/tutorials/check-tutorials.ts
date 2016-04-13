@@ -7,11 +7,13 @@ import {canUpdateTutorial} from './update-tutorial';
 let tutorialError = 'This is an error with the tutorial itself';
 
 export function packageJsonExists(): boolean {
+  console.log('packageJsonExists?')
   const pathToPackageJson = path.join(window.coderoad.dir, 'package.json');
   return fileExists(pathToPackageJson);
 }
 
 export function loadRootPackageJson(): PackageJson {
+  console.log('loadRootPackageJson');
   const pathToPackageJson = path.join(window.coderoad.dir, 'package.json');
   if (fileExists(pathToPackageJson)) {
     return JSON.parse(fs.readFileSync(pathToPackageJson, 'utf8'));

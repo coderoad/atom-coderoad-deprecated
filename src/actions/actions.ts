@@ -19,11 +19,6 @@ export function setProgress(): CR.Action {
   return { type: Type.SET_PROGRESS };
 }
 
-/* Navigation */
-export function setRoute(route: string): CR.Action {
-  return { type: Type.SET_ROUTE, payload: { route } };
-}
-
 /* Position */
 export function setPosition(position: CR.Position): CR.Action {
   return { type: Type.SET_POSITION, payload: { position } };
@@ -60,3 +55,5 @@ export {loadTutorials} from './tutorials';
 
 /* Alert */
 export {toggleAlert, replayAlert} from './alert';
+
+export {setRoute} from './routes';

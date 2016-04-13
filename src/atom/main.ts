@@ -4,12 +4,24 @@ import {render, initRoot, togglePanel} from '../components/render';
 import loadPolyfills from '../services/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 
+function setDir(): string {
+  if (atom.project.rootDirectories.length > 0) {
+    return atom.project.rootDirectories[0].path;
+  } else {
+    return null;
+  }
+}
+function setWin(): boolean {
+  return navigator.appVersion.indexOf('Win') > -1;
+}
+
 class Main {
   root: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
     window.coderoad = {
-      dir: null
+      dir: setDir(),
+      win: setWin()
     };
     loadPolyfills();
     this.root = initRoot();

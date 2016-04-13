@@ -1,5 +1,5 @@
 import {fileExists} from '../../services/exists';
-import {packageJsonExists, loadRootPackageJson, searchForTutorials} from '../tutorials/tutorials';
+import {packageJsonExists, loadRootPackageJson, searchForTutorials} from '../tutorials/check-tutorials';
 import {createPackageJson, openDirectory, installTutorial} from './setup-actions';
 import * as path from 'path';
 

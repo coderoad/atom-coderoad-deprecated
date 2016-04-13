@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {store} from '../../store/store';
+import * as Action from '../../actions/actions';
 import {Page, Progress, Tutorials, Checks, FinalPage} from '../_components';
 
 export default class extends React.Component<{state: CR.State}, {}> {

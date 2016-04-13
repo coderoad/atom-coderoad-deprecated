@@ -1,15 +1,14 @@
 import * as Type from '../../actions/actionTypes';
-import {setDir, setWin, setGlobals} from './set-globals';
+import {setWin, setGlobals} from './set-globals';
 
-const defaultGlobals: CR.Coderoad = {
-  dir: setDir(),
-  win: setWin()
-};
+// TODO: refactor out globals into state
 
-export default function globalReducer(globals = defaultGlobals, action: CR.Action): CR.Coderoad {
+export default function globalReducer(globals = {}, action: CR.Action): CR.Coderoad {
   switch (action.type) {
     case Type.SET_GLOBALS:
-      return Object.assign({}, setGlobals(action.payload.packageJson), globals);
+      let coderoad = Object.assign({}, setGlobals(action.payload.packageJson), window.coderoad);
+      window.coderoad = coderoad;
+      return coderoad;
     default:
       return globals;
   }

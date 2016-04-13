@@ -1,18 +1,6 @@
 import * as path from 'path';
 import {fileExists} from '../../services/exists';
 
-export function setDir(): string {
-  if (atom.project.rootDirectories.length > 0) {
-    return atom.project.rootDirectories[0].path;
-  } else {
-    return null;
-  }
-}
-
-export function setWin(): boolean {
-  return navigator.appVersion.indexOf('Win') > -1;
-}
-
 export function setGlobals(packageJson: PackageJson): CR.Coderoad {
   return Object.assign({}, {
     tutorial: packageJson.name,

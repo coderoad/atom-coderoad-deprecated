@@ -38,5 +38,3 @@ export const LOG_MESSAGE = 'LOG_MESSAGE';
 // Alert
 export const TOGGLE_ALERT = 'TOGGLE_ALERT';
 export const REPLAY_ALERT = 'SHOW_ALERT';
-
-export const NULL = 'NULL';
