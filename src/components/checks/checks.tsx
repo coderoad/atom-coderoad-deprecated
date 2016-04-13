@@ -1,41 +1,48 @@
 import * as React from 'react';
 import Paper from 'material-ui/lib/paper';
 import RaisedButton from 'material-ui/lib/raised-button';
-import DynamicStepper from './dynamic-stepper';
+import DynamicStepper from './setup-checker';
 import Step from 'material-ui/lib/Stepper/VerticalStep';
 import FlatButton from 'material-ui/lib/flat-button';
 
+import {openDirectory, createPackageJson, installTutorial} from '../../reducers/checks/setup-actions';
 import {connect} from 'react-redux';
 import {store} from '../../store/store';
 import * as Action from '../../actions/actions';
 
 @connect(null, (dispatch) => {
   return {
-    routeToTutorials: () => store.dispatch(Action.setRoute('tutorials'))
+    routeToTutorials: () => store.dispatch(Action.setRoute('tutorials')),
+    verify: () => store.dispatch(Action.verifySetup())
   };
 })
 export class Checks extends React.Component<{
-  checks: CR.Checks, routeToTutorials?: any
+  checks: CR.Checks, routeToTutorials?: any, verify?: any
 }, {}> {
+  getSystemChecks(checks: CR.Checks) {
+    const system = checks.system;
+    return [system.node, system.npm];
+  }
+  getSetupChecks(checks: CR.Checks) {
+    const setup = checks.setup;
+    return [setup.dir, setup.packageJson, setup.tutorial];
+  }
   render() {
-    const {checks, routeToTutorials} = this.props;
-  return <Paper className='cr-start'>
+    const {checks, routeToTutorials, verify} = this.props;
+    return <Paper className='cr-start'>
     <div className='cr-start-header'>
-      <span className='title'>CodeRoad</span>
-      <p className='tagline'>Tutorials in the Editor</p>
-      <p className='version'>Beta</p>
+      <p className='tagline'>Setup</p>
 
         {/* System Checks */}
 
-        {checks.system.passed ? null : <DynamicStepper title='Dependency Checks'>
+        {checks.system.passed ? null : <DynamicStepper title='Dependency Checks' status={this.getSystemChecks(checks)}>
           <Step orderStepLabel='1'
              stepLabel='Node >= 0.10'
              actions={[
                <RaisedButton key={0} primary={true}
                  label='Verify'
-                 onTouchTap={function() { return; }}
-               />,
-               <FlatButton key={1} label='Cancel' />
+                 onTouchTap={verify}
+               />
              ]} >
              <div>Install a newer version of <a href='https://nodejs.org'>Node</a></div>
            </Step>
@@ -44,9 +51,8 @@ export class Checks extends React.Component<{
               actions={[
                 <RaisedButton key={0} primary={true}
                   label='Verify'
-                  onTouchTap={function() { return; }}
-                />,
-                <FlatButton key={1} label='Cancel' />
+                  onTouchTap={verify}
+                />
               ]} >
               <div>
               Update your version of NPM.<br />
@@ -57,15 +63,17 @@ export class Checks extends React.Component<{
 
          {/* Setup Checks */}
 
-        {checks.setup.passed ? null : <DynamicStepper title='Setup Checks'>
+        {checks.setup.passed ? null : <DynamicStepper title='Setup Checks'
+        status={this.getSetupChecks(checks)}>
           <Step orderStepLabel='1'
            stepLabel='working directory'
            actions={[
              <RaisedButton key={0} primary={true}
                label='Verify'
-               onTouchTap={function() { return; }}
-             />,
-             <FlatButton key={1} label='Cancel' />
+               onTouchTap={verify} />,
+             <FlatButton key={1} secondary={true}
+              label='Do it for me'
+              onTouchTap={openDirectory} />
            ]} >
            <div>File -> Open (a new folder)</div>
            </Step>
@@ -74,9 +82,10 @@ export class Checks extends React.Component<{
                actions={[
                  <RaisedButton key={0} primary={true}
                    label='Verify'
-                   onTouchTap={function() { return; }}
-                 />,
-                 <FlatButton key={1} label='Cancel' />
+                   onTouchTap={verify} />,
+                 <FlatButton key={1} secondary={true}
+                  label='Do it for me'
+                  onTouchTap={createPackageJson} />
                ]} >
                <div>
                Create a package.json by running<br />
@@ -87,9 +96,10 @@ export class Checks extends React.Component<{
              actions={[
                <RaisedButton key={0} primary={true}
                  label='Verify'
-                 onTouchTap={function() { return; }}
-               />,
-               <FlatButton key={1} label='Cancel' />
+                 onTouchTap={verify} />,
+                 <FlatButton key={1} secondary={true}
+                  label='Do it for me'
+                  onTouchTap={installTutorial} />
              ]} >
              <div>
              Install a tutorial using npm. For example:<br />
@@ -108,6 +118,7 @@ export class Checks extends React.Component<{
         </div>}
 
     </div>
+    <p className='version'>Beta</p>
   </Paper>;
   }
 }

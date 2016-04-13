@@ -2,11 +2,6 @@ import * as React from 'react';
 import Stepper from 'material-ui/lib/Stepper/Stepper';
 import FontIcon from 'material-ui/lib/font-icon';
 
-let initState = {
-  activeStep: -1,
-  statusSteps: []
-};
-
 const styles = {
   header: {
     textAlign: 'center',
@@ -19,13 +14,17 @@ const styles = {
 };
 
 export default class extends React.Component<{
-  title?: string, children?: any
+  status: boolean[], title: string, children?: any
 }, {
   activeStep: number, statusSteps: boolean[]
 }> {
-  constructor() {
-    super();
-    this.state = initState;
+  constructor(props) {
+    super(props);
+    let statusSteps = this.props.status;
+    this.state = {
+      activeStep: statusSteps.indexOf(false) || -1,
+      statusSteps
+    };
   }
   selectStep(CurrentStep) {
     this.setState({
@@ -51,7 +50,7 @@ export default class extends React.Component<{
     statusSteps[activeStep] = true;
     this.state = {
       activeStep: activeStep + 1,
-      statusSteps: statusSteps,
+      statusSteps,
     };
   }
   render() {

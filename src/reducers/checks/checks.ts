@@ -1,5 +1,5 @@
 import * as Type from '../../actions/actionTypes';
-import verifySetup from './setup';
+import verifySetup from './verify';
 
 const defaultChecks = {
   passed: false,
