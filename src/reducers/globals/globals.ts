@@ -1,5 +1,5 @@
 import * as Type from '../../actions/actionTypes';
-import {setWin, setGlobals} from './set-globals';
+import {setGlobals} from './set-globals';
 
 // TODO: refactor out globals into state
 

@@ -4,6 +4,11 @@ import {render, initRoot, togglePanel} from '../components/render';
 import loadPolyfills from '../services/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 
+import {store} from '../store/store';
+import * as Action from '../actions/actions';
+
+// TODO: find a better place to load globals
+
 function setDir(): string {
   if (atom.project.rootDirectories.length > 0) {
     return atom.project.rootDirectories[0].path;
@@ -19,11 +24,12 @@ class Main {
   root: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
+    loadPolyfills(); // remove with later version of Chrome
     window.coderoad = {
       dir: setDir(),
       win: setWin()
     };
-    loadPolyfills();
+    store.dispatch(Action.verifySetup());
     this.root = initRoot();
   }
   activate(): void {

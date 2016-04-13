@@ -21,12 +21,12 @@ export default function verifySetup(): CR.Checks {
   let checks: CR.Checks = {
     system: {
       node: true,
-      npm: npmVersionThreeOrLater().then(result)
+      npm: !!npmVersionThreeOrLater()
     },
     setup: {
-      dir: hasDirectory().then(result),
-      packageJson: hasPackageJson().then(result),
-      tutorial: hasTutorialDep().then(result)
+      dir: !!hasDirectory(),
+      packageJson: !!hasPackageJson(),
+      tutorial: !!hasTutorialDep()
     }
   };
 

@@ -7,7 +7,7 @@ import {canUpdateTutorial} from './update-tutorial';
 let tutorialError = 'This is an error with the tutorial itself';
 
 export function packageJsonExists(): boolean {
-  console.log('packageJsonExists?')
+  console.log('packageJsonExists?');
   const pathToPackageJson = path.join(window.coderoad.dir, 'package.json');
   return fileExists(pathToPackageJson);
 }
