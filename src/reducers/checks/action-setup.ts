@@ -11,7 +11,7 @@ const packageData = `{
   }
 }`;
 
-export function createPackageJson() {
+export function createPackageJson(): Promise<void> {
   const packagePath = path.join(window.coderoad.dir, 'package.json');
   return new Promise((resolve, reject) => {
     open(packagePath);
@@ -24,10 +24,10 @@ export function createPackageJson() {
   });
 }
 
-export function openDirectory() {
-  return openFolder();
+export function openDirectory(): void {
+  openFolder();
 }
 
-export function installTutorial() {
-  return openTerminal();
+export function installTutorial(): void {
+  openTerminal();
 }

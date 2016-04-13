@@ -1,14 +1,20 @@
 import * as React from 'react';
 import Paper from 'material-ui/lib/paper';
-import RaisedButton from 'material-ui/lib/raised-button';
 import DynamicStepper from './setup-checker';
 import Step from 'material-ui/lib/Stepper/VerticalStep';
 import FlatButton from 'material-ui/lib/flat-button';
 
-import {openDirectory, createPackageJson, installTutorial} from '../../reducers/checks/setup-actions';
+import {openDirectory, createPackageJson, installTutorial} from '../../reducers/checks/action-setup';
+import {updateNpm} from '../../reducers/checks/action-system';
 import {connect} from 'react-redux';
 import {store} from '../../store/store';
 import * as Action from '../../actions/actions';
+
+const style = {
+  icon: {
+    backgroundColor: 'red'
+  }
+};
 
 @connect(null, (dispatch) => {
   return {
@@ -36,23 +42,23 @@ export class Checks extends React.Component<{
         {/* System Checks */}
 
         {checks.system.passed ? null : <DynamicStepper title='Dependency Checks' status={this.getSystemChecks(checks)}>
-          <Step orderStepLabel='1'
+          <Step style={style}
+            orderStepLabel='✗'
              stepLabel='Node >= 0.10'
              actions={[
-               <RaisedButton key={0} primary={true}
+               <FlatButton key={0} primary={true}
                  label='Verify'
-                 onTouchTap={verify}
-               />
+                 onTouchTap={verify} />
              ]} >
              <div>Install a newer version of <a href='https://nodejs.org'>Node</a></div>
            </Step>
-           <Step orderStepLabel='2'
+           <Step orderStepLabel='✗'
               stepLabel='NPM >= 3'
               actions={[
-                <RaisedButton key={0} primary={true}
+                <FlatButton key={0} primary={true}
                   label='Verify'
-                  onTouchTap={verify}
-                />
+                  onTouchTap={verify} />,
+
               ]} >
               <div>
               Update your version of NPM.<br />
@@ -65,10 +71,10 @@ export class Checks extends React.Component<{
 
         {checks.setup.passed ? null : <DynamicStepper title='Setup Checks'
         status={this.getSetupChecks(checks)}>
-          <Step orderStepLabel='1'
+          <Step orderStepLabel='✗'
            stepLabel='working directory'
            actions={[
-             <RaisedButton key={0} primary={true}
+             <FlatButton key={0} primary={true}
                label='Verify'
                onTouchTap={verify} />,
              <FlatButton key={1} secondary={true}
@@ -77,10 +83,10 @@ export class Checks extends React.Component<{
            ]} >
            <div>File -> Open (a new folder)</div>
            </Step>
-           <Step orderStepLabel='2'
+           <Step orderStepLabel='✗'
                stepLabel='package.json'
                actions={[
-                 <RaisedButton key={0} primary={true}
+                 <FlatButton key={0} primary={true}
                    label='Verify'
                    onTouchTap={verify} />,
                  <FlatButton key={1} secondary={true}
@@ -91,10 +97,10 @@ export class Checks extends React.Component<{
                Create a package.json by running<br />
                `> npm init -y`</div>
             </Step>
-            <Step orderStepLabel='3'
+            <Step orderStepLabel='✗'
              stepLabel='install tutorial'
              actions={[
-               <RaisedButton key={0} primary={true}
+               <FlatButton key={0} primary={true}
                  label='Verify'
                  onTouchTap={verify} />,
                  <FlatButton key={1} secondary={true}
@@ -110,14 +116,14 @@ export class Checks extends React.Component<{
 
           {/* Install Guide || Continue */}
 
-        {checks.passed
-          ?  <FlatButton label='Begin' primary={true} onTouchTap={routeToTutorials}/>
-          : <div className='setup-guide'>
-          <span>Check the
-          <a href='https://coderoad.github.io/docs#install'> <strong>Install Guide</strong></a></span>
-        </div>}
-
     </div>
+
+    {checks.passed
+      ?  <FlatButton label='Begin' primary={true} onTouchTap={routeToTutorials}/>
+      : <div className='setup-guide'>
+      <span>Check the
+      <a href='https://coderoad.github.io/docs#install'> <strong>Install Guide</strong></a></span>
+    </div>}
     <p className='version'>Beta</p>
   </Paper>;
   }
