@@ -13,19 +13,19 @@ export function setWin(): boolean {
   return navigator.appVersion.indexOf('Win') > -1;
 }
 
-export function setGlobals(packageJson: PackageJson) {
-  window.coderoad = Object.assign(window.coderoad, {
+export function setGlobals(packageJson: PackageJson): CR.Coderoad {
+  return Object.assign({}, {
     tutorial: packageJson.name,
     suffix: packageJson.config.testSuffix.substring(packageJson.config.testSuffix.lastIndexOf('.') + 1,
     packageJson.config.testSuffix.length),
     tutorialDir: path.join(window.coderoad.dir, 'node_modules', packageJson.name, packageJson.config.testDir),
     testRunner: packageJson.config.testRunner,
-    testRunnerOptions: packageJson.config.testRunnerOptions || {}
-  });
-  // issues, bugs
-  loadRepo(packageJson);
-  // set PackageDeps
-  loadRunnerDep(packageJson);
+    testRunnerOptions: packageJson.config.testRunnerOptions || {},
+    runner: loadRunnerDep(packageJson),
+    repo: loadRepo(packageJson),
+    edit: packageJson.config.edit && !!window.coderoad.repo || false,
+    issuesPath: packageJson.bugs && packageJson.bugs.url ? packageJson.bugs.url : null
+  }, window.coderoad);
 }
 
 function loadRunnerDep(packageJson: PackageJson) {
@@ -57,23 +57,19 @@ function loadRunnerDep(packageJson: PackageJson) {
   let pathToMain = path.join(runnerRoot, runnerMain);
 
   if (!!require(pathToMain).default) {
-    window.coderoad.runner = require(pathToMain).default;
+    return require(pathToMain).default;
   } else {
-    window.coderoad.runner = require(pathToMain);
+    return require(pathToMain);
   }
 }
 
 function loadRepo(packageJson: PackageJson) {
-  if (packageJson.bugs && packageJson.bugs.url) {
-    window.coderoad.issuesPath = packageJson.bugs.url;
-  }
   if (packageJson.repo && packageJson.repo.url) {
     let repo: string = packageJson.repo.url;
     if (!!repo.match(/\.git$/)) {
       repo = repo.slice(0, repo.length - 4);
     }
-    window.coderoad.repo = repo;
+    return repo;
   }
-
-  window.coderoad.edit = packageJson.config.edit && !!window.coderoad.repo || false;
+  return null;
 }
