@@ -1,6 +1,6 @@
 // Project
 export const SET_PROJECT = 'SET_PROJECT';
-export const SETUP_WARNING = 'SETUP_WARNING';
+export const VERIFY_SETUP = 'VERIFY_SETUP';
 export const LOAD_TUTORIALS = 'LOAD_TUTORIALS';
 
 // Navigation

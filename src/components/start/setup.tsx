@@ -25,9 +25,5 @@ export const SetupGuide = ({warning}) => (
       <RaisedButton label={`Verify ${warning.verify}`} secondary={true} onTouchTap={verifySetupComplete} /><br /><br />
       </div> : null}
 
-      <div className='setup-guide'>
-        <span>Check the
-        <a href='https://coderoad.github.io/docs#install'> <strong>Install Guide</strong></a></span>
-      </div>
     </div>
 );

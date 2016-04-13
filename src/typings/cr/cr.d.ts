@@ -77,6 +77,19 @@ declare namespace CR {
     completed: boolean;
   }
 
+  interface Checks {
+    passed?: boolean;
+    system: {
+      node: boolean;
+      npm: boolean;
+    };
+    setup: {
+      dir: boolean;
+      packageJson: boolean;
+      tutorial: boolean;
+    };
+  }
+
   type TaskTest = string[];
 
   interface Alert {

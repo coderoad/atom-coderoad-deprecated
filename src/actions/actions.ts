@@ -7,8 +7,8 @@ export function setProject(): CR.Action {
   return { type: Type.SET_PROJECT };
 }
 
-export function setupWarning(warning: CR.SetupWarning): CR.Action {
-  return { type: Type.SETUP_WARNING, payload: { warning } };
+export function verifySetup(): CR.Action {
+  return { type: Type.VERIFY_SETUP };
 }
 
 export function setProgress(): CR.Action {

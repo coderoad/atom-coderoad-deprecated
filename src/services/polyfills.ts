@@ -1,4 +1,15 @@
 export default function loadPolyfills() {
+
+  if (typeof Object.values !== 'function') {
+    Object.values = function(obj) {
+      var vals = [];
+      for (let key in obj) {
+        vals.push(obj[key]);
+      }
+      return vals;
+    }
+  }
+
   // Object.assign temporary polyfill
   if (typeof Object.assign !== 'function') {
     (function() {

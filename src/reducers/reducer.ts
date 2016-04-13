@@ -14,7 +14,7 @@ import runTests from './run-tests/run-tests';
 import editorActions from './editor-actions/editor-actions';
 import tutorials from './tutorials/tutorials';
 import log from './log/log';
-import warning from './warning/warning';
+import checks from './checks/checks';
 
 export default combineReducers({
   project: project,
@@ -31,5 +31,5 @@ export default combineReducers({
   editorActions: editorActions,
   tutorials: tutorials,
   log: log,
-  warning: warning
+  checks: checks
 });
