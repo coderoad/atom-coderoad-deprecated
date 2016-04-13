@@ -24,7 +24,7 @@ import * as Action from '../../actions/actions';
     }
   };
 })
-export default class extends React.Component<{
+class TutorialList extends React.Component<{
   tutorials: CR.Tutorial[], loadTutorials?: () => void,
   selectTutorial?: (tutorial: CR.Tutorial) => void, toggleAlert?: (item: CR.Alert) => void
 }, {}> {
@@ -73,3 +73,7 @@ export default class extends React.Component<{
     );
   }
 }
+
+export const Tutorials = ({tutorials}) => (
+  <TutorialList tutorials={tutorials} />
+);

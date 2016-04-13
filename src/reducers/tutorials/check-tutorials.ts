@@ -1,4 +1,4 @@
-import {store} from '../../_base';
+import {store} from '../../store/store';
 import * as path from 'path';
 import * as fs from 'fs';
 import {fileExists} from '../../services/exists';

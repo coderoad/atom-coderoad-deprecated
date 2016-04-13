@@ -1,22 +1,16 @@
 import * as React from 'react';
 import Paper from 'material-ui/lib/paper';
 import RaisedButton from 'material-ui/lib/raised-button';
-import {SetupGuide} from './setup';
-import Tutorials from './tutorials';
 import DynamicStepper from './dynamic-stepper';
 import Step from 'material-ui/lib/Stepper/VerticalStep';
 import FlatButton from 'material-ui/lib/flat-button';
 
-export const Start = ({tutorials, warning}) => (
+export const Checks = ({checks}) => (
   <Paper className='cr-start'>
     <div className='cr-start-header'>
       <span className='title'>CodeRoad</span>
       <p className='tagline'>Tutorials in the Editor</p>
       <p className='version'>Beta</p>
-
-      {!warning
-        ? <Tutorials tutorials={tutorials}/>
-        : <SetupGuide warning={warning} />}
 
         <DynamicStepper title='Dependency Checks'>
           <Step orderStepLabel='1'

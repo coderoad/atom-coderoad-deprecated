@@ -1,6 +1,6 @@
 import * as Type from '../../actions/actionTypes';
 
-const defaultRoute: string = 'projects';
+const defaultRoute: string = 'tutorials';
 
 export default function routeReducer(route = defaultRoute, action: CR.Action): string {
   switch (action.type) {

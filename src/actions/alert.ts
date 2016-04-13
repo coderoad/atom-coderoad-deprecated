@@ -1,4 +1,4 @@
-import {store} from '../_base';
+import {store} from '../store/store';
 import * as Type from './actionTypes';
 const _ = require('lodash');
 

@@ -1,5 +1,5 @@
 import * as Type from './actionTypes';
-import {store} from '../_base';
+import {store} from '../store/store';
 
 export function showHint(): CR.Action {
   return { type: Type.SHOW_HINT };

@@ -1,5 +1,5 @@
 import * as Type from './actionTypes';
-import {store} from '../_base';
+import {store} from '../store/store';
 
 export function pageComplete(): CR.Action {
   const position: CR.Position = store.getState().position;

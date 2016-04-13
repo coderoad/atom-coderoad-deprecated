@@ -1,4 +1,4 @@
-import {store} from '../../_base';
+import {store} from '../../store/store';
 import * as Action from '../../actions/actions';
 
 export function handleResult(result: CR.TestResult) {

@@ -1,5 +1,5 @@
 import {handleResult} from './test-result';
-import {store} from '../../_base';
+import {store} from '../../store/store';
 import * as fs from 'fs';
 import * as path from 'path';
 import parseLoaders from './parse-loaders';

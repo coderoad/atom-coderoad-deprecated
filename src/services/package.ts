@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as Action from '../actions/actions';
-import {store} from '../_base';
+import {store} from '../store/store';
 const _ = require('lodash');
 
 function configTestString(config: CR.Config, packageName: string, test: string): string {

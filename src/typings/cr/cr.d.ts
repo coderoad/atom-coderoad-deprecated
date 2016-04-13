@@ -40,7 +40,8 @@ declare namespace CR {
     tutorials: Tutorial[];
     runTests: boolean;
     log: Log;
-    warning: SetupWarning;
+    checks: Checks;
+    globals: Coderoad;
   }
 
   interface Project {

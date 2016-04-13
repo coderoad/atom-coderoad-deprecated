@@ -47,7 +47,6 @@
         "src/typings/status-bar/status-bar.d.ts",
         "src/typings/text-buffer/text-buffer.d.ts",
         "src/typings/tsd.d.ts",
-        "src/_base.ts",
         "src/actions/actions.ts",
         "src/actions/actionTypes.ts",
         "src/actions/alert.ts",
@@ -100,6 +99,8 @@
         "src/store/store.ts",
         "src/components/alert/alert.tsx",
         "src/components/app.tsx",
+        "src/components/checks/checks.tsx",
+        "src/components/checks/dynamic-stepper.tsx",
         "src/components/final-page/final-page.tsx",
         "src/components/markdown/markdown.tsx",
         "src/components/menu/menu.tsx",
@@ -114,10 +115,7 @@
         "src/components/progress/progress.tsx",
         "src/components/render.tsx",
         "src/components/routes/routes.tsx",
-        "src/components/start/dynamic-stepper.tsx",
-        "src/components/start/setup.tsx",
-        "src/components/start/start.tsx",
-        "src/components/start/tutorials.tsx"
+        "src/components/tutorials/tutorials.tsx"
     ],
     "exclude": [
         "node_modules"

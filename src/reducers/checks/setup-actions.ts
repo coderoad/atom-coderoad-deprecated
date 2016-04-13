@@ -1,7 +1,7 @@
 import * as path from 'path';
 import {open, set} from '../../atom/editor';
 import {openFolder, openTerminal} from '../../atom/actions';
-import {store} from '../../_base';
+import {store} from '../store/store';
 import * as Action from '../../actions/actions';
 import {verifySetupComplete} from './setup';
 

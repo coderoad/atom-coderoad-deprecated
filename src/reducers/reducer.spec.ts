@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {reducer} from '../../lib/_base';
+import {reducer} from '../../lib/store/';
 
 describe('Reducer:', () => {
 

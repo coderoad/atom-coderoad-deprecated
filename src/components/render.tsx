@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import * as Action from '../actions/actions';
-import {store} from '../_base';
+import {store} from '../store/store';
 import App from './app';
 import './remove-later';
 
