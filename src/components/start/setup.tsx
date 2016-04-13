@@ -6,8 +6,6 @@ import Subheader from 'material-ui/lib/Subheader';
 import {MarkdownText} from '../_components';
 import {verifySetupComplete} from '../../services/setup/setup';
 
-// export default class extends React.Component<{warning: CR.SetupWarning}, {}> {
-//   render() {
 export const SetupGuide = ({warning}) => (
     <div className='cr-setup'>
       <List>

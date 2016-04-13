@@ -7,11 +7,13 @@ let initState = {
   statusSteps: []
 };
 
-export default class extends React.Component<{}, {
+export default class extends React.Component<{
+  children?: any, onStepHeaderHover?: any
+}, {
   activeStep: number, statusSteps: boolean[]
 }> {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = initState;
   }
   selectStep(CurrentStep) {
@@ -46,11 +48,8 @@ export default class extends React.Component<{}, {
           activeStep={this.state.activeStep}
           onStepHeaderTouch={this.selectStep.bind(this)}
           updateCompletedStatus={this.updateCompletedSteps.bind(this)}
-          createIcon={this.createIcon}
-        >
-
-        {/* Steps */}
-
+          createIcon={this.createIcon}>
+        {this.props.children}
         </Stepper>;
   }
 }
