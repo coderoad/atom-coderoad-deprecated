@@ -1,17 +1,6 @@
 import * as fs from 'fs';
 import {fileExists} from '../services/exists';
 
-export function setAtomGlobals() {
-  if (atom.project.rootDirectories.length > 0) {
-    window.coderoad.dir = atom.project.rootDirectories[0].path;
-    if (navigator.appVersion.indexOf('Win') > -1) {
-      window.coderoad.win = true;
-    }
-  } else {
-    window.coderoad.dir = null;
-  }
-}
-
 let getEditorCount = 0;
 
 export function save() {

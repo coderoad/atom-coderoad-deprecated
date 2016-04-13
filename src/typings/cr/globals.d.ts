@@ -8,6 +8,12 @@ interface PackageJson {
   dependencies: Object;
   devDependencies: Object;
   config: CR.Config;
+  bugs: {
+    url: string;
+  };
+  repo: {
+    url: string;
+  };
 }
 
 interface ObjectConstructor {

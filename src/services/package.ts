@@ -1,5 +1,4 @@
 import * as path from 'path';
-import {setGlobals} from './set-globals';
 import * as Action from '../actions/actions';
 import {store} from '../_base';
 const _ = require('lodash');
@@ -34,7 +33,7 @@ class PackageService {
   selectPackage(packageName: string) {
     let packagePath = path.join(window.coderoad.dir, 'node_modules', packageName);
     this.config = require(path.join(packagePath, 'package.json'));
-    setGlobals(this.config);
+    store.dispatch(Action.setGlobals(this.config));
     this.data = require(path.join(packagePath, this.config.main));
     this.packageName = packageName;
   }

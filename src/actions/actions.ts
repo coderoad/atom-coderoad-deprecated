@@ -7,6 +7,10 @@ export function setProject(): CR.Action {
   return { type: Type.SET_PROJECT };
 }
 
+export function setGlobals(packageJson: PackageJson): CR.Action {
+  return { type: Type.SET_GLOBALS, payload: { packageJson } };
+}
+
 export function verifySetup(): CR.Action {
   return { type: Type.VERIFY_SETUP };
 }

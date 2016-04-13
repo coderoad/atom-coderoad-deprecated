@@ -1,6 +1,7 @@
 // Project
 export const SET_PROJECT = 'SET_PROJECT';
 export const VERIFY_SETUP = 'VERIFY_SETUP';
+export const SET_GLOBALS = 'SET_GLOBALS';
 export const LOAD_TUTORIALS = 'LOAD_TUTORIALS';
 
 // Navigation

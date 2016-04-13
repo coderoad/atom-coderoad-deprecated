@@ -3,11 +3,6 @@ import * as React from 'react';
 import {render, initRoot, togglePanel} from '../components/render';
 import loadPolyfills from '../services/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
-import {setAtomGlobals} from './editor';
-
-// remove later
-import {store} from '../store/store';
-import * as Action from '../actions/actions';
 
 class Main {
   root: HTMLElement;
@@ -17,8 +12,6 @@ class Main {
       dir: null
     };
     loadPolyfills();
-    setAtomGlobals();
-    store.dispatch(Action.verifySetup());
     this.root = initRoot();
   }
   activate(): void {

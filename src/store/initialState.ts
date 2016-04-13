@@ -11,19 +11,3 @@ export function getStateFromPackage(name: string): CR.State {
     tasks: []
   });
 }
-
-export function getInitialState(): Object {
-  return {
-    project: {},
-    route: 'projects',
-    position: {},
-    progress: {},
-    page: {},
-    tasks: [],
-    editorActions: false,
-    runTests: false,
-    tutorials: [],
-    alert: {},
-    hintPosition: 0
-  };
-}
