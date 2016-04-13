@@ -22,7 +22,7 @@ const origin = {horizontal: 'right', vertical: 'top'};
       dispatch(Action.setPage(position));
       dispatch(Action.setRoute('page'));
     },
-    routeToProjects: () => dispatch(Action.setRoute('projects')),
+    routeToTutorials: () => dispatch(Action.setRoute('tutorials')),
     quit: () => {
       togglePanel();
       onDeactivate();
@@ -30,7 +30,7 @@ const origin = {horizontal: 'right', vertical: 'top'};
   };
 })
 export default class extends React.Component<{
-  route: string, position: CR.Position, routeToProgress?: any, routeToPage?: any, routeToProjects?: any, quit?: any
+  route: string, position: CR.Position, routeToProgress?: any, routeToPage?: any, routeToTutorials?: any, quit?: any
 }, {}> {
   navOptions(): React.ReactElement<{}> {
     const {routeToProgress, routeToPage} = this.props;
@@ -44,17 +44,17 @@ export default class extends React.Component<{
     }
   }
   menuOptions() {
-    const {routeToProgress, routeToProjects} = this.props;
+    const {routeToProgress, routeToTutorials} = this.props;
     switch (this.props.route) {
       case 'final':
       case 'page':
         return (
           <div>
         <MenuItem primaryText='progress' onTouchTap={routeToProgress} key='progress' />
-        <MenuItem primaryText='projects' onTouchTap={routeToProjects} key='projects' />
+        <MenuItem primaryText='tutorials' onTouchTap={routeToTutorials} key='projects' />
       </div>);
       case 'progress':
-        return <MenuItem primaryText='projects' onTouchTap={routeToProjects} key='projects' />;
+        return <MenuItem primaryText='tutorials' onTouchTap={routeToTutorials} key='projects' />;
       default: return null;
     }
   }
