@@ -65,7 +65,9 @@ export default class extends React.Component<{
     const {quit} = this.props;
     return <AppBar title='CodeRoad'
               className='cr-menu-bar'
-              // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+              iconElementLeft={<IconButton onClick={this.closePanel}>
+                  <NavigationClose />
+                </IconButton>}
               iconElementRight={
                 <IconMenu iconButtonElement={
                   <IconButton><MoreVertIcon /></IconButton>
@@ -76,11 +78,13 @@ export default class extends React.Component<{
                     {/* Menu Items */}
                     {this.menuOptions()}
 
-                    {window.coderoad.issuesPath ? <MenuItem key='issue' className='link'>
-                      <a href={window.coderoad.issuesPath}>
-                      post issue
-                      </a>
-                  </MenuItem> : null}
+                    {window.coderoad.issuesPath
+                      ? <MenuItem key='issue' className='link'>
+                        <a href={window.coderoad.issuesPath}>
+                          post issue
+                        </a>
+                      </MenuItem>
+                      : null}
                   <Divider />
                   <MenuItem key='quit' onClick={quit}>quit</MenuItem>
                 </IconMenu>
