@@ -6,6 +6,7 @@ import TableRow from 'material-ui/lib/table/table-row';
 import TableHeader from 'material-ui/lib/table/table-header';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
+import FileUpload from 'material-ui/lib/svg-icons/file/file-upload';
 import {MarkdownText} from '../_components';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
@@ -21,12 +22,16 @@ import * as Action from '../../actions/actions';
     },
     loadTutorials: () => {
       dispatch(Action.loadTutorials());
+    },
+    updateTutorial: (name: string) => {
+      dispatch(Action.updateTutorial(name));
     }
   };
 })
 class TutorialList extends React.Component<{
   tutorials: CR.Tutorial[], loadTutorials?: () => void,
-  selectTutorial?: (tutorial: CR.Tutorial) => void, toggleAlert?: (item: CR.Alert) => void
+  selectTutorial?: (tutorial: CR.Tutorial) => void,
+  toggleAlert?: (item: CR.Alert) => void, updateTutorial?: any
 }, {}> {
     trim(name: string): string {
       if (name.match(/^coderoad-tutorial-/)) {
@@ -38,7 +43,7 @@ class TutorialList extends React.Component<{
       return name;
     }
   render() {
-    const {tutorials, loadTutorials, selectTutorial, toggleAlert} = this.props;
+    const {tutorials, loadTutorials, selectTutorial, toggleAlert, updateTutorial} = this.props;
     return (
   <div className='cr-tutorials'>
     <Table>
@@ -58,7 +63,11 @@ class TutorialList extends React.Component<{
             <TableRowColumn>
             <FlatButton label={this.trim(tutorial.name)} primary={true} onTouchTap={selectTutorial.bind(this, tutorial)} />
             </TableRowColumn>
-            <TableRowColumn>{tutorial.version}</TableRowColumn>
+            <TableRowColumn>
+            {tutorial.version} {tutorial.latest
+              ? <FileUpload onClick={updateTutorial(tutorial.name)} />
+              : null}
+            </TableRowColumn>
             />
           </TableRow>
           );

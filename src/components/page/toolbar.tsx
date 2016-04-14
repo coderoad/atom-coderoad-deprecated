@@ -8,7 +8,7 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import FlatButton from 'material-ui/lib/flat-button';
 import {save} from '../../atom/editor';
 import {toggleDevTools} from '../../atom/actions';
-import {store} from '../store/store';
+import {store} from '../../store/store';
 import Code from 'material-ui/lib/svg-icons/action/code';
 
 const ProgressBar = ({progress}) => <LinearProgress mode='determinate'

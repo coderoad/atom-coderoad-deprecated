@@ -1,4 +1,6 @@
 import commandLine from '../../services/command-line';
+import {store} from '../../store/store';
+import * as Action from '../../actions/actions';
 
 export function canUpdateTutorial(name: string, currentVersion: string): string|void {
   let isLatest = commandLine('npm', `outdated ${name}`)
@@ -8,5 +10,12 @@ export function canUpdateTutorial(name: string, currentVersion: string): string|
     } else {
       return null;
     }
+  });
+}
+
+export function updateTutorial(name: string): void {
+  commandLine('npm', `install --save-dev ${name}`)
+  .then(() => {
+    store.dispatch(Action.loadTutorials());
   });
 }

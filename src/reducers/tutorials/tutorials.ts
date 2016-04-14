@@ -1,8 +1,12 @@
 import * as Type from '../../actions/actionTypes';
 import {loadRootPackageJson, searchForTutorials} from './check-tutorials';
+import {updateTutorial} from './update-tutorial';
 
 export default function tutorialsReducer(tutorials = [], action: CR.Action): CR.Tutorial[] {
   switch (action.type) {
+    case Type.UPDATE_TUTORIAL:
+      updateTutorial(action.payload.name);
+      /* jshint: fall through */
     case Type.LOAD_TUTORIALS:
       let packageJson: PackageJson = loadRootPackageJson();
       if (!!packageJson) {
