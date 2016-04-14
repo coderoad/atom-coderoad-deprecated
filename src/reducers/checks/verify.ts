@@ -1,8 +1,8 @@
 import {fileExists} from '../../services/exists';
-import {npmVersionThreeOrLater} from './check-system';
+import {npmMinVersion, nodeMinVersion} from './check-system';
 import {hasDirectory, hasPackageJson, hasTutorialDep} from './check-setup';
 import {packageJsonExists, loadRootPackageJson, searchForTutorials} from '../tutorials/check-tutorials';
-import {createPackageJson, openDirectory, installTutorial} from './setup-actions';
+import {createPackageJson, openDirectory, installTutorial} from './action-setup';
 import * as path from 'path';
 
 function allTrue(obj: Object): boolean {
@@ -16,8 +16,8 @@ function result(x) {
 export default function verifySetup(): CR.Checks {
   let checks: CR.Checks = {
     system: {
-      node: false,
-      npm: !!npmVersionThreeOrLater()
+      node: !!nodeMinVersion(),
+      npm: !!npmMinVersion()
     },
     setup: {
       dir: !!hasDirectory(),
