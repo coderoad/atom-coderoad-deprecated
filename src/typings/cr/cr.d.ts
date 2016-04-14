@@ -112,7 +112,7 @@ declare namespace CR {
   interface Tutorial {
     name: string;
     version: string;
-    latest?: boolean;
+    latest?: string;
   }
 
   interface Log {

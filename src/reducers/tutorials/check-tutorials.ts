@@ -72,7 +72,7 @@ export function searchForTutorials(deps: Object): CR.Tutorial[] {
       return {
         name,
         version: packageJson.version,
-        latest: true
+        latest: canUpdateTutorial(name, packageJson.version)
       };
     }));
   } else {

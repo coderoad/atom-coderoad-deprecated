@@ -68,7 +68,7 @@ class TutorialList extends React.Component<{
     </Table>
 
     <br />
-    <FlatButton label='Check for Tutorials' secondary={true} onTouchTap={loadTutorials} />
+    <FlatButton style={{margin: '0 auto'}} label='Check for Tutorials' secondary={true} onTouchTap={loadTutorials} />
   </div>
     );
   }
