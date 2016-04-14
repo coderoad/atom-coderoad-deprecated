@@ -8,7 +8,7 @@ See a [video](https://youtu.be/DbLpdgrYVOU).
 
 ## Docs
 
-* [QuickStart](https://coderoad.github.io/docs/#install)
+* [QuickStart](https://coderoad.github.io/docs#install)
 * [Docs](https://coderoad.github.io/docs).
 
 
