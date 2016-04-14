@@ -3,10 +3,10 @@ import * as ReactDOM from 'react-dom';
 import Paper from 'material-ui/lib/paper';
 import Divider from 'material-ui/lib/divider';
 import PageContent from './content';
-import {Tasks} from './task';
-import Hints from './hint';
-import {PageCompleteMessage} from './page-complete';
-import PageToolbar from './toolbar';
+import {Tasks} from './task/task';
+import Hints from './hint/hint';
+import {PageCompleteMessage} from './complete/page-complete';
+import PageToolbar from './toolbar/toolbar';
 
 const pageStyle = {
   height: '100%',

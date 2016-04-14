@@ -4,6 +4,9 @@ import Checks from './checks/checks';
 import {connect} from 'react-redux';
 import {store} from '../../store/store';
 import * as Action from '../../actions/actions';
+import * as path from 'path';
+
+const headerImg = path.resolve(__dirname, '../../../', 'styles', 'coderoad.jpg');
 
 @connect(null, (dispatch) => {
   return {
@@ -15,6 +18,7 @@ class Welcome extends React.Component<{
 }, {}> {
   render() {
     return <div class='cr-welcome'>
+      <img src={headerImg} />
       <FlatButton label='Start' onTouchTap={this.props.routeToTutorials} />
     </div>;
   }

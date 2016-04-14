@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {MarkdownText} from '../_components';
+import {MarkdownText} from '../../_components';
 import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';
 import Subheader from 'material-ui/lib/Subheader';

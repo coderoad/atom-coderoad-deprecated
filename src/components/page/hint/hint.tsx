@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import * as Action from '../../actions/actions';
+import * as Action from '../../../actions/actions';
 import Card from 'material-ui/lib/card/card';
 import CardActions from 'material-ui/lib/card/card-actions';
 import CardHeader from 'material-ui/lib/card/card-header';
 import CardText from 'material-ui/lib/card/card-text';
 import FlatButton from 'material-ui/lib/flat-button';
-import {MarkdownText} from '../_components';
+import {MarkdownText} from '../../_components';
 import Help from 'material-ui/lib/svg-icons/action/help';
 
 @connect(null, (dispatch, state) => {
