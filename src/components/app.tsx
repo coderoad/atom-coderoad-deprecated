@@ -15,7 +15,6 @@ window.onresize = function() {
 export default class extends React.Component<{state?: CR.State}, {}> {
   render(): React.ReactElement<{}> {
     const state = this.props.state;
-    console.log(state);
     return (
       <section className='cr' key='main' style={{height}}>
         <Menu route={state.route} position={state.position} />

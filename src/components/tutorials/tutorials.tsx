@@ -10,6 +10,7 @@ import FileUpload from 'material-ui/lib/svg-icons/file/file-upload';
 import {MarkdownText} from '../_components';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
+import {pink500} from 'material-ui/lib/styles/colors';
 
 @connect(null, (dispatch) => {
   return {
@@ -63,12 +64,11 @@ class TutorialList extends React.Component<{
             <TableRowColumn>
             <FlatButton label={this.trim(tutorial.name)} primary={true} onTouchTap={selectTutorial.bind(this, tutorial)} />
             </TableRowColumn>
-            <TableRowColumn>
-            {tutorial.version} {tutorial.latest
-              ? <FileUpload onClick={updateTutorial(tutorial.name)} />
-              : null}
-            </TableRowColumn>
-            />
+            {!!tutorial.latest
+              ? <TableRowColumn>
+                {tutorial.version} <FileUpload onClick={updateTutorial(tutorial.name)} />
+                </TableRowColumn>
+              : <TableRowColumn>{tutorial.version}</TableRowColumn>}
           </TableRow>
           );
           })
@@ -77,7 +77,7 @@ class TutorialList extends React.Component<{
     </Table>
 
     <br />
-    <FlatButton style={{margin: '0 auto'}} label='Check for Tutorials' secondary={true} onTouchTap={loadTutorials} />
+      <FlatButton style={{margin: '0 95px'}} label='Check for Tutorials' secondary={true} onTouchTap={loadTutorials} />
   </div>
     );
   }
