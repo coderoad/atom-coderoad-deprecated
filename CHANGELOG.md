@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.7.0] - in progress
+- move to material-ui@0.15
+- setup ui & additional system checks
+
 ## [0.6.0] - 2016-04-01
 - fixes
 - loaders now built into atom-coderoad
