@@ -6,7 +6,12 @@ import {store} from '../../store/store';
 import * as Action from '../../actions/actions';
 import * as path from 'path';
 
-const headerImg = path.resolve(__dirname, '../../../', 'styles', 'coderoad.jpg');
+const welcomeStyle = {
+  backgroundImage: `url("${path.resolve(__dirname, '../../../', 'styles', 'coderoad.jpg')}")`,
+  backgroundRepeat: 'no-repeat',
+  height: '350px',
+  marginTop: '0'
+};
 
 @connect(null, (dispatch) => {
   return {
@@ -17,9 +22,10 @@ class Welcome extends React.Component<{
   routeToTutorials?: any
 }, {}> {
   render() {
-    return <div class='cr-welcome'>
-      <img src={headerImg} />
-      <FlatButton label='Start' onTouchTap={this.props.routeToTutorials} />
+    return <div  style={welcomeStyle}>
+      <div class='cr-welcome'>
+        <FlatButton label='Start' onTouchTap={this.props.routeToTutorials} style={{marginTop: '200px'}} />
+      </div>
     </div>;
   }
 }
