@@ -6,7 +6,7 @@ import {PageContent} from './content';
 import {Tasks} from './task/task';
 import Hints from './hint/hint';
 import {PageCompleteMessage} from './complete/page-complete';
-import PageToolbar from './toolbar/toolbar';
+import {PageToolbar} from './toolbar/toolbar';
 
 const pageStyle = {
   height: '100%',
