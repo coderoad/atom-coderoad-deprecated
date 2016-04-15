@@ -3,7 +3,8 @@ import {setGlobals, projectComplete} from '../actions/actions';
 import {store} from '../store/store';
 const {cloneDeep, isString} = require('lodash');
 
-function configTestString(config: CR.Config, packageName: string, test: string): string {
+function configTestString(config: CR.Config,
+  packageName: string, test: string): string {
   if (window.coderoad.win) {
     test = test.split('/').join('\\');
   }
@@ -20,7 +21,7 @@ function configTestString(config: CR.Config, packageName: string, test: string):
 
 class PackageService {
   data: { project: any, chapters: any[] };
-  config: any;
+  packageJson: PackageJson;
   packageName: string;
   constructor() {
     this.packageName = '';
@@ -28,23 +29,23 @@ class PackageService {
       project: {},
       chapters: []
     };
-    this.config = {};
+    this.packageJson = null;
   }
   selectPackage(packageName: string): void {
     let packagePath = join(window.coderoad.dir, 'node_modules', packageName);
-    this.config = require(join(packagePath, 'package.json'));
-    store.dispatch(setGlobals(this.config));
-    this.data = require(join(packagePath, this.config.main));
+    this.packageJson = require(join(packagePath, 'package.json'));
+    store.dispatch(setGlobals(this.packageJson));
+    this.data = require(join(packagePath, this.packageJson.main));
     this.packageName = packageName;
   }
   page({chapter, page}: CR.Position): CR.Page {
     return cloneDeep(this.data.chapters[chapter].pages[page]);
   }
-  getConfig(): CR.Config {
-    return this.config;
+  getPackage(): PackageJson {
+    return this.packageJson;
   }
   configTaskTests(tasks: CR.Task[]): CR.Task[] {
-    let config = this.config.config;
+    let config: CR.Config = this.packageJson.config;
     return !tasks ? [] : tasks.map((task: CR.Task) => {
       if (task.tests) {
         task.tests = task.tests.map((test: string) => {

@@ -1,4 +1,4 @@
-import * as path from 'path';
+import {join} from 'path';
 import {open, set} from '../../atom/editor';
 import {openFolder, openTerminal} from '../../atom/actions';
 import commandLine from '../../services/command-line';
@@ -13,7 +13,7 @@ const packageData = `{
 }`;
 
 export function createPackageJson(): Promise<void> {
-  const packagePath = path.join(window.coderoad.dir, 'package.json');
+  const packagePath = join(window.coderoad.dir, 'package.json');
   return new Promise((resolve, reject) => {
     open(packagePath);
     setTimeout(function() {

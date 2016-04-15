@@ -7,7 +7,8 @@ const defaultGlobals = {
   win: null
 };
 
-export default function globalReducer(globals = defaultGlobals, action: CR.Action): CR.Coderoad {
+export default function globalReducer(globals = defaultGlobals,
+  action: CR.Action): CR.Coderoad {
   switch (action.type) {
     case SET_GLOBALS:
       let coderoad = Object.assign({}, setGlobals(action.payload.packageJson), window.coderoad);

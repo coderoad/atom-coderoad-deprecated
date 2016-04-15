@@ -6,7 +6,8 @@ const defaultProject: CR.Project = {
   description: ''
 };
 
-export default function projectReducer(project = defaultProject, action: CR.Action): CR.Project {
+export default function projectReducer(project = defaultProject,
+  action: CR.Action): CR.Project {
   switch (action.type) {
     case SET_PROJECT:
       return Package.getProject();

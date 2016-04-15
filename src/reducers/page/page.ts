@@ -8,7 +8,8 @@ const defaultPage: CR.Page = {
   completed: false
 };
 
-export default function pageReducer(page = defaultPage, action: CR.Action): CR.Page {
+export default function pageReducer(page = defaultPage,
+  action: CR.Action): CR.Page {
   switch (action.type) {
     case SET_PAGE:
       return action.payload.page;

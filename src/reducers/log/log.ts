@@ -7,7 +7,8 @@ let defaultLog = {
   open: false
 };
 
-export default function logReducer(log = defaultLog, action: CR.Action): CR.Log {
+export default function logReducer(log = defaultLog,
+  action: CR.Action): CR.Log {
   switch (action.type) {
     case TOGGLE_LOG:
       return {

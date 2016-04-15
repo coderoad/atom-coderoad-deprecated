@@ -16,7 +16,7 @@ export function setGlobals(packageJson: PackageJson): CR.Coderoad {
   }, window.coderoad);
 }
 
-function loadRunnerDep(packageJson: PackageJson) {
+function loadRunnerDep(packageJson: PackageJson): () => any {
   // test runner dir
   let flatDep = join(window.coderoad.dir, 'node_modules', packageJson.config.testRunner, 'package.json');
   let treeDep = join(window.coderoad.dir, 'node_modules',

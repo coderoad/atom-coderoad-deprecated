@@ -4,6 +4,7 @@ interface Window {
 
 interface PackageJson {
   name: string;
+  main: string;
   version: string;
   dependencies: Object;
   devDependencies: Object;

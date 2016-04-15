@@ -229,6 +229,7 @@ declare module NodeJS {
     }
 
     export interface Process extends EventEmitter {
+        resourcesPath: string;
         stdout: WritableStream;
         stderr: WritableStream;
         stdin: ReadableStream;
@@ -967,12 +968,12 @@ declare module "child_process" {
         timeout?: number;
         maxBuffer?: number;
         killSignal?: string;
-    }, callback?: (error: Error, stdout: Buffer, stderr: Buffer) =>void ): ChildProcess;
-    export function exec(command: string, callback?: (error: Error, stdout: Buffer, stderr: Buffer) =>void ): ChildProcess;
+    }, callback?: (error: Error, stdout: Buffer, stderr: Buffer) => void ): ChildProcess;
+    export function exec(command: string, callback?: (error: Error, stdout: Buffer, stderr: Buffer) => void ): ChildProcess;
     export function execFile(file: string,
-        callback?: (error: Error, stdout: Buffer, stderr: Buffer) =>void ): ChildProcess;
+        callback?: (error: Error, stdout: Buffer, stderr: Buffer) => void ): ChildProcess;
     export function execFile(file: string, args?: string[],
-        callback?: (error: Error, stdout: Buffer, stderr: Buffer) =>void ): ChildProcess;
+        callback?: (error: Error, stdout: Buffer, stderr: Buffer) => void ): ChildProcess;
     export function execFile(file: string, args?: string[], options?: {
         cwd?: string;
         stdio?: any;
@@ -982,7 +983,7 @@ declare module "child_process" {
         timeout?: number;
         maxBuffer?: number;
         killSignal?: string;
-    }, callback?: (error: Error, stdout: Buffer, stderr: Buffer) =>void ): ChildProcess;
+    }, callback?: (error: Error, stdout: Buffer, stderr: Buffer) => void ): ChildProcess;
     export function fork(modulePath: string, args?: string[], options?: {
         cwd?: string;
         env?: any;

@@ -17,7 +17,8 @@ const defaultProgress: CR.Progress = {
   }]
 };
 
-export default function progressReducer(progress = defaultProgress, action: CR.Action): CR.Progress {
+export default function progressReducer(progress = defaultProgress,
+  action: CR.Action): CR.Progress {
   switch (action.type) {
     case SET_PROGRESS:
       return Package.getProgress();

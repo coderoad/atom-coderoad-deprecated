@@ -4,9 +4,7 @@ import {
 import {runTaskTests} from './run';
 
 const pageTimeout = 2000;
-/**
- * Test is running, return true, else false
- */
+
 let previous: number = new Date().getTime();
 
 export default function runTestReducer(runTests = false, action: CR.Action): boolean {

@@ -7,7 +7,8 @@ const defaultPosition: CR.Position = {
   page: 0
 };
 
-export default function positionReducer(position = defaultPosition, action: CR.Action): CR.Position {
+export default function positionReducer(position = defaultPosition,
+  action: CR.Action): CR.Position {
   switch (action.type) {
     case SET_PAGE:
     case SET_POSITION:

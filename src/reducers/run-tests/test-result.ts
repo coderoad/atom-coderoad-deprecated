@@ -1,7 +1,7 @@
 import {store} from '../../store/store';
 import {testResult, pageComplete, testComplete} from '../../actions/actions';
 
-export function handleResult(result: CR.TestResult) {
+export function handleResult(result: CR.TestResult): void {
 
   store.dispatch(testComplete());
 

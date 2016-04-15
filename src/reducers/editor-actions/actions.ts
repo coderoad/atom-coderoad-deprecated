@@ -1,4 +1,4 @@
-import * as Editor from '../../atom/editor';
+import {open, set, insert} from '../../atom/editor';
 import {openDevTools} from '../../atom/actions';
 import {getCommand, getParams, getOptions} from './action-helpers';
 
@@ -19,7 +19,7 @@ export function editorActions(actionString: string): Promise<void> {
         let file = obj.param;
         let options = obj.options;
         if (params.length === 1) {
-          Editor.open(file, options);
+          open(file, options);
           setTimeout(function() {
             resolve();
           }, 100);
@@ -30,7 +30,7 @@ export function editorActions(actionString: string): Promise<void> {
           let content = params[0];
 
           setTimeout(function() {
-            Editor.set(content);
+            set(content);
             resolve(true);
           });
         }
@@ -41,7 +41,7 @@ export function editorActions(actionString: string): Promise<void> {
           let content: string = params[0];
           // let options: object = obj.options;
           setTimeout(function() {
-            Editor.insert(content, {});
+            insert(content, {});
             resolve(true);
           });
         }

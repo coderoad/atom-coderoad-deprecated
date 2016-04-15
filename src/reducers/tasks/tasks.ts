@@ -8,7 +8,8 @@ const defaultTasks: CR.Task[] = [{
   actions: []
 }];
 
-export default function tasksReducer(tasks = defaultTasks, action: CR.Action): CR.Task[] {
+export default function tasksReducer(tasks = defaultTasks,
+  action: CR.Action): CR.Task[] {
   switch (action.type) {
     case SET_PAGE:
       return action.payload.tasks;

@@ -14,7 +14,7 @@ function loaderRegex(fileType: string): RegExp {
   return new RegExp(`^${comment} ?load\\(['"](.+)['"](\, ?true)?\\)`, 'm');
 }
 
-export default function parseLoaders(data: string, fileType: string) {
+export default function parseLoaders(data: string, fileType: string): string {
 
   // loop over lines and add editor files
   let i = -1;

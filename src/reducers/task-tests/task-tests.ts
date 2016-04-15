@@ -1,7 +1,8 @@
 import {readFileSync} from 'fs';
 import {SET_PAGE} from '../../actions/actionTypes';
 
-export default function taskTestsReducer(taskTests = '', action: CR.Action): string {
+export default function taskTestsReducer(taskTests = '',
+  action: CR.Action): string {
   switch (action.type) {
     case SET_PAGE:
       let tests = '';

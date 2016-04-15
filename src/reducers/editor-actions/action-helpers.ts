@@ -1,4 +1,4 @@
-import {parseParams} from './parser';
+import {ParseParams} from './parser';
 
 export function getCommand(actionString: string): string {
   // content before bracket
@@ -12,13 +12,14 @@ export function getCommand(actionString: string): string {
 
 export function getParams(actionString: string): string[] {
   // content in brackets, split by comma
+  let parser = new ParseParams;
   let command = getCommand(actionString);
   let params = actionString.substring(command.length + 1, actionString.length - 1); // trim brackets
   if (!params.length) {
     console.error('Error loading editor action params ', actionString);
     return null;
   }
-  let paramsList: string[] = parseParams.getParams(params);
+  let paramsList: string[] = parser.getParams(params);
   return paramsList;
 }
 
