@@ -29,5 +29,5 @@ export function openDirectory(): void {
 }
 
 export function installTutorial(): void {
-  openTerminal();
+  
 }

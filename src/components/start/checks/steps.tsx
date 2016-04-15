@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
-import {Card, CardHeader} from 'material-ui/Card';
+import {Card, CardHeader, CardText, CardActions} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import DynamicStepper from './setup-checker';
+import {VerifyButton} from './verify';
 
 import FontIcon from 'material-ui/FontIcon';
 import WarningIcon from 'material-ui/svg-icons/alert/warning';
@@ -10,7 +11,6 @@ import {red500, pink500} from 'material-ui/styles/colors';
 
 import {openDirectory, createPackageJson, installTutorial} from '../../../reducers/checks/action-setup';
 import {updateNpm} from '../../../reducers/checks/action-system';
-
 
 const StepCheck: React.StatelessComponent<{
   completed: boolean, label: string, children?: any
@@ -37,7 +37,9 @@ export const SystemChecks: React.StatelessComponent<{
   }
   const status = [system.node, system.npm];
  return <Card className='cr-check'>
-   <CardHeader title='System Checks' />
+   <CardHeader title='System Checks'
+      subtitle='CodeRoad requires several key dependencies'/>
+      <CardText>
    <DynamicStepper  status={status}>
   <StepCheck label='Node >= 0.10'
             completed={checks.system.node}>
@@ -51,6 +53,8 @@ export const SystemChecks: React.StatelessComponent<{
       <FlatButton label='Update NPM' secondary={true} onTouchTap={updateNpm} />
     </StepCheck>
  </DynamicStepper>
+ </CardText>
+ <CardActions><VerifyButton /></CardActions>
  </Card>;
 };
 
@@ -64,7 +68,9 @@ export const SetupChecks: React.StatelessComponent<{
   }
   const status = [setup.dir, setup.packageJson, setup.tutorial];
   return <Card className='cr-check'>
-    <CardHeader title='Setup Checks' />
+    <CardHeader title='Setup Checks'
+      subtitle='CodeRoad requires a brief setup' />
+      <CardText>
   <DynamicStepper status={status}>
   <StepCheck label='open a directory'
   completed={checks.setup.dir}>
@@ -86,6 +92,8 @@ export const SetupChecks: React.StatelessComponent<{
      <FlatButton label='install functional-school demo' secondary={true} onTouchTap={installTutorial} />
   </StepCheck>
   </DynamicStepper>
+  </CardText>
+  <CardActions><VerifyButton /></CardActions>
   </Card>;
 };
 

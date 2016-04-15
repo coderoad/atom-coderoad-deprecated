@@ -101,7 +101,6 @@
         "src/store/store.ts",
         "src/components/alert/alert.tsx",
         "src/components/app.tsx",
-        "src/components/checks/checks.tsx",
         "src/components/final-page/final-page.tsx",
         "src/components/markdown/markdown.tsx",
         "src/components/menu/menu.tsx",

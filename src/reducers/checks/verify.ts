@@ -11,7 +11,16 @@ function allTrue(obj: Object): boolean {
 }
 
 export default function verifySetup(): CR.Checks {
-  let hasDir = !!hasDirectory();
+  let dir = !!hasDirectory();
+  let packageJson = false;
+  let tutorial = false;
+
+  if (dir) {
+    packageJson = !!hasPackageJson();
+  }
+  if (dir && packageJson) {
+    tutorial = hasTutorialDep();
+  }
 
   let checks: CR.Checks = {
     system: {
@@ -19,15 +28,13 @@ export default function verifySetup(): CR.Checks {
       npm: !!npmMinVersion()
     },
     setup: {
-      dir: hasDir,
-      packageJson: hasDir ? !!hasPackageJson() : false,
-      tutorial: hasDir ? !!hasTutorialDep() : false
+      dir, packageJson, tutorial
     }
   };
 
   checks.system.passed = allTrue(checks.system);
   checks.setup.passed = allTrue(checks.setup);
   checks.passed = checks.system.passed && checks.setup.passed;
-  console.log('checks', checks);
+  console.log(checks);
   return checks;
 }
