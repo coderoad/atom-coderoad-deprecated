@@ -5,7 +5,7 @@ import {Markdown} from '../../_components';
  * Chapters Component
  * 	basic chapter info
  */
-export default ({chapter}) => (
+export const Chapter: React.StatelessComponent<{chapter}> = ({chapter}) => (
   <section className='cr-chapter'>
     <Markdown>{chapter.title}</Markdown>
   </section>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Paper from 'material-ui/lib/paper';
 import Divider from 'material-ui/lib/divider';
-import PageContent from './content';
+import {PageContent} from './content';
 import {Tasks} from './task/task';
 import Hints from './hint/hint';
 import {PageCompleteMessage} from './complete/page-complete';

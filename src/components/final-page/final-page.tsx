@@ -8,7 +8,7 @@ import CardText from 'material-ui/lib/card/card-text';
 import CardActions from 'material-ui/lib/card/card-actions';
 import FlatButton from 'material-ui/lib/flat-button';
 
-export const FinalPage = () => (
+export const FinalPage: React.StatelessComponent<{}> = () => (
   <Paper>
     <Card>
       <CardTitle title='Congratulations!'

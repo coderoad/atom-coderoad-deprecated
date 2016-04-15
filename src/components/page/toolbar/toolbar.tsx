@@ -11,7 +11,9 @@ import {toggleDevTools} from '../../../atom/actions';
 import {store} from '../../../store/store';
 import Code from 'material-ui/lib/svg-icons/action/code';
 
-const ProgressBar = ({progress}) => <LinearProgress mode='determinate'
+const ProgressBar: React.StatelessComponent<{
+  progress: number
+}> = ({progress}) => <LinearProgress mode='determinate'
  value={progress} style={{height: '10px'}}/>;
 
 function taskProgress(current: number, max: number) {

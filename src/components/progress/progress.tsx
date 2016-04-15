@@ -68,7 +68,9 @@ const style = {
  * Progress Component
  * 	display page data
  */
-export default ({progress, position}) => (
+export const Progress: React.StatelessComponent<{
+  progress: CR.Progress, position: CR.Position
+}> = ({progress, position}) => (
   <Paper style={style} zDepth={1} className='cr-progress'>
     {/*}<ProjectDescription project={project} />*/}
     <List>

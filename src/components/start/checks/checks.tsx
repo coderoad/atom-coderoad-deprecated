@@ -31,7 +31,7 @@ export default class Checks extends React.Component<{
   }
   render() {
     const {checks, verify} = this.props;
-    return <div className='cr-checks'>
+    return <Paper className='cr-checks'>
         {/* System Checks */}
 
         <p className='tagline'>Setup</p>
@@ -116,6 +116,6 @@ export default class Checks extends React.Component<{
       <a href='https://coderoad.github.io/docs#install'> <strong>Install Guide</strong></a></span>
     </div>}
 
-    </div>;
+    </Paper>;
   }
 }
