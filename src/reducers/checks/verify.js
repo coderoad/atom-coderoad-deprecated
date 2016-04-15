@@ -20,7 +20,6 @@ function verifySetup() {
     checks.system.passed = allTrue(checks.system);
     checks.setup.passed = allTrue(checks.setup);
     checks.passed = checks.system.passed && checks.setup.passed;
-    console.log('checks', checks);
     return checks;
 }
 Object.defineProperty(exports, "__esModule", { value: true });

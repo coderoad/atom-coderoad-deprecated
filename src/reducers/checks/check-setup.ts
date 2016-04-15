@@ -9,7 +9,7 @@ export function hasDirectory(): Promise<boolean> {
     if (!hasDirectory) {
       resolve(true);
     } else {
-      resolve(true);
+      resolve(false);
     }
   });
 }
@@ -20,7 +20,7 @@ export function hasPackageJson(): Promise<boolean> {
     if (!hasPackageJson) {
       resolve(true);
     }
-    resolve(true);
+    resolve(false);
   });
 }
 
@@ -32,7 +32,7 @@ export function hasTutorialDep(): Promise<boolean> {
     if (!hasTutorialDep) {
       resolve(true);
     }
-    resolve(true);
+    resolve(false);
   });
 }
 
