@@ -11,20 +11,23 @@ function allTrue(obj: Object): boolean {
 }
 
 export default function verifySetup(): CR.Checks {
+  let hasDir = !!hasDirectory();
+
   let checks: CR.Checks = {
     system: {
       node: !!nodeMinVersion(),
       npm: !!npmMinVersion()
     },
     setup: {
-      dir: !!hasDirectory(),
-      packageJson: !!hasPackageJson(),
-      tutorial: !!hasTutorialDep()
+      dir: hasDir,
+      packageJson: hasDir ? !!hasPackageJson() : false,
+      tutorial: hasDir ? !!hasTutorialDep() : false
     }
   };
 
   checks.system.passed = allTrue(checks.system);
   checks.setup.passed = allTrue(checks.setup);
   checks.passed = checks.system.passed && checks.setup.passed;
+  console.log('checks', checks);
   return checks;
 }

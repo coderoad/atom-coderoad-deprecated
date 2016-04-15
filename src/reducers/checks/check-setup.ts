@@ -3,37 +3,18 @@ import {packageJsonExists, loadRootPackageJson, searchForTutorials} from '../tut
 import {createPackageJson, openDirectory, installTutorial} from './action-setup';
 import * as path from 'path';
 
-export function hasDirectory(): Promise<boolean> {
-  return new Promise((resolve, reject) => {
-    const hasDirectory = !!window.coderoad.dir;
-    if (!hasDirectory) {
-      resolve(true);
-    } else {
-      resolve(false);
-    }
-  });
+export function hasDirectory(): boolean {
+    return !!window.coderoad.dir;
 }
 
-export function hasPackageJson(): Promise<boolean> {
-  return new Promise((resolve, reject) => {
-    const hasPackageJson = packageJsonExists();
-    if (!hasPackageJson) {
-      resolve(true);
-    }
-    resolve(false);
-  });
+export function hasPackageJson(): boolean {
+  return packageJsonExists();
 }
 
-export function hasTutorialDep(): Promise<boolean> {
-  return new Promise((resolve, reject) => {
+export function hasTutorialDep(): boolean {
     const packageJson = hasPackageJson ? loadRootPackageJson() : null;
-    const hasTutorialDep = !!packageJson && _tutorialInstalled(packageJson.dependencies) ||
+    return !!packageJson && _tutorialInstalled(packageJson.dependencies) ||
       _tutorialInstalled(packageJson.devDependencies);
-    if (!hasTutorialDep) {
-      resolve(true);
-    }
-    resolve(false);
-  });
 }
 
 function _hasKeys(obj: Object): boolean {
