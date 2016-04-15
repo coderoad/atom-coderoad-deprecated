@@ -1,14 +1,13 @@
 import * as React from 'react';
-import FlatButton from 'material-ui/lib/flat-button';
-import Table from 'material-ui/lib/table/table';
-import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
-import TableRow from 'material-ui/lib/table/table-row';
-import TableHeader from 'material-ui/lib/table/table-header';
-import TableRowColumn from 'material-ui/lib/table/table-row-column';
-import TableBody from 'material-ui/lib/table/table-body';
-import {MarkdownText} from '../_components';
+import FlatButton from 'material-ui/FlatButton';
+import {
+  Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn, TableBody
+} from 'material-ui/Table';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
+
+import {pink500} from 'material-ui/styles/colors';
+import FileUpload from 'material-ui/svg-icons/file/file-upload';
 
 @connect(null, (dispatch) => {
   return {
@@ -21,12 +20,16 @@ import * as Action from '../../actions/actions';
     },
     loadTutorials: () => {
       dispatch(Action.loadTutorials());
+    },
+    updateTutorial: (name: string) => {
+      dispatch(Action.updateTutorial(name));
     }
   };
 })
 class TutorialList extends React.Component<{
   tutorials: CR.Tutorial[], loadTutorials?: () => void,
-  selectTutorial?: (tutorial: CR.Tutorial) => void, toggleAlert?: (item: CR.Alert) => void
+  selectTutorial?: (tutorial: CR.Tutorial) => void,
+  toggleAlert?: (item: CR.Alert) => void, updateTutorial?: any
 }, {}> {
     trim(name: string): string {
       if (name.match(/^coderoad-tutorial-/)) {
@@ -38,7 +41,7 @@ class TutorialList extends React.Component<{
       return name;
     }
   render() {
-    const {tutorials, loadTutorials, selectTutorial, toggleAlert} = this.props;
+    const {tutorials, loadTutorials, selectTutorial, toggleAlert, updateTutorial} = this.props;
     return (
   <div className='cr-tutorials'>
     <Table>
@@ -58,8 +61,11 @@ class TutorialList extends React.Component<{
             <TableRowColumn>
             <FlatButton label={this.trim(tutorial.name)} primary={true} onTouchTap={selectTutorial.bind(this, tutorial)} />
             </TableRowColumn>
-            <TableRowColumn>{tutorial.version}</TableRowColumn>
-            />
+            {!!tutorial.latest
+              ? <TableRowColumn>
+                {tutorial.version} <FileUpload onClick={updateTutorial(tutorial.name)} />
+                </TableRowColumn>
+              : <TableRowColumn>{tutorial.version}</TableRowColumn>}
           </TableRow>
           );
           })
@@ -68,7 +74,7 @@ class TutorialList extends React.Component<{
     </Table>
 
     <br />
-    <FlatButton label='Check for Tutorials' secondary={true} onTouchTap={loadTutorials} />
+      <FlatButton style={{margin: '0 90px'}} label='Check for Tutorials' secondary={true} onTouchTap={loadTutorials} />
   </div>
     );
   }

@@ -11,7 +11,6 @@ export function setRoute(route: string): CR.Action|void {
     // preloading for routes
     switch (route) {
       case 'tutorials':
-        console.log('load');
         store.dispatch(Action.loadTutorials());
     }
 

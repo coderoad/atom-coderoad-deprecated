@@ -1,17 +1,21 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import * as Action from '../../actions/actions';
-import LinearProgress from 'material-ui/lib/linear-progress';
-import Toolbar from 'material-ui/lib/toolbar/toolbar';
-import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group';
-import RaisedButton from 'material-ui/lib/raised-button';
-import FlatButton from 'material-ui/lib/flat-button';
-import {save} from '../../atom/editor';
-import {toggleDevTools} from '../../atom/actions';
-import {store} from '../store/store';
-import Code from 'material-ui/lib/svg-icons/action/code';
+import * as Action from '../../../actions/actions';
 
-const ProgressBar = ({progress}) => <LinearProgress mode='determinate'
+import LinearProgress from 'material-ui/LinearProgress';
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+
+import {save} from '../../../atom/editor';
+import {toggleDevTools} from '../../../atom/actions';
+import {store} from '../../../store/store';
+
+import Code from 'material-ui/svg-icons/action/code';
+
+const ProgressBar: React.StatelessComponent<{
+  progress: number
+}> = ({progress}) => <LinearProgress mode='determinate'
  value={progress} style={{height: '10px'}}/>;
 
 function taskProgress(current: number, max: number) {

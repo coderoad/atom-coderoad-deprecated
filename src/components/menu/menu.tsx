@@ -4,13 +4,14 @@ import * as Action from '../../actions/actions';
 import {togglePanel} from '../render';
 import {onDeactivate} from '../../atom/subscriptions';
 
-import AppBar from 'material-ui/lib/app-bar';
-import IconButton from 'material-ui/lib/icon-button';
-import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
-import IconMenu from 'material-ui/lib/menus/icon-menu';
-import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
-import MenuItem from 'material-ui/lib/menus/menu-item';
-import Divider from 'material-ui/lib/divider';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import Divider from 'material-ui/Divider';
+
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 const origin = {horizontal: 'right', vertical: 'top'};
 
@@ -65,7 +66,9 @@ export default class extends React.Component<{
     const {quit} = this.props;
     return <AppBar title='CodeRoad'
               className='cr-menu-bar'
-              // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+              iconElementLeft={<IconButton onClick={this.closePanel}>
+                  <NavigationClose />
+                </IconButton>}
               iconElementRight={
                 <IconMenu iconButtonElement={
                   <IconButton><MoreVertIcon /></IconButton>
@@ -76,11 +79,13 @@ export default class extends React.Component<{
                     {/* Menu Items */}
                     {this.menuOptions()}
 
-                    {window.coderoad.issuesPath ? <MenuItem key='issue' className='link'>
-                      <a href={window.coderoad.issuesPath}>
-                      post issue
-                      </a>
-                  </MenuItem> : null}
+                    {window.coderoad.issuesPath
+                      ? <MenuItem key='issue' className='link'>
+                        <a href={window.coderoad.issuesPath}>
+                          post issue
+                        </a>
+                      </MenuItem>
+                      : null}
                   <Divider />
                   <MenuItem key='quit' onClick={quit}>quit</MenuItem>
                 </IconMenu>

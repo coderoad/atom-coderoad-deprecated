@@ -1,17 +1,18 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
-import Paper from 'material-ui/lib/paper';
-import RaisedButton from 'material-ui/lib/raised-button';
-import List from 'material-ui/lib/lists/list';
-import ListItem from 'material-ui/lib/lists/list-item';
-import Subheader from 'material-ui/lib/Subheader';
-import {MarkdownText} from '../_components';
+import {Markdown} from '../_components';
 import * as classnames from 'classnames';
-import * as Colors from 'material-ui/lib/styles/colors';
-import CheckBox from 'material-ui/lib/svg-icons/toggle/check-box';
-import PlayCircleFilled from 'material-ui/lib/svg-icons/av/play-circle-filled';
-import CheckBoxOutlineBlank from 'material-ui/lib/svg-icons/toggle/check-box-outline-blank';
+
+import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
+import {List, ListItem} from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
+import {pink500} from 'material-ui/styles/colors';
+
+import CheckBox from 'material-ui/svg-icons/toggle/check-box';
+import PlayCircleFilled from 'material-ui/svg-icons/av/play-circle-filled';
+import CheckBoxOutlineBlank from 'material-ui/svg-icons/toggle/check-box-outline-blank';
 
 // page
 @connect(null, (dispatch) => {
@@ -27,7 +28,7 @@ class ProgressPage extends React.Component<{page: CR.Page, itemPosition: CR.Posi
     if (completed) {
       return <CheckBox />;
     } else if (current) {
-      return <PlayCircleFilled color={Colors.pink500} />;
+      return <PlayCircleFilled color={pink500} />;
     } else {
       return <CheckBoxOutlineBlank />;
     }
@@ -68,9 +69,10 @@ const style = {
  * Progress Component
  * 	display page data
  */
-export default ({progress, position}) => (
+export const Progress: React.StatelessComponent<{
+  progress: CR.Progress, position: CR.Position
+}> = ({progress, position}) => (
   <Paper style={style} zDepth={1} className='cr-progress'>
-    {/*}<ProjectDescription project={project} />*/}
     <List>
       <Subheader>Progress</Subheader>
     {progress.chapters.map((chapter: CR.Chapter, chapterIndex: number) => {
@@ -90,10 +92,11 @@ export default ({progress, position}) => (
          })}>
             <h3>{chapterIndex + 1}. {chapter.title}</h3>
             <span className='chapter-description'>
-              <MarkdownText  text={chapter.description} />
+              <Markdown>{chapter.description}</Markdown>
             </span>
          </ListItem>;
     })}
     </List>
+
   </Paper>
 );

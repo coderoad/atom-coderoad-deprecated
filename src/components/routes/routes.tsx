@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {store} from '../../store/store';
 import * as Action from '../../actions/actions';
-import {Page, Progress, Tutorials, Checks, FinalPage} from '../_components';
+import {Page, Progress, Tutorials, Start, FinalPage} from '../_components';
 
 export default class extends React.Component<{state: CR.State}, {}> {
   chooseRoute(state: CR.State) {
@@ -17,8 +17,8 @@ export default class extends React.Component<{state: CR.State}, {}> {
       case 'progress':
         return <Progress progress={state.progress}
                         position={state.position} />;
-      case 'checks':
-        return <Checks checks={state.checks} />;
+      case 'start':
+        return <Start checks={state.checks} />;
       case 'tutorials':
         return <Tutorials tutorials={state.tutorials} />;
       case 'final':

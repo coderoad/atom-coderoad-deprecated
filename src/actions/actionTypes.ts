@@ -3,6 +3,7 @@ export const SET_PROJECT = 'SET_PROJECT';
 export const VERIFY_SETUP = 'VERIFY_SETUP';
 export const SET_GLOBALS = 'SET_GLOBALS';
 export const LOAD_TUTORIALS = 'LOAD_TUTORIALS';
+export const UPDATE_TUTORIAL = 'UPDATE_TUTORIAL';
 
 // Navigation
 export const SET_ROUTE = 'SET_ROUTE';

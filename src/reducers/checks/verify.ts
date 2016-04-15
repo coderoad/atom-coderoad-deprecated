@@ -5,12 +5,9 @@ import {packageJsonExists, loadRootPackageJson, searchForTutorials} from '../tut
 import {createPackageJson, openDirectory, installTutorial} from './action-setup';
 import * as path from 'path';
 
+const result = (x) => x;
 function allTrue(obj: Object): boolean {
   return Object.values(obj).every((x) => x === true);
-}
-
-function result(x) {
-  return x;
 }
 
 export default function verifySetup(): CR.Checks {
@@ -29,5 +26,6 @@ export default function verifySetup(): CR.Checks {
   checks.system.passed = allTrue(checks.system);
   checks.setup.passed = allTrue(checks.setup);
   checks.passed = checks.system.passed && checks.setup.passed;
+  console.log('checks', checks);
   return checks;
 }

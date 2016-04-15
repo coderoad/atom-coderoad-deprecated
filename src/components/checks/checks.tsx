@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Paper from 'material-ui/lib/paper';
+import Paper from 'material-ui/Paper';
 import DynamicStepper from './setup-checker';
-import Step from 'material-ui/lib/Stepper/VerticalStep';
-import FlatButton from 'material-ui/lib/flat-button';
+import {Step, StepLabel} from 'material-ui/Stepper';
+import FlatButton from 'material-ui/FlatButton';
 
 import {openDirectory, createPackageJson, installTutorial} from '../../reducers/checks/action-setup';
 import {updateNpm} from '../../reducers/checks/action-system';
@@ -10,11 +10,7 @@ import {connect} from 'react-redux';
 import {store} from '../../store/store';
 import * as Action from '../../actions/actions';
 
-const style = {
-  icon: {
-    backgroundColor: 'red'
-  }
-};
+const fail = '✗';
 
 @connect(null, (dispatch) => {
   return {
@@ -22,7 +18,7 @@ const style = {
     verify: () => store.dispatch(Action.verifySetup())
   };
 })
-export class Checks extends React.Component<{
+export default class Checks extends React.Component<{
   checks: CR.Checks, routeToTutorials?: any, verify?: any
 }, {}> {
   getSystemChecks(checks: CR.Checks) {
@@ -35,15 +31,14 @@ export class Checks extends React.Component<{
   }
   render() {
     const {checks, routeToTutorials, verify} = this.props;
-    return <Paper className='cr-start'>
-    <div className='cr-start-header'>
-      <p className='tagline'>Setup</p>
-
+    return <div className='cr-checks'>
         {/* System Checks */}
 
+        <p className='tagline'>Setup</p>
+
         {checks.system.passed ? null : <DynamicStepper title='Dependency Checks' status={this.getSystemChecks(checks)}>
-          <Step style={style}
-            orderStepLabel='✗'
+          <Step
+            orderStepLabel={fail}
              stepLabel='Node >= 0.10'
              actions={[
                <FlatButton key={0} primary={true}
@@ -52,7 +47,7 @@ export class Checks extends React.Component<{
              ]} >
              <div>Install a newer version of <a href='https://nodejs.org'>Node</a></div>
            </Step>
-           <Step orderStepLabel='✗'
+           <Step orderStepLabel={fail}
               stepLabel='NPM >= 3'
               actions={[
                 <FlatButton key={0} primary={true}
@@ -71,7 +66,7 @@ export class Checks extends React.Component<{
 
         {checks.setup.passed ? null : <DynamicStepper title='Setup Checks'
         status={this.getSetupChecks(checks)}>
-          <Step orderStepLabel='✗'
+          <Step orderStepLabel={fail}
            stepLabel='working directory'
            actions={[
              <FlatButton key={0} primary={true}
@@ -83,7 +78,7 @@ export class Checks extends React.Component<{
            ]} >
            <div>File -> Open (a new folder)</div>
            </Step>
-           <Step orderStepLabel='✗'
+           <Step orderStepLabel={fail}
                stepLabel='package.json'
                actions={[
                  <FlatButton key={0} primary={true}
@@ -97,7 +92,7 @@ export class Checks extends React.Component<{
                Create a package.json by running<br />
                `> npm init -y`</div>
             </Step>
-            <Step orderStepLabel='✗'
+            <Step orderStepLabel={fail}
              stepLabel='install tutorial'
              actions={[
                <FlatButton key={0} primary={true}
@@ -114,17 +109,15 @@ export class Checks extends React.Component<{
           </Step>
           </DynamicStepper>}
 
-          {/* Install Guide || Continue */}
-
-    </div>
+    {/* Install Guide || Continue */}
 
     {checks.passed
-      ?  <FlatButton label='Begin' primary={true} onTouchTap={routeToTutorials}/>
+      ? null
       : <div className='setup-guide'>
       <span>Check the
       <a href='https://coderoad.github.io/docs#install'> <strong>Install Guide</strong></a></span>
     </div>}
-    <p className='version'>Beta</p>
-  </Paper>;
+
+    </div>;
   }
 }

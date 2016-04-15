@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as marked from 'marked';
 const Highlights = require('highlights');
-let highlighter = new Highlights({registry: atom.grammars});
+const highlighter = new Highlights({registry: atom.grammars});
 
-var options = {
-  highlight: function (code: string, lang: string) {
+const options = {
+  highlight: (code: string, lang: string) => {
     return highlighter.highlightSync({
       fileContents: code,
       scopeName: 'source.' + (lang || 'js')
@@ -33,6 +33,9 @@ function formatText(text: string): string {
  * Markdown Text
  * 	MD -> HTML
  */
-export default ({text}) => (
-  <span className='cr-markdown' dangerouslySetInnerHTML={{__html: formatText(text)}}></span>
-);
+export const Markdown: React.StatelessComponent<{children?: string}> = ({children}) => {
+  let text = formatText(children);
+  return <span className='cr-markdown' dangerouslySetInnerHTML={
+    {__html: text}
+  }></span>;
+};

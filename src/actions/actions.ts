@@ -51,7 +51,7 @@ export {pageComplete, chapterComplete, projectComplete} from './progress-actions
 export {showHint, runTests, testComplete, testResult, setHintPosition} from './task-actions';
 
 /* Tutorials */
-export {loadTutorials} from './tutorials';
+export {loadTutorials, updateTutorial} from './tutorials';
 
 /* Alert */
 export {toggleAlert, replayAlert} from './alert';
