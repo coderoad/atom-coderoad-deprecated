@@ -23,9 +23,6 @@ refs: {
   [key: string]: (Element);
   listEnd: Element;
 };
-constructor() {
-  super();
-}
 componentDidUpdate() {
   ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
 }

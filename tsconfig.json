@@ -110,6 +110,7 @@
         "src/components/page/hint/hint.tsx",
         "src/components/page/page.tsx",
         "src/components/page/task/task.tsx",
+        "src/components/page/toolbar/progress-bar.tsx",
         "src/components/page/toolbar/toolbar.tsx",
         "src/components/progress/progress.tsx",
         "src/components/render.tsx",
