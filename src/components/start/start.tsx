@@ -1,5 +1,5 @@
 import * as React from 'react';
-import FlatButton from 'material-ui/lib/flat-button';
+import RaisedButton from 'material-ui/lib/flat-button';
 import Checks from './checks/checks';
 import {connect} from 'react-redux';
 import {store} from '../../store/store';
@@ -10,7 +10,6 @@ const welcomeStyle = {
   backgroundImage: `url("${path.resolve(__dirname, '../../../', 'styles', 'coderoad.jpg')}")`,
   backgroundRepeat: 'no-repeat',
   height: '350px',
-  marginTop: '0'
 };
 
 @connect(null, (dispatch) => {
@@ -23,8 +22,11 @@ class Welcome extends React.Component<{
 }, {}> {
   render() {
     return <div  style={welcomeStyle}>
-      <div class='cr-welcome'>
-        <FlatButton label='Start' onTouchTap={this.props.routeToTutorials} style={{marginTop: '200px'}} />
+      <div className='cr-welcome'>
+        <div className='title'>CodeRoad</div>
+        <div className='tagline'>Tutorials in your Editor</div>
+        <br /><br />
+        <RaisedButton label='Start' onTouchTap={this.props.routeToTutorials} secondary={true}/>
       </div>
     </div>;
   }
