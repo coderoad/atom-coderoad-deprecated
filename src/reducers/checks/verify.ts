@@ -16,12 +16,12 @@ function result(x) {
 export default function verifySetup(): CR.Checks {
   let checks: CR.Checks = {
     system: {
-      node: !!nodeMinVersion(),
+      node: false, // !!nodeMinVersion(),
       npm: !!npmMinVersion()
     },
     setup: {
       dir: !!hasDirectory(),
-      packageJson: !hasPackageJson(),
+      packageJson: !!hasPackageJson(),
       tutorial: !!hasTutorialDep()
     }
   };
@@ -29,5 +29,6 @@ export default function verifySetup(): CR.Checks {
   checks.system.passed = allTrue(checks.system);
   checks.setup.passed = allTrue(checks.setup);
   checks.passed = checks.system.passed && checks.setup.passed;
+  console.log('checks', checks);
   return checks;
 }

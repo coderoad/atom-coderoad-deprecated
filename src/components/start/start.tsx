@@ -22,7 +22,7 @@ class Welcome extends React.Component<{
   routeToTutorials?: any
 }, {}> {
   render() {
-    return <div  style={welcomeStyle}>
+    return <div style={welcomeStyle}>
       <div className='cr-welcome'>
         <div className='title'>CodeRoad</div>
         <div className='tagline'>Tutorials in your Editor</div>
@@ -40,7 +40,6 @@ export const Start = ({checks}) => (
     {checks.passed
       ? <Welcome  />
       : <Checks checks={checks}/>}
-
     </div>
 
   <br />

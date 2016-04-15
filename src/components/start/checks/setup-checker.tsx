@@ -1,5 +1,7 @@
 import * as React from 'react';
-import Stepper from 'material-ui/Stepper';
+import {Stepper, Step, StepButton, StepContent} from 'material-ui/Stepper';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 import FontIcon from 'material-ui/FontIcon';
 
@@ -15,55 +17,24 @@ const styles = {
 };
 
 export default class DynamicStepper extends React.Component<{
-  status: boolean[], title: string, children?: any
+  status: boolean[], children?: any
 }, {
-  activeStep: number, statusSteps: boolean[]
+  stepIndex: number
 }> {
   constructor(props) {
     super(props);
-    let statusSteps = this.props.status;
     this.state = {
-      activeStep: statusSteps.indexOf(false) || -1,
-      statusSteps
-    };
-  }
-  selectStep(CurrentStep) {
-    this.setState({
-      activeStep: CurrentStep,
-      statusSteps: this.state.statusSteps
-    });
-  }
-  updateCompletedSteps(CurrentStep) {
-    return this.state.statusSteps[CurrentStep];
-  }
-  createIcon(step) {
-    if (step.props.isCompleted) {
-      return (
-        <FontIcon className='material-icons' style={{fontSize: 14}}>
-          ✓
-        </FontIcon>
-      );
-    }
-    return <span>{step.props.orderStepLabel}</span>;
-  }
-  continue() {
-    const {activeStep, statusSteps} = this.state;
-    statusSteps[activeStep] = true;
-    this.state = {
-      activeStep: activeStep + 1,
-      statusSteps,
+      stepIndex: status.indexOf(false) || 0
     };
   }
   render() {
+    const {stepIndex} = this.state;
     return <div>
-        <div style={styles.header}>
-          {this.props.title}
-        </div>
         <Stepper
-          activeStep={this.state.activeStep}
+          activeStep={stepIndex}
           linear={false}
           orientation='vertical'>
-        {this.props.children}
+          {this.props.children}
         </Stepper>
       </div>;
   }
