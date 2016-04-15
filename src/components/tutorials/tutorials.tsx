@@ -59,7 +59,7 @@ class TutorialList extends React.Component<{
 
         {tutorials.map((tutorial: CR.Tutorial, index) => {
         return (
-          <TableRow>
+          <TableRow key={index}>
             <TableRowColumn>
             <FlatButton label={this.trim(tutorial.name)} primary={true} onTouchTap={selectTutorial.bind(this, tutorial)} />
             </TableRowColumn>

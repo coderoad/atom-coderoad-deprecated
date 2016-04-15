@@ -3,10 +3,10 @@ import {openDevTools} from '../../atom/actions';
 import {getCommand, getParams, getOptions} from './action-helpers';
 
 const Type = {
-  OPEN: 'OPEN',
-  SET: 'SET',
-  INSERT: 'INSERT',
-  OPEN_CONSOLE: 'OPEN_CONSOLE'
+  OPEN: 'open',
+  SET: 'set',
+  INSERT: 'insert',
+  OPEN_CONSOLE: 'openConsole'
 };
 
 export function editorActions(actionString: string): Promise<void> {

@@ -74,8 +74,8 @@ export function searchForTutorials(deps: Object): CR.Tutorial[] {
 
       return {
         name,
-        version: packageJson.version,
-        latest: canUpdateTutorial(name, packageJson.version)
+        version: packageJson.version
+        // latest: canUpdateTutorial(name, packageJson.version)
       };
     }));
   } else {
