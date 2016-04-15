@@ -6,7 +6,7 @@ import CardActions from 'material-ui/lib/card/card-actions';
 import CardHeader from 'material-ui/lib/card/card-header';
 import CardText from 'material-ui/lib/card/card-text';
 import FlatButton from 'material-ui/lib/flat-button';
-import {MarkdownText} from '../../_components';
+import {Markdown} from '../../_components';
 import Help from 'material-ui/lib/svg-icons/action/help';
 
 @connect(null, (dispatch, state) => {
@@ -34,7 +34,7 @@ export default class extends React.Component<{
         actAsExpander={true}
         showExpandableButton={true} />
       <CardText className='cr-task-hint' expandable={true}>
-        <MarkdownText text={hint} />
+        <Markdown>{hint}</Markdown>
       </CardText>
       <CardActions expandable={true}>
         <FlatButton label='Previous' disabled={hintPosition < 1}

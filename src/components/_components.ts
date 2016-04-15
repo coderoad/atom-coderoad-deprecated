@@ -14,5 +14,5 @@ export {Tutorials} from './tutorials/tutorials';
 export {FinalPage} from './final-page/final-page';
 
 // Common
-export {default as MarkdownText} from './markdown/markdown';
+export {Markdown} from './markdown/markdown';
 export {default as Alert} from './alert/alert';

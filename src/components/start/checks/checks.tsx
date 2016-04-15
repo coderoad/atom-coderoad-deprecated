@@ -3,6 +3,7 @@ import Paper from 'material-ui/lib/paper';
 import DynamicStepper from './setup-checker';
 import Step from 'material-ui/lib/Stepper/VerticalStep';
 import FlatButton from 'material-ui/lib/flat-button';
+import {Markdown} from '../../_components';
 
 import {openDirectory, createPackageJson, installTutorial} from '../../../reducers/checks/action-setup';
 import {updateNpm} from '../../../reducers/checks/action-system';
@@ -54,10 +55,8 @@ export default class Checks extends React.Component<{
                   onTouchTap={verify} />,
 
               ]} >
-              <div>
-              Update your version of NPM.<br />
-              `> npm update -g npm`
-              </div>
+              <Markdown>Update your version of NPM.
+              `> npm update -g npm`</Markdown>
             </Step>
          </DynamicStepper>}
 

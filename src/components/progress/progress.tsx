@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';
 import Subheader from 'material-ui/lib/Subheader';
-import {MarkdownText} from '../_components';
+import {Markdown} from '../_components';
 import * as classnames from 'classnames';
 import * as Colors from 'material-ui/lib/styles/colors';
 import CheckBox from 'material-ui/lib/svg-icons/toggle/check-box';
@@ -90,7 +90,7 @@ export default ({progress, position}) => (
          })}>
             <h3>{chapterIndex + 1}. {chapter.title}</h3>
             <span className='chapter-description'>
-              <MarkdownText  text={chapter.description} />
+              <Markdown>{chapter.description}</Markdown>
             </span>
          </ListItem>;
     })}

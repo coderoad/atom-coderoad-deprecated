@@ -7,7 +7,6 @@ import TableHeader from 'material-ui/lib/table/table-header';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
 import FileUpload from 'material-ui/lib/svg-icons/file/file-upload';
-import {MarkdownText} from '../_components';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
 import {pink500} from 'material-ui/lib/styles/colors';

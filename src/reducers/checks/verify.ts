@@ -21,7 +21,7 @@ export default function verifySetup(): CR.Checks {
     },
     setup: {
       dir: !!hasDirectory(),
-      packageJson: !!hasPackageJson(),
+      packageJson: false, // !!hasPackageJson(),
       tutorial: !!hasTutorialDep()
     }
   };

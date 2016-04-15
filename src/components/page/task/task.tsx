@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {MarkdownText} from '../../_components';
+import {Markdown} from '../../_components';
 import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';
 import Subheader from 'material-ui/lib/Subheader';
@@ -31,7 +31,7 @@ const TaskIndex = ({index}) => (
 
 const TaskContent = ({task}) => (
   <div className='cr-task-description'>
-    <MarkdownText text={task.description} />
+    <Markdown>{task.description}</Markdown>
   </div>
 );
 
