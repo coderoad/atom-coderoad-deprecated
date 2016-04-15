@@ -61,9 +61,8 @@ export default class DynamicStepper extends React.Component<{
         </div>
         <Stepper
           activeStep={this.state.activeStep}
-          onStepHeaderTouch={this.selectStep.bind(this)}
-          updateCompletedStatus={this.updateCompletedSteps.bind(this)}
-          createIcon={this.createIcon}>
+          linear={false}
+          orientation='vertical'>
         {this.props.children}
         </Stepper>
       </div>;

@@ -73,7 +73,6 @@ export const Progress: React.StatelessComponent<{
   progress: CR.Progress, position: CR.Position
 }> = ({progress, position}) => (
   <Paper style={style} zDepth={1} className='cr-progress'>
-    {/*}<ProjectDescription project={project} />*/}
     <List>
       <Subheader>Progress</Subheader>
     {progress.chapters.map((chapter: CR.Chapter, chapterIndex: number) => {
@@ -98,5 +97,6 @@ export const Progress: React.StatelessComponent<{
          </ListItem>;
     })}
     </List>
+
   </Paper>
 );

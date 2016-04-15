@@ -16,13 +16,13 @@ export default class extends React.Component<{state?: CR.State}, {}> {
   render(): React.ReactElement<{}> {
     const state = this.props.state;
     return (
-      <section className='cr' key='main' style={{height}}>
       <MuiThemeProvider muiTheme={muiTheme}>
+      <section className='cr' key='main' style={{height}}>
         <Menu route={state.route} position={state.position} />
         <Routes state={state} ref='route' />
         <Alert alert={state.alert} />
-        </MuiThemeProvider>
       </section>
+      </MuiThemeProvider>
 
     );
   }

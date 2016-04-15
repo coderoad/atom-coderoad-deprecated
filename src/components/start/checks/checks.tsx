@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Paper from 'material-ui/Paper';
-import DynamicStepper from './setup-checker';
-import {Step} from 'material-ui/Stepper';
+// import DynamicStepper from './setup-checker';
+import {Step, StepLabel, StepButton, StepContent} from 'material-ui/Stepper';
 import FlatButton from 'material-ui/FlatButton';
 import {Markdown} from '../../_components';
 
@@ -36,33 +36,30 @@ export default class Checks extends React.Component<{
 
         <p className='tagline'>Setup</p>
 
-        {checks.system.passed ? null : <DynamicStepper title='Dependency Checks' status={this.getSystemChecks(checks)}>
-          <Step
-            orderStepLabel={fail}
+        {/* checks.system.passed ? null : <DynamicStepper title='Dependency Checks' status={this.getSystemChecks(checks)}>
+          <Step>
+            {/*orderStepLabel={fail}
              stepLabel='Node >= 0.10'
              actions={[
                <FlatButton key={0} primary={true}
                  label='Verify'
                  onTouchTap={verify} />
-             ]} >
-             <div>Install a newer version of <a href='https://nodejs.org'>Node</a></div>
+             ]} >}
+             <StepLabel>Node >= 0.10</StepLabel>
+             <StepContent>Install a newer version of <a href='https://nodejs.org'>Node</a></StepContent>
            </Step>
-           <Step orderStepLabel={fail}
-              stepLabel='NPM >= 3'
-              actions={[
-                <FlatButton key={0} primary={true}
-                  label='Verify'
-                  onTouchTap={verify} />,
 
-              ]} >
+           <Step>
+           <StepLabel>NPM >= 3</StepLabel>
+              <StepContent>
               <Markdown>Update your version of NPM.
-              `> npm update -g npm`</Markdown>
+              `> npm update -g npm`</Markdown></StepContent>
             </Step>
-         </DynamicStepper>}
+         </DynamicStepper>*/}
 
          {/* Setup Checks */}
 
-        {checks.setup.passed ? null : <DynamicStepper title='Setup Checks'
+        {/*checks.setup.passed ? null : <DynamicStepper title='Setup Checks'
         status={this.getSetupChecks(checks)}>
           <Step orderStepLabel={fail}
            stepLabel='working directory'
@@ -105,7 +102,7 @@ export default class Checks extends React.Component<{
              `> npm install coderoad-functional-school --save-dev`
              </div>
           </Step>
-          </DynamicStepper>}
+          </DynamicStepper>*/}
 
     {/* Install Guide || Continue */}
 
