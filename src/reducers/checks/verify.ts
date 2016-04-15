@@ -5,18 +5,15 @@ import {packageJsonExists, loadRootPackageJson, searchForTutorials} from '../tut
 import {createPackageJson, openDirectory, installTutorial} from './action-setup';
 import * as path from 'path';
 
-function allTrue(obj: Object): boolean {
+const result = (x) => x;
+const allTrue = (obj: Object): boolean => {
   return Object.values(obj).every((x) => x === true);
-}
-
-function result(x) {
-  return x;
-}
+};
 
 export default function verifySetup(): CR.Checks {
   let checks: CR.Checks = {
     system: {
-      node: false, // !!nodeMinVersion(),
+      node: !!nodeMinVersion(),
       npm: !!npmMinVersion()
     },
     setup: {
