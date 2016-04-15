@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ListItem from 'material-ui/lib/lists/list-item';
+import {ListItem} from 'material-ui/List';
 import {Markdown} from '../../_components';
 
 export const PageCompleteMessage: React.StatelessComponent<{page: CR.Page}> = ({page}) => (

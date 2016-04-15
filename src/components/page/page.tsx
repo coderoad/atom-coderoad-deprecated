@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Paper from 'material-ui/lib/paper';
-import Divider from 'material-ui/lib/divider';
+import Paper from 'material-ui/Paper';
+import Divider from 'material-ui/Divider';
 import {PageContent} from './content';
 import {Tasks} from './task/task';
 import Hints from './hint/hint';

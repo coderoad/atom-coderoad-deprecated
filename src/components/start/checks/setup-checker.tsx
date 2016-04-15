@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Stepper from 'material-ui/lib/Stepper/Stepper';
-import FontIcon from 'material-ui/lib/font-icon';
+import Stepper from 'material-ui/Stepper';
+
+import FontIcon from 'material-ui/FontIcon';
 
 const styles = {
   header: {
@@ -13,7 +14,7 @@ const styles = {
   }
 };
 
-export default class extends React.Component<{
+export default class DynamicStepper extends React.Component<{
   status: boolean[], title: string, children?: any
 }, {
   activeStep: number, statusSteps: boolean[]

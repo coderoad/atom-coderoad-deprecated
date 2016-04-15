@@ -1,11 +1,11 @@
-// import {cyan500} from 'material-ui/lib/styles/colors';
-// import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
-//
-// export const muiTheme = getMuiTheme({
-//   palette: {
-//     textColor: cyan500,
-//   },
-//   appBar: {
-//     height: 33
-//   }
-// });
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {cyan500} from 'material-ui/styles/colors';
+
+export const muiTheme = getMuiTheme({
+  palette: {
+    textColor: cyan500,
+  },
+  appBar: {
+    height: 50,
+  },
+});

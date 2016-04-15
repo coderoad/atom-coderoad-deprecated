@@ -1,12 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Paper from 'material-ui/lib/paper';
-import Divider from 'material-ui/lib/divider';
-import Card from 'material-ui/lib/card/card';
-import CardTitle from 'material-ui/lib/card/card-title';
-import CardText from 'material-ui/lib/card/card-text';
-import CardActions from 'material-ui/lib/card/card-actions';
-import FlatButton from 'material-ui/lib/flat-button';
+import Paper from 'material-ui/Paper';
+import Divider from 'material-ui/Divider';
+import {Card, CardTitle, CardText, CardACtions} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
 export const FinalPage: React.StatelessComponent<{}> = () => (
   <Paper>

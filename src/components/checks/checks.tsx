@@ -1,25 +1,25 @@
 import * as React from 'react';
 import Paper from 'material-ui/Paper';
 import DynamicStepper from './setup-checker';
-import {Step} from 'material-ui/Stepper';
+import {Step, StepLabel} from 'material-ui/Stepper';
 import FlatButton from 'material-ui/FlatButton';
-import {Markdown} from '../../_components';
 
-import {openDirectory, createPackageJson, installTutorial} from '../../../reducers/checks/action-setup';
-import {updateNpm} from '../../../reducers/checks/action-system';
+import {openDirectory, createPackageJson, installTutorial} from '../../reducers/checks/action-setup';
+import {updateNpm} from '../../reducers/checks/action-system';
 import {connect} from 'react-redux';
-import {store} from '../../../store/store';
-import * as Action from '../../../actions/actions';
+import {store} from '../../store/store';
+import * as Action from '../../actions/actions';
 
 const fail = '✗';
 
 @connect(null, (dispatch) => {
   return {
+    routeToTutorials: () => store.dispatch(Action.setRoute('tutorials')),
     verify: () => store.dispatch(Action.verifySetup())
   };
 })
 export default class Checks extends React.Component<{
-  checks: CR.Checks, verify?: any
+  checks: CR.Checks, routeToTutorials?: any, verify?: any
 }, {}> {
   getSystemChecks(checks: CR.Checks) {
     const system = checks.system;
@@ -30,8 +30,8 @@ export default class Checks extends React.Component<{
     return [setup.dir, setup.packageJson, setup.tutorial];
   }
   render() {
-    const {checks, verify} = this.props;
-    return <Paper className='cr-checks'>
+    const {checks, routeToTutorials, verify} = this.props;
+    return <div className='cr-checks'>
         {/* System Checks */}
 
         <p className='tagline'>Setup</p>
@@ -55,8 +55,10 @@ export default class Checks extends React.Component<{
                   onTouchTap={verify} />,
 
               ]} >
-              <Markdown>Update your version of NPM.
-              `> npm update -g npm`</Markdown>
+              <div>
+              Update your version of NPM.<br />
+              `> npm update -g npm`
+              </div>
             </Step>
          </DynamicStepper>}
 
@@ -116,6 +118,6 @@ export default class Checks extends React.Component<{
       <a href='https://coderoad.github.io/docs#install'> <strong>Install Guide</strong></a></span>
     </div>}
 
-    </Paper>;
+    </div>;
   }
 }

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import RaisedButton from 'material-ui/lib/flat-button';
-import Checks from './checks/checks';
 import {connect} from 'react-redux';
 import {store} from '../../store/store';
 import * as Action from '../../actions/actions';
 import * as path from 'path';
+import Checks from './checks/checks';
+
+import RaisedButton from 'material-ui/FlatButton';
 
 const welcomeStyle = {
   backgroundImage: `url("${path.resolve(__dirname, '../../../', 'styles', 'coderoad.jpg')}")`,

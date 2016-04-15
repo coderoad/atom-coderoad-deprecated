@@ -1,15 +1,13 @@
 import * as React from 'react';
-import FlatButton from 'material-ui/lib/flat-button';
-import Table from 'material-ui/lib/table/table';
-import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
-import TableRow from 'material-ui/lib/table/table-row';
-import TableHeader from 'material-ui/lib/table/table-header';
-import TableRowColumn from 'material-ui/lib/table/table-row-column';
-import TableBody from 'material-ui/lib/table/table-body';
-import FileUpload from 'material-ui/lib/svg-icons/file/file-upload';
+import FlatButton from 'material-ui/FlatButton';
+import {
+  Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn, TableBody
+} from 'material-ui/Table';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
-import {pink500} from 'material-ui/lib/styles/colors';
+
+import {pink500} from 'material-ui/styles/colors';
+import FileUpload from 'material-ui/svg-icons/file/file-upload';
 
 @connect(null, (dispatch) => {
   return {
