@@ -97,7 +97,6 @@
         "src/services/exists.ts",
         "src/services/package.ts",
         "src/services/polyfills.ts",
-        "src/services/write.ts",
         "src/store/store.ts",
         "src/components/alert/alert.tsx",
         "src/components/app.tsx",

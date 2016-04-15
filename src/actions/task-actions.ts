@@ -1,23 +1,26 @@
-import * as Type from './actionTypes';
+import {
+  SHOW_HINT, RUN_TESTS, TEST_RESULT,
+  TEST_COMPLETE, SET_HINT_POSITION
+} from './actionTypes';
 import {store} from '../store/store';
 
 export function showHint(): CR.Action {
-  return { type: Type.SHOW_HINT };
+  return { type: SHOW_HINT };
 }
 
 export function runTests(): CR.Action {
-  return { type: Type.RUN_TESTS };
+  return { type: RUN_TESTS };
 }
 
 export function testResult(result: CR.TestResult): CR.Action {
   let actions = store.getState().editorActions;
-  return { type: Type.TEST_RESULT, payload: { result, actions } };
+  return { type: TEST_RESULT, payload: { result, actions } };
 }
 
 export function testComplete(): CR.Action {
-  return { type: Type.TEST_COMPLETE };
+  return { type: TEST_COMPLETE };
 }
 
 export function setHintPosition(hintPosition: number): CR.Action {
-  return { type: Type.SET_HINT_POSITION, payload: { hintPosition } };
+  return { type: SET_HINT_POSITION, payload: { hintPosition } };
 }

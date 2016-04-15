@@ -1,5 +1,5 @@
 import * as Type from '../../actions/actionTypes';
-const _ = require('lodash');
+const {times} = require('lodash');
 import {editorActions} from './actions';
 
 function handleEditorActions(actionArray: string[]): void {
@@ -26,7 +26,7 @@ export default function editorActionsReducer(editorActions = [], action: CR.Acti
       let nextTaskPosition = action.payload.result.taskPosition;
       if (nextTaskPosition > currentTaskPosition) {
         // run actions for each task position passed
-        _.times(handleEditorActions(actions.shift()), nextTaskPosition - currentTaskPosition);
+        times(handleEditorActions(actions.shift()), nextTaskPosition - currentTaskPosition);
         currentTaskPosition = nextTaskPosition;
       }
       return actions;

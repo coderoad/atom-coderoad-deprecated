@@ -1,7 +1,6 @@
 import {fileExists} from './exists';
 import {exec} from 'child_process';
 
-
 export default function commandLine(root: string, commands: string): Promise<string> {
 
   // use root path for mac/linux (usr/local/bin, usr/bin), or windows (root)

@@ -1,4 +1,6 @@
-import * as Type from './actionTypes';
+import {
+  PAGE_COMPLETE, CHAPTER_COMPLETE, PROJECT_COMPLETE
+} from './actionTypes';
 import {store} from '../store/store';
 
 export function pageComplete(): CR.Action {
@@ -7,7 +9,7 @@ export function pageComplete(): CR.Action {
   if (position.page >= pageLength - 1) {
     return chapterComplete();
   }
-  return { type: Type.PAGE_COMPLETE, payload: { position } };
+  return { type: PAGE_COMPLETE, payload: { position } };
 }
 
 export function chapterComplete(): CR.Action {
@@ -16,9 +18,9 @@ export function chapterComplete(): CR.Action {
   if (chapter >= chapterLength - 1) {
     return projectComplete();
   }
-  return { type: Type.CHAPTER_COMPLETE, payload: { chapter } };
+  return { type: CHAPTER_COMPLETE, payload: { chapter } };
 }
 
 export function projectComplete(): CR.Action {
-  return { type: Type.PROJECT_COMPLETE };
+  return { type: PROJECT_COMPLETE };
 }

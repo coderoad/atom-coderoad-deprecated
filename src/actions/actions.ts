@@ -1,27 +1,31 @@
-import * as Type from './actionTypes';
+import {
+  SET_PROJECT, SET_GLOBALS, VERIFY_SETUP,
+  SET_PROGRESS, SET_POSITION, TOGGLE_LOG,
+  LOG_MESSAGE
+} from './actionTypes';
 import {store} from '../store/store';
 import Package from '../services/package';
 
 /* Project */
 export function setProject(): CR.Action {
-  return { type: Type.SET_PROJECT };
+  return { type: SET_PROJECT };
 }
 
 export function setGlobals(packageJson: PackageJson): CR.Action {
-  return { type: Type.SET_GLOBALS, payload: { packageJson } };
+  return { type: SET_GLOBALS, payload: { packageJson } };
 }
 
 export function verifySetup(): CR.Action {
-  return { type: Type.VERIFY_SETUP };
+  return { type: VERIFY_SETUP };
 }
 
 export function setProgress(): CR.Action {
-  return { type: Type.SET_PROGRESS };
+  return { type: SET_PROGRESS };
 }
 
 /* Position */
 export function setPosition(position: CR.Position): CR.Action {
-  return { type: Type.SET_POSITION, payload: { position } };
+  return { type: SET_POSITION, payload: { position } };
 }
 
 export function loadTutorial(tutorial: CR.Tutorial): void {
@@ -33,11 +37,11 @@ export function loadTutorial(tutorial: CR.Tutorial): void {
 
 export function toggleLog(): CR.Action {
   let open = !store.getState().log.open;
-  return { type: Type.TOGGLE_LOG, payload: { open } };
+  return { type: TOGGLE_LOG, payload: { open } };
 }
 
 export function logMessage(message: string): CR.Action {
-  return { type: Type.LOG_MESSAGE, payload: { message }};
+  return { type: LOG_MESSAGE, payload: { message }};
 }
 
 

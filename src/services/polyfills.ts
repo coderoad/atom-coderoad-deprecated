@@ -1,4 +1,4 @@
-export default function loadPolyfills() {
+export default function loadPolyfills(): void {
 
   if (typeof Object.values !== 'function') {
     Object.values = function(obj) {
@@ -7,7 +7,7 @@ export default function loadPolyfills() {
         vals.push(obj[key]);
       }
       return vals;
-    }
+    };
   }
 
   // Object.assign temporary polyfill

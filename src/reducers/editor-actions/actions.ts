@@ -3,10 +3,10 @@ import {openDevTools} from '../../atom/actions';
 import {getCommand, getParams, getOptions} from './action-helpers';
 
 const Type = {
-  open: 'open',
-  set: 'set',
-  insert: 'insert',
-  openConsole: 'openConsole'
+  OPEN: 'OPEN',
+  SET: 'SET',
+  INSERT: 'INSERT',
+  OPEN_CONSOLE: 'OPEN_CONSOLE'
 };
 
 export function editorActions(actionString: string): Promise<void> {
@@ -14,7 +14,7 @@ export function editorActions(actionString: string): Promise<void> {
     let command: string = getCommand(actionString);
     let params: string[] = getParams(actionString);
     switch (command) {
-      case Type.open:
+      case Type.OPEN:
         let obj = getOptions(params[0]);
         let file = obj.param;
         let options = obj.options;
@@ -25,7 +25,7 @@ export function editorActions(actionString: string): Promise<void> {
           }, 100);
         }
         break;
-      case Type.set:
+      case Type.SET:
         if (params.length === 1) {
           let content = params[0];
 
@@ -35,7 +35,7 @@ export function editorActions(actionString: string): Promise<void> {
           });
         }
         break;
-      case Type.insert:
+      case Type.INSERT:
         if (params.length === 1) {
           // let obj = getOptions(params[0]);
           let content: string = params[0];
@@ -46,7 +46,7 @@ export function editorActions(actionString: string): Promise<void> {
           });
         }
         break;
-      case Type.openConsole:
+      case Type.OPEN_CONSOLE:
         if (params.length === 0) {
           setTimeout(function() {
             openDevTools();

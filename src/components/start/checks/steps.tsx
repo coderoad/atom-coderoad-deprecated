@@ -9,7 +9,7 @@ import FontIcon from 'material-ui/FontIcon';
 import WarningIcon from 'material-ui/svg-icons/alert/warning';
 import {red500, pink500} from 'material-ui/styles/colors';
 
-import {openDirectory, createPackageJson, installTutorial} from '../../../reducers/checks/action-setup';
+import {openDirectory, createPackageJson} from '../../../reducers/checks/action-setup';
 import {updateNpm} from '../../../reducers/checks/action-system';
 
 const StepCheck: React.StatelessComponent<{

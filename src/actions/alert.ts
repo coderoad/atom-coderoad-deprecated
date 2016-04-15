@@ -1,5 +1,5 @@
 import {store} from '../store/store';
-import * as Type from './actionTypes';
+import {TOGGLE_ALERT, REPLAY_ALERT} from './actionTypes';
 const _ = require('lodash');
 
 export function toggleAlert(alert?: CR.Alert): CR.Action {
@@ -9,9 +9,9 @@ export function toggleAlert(alert?: CR.Alert): CR.Action {
   } else {
     alert = _.assign(alert, { open: !isOpen });
   }
-  return { type: Type.TOGGLE_ALERT, payload: { alert } };
+  return { type: TOGGLE_ALERT, payload: { alert } };
 }
 
 export function replayAlert(): CR.Action {
-  return { type: Type.REPLAY_ALERT };
+  return { type: REPLAY_ALERT };
 }

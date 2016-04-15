@@ -1,4 +1,6 @@
-import * as Type from '../../actions/actionTypes';
+import {
+  SET_PROGRESS, PAGE_COMPLETE, CHAPTER_COMPLETE, PROJECT_COMPLETE
+} from '../../actions/actionTypes';
 import Package from '../../services/package';
 
 const defaultProgress: CR.Progress = {
@@ -17,16 +19,16 @@ const defaultProgress: CR.Progress = {
 
 export default function progressReducer(progress = defaultProgress, action: CR.Action): CR.Progress {
   switch (action.type) {
-    case Type.SET_PROGRESS:
+    case SET_PROGRESS:
       return Package.getProgress();
-    case Type.PAGE_COMPLETE:
+    case PAGE_COMPLETE:
       const position = action.payload.position;
       progress.chapters[position.chapter].pages[position.page].completed = true;
       return progress;
-    case Type.CHAPTER_COMPLETE:
+    case CHAPTER_COMPLETE:
       progress.chapters[action.payload.chapter].completed = true;
       return progress;
-    case Type.PROJECT_COMPLETE:
+    case PROJECT_COMPLETE:
       progress.completed = true;
       return progress;
     default:

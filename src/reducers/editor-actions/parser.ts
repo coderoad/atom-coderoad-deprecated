@@ -1,4 +1,4 @@
-export let parseParams = {
+export const parseParams = {
   trim(text: string): string {
     text = text.trim();
     var firstBracket = text.charAt(0).match(/["']/);
@@ -7,7 +7,7 @@ export let parseParams = {
     }
     return text;
   },
-  addBreak(char: string, index: number) {
+  addBreak(char: string, index: number): void {
     switch (char) {
       case '(':
         this.round += 1;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import * as Action from '../../../actions/actions';
+import {setHintPosition} from '../../../actions/actions';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import {Markdown} from '../../_components';
@@ -9,8 +9,8 @@ import Help from 'material-ui/svg-icons/action/help';
 
 @connect(null, (dispatch, state) => {
   return {
-    nextHint: (position: number) => dispatch(Action.setHintPosition(position)),
-    prevHint: (position: number) => dispatch(Action.setHintPosition(position))
+    nextHint: (position: number) => dispatch(setHintPosition(position)),
+    prevHint: (position: number) => dispatch(setHintPosition(position))
   };
 })
 export default class extends React.Component<{

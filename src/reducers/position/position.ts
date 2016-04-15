@@ -1,4 +1,6 @@
-import * as Type from '../../actions/actionTypes';
+import {
+  SET_PAGE, SET_POSITION
+} from '../../actions/actionTypes';
 
 const defaultPosition: CR.Position = {
   chapter: 0,
@@ -7,8 +9,8 @@ const defaultPosition: CR.Position = {
 
 export default function positionReducer(position = defaultPosition, action: CR.Action): CR.Position {
   switch (action.type) {
-    case Type.SET_PAGE:
-    case Type.SET_POSITION:
+    case SET_PAGE:
+    case SET_POSITION:
       return action.payload.position;
     default:
       return position;

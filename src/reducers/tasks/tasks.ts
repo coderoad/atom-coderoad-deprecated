@@ -1,4 +1,4 @@
-import * as Type from '../../actions/actionTypes';
+import {SET_PAGE} from '../../actions/actionTypes';
 
 const defaultTasks: CR.Task[] = [{
   description: '',
@@ -10,7 +10,7 @@ const defaultTasks: CR.Task[] = [{
 
 export default function tasksReducer(tasks = defaultTasks, action: CR.Action): CR.Task[] {
   switch (action.type) {
-    case Type.SET_PAGE:
+    case SET_PAGE:
       return action.payload.tasks;
     default:
       return tasks;

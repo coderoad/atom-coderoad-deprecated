@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {SystemChecks, SetupChecks, InstallGuide} from './steps';
 
-
 export const Checks: React.StatelessComponent<{
   checks: CR.Checks
 }> = ({checks}) => (

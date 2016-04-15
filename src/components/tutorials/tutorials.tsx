@@ -4,7 +4,9 @@ import {
   Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn, TableBody
 } from 'material-ui/Table';
 import {connect} from 'react-redux';
-import * as Action from '../../actions/actions';
+import {
+  loadTutorial, loadTutorials, updateTutorial, setRoute, toggleAlert
+} from '../../actions/actions';
 
 import {pink500} from 'material-ui/styles/colors';
 import FileUpload from 'material-ui/svg-icons/file/file-upload';
@@ -12,17 +14,17 @@ import FileUpload from 'material-ui/svg-icons/file/file-upload';
 @connect(null, (dispatch) => {
   return {
     selectTutorial: (tutorial: CR.Tutorial) => {
-      Action.loadTutorial(tutorial);
-      dispatch(Action.setRoute('progress'));
+      loadTutorial(tutorial);
+      dispatch(setRoute('progress'));
     },
     toggleAlert: (item: CR.Alert): void => {
-      dispatch(Action.toggleAlert(item));
+      dispatch(toggleAlert(item));
     },
     loadTutorials: () => {
-      dispatch(Action.loadTutorials());
+      dispatch(loadTutorials());
     },
     updateTutorial: (name: string) => {
-      dispatch(Action.updateTutorial(name));
+      dispatch(updateTutorial(name));
     }
   };
 })

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import * as Action from '../../actions/actions';
+import {setPage, setRoute} from '../../actions/actions';
 import {Markdown} from '../_components';
 import * as classnames from 'classnames';
 
@@ -18,8 +18,8 @@ import CheckBoxOutlineBlank from 'material-ui/svg-icons/toggle/check-box-outline
 @connect(null, (dispatch) => {
   return {
     selectPage: (position: CR.Position) => {
-      dispatch(Action.setPage(position));
-      dispatch(Action.setRoute('page'));
+      dispatch(setPage(position));
+      dispatch(setRoute('page'));
     }
   };
 })

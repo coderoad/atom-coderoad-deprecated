@@ -1,9 +1,5 @@
-import {fileExists} from '../../services/exists';
 import {npmMinVersion, nodeMinVersion} from './check-system';
 import {hasDirectory, hasPackageJson, hasTutorialDep} from './check-setup';
-import {packageJsonExists, loadRootPackageJson, searchForTutorials} from '../tutorials/check-tutorials';
-import {createPackageJson, openDirectory, installTutorial} from './action-setup';
-import * as path from 'path';
 
 const result = (x) => x;
 function allTrue(obj: Object): boolean {

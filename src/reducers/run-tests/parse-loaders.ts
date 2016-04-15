@@ -1,12 +1,12 @@
-import * as path from 'path';
-import * as fs from 'fs';
+import {normalize, join} from 'path';
+import {readFileSync} from 'fs';
 
 // other languages may handle comments differently
 const comments = {
   py: '#'
 };
 
-function loaderRegex(fileType: string) {
+function loaderRegex(fileType: string): RegExp {
   let comment = '\/{2,3}';
   if (comments[fileType]) {
     comment = comments[fileType];
@@ -39,14 +39,14 @@ export default function parseLoaders(data: string, fileType: string) {
       let pathToFile: string = null;
       if (loader[2]) {
         // path to file from tutorial directory
-        pathToFile = path.normalize(path.join(window.coderoad.tutorialDir, fileToLoad));
+        pathToFile = normalize(join(window.coderoad.tutorialDir, fileToLoad));
       } else {
         // path to file from working directory
-        pathToFile = path.normalize(path.join(window.coderoad.dir, fileToLoad));
+        pathToFile = normalize(join(window.coderoad.dir, fileToLoad));
       }
 
       try {
-        lines[i] = fs.readFileSync(pathToFile, 'utf8');
+        lines[i] = readFileSync(pathToFile, 'utf8');
       } catch (e) {
         let message = 'File not found: ' + pathToFile;
         lines[i] = message;

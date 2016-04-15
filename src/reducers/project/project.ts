@@ -1,4 +1,4 @@
-import * as Type from '../../actions/actionTypes';
+import {SET_PROJECT} from '../../actions/actionTypes';
 import Package from '../../services/package';
 
 const defaultProject: CR.Project = {
@@ -8,7 +8,7 @@ const defaultProject: CR.Project = {
 
 export default function projectReducer(project = defaultProject, action: CR.Action): CR.Project {
   switch (action.type) {
-    case Type.SET_PROJECT:
+    case SET_PROJECT:
       return Package.getProject();
     default:
       return project;

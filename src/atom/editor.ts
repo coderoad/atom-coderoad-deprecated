@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import {unlink} from 'fs';
 import {fileExists} from '../services/exists';
 
 let getEditorCount = 0;
@@ -35,13 +35,12 @@ export function getEditor(): Promise<AtomCore.IEditor> {
  * Actions in Atom Editor
  * @return {[type]} [description]
  */
-export function open(filePath: string, options = {}) {
+export function open(filePath: string, options = {}): void {
   // delete file first, to avoid bug
   if (fileExists(filePath)) {
-    fs.unlink(filePath);
+    unlink(filePath);
   }
   atom.workspace.open(filePath, options);
-  return true;
 }
 
 // Set text, removes any previous content in file
@@ -69,7 +68,7 @@ export function insert(text: string, options = {}) {
   });
 }
 
-function setCursorPosition(editor: AtomCore.IEditor) {
+function setCursorPosition(editor: AtomCore.IEditor): void {
   editor.scan(/::>/g, function(match) {
     let start = match.range.start;
     match.replace('');

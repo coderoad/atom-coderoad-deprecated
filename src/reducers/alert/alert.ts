@@ -1,4 +1,7 @@
-import * as Type from '../../actions/actionTypes';
+import {
+  REPLAY_ALERT, TOGGLE_ALERT, TEST_RESULT,
+  PAGE_COMPLETE, CHAPTER_COMPLETE, PROJECT_COMPLETE
+} from '../../actions/actionTypes';
 
 const defaultAlert: CR.Alert = {
   message: '',
@@ -12,16 +15,16 @@ let current: CR.Alert = defaultAlert;
 export default function alertReducer(alert = defaultAlert, action: CR.Action): CR.Alert {
   let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
   switch (action.type) {
-    case Type.REPLAY_ALERT:
+    case REPLAY_ALERT:
       return {
         open: true,
         message: current.message,
         action: current.action,
         duration: 2000
       };
-    case Type.TOGGLE_ALERT:
+    case TOGGLE_ALERT:
       return action.payload.alert || defaultAlert;
-    case Type.TEST_RESULT:
+    case TEST_RESULT:
       let result = action.payload.result;
       if (result.pass && result.change > 0) {
         // Pass
@@ -50,21 +53,21 @@ export default function alertReducer(alert = defaultAlert, action: CR.Action): C
         action: 'note',
         duration: result.duration || 2500
       };
-    case Type.PAGE_COMPLETE:
+    case PAGE_COMPLETE:
       return {
         message: `Page ${action.payload.position.page + 1} Complete`,
         open: true,
         action: 'pass',
         duration: 2000
       };
-    case Type.CHAPTER_COMPLETE:
+    case CHAPTER_COMPLETE:
       return {
         message: `Chapter ${action.payload.chapter + 1} Complete`,
         open: true,
         action: 'pass',
         duration: 2000
       };
-    case Type.PROJECT_COMPLETE:
+    case PROJECT_COMPLETE:
       return {
         message: 'Tutorial Complete',
         open: true,

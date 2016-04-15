@@ -1,16 +1,16 @@
-import * as path from 'path';
-import * as Action from '../actions/actions';
+import {join} from 'path';
+import {setGlobals, projectComplete} from '../actions/actions';
 import {store} from '../store/store';
-const _ = require('lodash');
+const {cloneDeep, isString} = require('lodash');
 
 function configTestString(config: CR.Config, packageName: string, test: string): string {
   if (window.coderoad.win) {
     test = test.split('/').join('\\');
   }
   if (config.testDir) {
-    test = path.join(window.coderoad.dir, 'node_modules', packageName, config.testDir, test);
+    test = join(window.coderoad.dir, 'node_modules', packageName, config.testDir, test);
   } else {
-    test = path.join(window.coderoad.dir, 'node_modules', packageName, test);
+    test = join(window.coderoad.dir, 'node_modules', packageName, test);
   }
   if (config.testSuffix) {
     test += config.testSuffix;
@@ -30,17 +30,17 @@ class PackageService {
     };
     this.config = {};
   }
-  selectPackage(packageName: string) {
-    let packagePath = path.join(window.coderoad.dir, 'node_modules', packageName);
-    this.config = require(path.join(packagePath, 'package.json'));
-    store.dispatch(Action.setGlobals(this.config));
-    this.data = require(path.join(packagePath, this.config.main));
+  selectPackage(packageName: string): void {
+    let packagePath = join(window.coderoad.dir, 'node_modules', packageName);
+    this.config = require(join(packagePath, 'package.json'));
+    store.dispatch(setGlobals(this.config));
+    this.data = require(join(packagePath, this.config.main));
     this.packageName = packageName;
   }
   page({chapter, page}: CR.Position): CR.Page {
-    return _.cloneDeep(this.data.chapters[chapter].pages[page]);
+    return cloneDeep(this.data.chapters[chapter].pages[page]);
   }
-  getConfig() {
+  getConfig(): CR.Config {
     return this.config;
   }
   configTaskTests(tasks: CR.Task[]): CR.Task[] {
@@ -49,7 +49,7 @@ class PackageService {
       if (task.tests) {
         task.tests = task.tests.map((test: string) => {
           // add unique string to tests
-          if (_.isString(test)) {
+          if (isString(test)) {
             return configTestString(config, this.packageName, test);
           } else {
             console.error('Invalid task test', test);
@@ -85,7 +85,7 @@ class PackageService {
     } else if (chapter < chapters.length - 1) {
       return { chapter: chapter + 1, page: 0 };
     } else {
-      store.dispatch(Action.projectComplete());
+      store.dispatch(projectComplete());
       return {chapter, page, completed: true};
     }
   }

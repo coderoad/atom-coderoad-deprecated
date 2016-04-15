@@ -1,4 +1,4 @@
-export function closeAllPanels() {
+export function closeAllPanels(): void {
   var editors: AtomCore.IEditor[] = atom.workspace.getTextEditors();
   editors.forEach((editor: AtomCore.IEditor) => {
     // if (editor !== activeEditor) {
@@ -7,16 +7,16 @@ export function closeAllPanels() {
   });
 }
 
-export function quit() {
+export function quit(): void {
   // TODO: quit without destroying ALL subscriptions
 }
 
-export function openFolder() {
+export function openFolder(): void {
   atom.open();
 }
 
 let consoleHasOpened = false;
-export function toggleDevTools() {
+export function toggleDevTools(): void {
   if (!consoleHasOpened) {
     // clear console on first run
     // atom.executeJavaScriptInDevTools(console.clear());
@@ -26,7 +26,7 @@ export function toggleDevTools() {
   atom.toggleDevTools();
 }
 
-export function openDevTools() {
+export function openDevTools(): void {
   atom.openDevTools();
   consoleHasOpened = true;
 }

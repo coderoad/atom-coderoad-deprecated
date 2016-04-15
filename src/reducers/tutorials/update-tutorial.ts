@@ -1,21 +1,22 @@
 import commandLine from '../../services/command-line';
 import {store} from '../../store/store';
-import * as Action from '../../actions/actions';
+import {loadTutorials} from '../../actions/actions';
 
-export function canUpdateTutorial(name: string, currentVersion: string): string|void {
-  let isLatest = commandLine('npm', `outdated ${name}`)
-  .then((res) => {
+export function canUpdateTutorial(name: string, currentVersion: string): string {
+  return commandLine('npm', `outdated ${name}`).then((res: string) => {
     if (res.length > 0) {
-      return res.match(/[0-9\.]+\s+[0-9\.]+\s+([0-9\.]+)/)[1];
-    } else {
-      return null;
+      let match = res.match(/[0-9\.]+\s+[0-9\.]+\s+([0-9\.]+)/);
+      if (match.length >= 2) {
+        return match[1];
+      }
     }
+    return null;
   });
 }
 
 export function updateTutorial(name: string): void {
   commandLine('npm', `install --save-dev ${name}`)
   .then(() => {
-    store.dispatch(Action.loadTutorials());
+    store.dispatch(loadTutorials());
   });
 }

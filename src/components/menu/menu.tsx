@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import * as Action from '../../actions/actions';
+import {setPage, setRoute} from '../../actions/actions';
 import {togglePanel} from '../render';
 import {onDeactivate} from '../../atom/subscriptions';
 
@@ -17,13 +17,13 @@ const origin = {horizontal: 'right', vertical: 'top'};
 
 @connect(null, (dispatch) => {
   return {
-    routeToProgress: () => dispatch(Action.setRoute('progress')),
+    routeToProgress: () => dispatch(setRoute('progress')),
     routeToPage: () => {
       const position = this.props.position;
-      dispatch(Action.setPage(position));
-      dispatch(Action.setRoute('page'));
+      dispatch(setPage(position));
+      dispatch(setRoute('page'));
     },
-    routeToTutorials: () => dispatch(Action.setRoute('tutorials')),
+    routeToTutorials: () => dispatch(setRoute('tutorials')),
     quit: () => {
       togglePanel();
       onDeactivate();

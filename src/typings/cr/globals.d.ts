@@ -33,3 +33,7 @@ interface IntrinsicAttributes {
 }
 
 type fileType = 'js'|'jsx'|'ts'|'py';
+
+interface Process {
+  resourcesPath: string;
+}

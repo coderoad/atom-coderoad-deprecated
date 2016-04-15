@@ -1,9 +1,9 @@
-import * as Type from './actionTypes';
+import {LOAD_TUTORIALS, UPDATE_TUTORIAL} from './actionTypes';
 
 export function loadTutorials(): CR.Action {
-  return { type: Type.LOAD_TUTORIALS };
+  return { type: LOAD_TUTORIALS };
 }
 
 export function updateTutorial(name: string): CR.Action {
-  return { type: Type.UPDATE_TUTORIAL, payload: { name } };
+  return { type: UPDATE_TUTORIAL, payload: { name } };
 }

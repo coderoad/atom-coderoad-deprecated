@@ -1,7 +1,7 @@
 import {handleResult} from './test-result';
 import {store} from '../../store/store';
-import * as fs from 'fs';
-import * as path from 'path';
+import {writeFileSync} from 'fs';
+import {join} from 'path';
 import parseLoaders from './parse-loaders';
 
 export function runTaskTests(setup?: boolean): boolean {
@@ -13,8 +13,8 @@ export function runTaskTests(setup?: boolean): boolean {
     let output = parseLoaders(tests, window.coderoad.suffix);
 
     // write temporary test file in tutorial directory
-    let target = path.join(window.coderoad.tutorialDir || window.coderoad.dir, `_tmp.${window.coderoad.suffix}`);
-    fs.writeFileSync(target, output, 'utf8');
+    let target = join(window.coderoad.tutorialDir || window.coderoad.dir, `_tmp.${window.coderoad.suffix}`);
+    writeFileSync(target, output, 'utf8');
 
     // call test runner
     window.coderoad.runner(target, config, handleResult);

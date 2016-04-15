@@ -1,4 +1,6 @@
-import * as Type from '../../actions/actionTypes';
+import {
+  RUN_TESTS, TEST_COMPLETE, SET_PAGE
+} from '../../actions/actionTypes';
 import {runTaskTests} from './run';
 
 const pageTimeout = 2000;
@@ -9,16 +11,16 @@ let previous: number = new Date().getTime();
 
 export default function runTestReducer(runTests = false, action: CR.Action): boolean {
   switch (action.type) {
-    case Type.RUN_TESTS:
+    case RUN_TESTS:
       let current = new Date().getTime();
       if (current - previous > pageTimeout) {
         previous = current;
         return runTaskTests();
       }
       return false;
-    case Type.TEST_COMPLETE:
+    case TEST_COMPLETE:
       return false;
-    case Type.SET_PAGE:
+    case SET_PAGE:
       previous = new Date().getTime();
       return false;
     default:

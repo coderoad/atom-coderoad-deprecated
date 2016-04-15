@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import * as Action from '../../../actions/actions';
+import {nextPage, toggleLog} from '../../../actions/actions';
 
 import LinearProgress from 'material-ui/LinearProgress';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
@@ -24,8 +24,8 @@ function taskProgress(current: number, max: number) {
 
 @connect(null, (dispatch, state) => {
   return {
-    callNextPage: () => dispatch(Action.nextPage()),
-    toggleLog: () => dispatch(Action.toggleLog())
+    callNextPage: () => dispatch(nextPage()),
+    toggleLog: () => dispatch(toggleLog())
   };
 })
 export default class extends React.Component<{

@@ -1,4 +1,4 @@
-import * as path from 'path';
+import {join} from 'path';
 import {fileExists} from '../../services/exists';
 
 export function setGlobals(packageJson: PackageJson): CR.Coderoad {
@@ -6,7 +6,7 @@ export function setGlobals(packageJson: PackageJson): CR.Coderoad {
     tutorial: packageJson.name,
     suffix: packageJson.config.testSuffix.substring(packageJson.config.testSuffix.lastIndexOf('.') + 1,
     packageJson.config.testSuffix.length),
-    tutorialDir: path.join(window.coderoad.dir, 'node_modules', packageJson.name, packageJson.config.testDir),
+    tutorialDir: join(window.coderoad.dir, 'node_modules', packageJson.name, packageJson.config.testDir),
     testRunner: packageJson.config.testRunner,
     testRunnerOptions: packageJson.config.testRunnerOptions || {},
     runner: loadRunnerDep(packageJson),
@@ -18,8 +18,8 @@ export function setGlobals(packageJson: PackageJson): CR.Coderoad {
 
 function loadRunnerDep(packageJson: PackageJson) {
   // test runner dir
-  let flatDep = path.join(window.coderoad.dir, 'node_modules', packageJson.config.testRunner, 'package.json');
-  let treeDep = path.join(window.coderoad.dir, 'node_modules',
+  let flatDep = join(window.coderoad.dir, 'node_modules', packageJson.config.testRunner, 'package.json');
+  let treeDep = join(window.coderoad.dir, 'node_modules',
   packageJson.name, 'node_modules', packageJson.config.testRunner, 'package.json');
 
   var runnerMain;
@@ -38,11 +38,11 @@ function loadRunnerDep(packageJson: PackageJson) {
 
   // fix main path for Windows
   let slash = window.coderoad.win ? '\\' : '/';
-  runnerMain = path.join.apply(null, runnerMain.split(slash));
+  runnerMain = join.apply(null, runnerMain.split(slash));
   // trim root path to folder
   runnerRoot = runnerRoot.substring(0, runnerRoot.lastIndexOf(slash));
 
-  let pathToMain = path.join(runnerRoot, runnerMain);
+  let pathToMain = join(runnerRoot, runnerMain);
 
   if (!!require(pathToMain).default) {
     return require(pathToMain).default;
@@ -51,7 +51,7 @@ function loadRunnerDep(packageJson: PackageJson) {
   }
 }
 
-function loadRepo(packageJson: PackageJson) {
+function loadRepo(packageJson: PackageJson): string {
   if (packageJson.repo && packageJson.repo.url) {
     let repo: string = packageJson.repo.url;
     if (!!repo.match(/\.git$/)) {

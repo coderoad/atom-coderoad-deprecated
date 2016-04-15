@@ -10,7 +10,6 @@ export function getCommand(actionString: string): string {
   }
 }
 
-
 export function getParams(actionString: string): string[] {
   // content in brackets, split by comma
   let command = getCommand(actionString);

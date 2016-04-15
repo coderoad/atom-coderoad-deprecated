@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import * as Action from '../../actions/actions';
-import Snackbar from 'material-ui/snackbar';
+import Snackbar from 'material-ui/Snackbar';
 const classNames = require('classnames');
 
 const defaultAlert = {

@@ -1,7 +1,4 @@
-import {fileExists} from '../../services/exists';
 import {packageJsonExists, loadRootPackageJson, searchForTutorials} from '../tutorials/check-tutorials';
-import {createPackageJson, openDirectory, installTutorial} from './action-setup';
-import * as path from 'path';
 
 export function hasDirectory(): boolean {
     return !!window.coderoad.dir;
