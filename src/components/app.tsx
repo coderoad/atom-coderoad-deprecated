@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {Menu, Routes, Alert} from './_components';
+import {AppMenu, Routes, Alert} from './_components';
 import {muiTheme} from './theme/theme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -18,7 +18,7 @@ export default class extends React.Component<{state?: CR.State}, {}> {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
       <section className='cr' key='main' style={{height}}>
-        <Menu route={state.route} position={state.position} />
+        <AppMenu route={state.route} position={state.position} />
         <Routes state={state} ref='route' />
         <Alert alert={state.alert} />
       </section>

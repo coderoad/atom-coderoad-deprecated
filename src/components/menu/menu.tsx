@@ -17,45 +17,57 @@ const origin = {horizontal: 'right', vertical: 'top'};
 
 @connect(null, (dispatch) => {
   return {
+    routeTo: (route: string) => dispatch(setRoute(route))
+  };
+})
+export class MenuLink extends React.Component<{
+  route: string, title?: string, routeTo?: any
+}, {}> {
+  render() {
+    const {route, title} = this.props;
+    return <MenuItem primaryText={title ? title : route} onTouchTap={this.props.routeTo.bind(route)} key={route}/>;
+  }
+}
+
+@connect(null, (dispatch) => {
+  return {
     routeToProgress: () => dispatch(setRoute('progress')),
     routeToPage: () => {
       const position = this.props.position;
       dispatch(setPage(position));
       dispatch(setRoute('page'));
     },
-    routeToTutorials: () => dispatch(setRoute('tutorials')),
     quit: () => {
       togglePanel();
       onDeactivate();
     }
   };
 })
-export default class extends React.Component<{
-  route: string, position: CR.Position, routeToProgress?: any, routeToPage?: any, routeToTutorials?: any, quit?: any
+export class AppMenu extends React.Component<{
+  route: string, position: CR.Position, routeToPage?: any, quit?: any
 }, {}> {
   navOptions(): React.ReactElement<{}> {
-    const {routeToProgress, routeToPage} = this.props;
+    const {routeToPage} = this.props;
     switch (this.props.route) {
       case 'final':
       case 'page':
-        return <button onTouchTap={routeToProgress}>progress</button>;
+        return <MenuLink route='progress' />;
       case 'progress':
-        return <button onTouchTap={routeToPage}>page</button>;
+        return <MenuItem onTouchTap={routeToPage} primaryText='page' key='page' />;
       default: return null;
     }
   }
   menuOptions() {
-    const {routeToProgress, routeToTutorials} = this.props;
     switch (this.props.route) {
       case 'final':
       case 'page':
         return (
           <div>
-        <MenuItem primaryText='progress' onTouchTap={routeToProgress} key='progress' />
-        <MenuItem primaryText='tutorials' onTouchTap={routeToTutorials} key='projects' />
+        <MenuLink route='progress'/>
+        <MenuLink route='tutorials' />
       </div>);
       case 'progress':
-        return <MenuItem primaryText='tutorials' onTouchTap={routeToTutorials} key='projects' />;
+        return <MenuLink route='tutorials' />;
       default: return null;
     }
   }
