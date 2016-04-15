@@ -1,6 +1,7 @@
 import * as path from 'path';
 import {open, set} from '../../atom/editor';
 import {openFolder, openTerminal} from '../../atom/actions';
+import commandLine from '../../services/command-line';
 import {store} from '../../store/store';
 import * as Action from '../../actions/actions';
 
@@ -28,6 +29,9 @@ export function openDirectory(): void {
   openFolder();
 }
 
-export function installTutorial(): void {
-  
-}
+// export function installTutorial(): void {
+//   commandLine('npm', 'install --save-dev coderoad-functional-school && npm install').then((res) => {
+//     console.log(res);
+//     store.dispatch(Action.verifySetup());
+//   });
+// }

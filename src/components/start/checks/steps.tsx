@@ -88,8 +88,7 @@ export const SetupChecks: React.StatelessComponent<{
   <StepCheck label='install a tutorial'
     completed={checks.setup.tutorial}>
      Install a tutorial using npm. For example:<br />
-     <code>> npm install --save-dev coderoad-functional-school`</code><br />
-     <FlatButton label='install functional-school demo' secondary={true} onTouchTap={installTutorial} />
+     <code>> npm install --save-dev coderoad-functional-school</code><br />
   </StepCheck>
   </DynamicStepper>
   </CardText>
