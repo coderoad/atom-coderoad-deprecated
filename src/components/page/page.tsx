@@ -3,8 +3,8 @@ import * as ReactDOM from 'react-dom';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import {PageContent} from './content';
-import {Tasks} from './task/task';
-import Hints from './hint/hint';
+import {Tasks} from './tasks/tasks';
+import {Hints} from './hints/hints';
 import {PageCompleteMessage} from './complete/page-complete';
 import {PageToolbar} from './toolbar/toolbar';
 
