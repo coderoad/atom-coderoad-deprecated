@@ -3,10 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.7.0] - in progress
-- move to material-ui@0.15-beta.1
+- move to 'material-ui@0.15-beta.1'
 - much improved setup ui & checks
   - check Node, NPM versions
   - Stepper UI
+- remove 'lodash' dependency
 
 ## [0.6.0] - 2016-04-01
 - fixes

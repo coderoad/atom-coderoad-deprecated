@@ -28,10 +28,3 @@ export function createPackageJson(): Promise<void> {
 export function openDirectory(): void {
   openFolder();
 }
-
-// export function installTutorial(): void {
-//   commandLine('npm', 'install --save-dev coderoad-functional-school && npm install').then((res) => {
-//     console.log(res);
-//     store.dispatch(Action.verifySetup());
-//   });
-// }

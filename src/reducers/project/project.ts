@@ -1,5 +1,5 @@
 import {SET_PROJECT} from '../../actions/actionTypes';
-import Package from '../../services/package';
+import TutorialPackage from '../../services/tutorial-package';
 
 const defaultProject: CR.Project = {
   title: '',
@@ -10,7 +10,7 @@ export default function projectReducer(project = defaultProject,
   action: CR.Action): CR.Project {
   switch (action.type) {
     case SET_PROJECT:
-      return Package.getProject();
+      return TutorialPackage.getProject();
     default:
       return project;
   }

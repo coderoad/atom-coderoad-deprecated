@@ -1,5 +1,4 @@
 import {SET_PAGE, TEST_RESULT} from '../../actions/actionTypes';
-import {times} from 'lodash';
 import {editorActions} from './actions';
 
 function handleEditorActions(actionArray: string[]): void {
@@ -26,7 +25,9 @@ export default function editorActionsReducer(editorActions = [], action: CR.Acti
       let nextTaskPosition = action.payload.result.taskPosition;
       if (nextTaskPosition > currentTaskPosition) {
         // run actions for each task position passed
-        times(handleEditorActions(actions.shift()), nextTaskPosition - currentTaskPosition);
+        for (let i = 0; i < nextTaskPosition - currentTaskPosition; i++) {
+          handleEditorActions(actions.shift());
+        }
         currentTaskPosition = nextTaskPosition;
       }
       return actions;

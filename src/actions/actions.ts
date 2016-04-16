@@ -4,7 +4,7 @@ import {
   LOG_MESSAGE
 } from './actionTypes';
 import {store} from '../store/store';
-import Package from '../services/package';
+import TutorialPackage from '../services/tutorial-package';
 
 /* Project */
 export function setProject(): CR.Action {
@@ -29,7 +29,7 @@ export function setPosition(position: CR.Position): CR.Action {
 }
 
 export function loadTutorial(tutorial: CR.Tutorial): void {
-  Package.selectPackage(tutorial.name);
+  TutorialPackage.selectPackage(tutorial.name);
   store.dispatch(setProject());
   store.dispatch(setPosition({chapter: 0, page: 0}));
   store.dispatch(setProgress());

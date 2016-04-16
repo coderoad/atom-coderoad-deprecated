@@ -1,17 +1,18 @@
 import {join} from 'path';
 import {setGlobals, projectComplete} from '../actions/actions';
 import {store} from '../store/store';
-import {cloneDeep, isString} from 'lodash';
+import {readFileSync} from 'fs';
+import {fileExists} from './exists';
 
 function configTestString(config: CR.Config,
-  packageName: string, test: string): string {
+  name: string, test: string): string {
   if (window.coderoad.win) {
     test = test.split('/').join('\\');
   }
   if (config.testDir) {
-    test = join(window.coderoad.dir, 'node_modules', packageName, config.testDir, test);
+    test = join(window.coderoad.dir, 'node_modules', name, config.testDir, test);
   } else {
-    test = join(window.coderoad.dir, 'node_modules', packageName, test);
+    test = join(window.coderoad.dir, 'node_modules', name, test);
   }
   if (config.testSuffix) {
     test += config.testSuffix;
@@ -19,27 +20,27 @@ function configTestString(config: CR.Config,
   return test;
 }
 
-class PackageService {
+class TutorialPackageService {
   data: { project: any, chapters: any[] };
   packageJson: PackageJson;
-  packageName: string;
+  name: string;
   constructor() {
-    this.packageName = '';
+    this.name = '';
     this.data = {
       project: {},
       chapters: []
     };
     this.packageJson = null;
   }
-  selectPackage(packageName: string): void {
-    let packagePath = join(window.coderoad.dir, 'node_modules', packageName);
+  selectPackage(name: string): void {
+    let packagePath = join(window.coderoad.dir, 'node_modules', name);
     this.packageJson = require(join(packagePath, 'package.json'));
     store.dispatch(setGlobals(this.packageJson));
     this.data = require(join(packagePath, this.packageJson.main));
-    this.packageName = packageName;
+    this.name = name;
   }
   page({chapter, page}: CR.Position): CR.Page {
-    return cloneDeep(this.data.chapters[chapter].pages[page]);
+    return this.data.chapters[chapter].pages[page];
   }
   getPackage(): PackageJson {
     return this.packageJson;
@@ -50,8 +51,8 @@ class PackageService {
       if (task.tests) {
         task.tests = task.tests.map((test: string) => {
           // add unique string to tests
-          if (isString(test)) {
-            return configTestString(config, this.packageName, test);
+          if (typeof test === 'string') {
+            return configTestString(config, this.name, test);
           } else {
             console.error('Invalid task test', test);
           }
@@ -80,7 +81,7 @@ class PackageService {
     return 'progress';
   }
   getNextPosition({chapter, page}: CR.Position): CR.Position {
-    const chapters = this.data.chapters;
+    const {chapters} = this.data;
     if (page < chapters[chapter].pages.length - 1) {
       return { chapter, page: page + 1 };
     } else if (chapter < chapters.length - 1) {
@@ -94,7 +95,7 @@ class PackageService {
     return this.data.project;
   }
   getProgress(): CR.Progress {
-    const chapters = this.data.chapters;
+    const {chapters} = this.data;
     return {
       completed: false,
       chapters: !chapters ? [] : chapters.map(({title, description, completed, pages}) => {
@@ -112,4 +113,4 @@ class PackageService {
     };
   }
 }
-export default new PackageService();
+export default new TutorialPackageService();
