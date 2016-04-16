@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 import Code from 'material-ui/svg-icons/action/code';
 
 import {toggleDevTools} from '../../../atom/actions';
@@ -25,6 +24,6 @@ export class Continue extends React.Component<{
   callNextPage?: any
 }, {}> {
   render() {
-    return <RaisedButton label='Continue' primary={true} onTouchTap={this.props.callNextPage} />;
+    return <FlatButton label='Continue' primary={true} onTouchTap={this.props.callNextPage} />;
   }
 }
