@@ -1,11 +1,11 @@
 // Root App
-export {default as App} from './app';
+export {App} from './app';
 
 // Router
-export {default as Routes} from './routes/routes';
+export {Routes} from './routes/routes';
 
 // Components
-export {default as Page} from './page/page';
+export {Page} from './page/page';
 export {Chapter} from './page/chapter/chapter';
 export {AppMenu} from './menu/menu';
 export {Progress} from './progress/progress';
@@ -15,4 +15,4 @@ export {FinalPage} from './final-page/final-page';
 
 // Common
 export {Markdown} from './markdown/markdown';
-export {default as Alert} from './alert/alert';
+export {Alert} from './alert/alert';

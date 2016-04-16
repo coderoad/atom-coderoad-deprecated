@@ -12,7 +12,7 @@ window.onresize = function() {
 @connect((state: CR.State) => {
   return { state };
 })
-export default class extends React.Component<{state?: CR.State}, {}> {
+export class App extends React.Component<{state?: CR.State}, {}> {
   render(): React.ReactElement<{}> {
     const state = this.props.state;
     return (

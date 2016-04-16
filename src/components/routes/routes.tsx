@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Page, Progress, Tutorials, Start, FinalPage} from '../_components';
 
-export default class extends React.Component<{state: CR.State}, {}> {
+export class Routes extends React.Component<{state: CR.State}, {}> {
   chooseRoute(state: CR.State) {
     switch (state.route) {
       case 'page':

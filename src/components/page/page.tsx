@@ -13,7 +13,7 @@ const pageStyle = {
   width: '100%'
 };
 
-export default class extends React.Component<{
+export class Page extends React.Component<{
   page: CR.Page, tasks: CR.Task[], taskPosition: number,
   editorActions: string[], log: any, hintPosition: number,
   runTests: boolean, callNextPage?: any, callRunTests?: any, callNextTask?: any, showHint?: any
