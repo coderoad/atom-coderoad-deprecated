@@ -27,7 +27,7 @@ export const Tutorials : React.StatelessComponent<{
             <TableRowColumn>
             <SelectTutorial tutorial={tutorial} />
             </TableRowColumn>
-            {!!tutorial.latest
+            {tutorial.latest
               ? <TableRowColumn>
                 {tutorial.version} <UpdateTutorial name={tutorial.name} />
                 </TableRowColumn>

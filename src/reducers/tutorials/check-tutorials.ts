@@ -2,7 +2,7 @@ import {store} from '../../store/store';
 import {join} from 'path';
 import {readFileSync} from 'fs';
 import {fileExists} from '../../services/exists';
-// import {canUpdateTutorial} from './update-tutorial';
+import {canUpdateTutorial} from './update-tutorial';
 import RootPackage from '../../services/root-package';
 
 let tutorialError = 'This is an error with the tutorial itself';
@@ -58,12 +58,12 @@ export function searchForTutorials(deps: Object): CR.Tutorial[] {
           };
         }
 
-        let packageJson = RootPackage.get();
+        let tutorialPackageJson = JSON.parse(readFileSync(pathToTutorialPackageJson, 'utf8'));
+        const version  = tutorialPackageJson.version;
 
       return {
-        name,
-        version: packageJson.version
-        // latest: canUpdateTutorial(name, packageJson.version)
+        name, version
+        // latest: !!canUpdateTutorial(name, version)
       };
     }));
   } else {
