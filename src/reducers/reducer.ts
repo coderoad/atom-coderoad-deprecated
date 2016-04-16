@@ -10,7 +10,7 @@ import taskPosition from './task-position/task-position';
 import hintPosition from './hint-position/hint-position';
 import taskTests from './task-tests/task-tests';
 import alert from './alert/alert';
-import testRun from './run-tests/run-tests';
+import testRun from './test-run/test-run';
 import editorActions from './editor-actions/editor-actions';
 import tutorials from './tutorials/tutorials';
 import log from './log/log';
