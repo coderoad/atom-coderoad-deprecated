@@ -1,7 +1,7 @@
 import {join} from 'path';
 import {setGlobals, projectComplete} from '../actions/actions';
 import {store} from '../store/store';
-const {cloneDeep, isString} = require('lodash');
+import {cloneDeep, isString} from 'lodash';
 
 function configTestString(config: CR.Config,
   packageName: string, test: string): string {

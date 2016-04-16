@@ -1,7 +1,7 @@
 import {SET_ROUTE, SET_PAGE} from './actionTypes';
 import {store} from '../store/store';
 import Package from '../services/package';
-const {flatten} = require('lodash');
+import {flatten} from 'lodash';
 
 export function setPage(selectedPosition: CR.Position = { chapter: 0, page: 0 }): CR.Action {
   if (selectedPosition.completed) {

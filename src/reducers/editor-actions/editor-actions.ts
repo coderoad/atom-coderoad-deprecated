@@ -1,5 +1,5 @@
 import {SET_PAGE, TEST_RESULT} from '../../actions/actionTypes';
-const {times} = require('lodash');
+import {times} from 'lodash';
 import {editorActions} from './actions';
 
 function handleEditorActions(actionArray: string[]): void {
