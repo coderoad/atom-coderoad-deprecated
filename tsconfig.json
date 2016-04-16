@@ -122,6 +122,7 @@
         "src/components/start/checks/steps.tsx",
         "src/components/start/checks/verify.tsx",
         "src/components/start/start.tsx",
+        "src/components/tutorials/buttons.tsx",
         "src/components/tutorials/tutorials.tsx"
     ],
     "exclude": [

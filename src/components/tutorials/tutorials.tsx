@@ -1,50 +1,14 @@
 import * as React from 'react';
-import FlatButton from 'material-ui/FlatButton';
 import {
   Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn, TableBody
 } from 'material-ui/Table';
-import {connect} from 'react-redux';
 import {
-  loadTutorial, loadTutorials, updateTutorial, setRoute, toggleAlert
-} from '../../actions/actions';
+  LoadTutorials, SelectTutorial, UpdateTutorial
+} from './buttons';
 
-import {pink500} from 'material-ui/styles/colors';
-import FileUpload from 'material-ui/svg-icons/file/file-upload';
-
-@connect(null, (dispatch) => {
-  return {
-    selectTutorial: (tutorial: CR.Tutorial) => {
-      loadTutorial(tutorial);
-      dispatch(setRoute('progress'));
-    },
-    toggleAlert: (item: CR.Alert): void => {
-      dispatch(toggleAlert(item));
-    },
-    loadTutorials: () => {
-      dispatch(loadTutorials());
-    },
-    updateTutorial: (name: string) => {
-      dispatch(updateTutorial(name));
-    }
-  };
-})
-class TutorialList extends React.Component<{
-  tutorials: CR.Tutorial[], loadTutorials?: () => void,
-  selectTutorial?: (tutorial: CR.Tutorial) => void,
-  toggleAlert?: (item: CR.Alert) => void, updateTutorial?: any
-}, {}> {
-    trim(name: string): string {
-      if (name.match(/^coderoad-tutorial-/)) {
-        return name.slice(18);
-      }
-      if (name.match(/^coderoad-/)) {
-        return name.slice(9);
-      }
-      return name;
-    }
-  render() {
-    const {tutorials, loadTutorials, selectTutorial, toggleAlert, updateTutorial} = this.props;
-    return (
+export const Tutorials : React.StatelessComponent<{
+  tutorials: CR.Tutorial[]
+}> = ({tutorials}) => (
   <div className='cr-tutorials'>
     <Table>
       <TableHeader
@@ -61,11 +25,11 @@ class TutorialList extends React.Component<{
         return (
           <TableRow key={index}>
             <TableRowColumn>
-            <FlatButton label={this.trim(tutorial.name)} primary={true} onTouchTap={selectTutorial.bind(this, tutorial)} />
+            <SelectTutorial tutorial={tutorial} />
             </TableRowColumn>
             {!!tutorial.latest
               ? <TableRowColumn>
-                {tutorial.version} <FileUpload onClick={updateTutorial(tutorial.name)} />
+                {tutorial.version} <UpdateTutorial name={tutorial.name} />
                 </TableRowColumn>
               : <TableRowColumn>{tutorial.version}</TableRowColumn>}
           </TableRow>
@@ -76,12 +40,6 @@ class TutorialList extends React.Component<{
     </Table>
 
     <br />
-      <FlatButton style={{margin: '0 90px'}} label='Check for Tutorials' secondary={true} onTouchTap={loadTutorials} />
+      <LoadTutorials />
   </div>
-    );
-  }
-}
-
-export const Tutorials = ({tutorials}) => (
-  <TutorialList tutorials={tutorials} />
 );

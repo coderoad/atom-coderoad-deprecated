@@ -97,6 +97,5 @@ export const Progress: React.StatelessComponent<{
          </ListItem>;
     })}
     </List>
-
   </Paper>
 );
