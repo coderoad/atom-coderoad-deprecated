@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   - check Node, NPM versions
   - Stepper UI
 - remove 'lodash' dependency
+- attach hints to toolbar
 
 ## [0.6.0] - 2016-04-01
 - fixes
