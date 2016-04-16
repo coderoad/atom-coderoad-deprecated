@@ -2,22 +2,10 @@ import {store} from '../../store/store';
 import {join} from 'path';
 import {readFileSync} from 'fs';
 import {fileExists} from '../../services/exists';
-import {canUpdateTutorial} from './update-tutorial';
+// import {canUpdateTutorial} from './update-tutorial';
+import RootPackage from '../../services/root-package';
 
 let tutorialError = 'This is an error with the tutorial itself';
-
-export function packageJsonExists(): boolean {
-  const pathToPackageJson = join(window.coderoad.dir, 'package.json');
-  return fileExists(pathToPackageJson);
-}
-
-export function loadRootPackageJson(): PackageJson {
-  const pathToPackageJson = join(window.coderoad.dir, 'package.json');
-  if (fileExists(pathToPackageJson)) {
-    return JSON.parse(readFileSync(pathToPackageJson, 'utf8'));
-  }
-  return null;
-}
 
 function _isTutorial(name: string): boolean {
   // has package.json
@@ -70,7 +58,7 @@ export function searchForTutorials(deps: Object): CR.Tutorial[] {
           };
         }
 
-        let packageJson: PackageJson = JSON.parse(readFileSync(pathToTutorialPackageJson, 'utf8'));
+        let packageJson = RootPackage.get();
 
       return {
         name,

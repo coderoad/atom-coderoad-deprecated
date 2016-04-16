@@ -1,18 +1,26 @@
 import {npmMinVersion, nodeMinVersion} from './check-system';
-import {hasDirectory, hasPackageJson, hasTutorialDep} from './check-setup';
+// import {hasDirectory} from './check-setup';
+import RootPackage from '../../services/root-package';
 
 const result = (x) => x;
 function allTrue(obj: Object): boolean {
   return Object.values(obj).every((x) => x === true);
 }
 
+function hasTutorialDep(): boolean {
+  const tutorials = RootPackage.getTutorials();
+  return !!tutorials && tutorials.length > 0;
+}
+
 export default function verifySetup(): CR.Checks {
-  let dir = !!hasDirectory();
+  let dir = !!window.coderoad.dir;
   let packageJson = false;
   let tutorial = false;
 
+  RootPackage.set();
+
   if (dir) {
-    packageJson = !!hasPackageJson();
+    packageJson = !!RootPackage.get();
   }
   if (dir && packageJson) {
     tutorial = hasTutorialDep();

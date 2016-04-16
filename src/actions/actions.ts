@@ -1,7 +1,6 @@
 import {
   SET_PROJECT, SET_GLOBALS, VERIFY_SETUP,
-  SET_PROGRESS, SET_POSITION, TOGGLE_LOG,
-  LOG_MESSAGE
+  SET_PROGRESS, SET_POSITION, TOGGLE_LOG
 } from './actionTypes';
 import {store} from '../store/store';
 import TutorialPackage from '../services/tutorial-package';
@@ -29,7 +28,7 @@ export function setPosition(position: CR.Position): CR.Action {
 }
 
 export function loadTutorial(tutorial: CR.Tutorial): void {
-  TutorialPackage.selectPackage(tutorial.name);
+  TutorialPackage.set(tutorial.name);
   store.dispatch(setProject());
   store.dispatch(setPosition({chapter: 0, page: 0}));
   store.dispatch(setProgress());
@@ -38,10 +37,6 @@ export function loadTutorial(tutorial: CR.Tutorial): void {
 export function toggleLog(): CR.Action {
   let open = !store.getState().log.open;
   return { type: TOGGLE_LOG, payload: { open } };
-}
-
-export function logMessage(message: string): CR.Action {
-  return { type: LOG_MESSAGE, payload: { message }};
 }
 
 

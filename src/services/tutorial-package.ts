@@ -32,7 +32,10 @@ class TutorialPackageService {
     };
     this.packageJson = null;
   }
-  selectPackage(name: string): void {
+  get(): PackageJson {
+    return this.packageJson;
+  }
+  set(name: string): void {
     let packagePath = join(window.coderoad.dir, 'node_modules', name);
     this.packageJson = require(join(packagePath, 'package.json'));
     store.dispatch(setGlobals(this.packageJson));
@@ -41,9 +44,6 @@ class TutorialPackageService {
   }
   page({chapter, page}: CR.Position): CR.Page {
     return this.data.chapters[chapter].pages[page];
-  }
-  getPackage(): PackageJson {
-    return this.packageJson;
   }
   configTaskTests(tasks: CR.Task[]): CR.Task[] {
     let config: CR.Config = this.packageJson.config;
@@ -71,14 +71,6 @@ class TutorialPackageService {
     return {
       title, description, onPageComplete, completed: completed || false
     };
-  }
-  getSavedPosition(): CR.Position {
-    // TODO: resolve to get saved position
-    return { chapter: 0, page: 0 };
-  }
-  getSavedRoute(): string {
-    // TODO: resolve to get saved route
-    return 'progress';
   }
   getNextPosition({chapter, page}: CR.Position): CR.Position {
     const {chapters} = this.data;
