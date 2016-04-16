@@ -1,16 +1,16 @@
 import {store} from '../store/store';
-import {TOGGLE_ALERT, REPLAY_ALERT} from './actionTypes';
+import {ALERT_TOGGLE, ALERT_REPLAY} from './_types';
 
-export function toggleAlert(alert?: CR.Alert): CR.Action {
+export function alertToggle(alert?: CR.Alert): CR.Action {
   const isOpen = store.getState().alert.open;
   if (!alert) {
     alert = { message: '', action: '', open: false };
   } else {
     alert = Object.assign({}, { open: !isOpen }, alert);
   }
-  return { type: TOGGLE_ALERT, payload: { alert } };
+  return { type: ALERT_TOGGLE, payload: { alert } };
 }
 
-export function replayAlert(): CR.Action {
-  return { type: REPLAY_ALERT };
+export function alertReplay(): CR.Action {
+  return { type: ALERT_REPLAY };
 }

@@ -6,7 +6,7 @@ import Code from 'material-ui/svg-icons/action/code';
 
 import {toggleDevTools} from '../../../atom/actions';
 import {save} from '../../../atom/editor';
-import {nextPage} from '../../../actions/actions';
+import {pageNext} from '../../../actions/_actions';
 
 export const ToggleLog = () => (
   <FlatButton icon={<Code />} onTouchTap={toggleDevTools} />
@@ -18,7 +18,7 @@ export const Save = () => (
 
 @connect(null, (dispatch, state) => {
   return {
-    callNextPage: () => dispatch(nextPage())
+    callNextPage: () => dispatch(pageNext())
   };
 })
 export class Continue extends React.Component<{

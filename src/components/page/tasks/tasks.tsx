@@ -13,12 +13,12 @@ function visibleTasks(tasks: CR.Task[], taskPosition: number) {
 }
 
 const TaskCheckbox: React.StatelessComponent<{
-  index: number, taskPosition: number, runTests: boolean
-}> = ({index, taskPosition, runTests}) => {
+  index: number, taskPosition: number, testRun: boolean
+}> = ({index, taskPosition, testRun}) => {
   let icon = null;
   if (index < taskPosition) {
     icon = <CheckBox color={green500} />;
-  } else if (index === taskPosition && runTests) {
+  } else if (index === taskPosition && testRun) {
     // TODO: loading animation inside of checkbox
     icon = <IndeterminateCheckBox color={orange500} />;
   } else {
@@ -42,12 +42,12 @@ const TaskContent: React.StatelessComponent<{
 );
 
 export const Task: React.StatelessComponent<{
-  task: CR.Task, taskPosition: number, index: number, runTests: boolean
-}> = ({task, taskPosition, index, runTests}) => {
+  task: CR.Task, taskPosition: number, index: number, testRun: boolean
+}> = ({task, taskPosition, index, testRun}) => {
   const isCompleted = index < taskPosition;
   return (
     <ListItem key={index} className='cr-task' style={{backgroundColor: isCompleted ? '#c8e6c9' : 'inherit'}}>
-        <TaskCheckbox index={index} taskPosition={taskPosition} runTests={runTests}/>
+        <TaskCheckbox index={index} taskPosition={taskPosition} testRun={testRun}/>
         <TaskIndex index={index} />
         <TaskContent task={task} />
       </ListItem>
@@ -55,8 +55,8 @@ export const Task: React.StatelessComponent<{
 };
 
 export const Tasks: React.StatelessComponent<{
-  tasks: CR.Task[], taskPosition: number, runTests: boolean
-}> = ({tasks, taskPosition, runTests}) => {
+  tasks: CR.Task[], taskPosition: number, testRun: boolean
+}> = ({tasks, taskPosition, testRun}) => {
   const visTasks = visibleTasks(tasks, taskPosition);
   return <List className='cr-tasks'>
       <Subheader>Tasks</Subheader>
@@ -65,6 +65,6 @@ export const Tasks: React.StatelessComponent<{
         task={task}
         taskPosition={taskPosition}
         index={index}
-        runTests={runTests} />)}
+        testRun={testRun} />)}
     </List>;
 };

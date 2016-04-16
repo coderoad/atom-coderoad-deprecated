@@ -23,8 +23,8 @@ export const Hints: React.StatelessComponent<{
         <Markdown>{hint}</Markdown>
       </CardText>
       <CardActions expandable={true}>
-        <HintButton label='Previous' hintPosition={hintPosition} hintsLength={hints.length} direction={-1} />
-        <HintButton label='Next' hintPosition={hintPosition} hintsLength={hints.length} direction={1} />
+        <HintButton label='Previous' hintPosition={hintPosition} hintsLength={hints.length} type='prev' />
+        <HintButton label='Next' hintPosition={hintPosition} hintsLength={hints.length} type='next' />
       </CardActions>
     </Card>
     );

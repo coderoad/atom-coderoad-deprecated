@@ -19,7 +19,7 @@
 //
 //   });
 //
-//   describe('PAGE_COMPLETE', () => {
+//   describe('COMPLETE_PAGE', () => {
 //
 //     // it('presents a continue butt for next page');
 //

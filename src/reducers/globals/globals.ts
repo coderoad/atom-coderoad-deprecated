@@ -1,5 +1,5 @@
-import {SET_GLOBALS} from '../../actions/actionTypes';
-import {setGlobals} from './set-globals';
+import {GLOBALS_SET} from '../../actions/_types';
+import {globalsSet} from './set-globals';
 
 // TODO: refactor out globals into state
 const defaultGlobals = {
@@ -10,8 +10,8 @@ const defaultGlobals = {
 export default function globalReducer(globals = defaultGlobals,
   action: CR.Action): CR.Coderoad {
   switch (action.type) {
-    case SET_GLOBALS:
-      let coderoad = Object.assign({}, setGlobals(action.payload.packageJson), window.coderoad);
+    case GLOBALS_SET:
+      let coderoad = Object.assign({}, globalsSet(action.payload.packageJson), window.coderoad);
       window.coderoad = coderoad;
       return coderoad;
     default:

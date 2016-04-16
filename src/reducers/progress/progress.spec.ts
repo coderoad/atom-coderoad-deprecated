@@ -2,7 +2,7 @@
 // import {expect} from 'chai';
 //
 // import {reducer, initialState} from '../../../lib/_base';
-// import * as Action from '../../../lib/actions/actions';
+// import * as Action from '../../../lib/actions/_actions';
 //
 // let sampleState = fromJS({
 //   position: {
@@ -130,7 +130,7 @@
 //
 // xdescribe('PAGE', () => {
 //   // mark page complete
-//   // if no next page, call CHAPTER_COMPLETE
+//   // if no next page, call COMPLETE_CHAPTER
 //
 //   it('marks completed', () => {
 //     const position = { chapter: 0, page: 0, task: 0 };

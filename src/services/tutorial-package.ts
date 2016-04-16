@@ -1,5 +1,5 @@
 import {join} from 'path';
-import {setGlobals, projectComplete} from '../actions/actions';
+import {globalsSet, completeTutorial} from '../actions/_actions';
 import {store} from '../store/store';
 import {readFileSync} from 'fs';
 import {fileExists} from './exists';
@@ -38,7 +38,7 @@ class TutorialPackageService {
   set(name: string): void {
     let packagePath = join(window.coderoad.dir, 'node_modules', name);
     this.packageJson = require(join(packagePath, 'package.json'));
-    store.dispatch(setGlobals(this.packageJson));
+    store.dispatch(globalsSet(this.packageJson));
     this.data = require(join(packagePath, this.packageJson.main));
     this.name = name;
   }
@@ -79,7 +79,7 @@ class TutorialPackageService {
     } else if (chapter < chapters.length - 1) {
       return { chapter: chapter + 1, page: 0 };
     } else {
-      store.dispatch(projectComplete());
+      store.dispatch(completeTutorial());
       return {chapter, page, completed: true};
     }
   }

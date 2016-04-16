@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {setPage, setRoute} from '../../actions/actions';
+import {pageSet, setRoute} from '../../actions/_actions';
 import {togglePanel} from '../render';
 import {onDeactivate} from '../../atom/subscriptions';
 
@@ -33,7 +33,7 @@ export class MenuLink extends React.Component<{
   return {
     routeToPage: () => {
       const position = this.props.position;
-      dispatch(setPage(position));
+      dispatch(pageSet(position));
       dispatch(setRoute('page'));
     },
     quit: () => {

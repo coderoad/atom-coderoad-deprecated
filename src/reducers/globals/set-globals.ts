@@ -1,7 +1,7 @@
 import {join} from 'path';
 import {fileExists} from '../../services/exists';
 
-export function setGlobals(packageJson: PackageJson): CR.Coderoad {
+export function globalsSet(packageJson: PackageJson): CR.Coderoad {
   return Object.assign({}, {
     tutorial: packageJson.name,
     suffix: packageJson.config.testSuffix.substring(packageJson.config.testSuffix.lastIndexOf('.') + 1,

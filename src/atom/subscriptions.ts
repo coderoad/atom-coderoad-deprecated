@@ -1,6 +1,6 @@
 const CompositeDisposable = require('atom').CompositeDisposable;
 import {store} from '../store/store';
-import {runTests, replayAlert} from '../actions/actions';
+import {testRun, alertReplay} from '../actions/_actions';
 import {unmount, togglePanel} from '../components/render';
 
 let subscriptions = null;
@@ -19,7 +19,7 @@ export function onActivate(): AtomCore.Disposable {
   atom.workspace.observeTextEditors((editor: AtomCore.IEditor) => {
     subscriptions.add(
       editor.onDidSave(() => {
-          store.dispatch(runTests());
+          store.dispatch(testRun());
       }));
   });
   /**
@@ -28,9 +28,9 @@ export function onActivate(): AtomCore.Disposable {
   subscriptions.add(
     // run tests on hot key. See keymaps
     atom.commands.add('atom-workspace', {
-      'cr-viewer:runTests': (() => {
+      'cr-viewer:testRun': (() => {
         if (store.getState().route === 'page') {
-          store.dispatch(runTests());
+          store.dispatch(testRun());
         }
       })
     })
@@ -52,7 +52,7 @@ export function addToStatusBar(statusBar) {
   // create status bar element
   replay.className = 'cr-alert-replay';
   replay.textContent = '▲';
-  replay.onclick = () => store.dispatch(replayAlert());
+  replay.onclick = () => store.dispatch(alertReplay());
   // consume with "atom status bar"
   return statusBar.addLeftTile({item: replay, priority: 100});
 }

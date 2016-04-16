@@ -5,7 +5,7 @@ import loadPolyfills from '../services/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 
 import {store} from '../store/store';
-import {verifySetup} from '../actions/actions';
+import {setupVerify} from '../actions/_actions';
 
 // TODO: find a better place to load globals
 
@@ -29,7 +29,7 @@ class Main {
       dir: setDir(),
       win: setWin()
     };
-    store.dispatch(verifySetup());
+    store.dispatch(setupVerify());
     this.root = initRoot();
   }
   activate(): void {

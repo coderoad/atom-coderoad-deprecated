@@ -1,26 +1,26 @@
 import {
-  PAGE_COMPLETE, CHAPTER_COMPLETE, PROJECT_COMPLETE
-} from './actionTypes';
+  COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
+} from './_types';
 import {store} from '../store/store';
 
-export function pageComplete(): CR.Action {
+export function completePage(): CR.Action {
   const position: CR.Position = store.getState().position;
   const pageLength: number = store.getState().progress.chapters[position.chapter].pages.length;
   if (position.page >= pageLength - 1) {
-    return chapterComplete();
+    return completeChapter();
   }
-  return { type: PAGE_COMPLETE, payload: { position } };
+  return { type: COMPLETE_PAGE, payload: { position } };
 }
 
-export function chapterComplete(): CR.Action {
+export function completeChapter(): CR.Action {
   const chapter: number = store.getState().position.chapter;
   const chapterLength: number = store.getState().progress.chapters.length;
   if (chapter >= chapterLength - 1) {
-    return projectComplete();
+    return completeTutorial();
   }
-  return { type: CHAPTER_COMPLETE, payload: { chapter } };
+  return { type: COMPLETE_CHAPTER, payload: { chapter } };
 }
 
-export function projectComplete(): CR.Action {
-  return { type: PROJECT_COMPLETE };
+export function completeTutorial(): CR.Action {
+  return { type: COMPLETE_TUTORIAL };
 }

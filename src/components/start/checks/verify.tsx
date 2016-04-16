@@ -1,12 +1,12 @@
 import * as React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import {store} from '../../../store/store';
-import {verifySetup} from '../../../actions/actions';
+import {setupVerify} from '../../../actions/_actions';
 import {connect} from 'react-redux';
 
 @connect(null, (dispatch) => {
   return {
-    verify: () => store.dispatch(verifySetup())
+    verify: () => store.dispatch(setupVerify())
   };
 })
 export class VerifyButton extends React.Component<{

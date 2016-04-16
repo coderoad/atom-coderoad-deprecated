@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {store} from '../../store/store';
-import {setRoute} from '../../actions/actions';
+import {setRoute} from '../../actions/_actions';
 import * as path from 'path';
 import {Checks} from './checks/checks';
 import FlatButton from 'material-ui/FlatButton';

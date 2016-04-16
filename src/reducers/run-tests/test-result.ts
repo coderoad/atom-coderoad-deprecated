@@ -1,5 +1,5 @@
 import {store} from '../../store/store';
-import {testResult, pageComplete, testComplete} from '../../actions/actions';
+import {testResult, completePage, testComplete} from '../../actions/_actions';
 
 export function handleResult(result: CR.TestResult): void {
 
@@ -8,7 +8,7 @@ export function handleResult(result: CR.TestResult): void {
   if (result.completed) {
     // all complete
     store.dispatch(testResult(result));
-    store.dispatch(pageComplete());
+    store.dispatch(completePage());
   } else if (!result.pass) {
     // failure, on same task
     store.dispatch(testResult(result));

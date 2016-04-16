@@ -10,7 +10,7 @@ export class Routes extends React.Component<{state: CR.State}, {}> {
                     taskPosition={state.taskPosition}
                     hintPosition={state.hintPosition}
                     editorActions={state.editorActions}
-                    runTests={state.runTests}
+                    testRun={state.testRun}
                     log={state.log} />;
       case 'progress':
         return <Progress progress={state.progress}

@@ -1,14 +1,14 @@
 // import {expect} from 'chai';
 // import {Map} from 'immutable';
 // import {reducer, initialState} from '../../../lib/_base';
-// import * as Action from '../../../lib/actions/actions';
+// import * as Action from '../../../lib/actions/_actions';
 //
 // xdescribe('position', () => {
 //
-//   xdescribe('SET_PAGE', () => {
+//   xdescribe('PAGE_SET', () => {
 //     it('sets the position', () => {
 //       const position = { chapter: 1, page: 1, task: -1 };
-//       const action = Action.setPage(position);
+//       const action = Action.pageSet(position);
 //       expect(reducer(initialState, action).get('position').toJS())
 //         .to.deep.equal(position);
 //     });
@@ -36,10 +36,10 @@
 //     });
 //   });
 //
-//   xdescribe('SET_POSITION', () => {
+//   xdescribe('POSITION_SET', () => {
 //     it('sets the position', () => {
 //       const nextPosition = { chapter: 1, page: 1, task: -1 };
-//       const action = Action.setPosition(nextPosition);
+//       const action = Action.positionSet(nextPosition);
 //       expect(reducer(initialState, action).get('position').toJS())
 //         .to.deep.equal(nextPosition);
 //     });

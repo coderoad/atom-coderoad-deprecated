@@ -1,5 +1,5 @@
-import {VERIFY_SETUP} from '../../actions/actionTypes';
-import verifySetup from './verify';
+import {SETUP_VERIFY} from '../../actions/_types';
+import setupVerify from './verify';
 
 const defaultChecks = {
   passed: false,
@@ -16,8 +16,8 @@ const defaultChecks = {
 
 export default function checksReducer(checks = defaultChecks, action: CR.Action): CR.Checks {
   switch (action.type) {
-    case VERIFY_SETUP:
-      return verifySetup();
+    case SETUP_VERIFY:
+      return setupVerify();
     default:
       return checks;
   }

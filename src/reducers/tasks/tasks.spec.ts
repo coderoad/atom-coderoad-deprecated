@@ -1,13 +1,13 @@
 // import {expect} from 'chai';
 // import {reducer, initialState} from '../../../lib/_base';
-// import * as Action from '../../../lib/actions/actions';
+// import * as Action from '../../../lib/actions/_actions';
 //
 // xdescribe('Task Action: ', () => {
 //
-//   describe('SET_PAGE', () => {
+//   describe('PAGE_SET', () => {
 //     it('initializes the tasks for the page', () => {
 //       const position: Tut.Position = { chapter: 0, page: 1, task: -1 };
-//       const action: Action = Action.setPage(position);
+//       const action: Action = Action.pageSet(position);
 //       expect(reducer(initialState, action).get('tasks').size)
 //         .to.be.greaterThan(0);
 //     });

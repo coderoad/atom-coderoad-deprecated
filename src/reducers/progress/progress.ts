@@ -1,6 +1,6 @@
 import {
-  SET_PROGRESS, PAGE_COMPLETE, CHAPTER_COMPLETE, PROJECT_COMPLETE
-} from '../../actions/actionTypes';
+  TUTORIAL_SET, COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
+} from '../../actions/_types';
 import TutorialPackage from '../../services/tutorial-package';
 
 const defaultProgress: CR.Progress = {
@@ -20,16 +20,16 @@ const defaultProgress: CR.Progress = {
 export default function progressReducer(progress = defaultProgress,
   action: CR.Action): CR.Progress {
   switch (action.type) {
-    case SET_PROGRESS:
+    case TUTORIAL_SET:
       return TutorialPackage.getProgress();
-    case PAGE_COMPLETE:
+    case COMPLETE_PAGE:
       const position = action.payload.position;
       progress.chapters[position.chapter].pages[position.page].completed = true;
       return progress;
-    case CHAPTER_COMPLETE:
+    case COMPLETE_CHAPTER:
       progress.chapters[action.payload.chapter].completed = true;
       return progress;
-    case PROJECT_COMPLETE:
+    case COMPLETE_TUTORIAL:
       progress.completed = true;
       return progress;
     default:

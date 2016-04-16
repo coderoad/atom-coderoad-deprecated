@@ -1,4 +1,4 @@
-import {SET_PAGE, TEST_RESULT} from '../../actions/actionTypes';
+import {PAGE_SET, TEST_RESULT} from '../../actions/_types';
 import {editorActions} from './actions';
 
 function handleEditorActions(actionArray: string[]): void {
@@ -15,7 +15,7 @@ var actions;
  */
 export default function editorActionsReducer(editorActions = [], action: CR.Action): string[] {
   switch (action.type) {
-    case SET_PAGE:
+    case PAGE_SET:
       actions = action.payload.actions;
       currentTaskPosition = 0;
       handleEditorActions(actions.shift());

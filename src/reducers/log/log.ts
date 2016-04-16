@@ -1,6 +1,6 @@
 import {
-  TOGGLE_LOG, LOG_MESSAGE
-} from '../../actions/actionTypes';
+  LOG_TOGGLE, LOG_MESSAGE
+} from '../../actions/_types';
 
 let defaultLog = {
   message: 'EMPTY',
@@ -10,7 +10,7 @@ let defaultLog = {
 export default function logReducer(log = defaultLog,
   action: CR.Action): CR.Log {
   switch (action.type) {
-    case TOGGLE_LOG:
+    case LOG_TOGGLE:
       return {
         open: action.payload.open,
         message: log.message || ''

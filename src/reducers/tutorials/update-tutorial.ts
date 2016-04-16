@@ -1,6 +1,6 @@
 import commandLine from '../../services/command-line';
 import {store} from '../../store/store';
-import {loadTutorials} from '../../actions/actions';
+import {tutorialsFind} from '../../actions/_actions';
 
 // export function canUpdateTutorial(name: string,
 //   currentVersion: string): string {
@@ -16,9 +16,9 @@ import {loadTutorials} from '../../actions/actions';
 //   }));
 // }
 
-export function updateTutorial(name: string): void {
+export function tutorialUpdate(name: string): void {
   commandLine('npm', `install --save-dev ${name}`)
   .then(() => {
-    store.dispatch(loadTutorials());
+    store.dispatch(tutorialsFind());
   });
 }

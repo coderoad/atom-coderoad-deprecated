@@ -1,6 +1,6 @@
 import {
-  SET_PAGE, PAGE_COMPLETE
-} from '../../actions/actionTypes';
+  PAGE_SET, COMPLETE_PAGE
+} from '../../actions/_types';
 
 const defaultPage: CR.Page = {
   title: '',
@@ -11,9 +11,9 @@ const defaultPage: CR.Page = {
 export default function pageReducer(page = defaultPage,
   action: CR.Action): CR.Page {
   switch (action.type) {
-    case SET_PAGE:
+    case PAGE_SET:
       return action.payload.page;
-    case PAGE_COMPLETE:
+    case COMPLETE_PAGE:
       return {
         title: page.title,
         description: page.description,

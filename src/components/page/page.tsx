@@ -16,7 +16,7 @@ const pageStyle = {
 export class Page extends React.Component<{
   page: CR.Page, tasks: CR.Task[], taskPosition: number,
   editorActions: string[], log: any, hintPosition: number,
-  runTests: boolean, callNextPage?: any, callRunTests?: any, callNextTask?: any, showHint?: any
+  testRun: boolean, callNextPage?: any, callRunTests?: any, callNextTask?: any, hintShow?: any
 }, {hintPos: number, taskPos: number}> {
 
 refs: {
@@ -27,7 +27,7 @@ componentDidUpdate() {
   ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
 }
 render() {
-  const {page, taskPosition, hintPosition, tasks, runTests} = this.props;
+  const {page, taskPosition, hintPosition, tasks, testRun} = this.props;
   const currentTask = taskPosition <= tasks.length ? tasks[taskPosition] : null;
   const allComplete = taskPosition >= tasks.length;
 
@@ -36,7 +36,7 @@ render() {
     <PageContent page={page} />
     <Divider />
 
-    <Tasks tasks={tasks} taskPosition={taskPosition} runTests={runTests} />
+    <Tasks tasks={tasks} taskPosition={taskPosition} testRun={testRun} />
     <div className='listEnd' ref='listEnd'></div>
     <Hints task={currentTask} hintPosition={hintPosition} />
     <PageCompleteMessage page={page} />

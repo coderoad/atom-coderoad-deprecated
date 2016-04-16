@@ -38,7 +38,7 @@ declare namespace CR {
     editorActions: string[];
     alert: Alert;
     tutorials: Tutorial[];
-    runTests: boolean;
+    testRun: boolean;
     log: Log;
     checks: Checks;
     globals: Coderoad;

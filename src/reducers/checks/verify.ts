@@ -12,7 +12,7 @@ function hasTutorialDep(): boolean {
   return !!tutorials && tutorials.length > 0;
 }
 
-export default function verifySetup(): CR.Checks {
+export default function setupVerify(): CR.Checks {
   let dir = !!window.coderoad.dir;
   let packageJson = false;
   let tutorial = false;

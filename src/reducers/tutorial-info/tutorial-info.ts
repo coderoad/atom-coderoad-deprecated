@@ -1,4 +1,4 @@
-import {SET_TUTORIAL_INFO} from '../../actions/actionTypes';
+import {TUTORIAL_SET} from '../../actions/_types';
 import TutorialPackage from '../../services/tutorial-package';
 
 const defaultInfo: CR.TutorialInfo = {
@@ -9,7 +9,7 @@ const defaultInfo: CR.TutorialInfo = {
 export default function projectReducer(info = defaultInfo,
   action: CR.Action): CR.TutorialInfo {
   switch (action.type) {
-    case SET_TUTORIAL_INFO:
+    case TUTORIAL_SET:
       return TutorialPackage.getTutorialInfo();
     default:
       return info;

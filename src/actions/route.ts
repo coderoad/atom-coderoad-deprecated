@@ -1,6 +1,6 @@
 import {store} from '../store/store';
-import {SET_ROUTE} from './actionTypes';
-import {loadTutorials} from './actions';
+import {ROUTE_SET} from './_types';
+import {tutorialsFind} from './_actions';
 
 let previous = null;
 
@@ -11,10 +11,10 @@ export function setRoute(route: string): CR.Action|void {
     // preloading for routes
     switch (route) {
       case 'tutorials':
-        store.dispatch(loadTutorials());
+        store.dispatch(tutorialsFind());
     }
 
     previous = route;
-    return { type: SET_ROUTE, payload: { route } };
+    return { type: ROUTE_SET, payload: { route } };
   }
 }
