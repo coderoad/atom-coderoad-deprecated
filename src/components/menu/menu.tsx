@@ -24,14 +24,14 @@ export class MenuLink extends React.Component<{
   route: string, title?: string, routeTo?: any
 }, {}> {
   render() {
-    const {route, title} = this.props;
-    return <MenuItem primaryText={title ? title : route} onTouchTap={this.props.routeTo.bind(route)} key={route}/>;
+    const {route, title, routeTo} = this.props;
+    console.log(route);
+    return <MenuItem primaryText={title ? title : route} onTouchTap={routeTo.bind(this, route)} key={route}/>;
   }
 }
 
 @connect(null, (dispatch) => {
   return {
-    routeToProgress: () => dispatch(setRoute('progress')),
     routeToPage: () => {
       const position = this.props.position;
       dispatch(setPage(position));
