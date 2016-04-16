@@ -1,7 +1,9 @@
-// Project
-export const SET_PROJECT = 'SET_PROJECT';
+// Setup
 export const VERIFY_SETUP = 'VERIFY_SETUP';
 export const SET_GLOBALS = 'SET_GLOBALS';
+
+// Tutorials
+export const SET_TUTORIAL_INFO = 'SET_TUTORIAL_INFO';
 export const LOAD_TUTORIALS = 'LOAD_TUTORIALS';
 export const UPDATE_TUTORIAL = 'UPDATE_TUTORIAL';
 
@@ -34,7 +36,6 @@ export const TEST_RESULT = 'TEST_RESULT';
 
 // Log
 export const TOGGLE_LOG = 'CHECK_LOG';
-export const LOG_MESSAGE = 'LOG_MESSAGE';
 
 // Alert
 export const TOGGLE_ALERT = 'TOGGLE_ALERT';

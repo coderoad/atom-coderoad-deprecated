@@ -1,4 +1,10 @@
-import {LOAD_TUTORIALS, UPDATE_TUTORIAL} from './actionTypes';
+import {
+  LOAD_TUTORIALS, UPDATE_TUTORIAL, SET_TUTORIAL_INFO
+} from './actionTypes';
+
+export function setTutorialInfo(): CR.Action {
+  return { type: SET_TUTORIAL_INFO };
+}
 
 export function loadTutorials(): CR.Action {
   return { type: LOAD_TUTORIALS };

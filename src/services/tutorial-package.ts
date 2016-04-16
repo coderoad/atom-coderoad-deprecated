@@ -83,7 +83,7 @@ class TutorialPackageService {
       return {chapter, page, completed: true};
     }
   }
-  getProject(): CR.Project {
+  getTutorialInfo(): CR.TutorialInfo {
     return this.data.project;
   }
   getProgress(): CR.Progress {

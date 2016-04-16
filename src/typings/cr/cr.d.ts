@@ -27,7 +27,7 @@ declare namespace CR {
 
   interface State {
     route: string;
-    project: Project;
+    tutorialInfo: TutorialInfo;
     position: Position;
     page: Page;
     progress: Progress;
@@ -44,7 +44,7 @@ declare namespace CR {
     globals: Coderoad;
   }
 
-  interface Project {
+  interface TutorialInfo {
     title: string;
     description: string;
   }

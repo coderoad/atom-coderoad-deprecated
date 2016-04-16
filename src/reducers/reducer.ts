@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 
-import project from './project/project';
+import tutorialInfo from './tutorial-info/tutorial-info';
 import route from './route/route';
 import progress from './progress/progress';
 import position from './position/position';
@@ -18,7 +18,7 @@ import checks from './checks/checks';
 import globals from './globals/globals';
 
 export default combineReducers({
-  globals, project, route, progress, position,
+  globals, tutorialInfo, route, progress, position,
   page, tasks, taskPosition, hintPosition,
   taskTests, alert, runTests, editorActions,
   tutorials, log, checks
