@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
-import {ProgressBar} from './progress-bar';
 import {ToggleLog, Save, Continue} from './buttons';
 
 export const PageToolbar: React.StatelessComponent<{
-  tasks: CR.Task[], taskPosition: number
-}> = ({tasks, taskPosition}) => (
+  tasks: CR.Task[], taskPosition: number, children?: any
+}> = ({tasks, taskPosition, children}) => (
   <section className='cr-page-toolbar'>
-    <ProgressBar taskPosition={taskPosition} taskCount={tasks.length}/>
+
+    {children}
 
     <Toolbar>
       <ToolbarGroup float='left'>

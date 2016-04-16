@@ -7,6 +7,7 @@ import {Tasks} from './tasks/tasks';
 import {Hints} from './hints/hints';
 import {PageCompleteMessage} from './complete/page-complete';
 import {PageToolbar} from './toolbar/toolbar';
+import {ProgressBar} from './progress-bar';
 
 const pageStyle = {
   height: '100%',
@@ -38,9 +39,11 @@ render() {
 
     <Tasks tasks={tasks} taskPosition={taskPosition} testRun={testRun} />
     <div className='listEnd' ref='listEnd'></div>
-    <Hints task={currentTask} hintPosition={hintPosition} />
     <PageCompleteMessage page={page} />
-    <PageToolbar tasks={tasks} taskPosition={taskPosition} />
+    <Hints task={currentTask} hintPosition={hintPosition} />
+    <PageToolbar tasks={tasks} taskPosition={taskPosition}>
+      <ProgressBar taskPosition={taskPosition} taskCount={tasks.length}/>
+    </PageToolbar>
   </Paper>
   );
   }
