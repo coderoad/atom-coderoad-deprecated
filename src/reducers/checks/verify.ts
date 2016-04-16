@@ -1,15 +1,10 @@
 import {npmMinVersion, nodeMinVersion} from './check-system';
-// import {hasDirectory} from './check-setup';
 import RootPackage from '../../services/root-package';
+import {searchForTutorials} from '../tutorials/check-tutorials';
 
 const result = (x) => x;
 function allTrue(obj: Object): boolean {
   return Object.values(obj).every((x) => x === true);
-}
-
-function hasTutorialDep(): boolean {
-  const tutorials = RootPackage.getTutorials();
-  return !!tutorials && tutorials.length > 0;
 }
 
 export default function setupVerify(): CR.Checks {
@@ -18,12 +13,13 @@ export default function setupVerify(): CR.Checks {
   let tutorial = false;
 
   RootPackage.set();
+  let pj = RootPackage.get();
 
   if (dir) {
-    packageJson = !!RootPackage.get();
+    packageJson = !!pj;
   }
   if (dir && packageJson) {
-    tutorial = hasTutorialDep();
+    tutorial = !!searchForTutorials(pj.dependencies).length || !!searchForTutorials(pj.devDependencies).length;
   }
 
   let checks: CR.Checks = {

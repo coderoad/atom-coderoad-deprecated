@@ -1,7 +1,6 @@
 import {readFileSync} from 'fs';
 import {fileExists} from './exists';
 import {join} from 'path';
-import {searchForTutorials} from '../reducers/tutorials/check-tutorials';
 
 class RootPackageService {
   packageJson: PackageJson;
@@ -19,15 +18,6 @@ class RootPackageService {
   }
   get(): PackageJson {
     return this.packageJson;
-  }
-  getTutorials(): CR.Tutorial[] {
-    if (this.packageJson) {
-      return ([]
-        .concat(searchForTutorials(this.packageJson.dependencies))
-        .concat(searchForTutorials(this.packageJson.devDependencies)));
-    } else {
-      return null;
-    }
   }
 }
 export default new RootPackageService();
