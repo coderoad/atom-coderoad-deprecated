@@ -1,6 +1,6 @@
 import {store} from '../store/store';
 import {ROUTE_SET} from './_types';
-import {tutorialsFind} from './_actions';
+import {tutorialsFind} from './tutorial';
 
 let previous = null;
 

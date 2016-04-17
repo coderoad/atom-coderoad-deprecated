@@ -2,9 +2,9 @@ import * as React from 'react';
 import {
   Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn, TableBody
 } from 'material-ui/Table';
-import {
-  LoadTutorials, SelectTutorial, UpdateTutorial
-} from './buttons';
+import {LoadTutorials} from './LoadTutorials';
+import {UpdateTutorial} from './UpdateTutorial';
+import {SelectTutorial} from './SelectTutorial';
 
 export const Tutorials : React.StatelessComponent<{
   tutorials: CR.Tutorial[]

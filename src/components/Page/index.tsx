@@ -7,8 +7,8 @@ import {PageContent} from './content';
 import {Tasks} from './tasks/tasks';
 import {Hints} from './hints/hints';
 import {PageCompleteMessage} from './complete/page-complete';
-import {PageToolbar} from './toolbar/toolbar';
-import {ProgressBar} from './progress-bar';
+import {PageToolbar} from './PageToolbar';
+import {ProgressBar} from './ProgressBar';
 
 const pageStyle = {
   height: '100%',

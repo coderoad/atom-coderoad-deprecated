@@ -114,11 +114,14 @@
         "src/components/Page/hints/buttons.tsx",
         "src/components/Page/hints/hints.tsx",
         "src/components/Page/index.tsx",
-        "src/components/Page/progress-bar.tsx",
+        "src/components/Page/PageToolbar/Continue.tsx",
+        "src/components/Page/PageToolbar/index.tsx",
+        "src/components/Page/PageToolbar/Save.tsx",
+        "src/components/Page/PageToolbar/ToggleLog.tsx",
+        "src/components/Page/ProgressBar.tsx",
         "src/components/Page/tasks/tasks.tsx",
-        "src/components/Page/toolbar/buttons.tsx",
-        "src/components/Page/toolbar/toolbar.tsx",
         "src/components/Progress/index.tsx",
+        "src/components/Progress/ProgressPage.tsx",
         "src/components/render.tsx",
         "src/components/Routes/index.tsx",
         "src/components/Start/Checks/index.tsx",
@@ -126,8 +129,10 @@
         "src/components/Start/Checks/steps.tsx",
         "src/components/Start/Checks/verify.tsx",
         "src/components/Start/index.tsx",
-        "src/components/Tutorials/buttons.tsx",
-        "src/components/Tutorials/index.tsx"
+        "src/components/Tutorials/index.tsx",
+        "src/components/Tutorials/LoadTutorials.tsx",
+        "src/components/Tutorials/SelectTutorial.tsx",
+        "src/components/Tutorials/UpdateTutorial.tsx"
     ],
     "exclude": [
         "node_modules"

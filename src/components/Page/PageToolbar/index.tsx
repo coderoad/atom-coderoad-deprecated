@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
-import {ToggleLog, Save, Continue} from './buttons';
+import {ToggleLog} from './ToggleLog';
+import {Save} from './Save';
+import {Continue} from './Continue';
 
 export const PageToolbar: React.StatelessComponent<{
   tasks: CR.Task[], taskPosition: number, children?: any
