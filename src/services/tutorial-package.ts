@@ -1,5 +1,5 @@
 import {join} from 'path';
-import {globalsSet, completeTutorial} from '../actions/_actions';
+import {globalsSet, completeTutorial} from '../actions';
 import {store} from '../store/store';
 import {readFileSync} from 'fs';
 import {fileExists} from './exists';

@@ -1,6 +1,6 @@
 'use strict';
 import * as React from 'react';
-import {Markdown} from '../../_components';
+import {Markdown} from '../../index';
 /**
  * Chapters Component
  * 	basic chapter info

@@ -5,7 +5,7 @@ import Code from 'material-ui/svg-icons/action/code';
 
 import {toggleDevTools} from '../../../atom/actions';
 import {save} from '../../../atom/editor';
-import {pageNext} from '../../../actions/_actions';
+import {pageNext} from '../../../actions';
 
 export const ToggleLog = () => (
   <FlatButton icon={<Code />} onTouchTap={toggleDevTools} />

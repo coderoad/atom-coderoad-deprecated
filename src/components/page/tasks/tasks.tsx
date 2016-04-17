@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Markdown} from '../../_components';
+import {Markdown} from '../../index';
 import {List, ListItem} from 'material-ui/List';
 import {Card} from 'material-ui/Card';
 import Subheader from 'material-ui/Subheader';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
-import {hintPositionSet} from '../../../actions/_actions';
+import {hintPositionSet} from '../../../actions';
 
 @connect(null, (dispatch, state) => {
   return {

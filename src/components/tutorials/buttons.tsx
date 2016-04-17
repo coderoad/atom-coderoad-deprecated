@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
 import {
   tutorialsFind, tutorialUpdate, setRoute, alertToggle, positionSet, tutorialSet
-} from '../../actions/_actions';
+} from '../../actions';
 import FileUpload from 'material-ui/svg-icons/file/file-upload';
 import TutorialPackage from '../../services/tutorial-package';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import {store} from '../../../store/store';
-import {setupVerify} from '../../../actions/_actions';
+import {setupVerify} from '../../../actions';
 import {connect} from 'react-redux';
 
 @connect(null, (dispatch) => {

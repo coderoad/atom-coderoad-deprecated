@@ -3,7 +3,7 @@ import {open, set} from '../../atom/editor';
 import {openFolder, openTerminal} from '../../atom/actions';
 import commandLine from '../../services/command-line';
 import {store} from '../../store/store';
-import {setupVerify} from '../../actions/_actions';
+import {setupVerify} from '../../actions';
 
 const packageData = `{
   "name": "demo",

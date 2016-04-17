@@ -2,7 +2,7 @@
 // import {expect} from 'chai';
 //
 // import {reducer, initialState} from '../../../lib/_base';
-// import * as Action from '../../../lib/actions/_actions';
+// import * as Action from '../../../lib/actions';
 //
 // let sampleState = fromJS({
 //   position: {

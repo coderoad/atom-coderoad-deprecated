@@ -1,11 +1,12 @@
 'use strict';
 import * as React from 'react';
-import {render, initRoot, togglePanel} from '../components/render';
+import {render} from '../components/render';
+import {initRoot, togglePanel} from '../components/mount';
 import loadPolyfills from '../services/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 
 import {store} from '../store/store';
-import {setupVerify} from '../actions/_actions';
+import {setupVerify} from '../actions';
 
 // TODO: find a better place to load globals
 

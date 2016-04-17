@@ -1,7 +1,7 @@
 const CompositeDisposable = require('atom').CompositeDisposable;
 import {store} from '../store/store';
-import {testRun, alertReplay} from '../actions/_actions';
-import {unmount, togglePanel} from '../components/render';
+import {testRun, alertReplay} from '../actions';
+import {unmount, togglePanel} from '../components/mount';
 
 let subscriptions = null;
 
