@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Markdown} from '../../_components';
 import {List, ListItem} from 'material-ui/List';
+import {Card} from 'material-ui/Card';
 import Subheader from 'material-ui/Subheader';
 import {green500, orange500} from 'material-ui/styles/colors';
 
@@ -27,29 +28,17 @@ const TaskCheckbox: React.StatelessComponent<{
   return <span className='cr-task-checkbox'>{icon}</span>;
 };
 
-const TaskIndex: React.StatelessComponent<{
-  index: number
-}> = ({index}) => (
-  <span className='cr-task-index'>{index + 1}.</span>
-);
-
-const TaskContent: React.StatelessComponent<{
-  task: CR.Task
-}> = ({task}) => (
-  <div className='cr-task-description'>
-    <Markdown>{task.description}</Markdown>
-  </div>
-);
-
 export const Task: React.StatelessComponent<{
   task: CR.Task, taskPosition: number, index: number, testRun: boolean
 }> = ({task, taskPosition, index, testRun}) => {
   const isCompleted = index < taskPosition;
   return (
     <ListItem key={index} className='cr-task' style={{backgroundColor: isCompleted ? '#c8e6c9' : 'inherit'}}>
-        <TaskCheckbox index={index} taskPosition={taskPosition} testRun={testRun}/>
-        <TaskIndex index={index} />
-        <TaskContent task={task} />
+        <TaskCheckbox {...this.props}/>
+        <span className='cr-task-index'>{index + 1}.</span>
+        <div className='cr-task-description'>
+          <Markdown >{task.description}</Markdown>
+        </div>
       </ListItem>
     );
 };
@@ -58,13 +47,11 @@ export const Tasks: React.StatelessComponent<{
   tasks: CR.Task[], taskPosition: number, testRun: boolean
 }> = ({tasks, taskPosition, testRun}) => {
   const visTasks = visibleTasks(tasks, taskPosition);
-  return <List className='cr-tasks'>
+  return <Card className='cr-tasks'>
+    <List>
       <Subheader>Tasks</Subheader>
       {visTasks.map((task, index) => <Task
-        key={index}
-        task={task}
-        taskPosition={taskPosition}
-        index={index}
-        testRun={testRun} />)}
-    </List>;
+        key={index} index={index} task={task} taskPosition={taskPosition} testRun={testRun}/>)}
+    </List>
+    </Card>;
 };

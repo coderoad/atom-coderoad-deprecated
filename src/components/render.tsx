@@ -1,9 +1,10 @@
-'use strict';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {store} from '../store/store';
 import {App} from './app';
+import {muiTheme} from './theme/theme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './remove-later';
 
 /**
@@ -12,7 +13,9 @@ import './remove-later';
 export function render(target: HTMLElement) {
   ReactDOM.render(
       <Provider store={store}>
+        <MuiThemeProvider muiTheme={muiTheme}>
           <App />
+        </MuiThemeProvider>
       </Provider>,
     target
   );

@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {AppMenu, Routes, Alert} from './_components';
-import {muiTheme} from './theme/theme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 let height: number = atom.getSize().height;
 window.onresize = function() {
@@ -15,14 +14,11 @@ window.onresize = function() {
 export class App extends React.Component<{store?: CR.State}, {}> {
   render(): React.ReactElement<{}> {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
       <section className='cr' key='main' style={{height}}>
         <AppMenu {...this.props.store} />
         <Routes {...this.props.store} ref='route' />
         <Alert {...this.props.store} />
       </section>
-      </MuiThemeProvider>
-
     );
   }
 };

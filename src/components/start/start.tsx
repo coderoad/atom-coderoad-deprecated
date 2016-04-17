@@ -42,7 +42,7 @@ export const Start = ({checks}) => (
     <div className='cr-start-header'>
     {checks.passed
       ? <Welcome  />
-      : <Checks checks={checks}/>}
+      : <Checks {...this.props}/>}
     </div>
 </section>
 );
