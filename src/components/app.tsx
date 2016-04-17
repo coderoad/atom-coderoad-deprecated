@@ -9,18 +9,17 @@ window.onresize = function() {
   height = atom.getSize().height;
 };
 
-@connect((state: CR.State) => {
-  return { state };
+@connect((store: CR.State) => {
+  return { store };
 })
-export class App extends React.Component<{state?: CR.State}, {}> {
+export class App extends React.Component<{store?: CR.State}, {}> {
   render(): React.ReactElement<{}> {
-    const state = this.props.state;
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
       <section className='cr' key='main' style={{height}}>
-        <AppMenu route={state.route} position={state.position} />
-        <Routes state={state} ref='route' />
-        <Alert alert={state.alert} />
+        <AppMenu {...this.props.store} />
+        <Routes {...this.props.store} ref='route' />
+        <Alert {...this.props.store} />
       </section>
       </MuiThemeProvider>
 

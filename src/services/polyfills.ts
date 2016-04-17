@@ -1,5 +1,6 @@
 export default function loadPolyfills(): void {
 
+  // Object.values (ES7)
   if (typeof Object.values !== 'function') {
     Object.values = function(obj) {
       var vals = [];
@@ -10,7 +11,7 @@ export default function loadPolyfills(): void {
     };
   }
 
-  // Object.assign temporary polyfill
+  // Object.assign (ES7)
   if (typeof Object.assign !== 'function') {
     (function() {
       Object.assign = function(target) {
@@ -34,4 +35,5 @@ export default function loadPolyfills(): void {
       };
     })();
   }
+
 };

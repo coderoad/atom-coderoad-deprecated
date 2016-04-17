@@ -1,25 +1,21 @@
 import * as React from 'react';
 import {Page, Progress, Tutorials, Start, FinalPage} from '../_components';
 
-export class Routes extends React.Component<{state: CR.State}, {}> {
+export class Routes extends React.Component<{
+  route: string, progress: CR.Progress, page: CR.Page, tutorials: CR.Tutorial[],
+  testRun: boolean, checks: CR.Checks, position: CR.Position, tasks: CR.Task[],
+  taskPosition: number, hintPosition: number
+}, {}> {
   render() {
-    const {page, tasks, taskPosition, hintPosition, editorActions, testRun,
-      log, progress, position, checks, tutorials, route} = this.props.state;
-    switch (route) {
+    switch (this.props.route) {
       case 'page':
-        return <Page page={page}
-                    tasks={tasks}
-                    taskPosition={taskPosition}
-                    hintPosition={hintPosition}
-                    editorActions={editorActions}
-                    testRun={testRun} />;
+        return <Page {...this.props} />;
       case 'progress':
-        return <Progress progress={progress}
-                        position={position} />;
+        return <Progress {...this.props} />;
       case 'start':
-        return <Start checks={checks} />;
+        return <Start {...this.props} />;
       case 'tutorials':
-        return <Tutorials tutorials={tutorials} />;
+        return <Tutorials {...this.props} />;
       case 'final':
         return <FinalPage />;
       default:
