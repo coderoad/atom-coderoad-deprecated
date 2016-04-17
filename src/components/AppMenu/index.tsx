@@ -9,25 +9,13 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
+import {MenuLink} from './MenuLink';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
-const origin = {horizontal: 'right', vertical: 'top'};
 
-@connect(null, (dispatch) => {
-  return {
-    routeTo: (route: string) => dispatch(setRoute(route))
-  };
-})
-export class MenuLink extends React.Component<{
-  route: string, title?: string, routeTo?: any
-}, {}> {
-  render() {
-    const {route, title, routeTo} = this.props;
-    return <MenuItem primaryText={title ? title : route} onTouchTap={routeTo.bind(this, route)} key={route}/>;
-  }
-}
+const origin = {horizontal: 'right', vertical: 'top'};
 
 @connect(null, (dispatch) => {
   return {

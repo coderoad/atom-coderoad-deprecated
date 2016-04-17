@@ -3,10 +3,10 @@ import * as ReactDOM from 'react-dom';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import {Card} from 'material-ui/Card';
-import {PageContent} from './content';
-import {Tasks} from './tasks/tasks';
-import {Hints} from './hints/hints';
-import {PageCompleteMessage} from './complete/page-complete';
+import {PageContent} from './PageContent';
+import {Tasks} from './Tasks';
+import {Hints} from './Hints';
+import {PageCompleteMessage} from './PageComplete';
 import {PageToolbar} from './PageToolbar';
 import {ProgressBar} from './ProgressBar';
 

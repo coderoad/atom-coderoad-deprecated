@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import {Markdown} from '../../index';
-import {HintButton} from './buttons';
+import {HintButton} from './HintButton';
 import Help from 'material-ui/svg-icons/action/help';
 
 export const Hints: React.StatelessComponent<{
