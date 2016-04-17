@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {store} from '../../store/store';
-import {setRoute} from '../../actions/_actions';
+import {setRoute} from '../../actions';
 import * as path from 'path';
-import {Checks} from './checks/checks';
+import {Checks} from './Checks';
 import FlatButton from 'material-ui/FlatButton';
 
 const welcomeStyle = {

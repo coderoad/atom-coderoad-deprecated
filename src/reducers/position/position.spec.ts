@@ -1,7 +1,7 @@
 // import {expect} from 'chai';
 // import {Map} from 'immutable';
 // import {reducer, initialState} from '../../../lib/_base';
-// import * as Action from '../../../lib/actions/_actions';
+// import * as Action from '../../../lib/actions';
 //
 // xdescribe('position', () => {
 //

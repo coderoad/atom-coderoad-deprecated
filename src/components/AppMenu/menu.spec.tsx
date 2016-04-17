@@ -4,7 +4,7 @@
 // import { shallow, mount, render } from 'enzyme';
 // import {store} from '../../../lib/_base';
 // import {Provider} from 'react-redux';
-// import {Menu} from '../../../lib/components/_components';
+// import {Menu} from '../../../lib/components/index';
 //
 //
 // xdescribe('<Menu />', () => {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Markdown} from '../_components';
+import {Markdown} from '../index';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 export const PageContent: React.StatelessComponent<{

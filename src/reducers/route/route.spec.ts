@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import * as Action from '../../../lib/actions/_actions';
+import * as Action from '../../../lib/actions';
 import {reducer} from '../../../lib/_base';
 
 describe('route', () => {

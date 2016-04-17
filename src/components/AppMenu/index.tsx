@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {pageSet, setRoute} from '../../actions/_actions';
-import {togglePanel} from '../render';
+import {pageSet, setRoute} from '../../actions';
+import {togglePanel} from '../mount';
 import {onDeactivate} from '../../atom/subscriptions';
 
 import AppBar from 'material-ui/AppBar';

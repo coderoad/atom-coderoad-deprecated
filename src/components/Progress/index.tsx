@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {pageSet, setRoute} from '../../actions/_actions';
-import {Markdown} from '../_components';
+import {pageSet, setRoute} from '../../actions';
+import {Markdown} from '../index';
 import * as classnames from 'classnames';
 
 import Paper from 'material-ui/Paper';

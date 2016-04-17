@@ -1,7 +1,7 @@
 'use strict';
 import * as React from 'react';
 import {connect} from 'react-redux';
-import * as Action from '../../actions/_actions';
+import * as Action from '../../actions';
 import Snackbar from 'material-ui/Snackbar';
 const classNames = require('classnames');
 

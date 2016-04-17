@@ -1,6 +1,6 @@
 import commandLine from '../../services/command-line';
 import {store} from '../../store/store';
-import {tutorialsFind} from '../../actions/_actions';
+import {tutorialsFind} from '../../actions';
 
 export function tutorialUpdate(name: string): void {
   commandLine('npm', `install --save-dev ${name}`)

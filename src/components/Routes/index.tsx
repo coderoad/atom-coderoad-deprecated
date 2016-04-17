@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Page, Progress, Tutorials, Start, FinalPage} from '../_components';
+import {Page, Progress, Tutorials, Start, FinalPage} from '../index';
 
 export class Routes extends React.Component<{
   route: string, progress: CR.Progress, page: CR.Page, tutorials: CR.Tutorial[],

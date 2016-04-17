@@ -1,5 +1,5 @@
 import {store} from '../../store/store';
-import {testResult, completePage, testComplete} from '../../actions/_actions';
+import {testResult, completePage, testComplete} from '../../actions';
 
 export function handleResult(result: CR.TestResult): void {
 
