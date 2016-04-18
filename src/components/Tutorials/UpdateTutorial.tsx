@@ -5,9 +5,7 @@ import {tutorialUpdate} from '../../actions';
 
 @connect(null, (dispatch) => {
   return {
-    tutorialUpdate: (name: string) => {
-      dispatch(tutorialUpdate(name));
-    }
+    tutorialUpdate: (name: string) => dispatch(tutorialUpdate(name))
   };
 })
 export class UpdateTutorial extends React.Component<{

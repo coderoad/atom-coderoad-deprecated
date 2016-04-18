@@ -2,7 +2,7 @@ import {store} from '../../store/store';
 import {join} from 'path';
 import {readFileSync} from 'fs';
 import {fileExists} from '../../services/exists';
-import {canUpdateTutorial} from './update-tutorial';
+// import {canUpdateTutorial} from './update-tutorial';
 import RootPackage from '../../services/root-package';
 
 let tutorialError = 'This is an error with the tutorial itself';

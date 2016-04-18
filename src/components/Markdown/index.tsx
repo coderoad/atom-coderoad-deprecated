@@ -3,13 +3,15 @@ import * as marked from 'marked';
 const Highlights = require('highlights');
 const highlighter = new Highlights({registry: atom.grammars});
 
+function highlight(code: string, lang: string) {
+  return highlighter.highlightSync({
+    fileContents: code,
+    scopeName: 'source.' + (lang || 'js')
+  });
+}
+
 const options = {
-  highlight: (code: string, lang: string) => {
-    return highlighter.highlightSync({
-      fileContents: code,
-      scopeName: 'source.' + (lang || 'js')
-    });
-  },
+  highlight,
   sanitize: true,
   gfm: true,
   breaks: true,
@@ -17,25 +19,16 @@ const options = {
   smartLists: true
 };
 
-/**
- * Markdown -> HTML
- * @param  {string} text [Markdown string]
- * @return {string}      [HTML string]
- */
 function formatText(text: string): string {
-  if (typeof text !== 'string') {
-    return '';
-  }
-  return marked(text.toString(), options);
+  return typeof text !== 'string'
+    ? ''
+    : marked(text.toString(), options);
 };
 
-/**
- * Markdown Text
- * 	MD -> HTML
- */
-export const Markdown: React.StatelessComponent<{children?: string}> = ({children}) => {
-  let text = formatText(children);
-  return <span className='cr-markdown' dangerouslySetInnerHTML={
-    {__html: text}
-  }></span>;
-};
+export const Markdown: React.StatelessComponent<{
+  children?: string
+}> = ({children}) => (
+  <span className='cr-markdown' dangerouslySetInnerHTML={
+    {__html: formatText(children)}
+  }></span>
+);

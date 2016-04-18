@@ -11,35 +11,37 @@ export const Tutorials : React.StatelessComponent<{
 }> = ({tutorials}) => (
   <div className='cr-tutorials'>
     <Table>
-      <TableHeader
-            displaySelectAll={false}
-            adjustForCheckbox={false}>
-       <TableRow>
-        <TableHeaderColumn>Tutorial</TableHeaderColumn>
-        <TableHeaderColumn>Version</TableHeaderColumn>
-      </TableRow>
-      </TableHeader>
-      <TableBody displayRowCheckbox={false}>
 
-        {tutorials.map((tutorial: CR.Tutorial, index) => {
+      <TableHeader
+        displaySelectAll={false}
+        adjustForCheckbox={false}
+      >
+        <TableRow>
+          <TableHeaderColumn>Tutorial</TableHeaderColumn>
+          <TableHeaderColumn>Version</TableHeaderColumn>
+        </TableRow>
+      </TableHeader>
+
+      <TableBody displayRowCheckbox={false}>
+        {tutorials.map(function TutorialRow(tutorial: CR.Tutorial, index: number) {
         return (
           <TableRow key={index}>
             <TableRowColumn>
-            <SelectTutorial tutorial={tutorial} />
+              <SelectTutorial tutorial={tutorial} />
             </TableRowColumn>
             {tutorial.latest
               ? <TableRowColumn>
-                {tutorial.version} <UpdateTutorial name={tutorial.name} />
+                  {tutorial.version} <UpdateTutorial name={tutorial.name} />
                 </TableRowColumn>
               : <TableRowColumn>{tutorial.version}</TableRowColumn>}
           </TableRow>
-          );
-          })
-        }
-      </TableBody>
-    </Table>
+        );
+      })
+    }
+    </TableBody>
+  </Table>
 
     <br />
-      <LoadTutorials />
+    <LoadTutorials />
   </div>
 );

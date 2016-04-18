@@ -23,10 +23,15 @@ export class SelectTutorial extends React.Component<{
     let name = tutorial.name;
     if (name.match(/^coderoad-tutorial-/)) {
       name = name.slice(18);
-    }
-    if (name.match(/^coderoad-/)) {
+    } else if (name.match(/^coderoad-/)) {
       name = name.slice(9);
     }
-    return <FlatButton label={name} primary={true} onTouchTap={selectTutorial.bind(this, tutorial)} />;
+    return (
+      <FlatButton
+        label={name}
+        primary={true}
+        onTouchTap={selectTutorial.bind(this, tutorial)}
+      />
+    );
   }
 }

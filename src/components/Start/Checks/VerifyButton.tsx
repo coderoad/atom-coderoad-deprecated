@@ -13,6 +13,12 @@ export class VerifyButton extends React.Component<{
   verify?: any
 }, {}> {
   render() {
-    return <FlatButton label='Verify Setup Complete' primtary={true} onTouchTap={this.props.verify} />;
+    return (
+      <FlatButton
+        label='Verify Setup Complete'
+        primtary={true}
+        onTouchTap={this.props.verify}
+      />
+    );
   }
 }

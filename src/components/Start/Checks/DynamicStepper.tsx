@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 
-export default class DynamicStepper extends React.Component<{
+export class DynamicStepper extends React.Component<{
   status: boolean[], children?: any
 }, {
   stepIndex: number
@@ -16,13 +16,14 @@ export default class DynamicStepper extends React.Component<{
     };
   }
   render() {
-    return <div>
+    return (
         <Stepper
           activeStep={this.state.stepIndex}
           linear={false}
-          orientation='vertical'>
+          orientation='vertical'
+        >
           {this.props.children}
         </Stepper>
-      </div>;
+    );
   }
 }
