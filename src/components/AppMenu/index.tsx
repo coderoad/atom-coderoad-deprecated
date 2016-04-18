@@ -40,7 +40,13 @@ export class AppMenu extends React.Component<{
       case 'page':
         return <MenuLink route='progress' />;
       case 'progress':
-        return <MenuItem onTouchTap={routeToPage} primaryText='page' key='page' />;
+        return (
+          <MenuItem
+            onTouchTap={routeToPage}
+            primaryText='page'
+            key='page'
+          />
+        );
       default: return null;
     }
   }
@@ -50,9 +56,10 @@ export class AppMenu extends React.Component<{
       case 'page':
         return (
           <div>
-        <MenuLink route='progress'/>
-        <MenuLink route='tutorials' />
-      </div>);
+            <MenuLink route='progress'/>
+            <MenuLink route='tutorials' />
+          </div>
+        );
       case 'progress':
         return <MenuLink route='tutorials' />;
       default: return null;
@@ -63,31 +70,44 @@ export class AppMenu extends React.Component<{
   }
   render(): React.ReactElement<{}> {
     const {quit} = this.props;
-    return <AppBar title='CodeRoad'
-              className='cr-menu-bar'
-              iconElementLeft={<IconButton onClick={this.closePanel}>
-                  <NavigationClose />
-                </IconButton>}
-              iconElementRight={
-                <IconMenu iconButtonElement={
-                  <IconButton><MoreVertIcon /></IconButton>
-                }
-                  targetOrigin={origin}
-                  anchorOrigin={origin}>
-
-                    {/* Menu Items */}
-                    {this.menuOptions()}
-
-                    {window.coderoad.issuesPath
-                      ? <MenuItem key='issue' className='link'>
-                        <a href={window.coderoad.issuesPath}>
-                          post issue
-                        </a>
-                      </MenuItem>
-                      : null}
-                  <Divider />
-                  <MenuItem key='quit' onClick={quit}>quit</MenuItem>
-                </IconMenu>
-    } />;
+    return (
+      <AppBar
+        title='CodeRoad'
+        className='cr-menu-bar'
+        iconElementLeft={
+          <IconButton onClick={this.closePanel}>
+            <NavigationClose />
+          </IconButton>}
+        iconElementRight={
+          <IconMenu
+            iconButtonElement={
+              <IconButton>
+                <MoreVertIcon />
+              </IconButton>
+            }
+            targetOrigin={origin}
+            anchorOrigin={origin}
+          >
+            {this.menuOptions()}
+            {window.coderoad.issuesPath
+              ? <MenuItem
+                  key='issue'
+                  className='link'
+                >
+                  <a href={window.coderoad.issuesPath}>
+                    post issue
+                  </a>
+                </MenuItem>
+              : null}
+            <Divider />
+            <MenuItem
+              key='quit'
+              onClick={quit}
+            >
+              quit
+          </MenuItem>
+        </IconMenu>
+      } />
+    );
   }
 }

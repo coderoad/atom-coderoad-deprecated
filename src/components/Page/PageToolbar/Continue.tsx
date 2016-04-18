@@ -12,6 +12,12 @@ export class Continue extends React.Component<{
   callNextPage?: any
 }, {}> {
   render() {
-    return <FlatButton label='Continue' primary={true} onTouchTap={this.props.callNextPage} />;
+    return (
+      <FlatButton
+        label='Continue'
+        primary={true}
+        onTouchTap={this.props.callNextPage}
+      />
+    );
   }
 }

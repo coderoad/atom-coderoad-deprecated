@@ -22,7 +22,7 @@ export class Alert extends React.Component<{alert: CR.Alert, alertToggle?: any},
     const {alert, alertToggle} = this.props;
     const {action, open, message, duration} = alert;
     return (
-    <Snackbar
+      <Snackbar
           className={classNames('cr-alert', action)}
           open={open || false}
           message={message || ''}
@@ -30,7 +30,7 @@ export class Alert extends React.Component<{alert: CR.Alert, alertToggle?: any},
           autoHideDuration={duration || 1500}
           onActionTouchTap={alertToggle}
           onRequestClose={alertToggle}
-        />
-      );
+      />
+    );
   }
 }

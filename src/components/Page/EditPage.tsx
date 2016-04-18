@@ -10,8 +10,10 @@ export const EditPage: React.StatelessComponent<{
 }> = ({editPath}) => {
   if (editPath && window.coderoad.edit) {
     let repoPath = path.join(window.coderoad.repo, 'edit', 'master', editPath);
-    return <a href={repoPath}>
-      <ModeEdit style={editStyle}/>
-      </a>;
+    return (
+      <a href={repoPath}>
+        <ModeEdit style={editStyle}/>
+      </a>
+    );
   }
 };

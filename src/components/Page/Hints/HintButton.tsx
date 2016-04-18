@@ -16,11 +16,21 @@ export class HintButton extends React.Component<{
     const {hintPosition, hintsLength, label, type, hintSet} = this.props;
     switch (type) {
       case 'next':
-      return <FlatButton label={label} disabled={hintPosition > hintsLength - 2}
-        onTouchTap={hintSet.bind(this, hintPosition + 1)} />;
+      return (
+        <FlatButton
+          label={label}
+          disabled={hintPosition > hintsLength - 2}
+          onTouchTap={hintSet.bind(this, hintPosition + 1)}
+        />
+      );
       case 'prev':
-      return <FlatButton label={label} disabled={hintPosition === 0}
-        onTouchTap={hintSet.bind(this, hintPosition - 1)} />;
+      return (
+        <FlatButton
+          label={label}
+          disabled={hintPosition === 0}
+          onTouchTap={hintSet.bind(this, hintPosition - 1)}
+        />
+      );
     }
   }
 }

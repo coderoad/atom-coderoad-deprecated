@@ -4,10 +4,12 @@ import {Markdown} from '../../index';
 
 export const PageCompleteMessage: React.StatelessComponent<{page: CR.Page}> = ({page}) => (
   <div className='cr-page-onComplete'>
-    {page.completed && page.onPageComplete ?
-      <ListItem key='page-complete'>
-        <Markdown>{page.onPageComplete}</Markdown>
-      </ListItem>
-   : null}
+    {
+      page.completed && page.onPageComplete
+        ? <ListItem key='page-complete'>
+            <Markdown>{page.onPageComplete}</Markdown>
+          </ListItem>
+        : null
+    }
   </div>
 );

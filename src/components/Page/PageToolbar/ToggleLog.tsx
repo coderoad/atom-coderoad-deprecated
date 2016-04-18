@@ -4,5 +4,10 @@ import {toggleDevTools} from '../../../atom/actions';
 import FlatButton from 'material-ui/FlatButton';
 
 export const ToggleLog = () => (
-  <FlatButton icon={<Code />} onTouchTap={toggleDevTools} />
+  <FlatButton
+    icon={
+      <Code />
+    }
+    onTouchTap={toggleDevTools}
+  />
 );

@@ -35,17 +35,17 @@ render() {
 // <Paper style={pageStyle} zDepth={1} className='cr-page' ref='page'>
   return (
     <section className='cr-page'>
-    <PageContent {...this.props} />
+      <PageContent {...this.props} />
 
-    <Tasks {...this.props} />
-    <div className='listEnd' ref='listEnd'></div>
+      <Tasks {...this.props} />
+      <div className='listEnd' ref='listEnd' />
 
-    <PageCompleteMessage page={page} />
-    <Hints task={task} hintPosition={hintPosition} />
-    <PageToolbar {...this.props}>
-      <ProgressBar taskPosition={taskPosition} taskCount={tasks.length}/>
-    </PageToolbar>
+      <PageCompleteMessage page={page} />
+      <Hints task={task} hintPosition={hintPosition} />
+      <PageToolbar {...this.props}>
+        <ProgressBar taskPosition={taskPosition} taskCount={tasks.length}/>
+      </PageToolbar>
     </section>
-  );
+    );
   }
 }

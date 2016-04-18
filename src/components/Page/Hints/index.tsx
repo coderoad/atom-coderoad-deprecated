@@ -18,13 +18,30 @@ export const Hints: React.StatelessComponent<{
         title='Hints'
         avatar={<Help />}
         actAsExpander={true}
-        showExpandableButton={true} />
-      <CardText className='cr-task-hint' expandable={true}>
+        showExpandableButton={true}
+      />
+      <CardText
+        className='cr-task-hint'
+        expandable={true}
+      >
         <Markdown>{hint}</Markdown>
       </CardText>
-      <CardActions expandable={true} className='cr-task-hints-actions'>
-        <HintButton label='Previous' hintPosition={hintPosition} hintsLength={hints.length} type='prev' />
-        <HintButton label='Next' hintPosition={hintPosition} hintsLength={hints.length} type='next' />
+      <CardActions
+        expandable={true}
+        className='cr-task-hints-actions'
+      >
+        <HintButton
+          type='prev'
+          label='Previous'
+          hintPosition={hintPosition}
+          hintsLength={hints.length}
+        />
+        <HintButton
+          type='next'
+          label='Next'
+          hintPosition={hintPosition}
+          hintsLength={hints.length}
+        />
       </CardActions>
     </Card>
     );

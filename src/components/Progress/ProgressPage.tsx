@@ -42,15 +42,21 @@ export class ProgressPage extends React.Component<{
   render() {
     const {page, itemPosition, position} = this.props;
     const isActive = itemPosition.chapter === position.chapter && itemPosition.page === position.page;
-    return <ListItem
-            className={classnames({
-              'page': true,
-              'page-isDisabled': !this.canActivate(isActive, itemPosition, position)
-            })}
-            primaryText={`${itemPosition.page + 1}. ${page.title}`}
-            secondaryText={page.description}
-            leftIcon={this.getProgressIcon(page.completed, isActive)}
-            onClick={this.canActivate(isActive, itemPosition, position) ? this.props.selectPage.bind(this, itemPosition) : null }
-            />;
-    };
+    return (
+      <ListItem
+        className={classnames({
+          'page': true,
+          'page-isDisabled': !this.canActivate(isActive, itemPosition, position)
+        })}
+        primaryText={`${itemPosition.page + 1}. ${page.title}`}
+        secondaryText={page.description}
+        leftIcon={this.getProgressIcon(page.completed, isActive)}
+        onClick={
+          this.canActivate(isActive, itemPosition, position)
+            ? this.props.selectPage.bind(this, itemPosition)
+            : null
+          }
+      />
+    );
+  };
 };

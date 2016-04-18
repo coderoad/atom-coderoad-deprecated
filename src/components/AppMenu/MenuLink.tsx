@@ -13,6 +13,12 @@ export class MenuLink extends React.Component<{
 }, {}> {
   render() {
     const {route, title, routeTo} = this.props;
-    return <MenuItem primaryText={title ? title : route} onTouchTap={routeTo.bind(this, route)} key={route}/>;
+    return (
+      <MenuItem
+        primaryText={title ? title : route}
+        onTouchTap={routeTo.bind(this, route)}
+        key={route}
+      />
+    );
   }
 }

@@ -16,7 +16,7 @@ export class App extends React.Component<{store?: CR.State}, {}> {
     return (
       <section className='cr' key='main' style={{height}}>
         <AppMenu {...this.props.store} />
-        <Routes {...this.props.store} ref='route' />
+        <Routes {...this.props.store} />
         <Alert {...this.props.store} />
       </section>
     );
