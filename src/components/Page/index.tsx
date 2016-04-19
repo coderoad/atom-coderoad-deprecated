@@ -16,10 +16,9 @@ const pageStyle = {
 };
 
 export class Page extends React.Component<{
-  page: CR.Page, tasks: CR.Task[], taskPosition: number, hintPosition: number,
-  testRun: boolean, callNextPage?: any, callRunTests?: any, callNextTask?: any, hintShow?: any
+  page: CR.Page, tasks: CR.Task[], taskPosition: number,
+  hintPosition: number, testRun: boolean
 }, {hintPos: number, taskPos: number}> {
-
 refs: {
   [key: string]: (Element);
   listEnd: Element;

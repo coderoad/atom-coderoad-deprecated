@@ -14,7 +14,11 @@ window.onresize = function() {
 export class App extends React.Component<{store?: CR.State}, {}> {
   render(): React.ReactElement<{}> {
     return (
-      <section className='cr' key='main' style={{height}}>
+      <section
+        className='cr'
+        key='main'
+        style={{height}}
+      >
         <AppMenu {...this.props.store} />
         <Routes {...this.props.store} />
         <Alert {...this.props.store} />

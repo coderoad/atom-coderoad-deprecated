@@ -1,13 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {pageSet, setRoute} from '../../actions';
-import {Markdown} from '../index';
 import * as classnames from 'classnames';
 import {ListItem} from 'material-ui/List';
-import {pink500} from 'material-ui/styles/colors';
-import CheckBox from 'material-ui/svg-icons/toggle/check-box';
-import PlayCircleFilled from 'material-ui/svg-icons/av/play-circle-filled';
-import CheckBoxOutlineBlank from 'material-ui/svg-icons/toggle/check-box-outline-blank';
+import {progressIcon} from './progressIcon';
 
 @connect(null, (dispatch) => {
   return {
@@ -18,42 +14,39 @@ import CheckBoxOutlineBlank from 'material-ui/svg-icons/toggle/check-box-outline
   };
 })
 export class ProgressPage extends React.Component<{
-  page: CR.Page, itemPosition: CR.Position, position: CR.Position,
-  selectPage?: () => void}, {}> {
-  getProgressIcon(completed, current) {
-    if (completed) {
-      return <CheckBox />;
-    } else if (current) {
-      return <PlayCircleFilled color={pink500} />;
-    } else {
-      return <CheckBoxOutlineBlank />;
-    }
-  }
-  canActivate(isActive, itemPosition, position) {
-    const earlierChapter = itemPosition.chapter < position.chapter;
-    const currentChapter = itemPosition.chapter = position.chapter;
-    const earlierOrCurrentPage = itemPosition.page <= position.page;
-    if (isActive || earlierChapter || (currentChapter && earlierOrCurrentPage)) {
+  page: CR.Page, chapterIndex: number,
+  position: CR.Position, pageIndex: number, selectPage?: () => void}, {}> {
+  canActivate(isActive: boolean) {
+    const {chapterIndex, pageIndex, position} = this.props;
+    const earlierChapter = chapterIndex < position.chapter;
+    const currentChapter = chapterIndex === position.chapter;
+    const earlierOrCurrentPage = pageIndex <= position.page;
+    if (isActive || earlierChapter ||
+      (currentChapter && earlierOrCurrentPage)) {
       return true;
     } else {
       return null;
     }
   }
   render() {
-    const {page, itemPosition, position} = this.props;
-    const isActive = itemPosition.chapter === position.chapter && itemPosition.page === position.page;
+    const {page, position, chapterIndex, pageIndex, selectPage} = this.props;
+    console.log(this.props);
+    const isActive = chapterIndex === position.chapter && pageIndex === position.page;
     return (
       <ListItem
         className={classnames({
           'page': true,
-          'page-isDisabled': !this.canActivate(isActive, itemPosition, position)
+          'page-isDisabled': !this.canActivate(isActive)
         })}
-        primaryText={`${itemPosition.page + 1}. ${page.title}`}
+        primaryText={`${pageIndex + 1}. ${page.title}`}
         secondaryText={page.description}
-        leftIcon={this.getProgressIcon(page.completed, isActive)}
+        leftIcon={progressIcon(page.completed, isActive)}
         onClick={
-          this.canActivate(isActive, itemPosition, position)
-            ? this.props.selectPage.bind(this, itemPosition)
+          this.canActivate(isActive)
+            ? selectPage.bind(this, {
+              chapter: chapterIndex,
+              page: pageIndex
+            })
             : null
           }
       />

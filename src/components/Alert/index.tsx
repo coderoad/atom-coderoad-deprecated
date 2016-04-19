@@ -12,9 +12,7 @@ const defaultAlert = {
 
 @connect(null, (dispatch) => {
   return {
-    alertToggle: () => {
-        dispatch(Action.alertToggle());
-    }
+    alertToggle: () => dispatch(Action.alertToggle())
   };
 })
 export class Alert extends React.Component<{alert: CR.Alert, alertToggle?: any}, CR.Alert> {

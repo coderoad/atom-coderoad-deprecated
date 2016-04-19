@@ -7,3 +7,4 @@ export {Progress} from './Progress';
 export {Routes} from './Routes';
 export {Start} from './Start';
 export {Tutorials} from './Tutorials';
+export {RouteButton} from './Common/RouteButton';
