@@ -2,12 +2,12 @@ import {GLOBALS_SET} from '../../actions/_types';
 import {globalsSet} from './set-globals';
 
 // TODO: refactor out globals into state
-const defaultGlobals = {
+const _globals = {
   dir: null,
   win: null
 };
 
-export default function globalReducer(globals = defaultGlobals,
+export default function globalReducer(globals = _globals,
   action: CR.Action): CR.Coderoad {
   switch (action.type) {
     case GLOBALS_SET:

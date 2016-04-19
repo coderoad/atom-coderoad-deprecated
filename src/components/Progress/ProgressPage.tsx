@@ -30,7 +30,6 @@ export class ProgressPage extends React.Component<{
   }
   render() {
     const {page, position, chapterIndex, pageIndex, selectPage} = this.props;
-    console.log(this.props);
     const isActive = chapterIndex === position.chapter && pageIndex === position.page;
     return (
       <ListItem

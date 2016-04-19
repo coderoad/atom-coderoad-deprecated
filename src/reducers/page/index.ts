@@ -2,13 +2,13 @@ import {
   PAGE_SET, COMPLETE_PAGE
 } from '../../actions/_types';
 
-const defaultPage: CR.Page = {
+const _page: CR.Page = {
   title: '',
   description: '',
   completed: false
 };
 
-export default function pageReducer(page = defaultPage,
+export default function pageReducer(page = _page,
   action: CR.Action): CR.Page {
   switch (action.type) {
     case PAGE_SET:

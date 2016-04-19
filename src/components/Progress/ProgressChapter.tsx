@@ -25,7 +25,7 @@ export const ProgressChapter: React.StatelessComponent<{
         nestedItems={
           chapter.pages.map((page: CR.Page, pageIndex: number) => (
               <ProgressPage
-                key={'c' + chapterIndex + 'p' + pageIndex}
+                key={chapterIndex + '_' + pageIndex}
                 pageIndex={pageIndex}
                 page={page}
                 chapterIndex={chapterIndex}

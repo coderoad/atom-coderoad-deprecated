@@ -4,7 +4,7 @@ import CheckBox from 'material-ui/svg-icons/toggle/check-box';
 import PlayCircleFilled from 'material-ui/svg-icons/av/play-circle-filled';
 import CheckBoxOutlineBlank from 'material-ui/svg-icons/toggle/check-box-outline-blank';
 
-export function progressIcon(completed: boolean, current: boolean) {
+export function progressIcon(completed: boolean, current?: boolean) {
   if (completed) {
     return <CheckBox />;
   } else if (current) {

@@ -81,6 +81,7 @@
         "src/reducers/globals/set-globals.ts",
         "src/reducers/hint-position/index.ts",
         "src/reducers/index.ts",
+        "src/reducers/package/index.ts",
         "src/reducers/page/index.ts",
         "src/reducers/position/index.ts",
         "src/reducers/progress/index.ts",

@@ -1,8 +1,6 @@
 import {PAGE_SET, TEST_RESULT} from '../../actions/_types';
 
-const defaultTaskPosition: number = 0;
-
-export default function taskPositionReducer(taskPosition = defaultTaskPosition, action: CR.Action): number {
+export default function taskPositionReducer(taskPosition = 0, action: CR.Action): number {
   switch (action.type) {
     case PAGE_SET:
       return 0;

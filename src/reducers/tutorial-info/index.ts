@@ -1,12 +1,12 @@
 import {TUTORIAL_SET} from '../../actions/_types';
 import TutorialPackage from '../../services/tutorial-package';
 
-const defaultInfo: CR.TutorialInfo = {
+const _info: CR.TutorialInfo = {
   title: '',
   description: ''
 };
 
-export default function projectReducer(info = defaultInfo,
+export default function projectReducer(info = _info,
   action: CR.Action): CR.TutorialInfo {
   switch (action.type) {
     case TUTORIAL_SET:

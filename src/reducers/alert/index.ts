@@ -3,16 +3,16 @@ import {
   COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
 } from '../../actions/_types';
 
-const defaultAlert: CR.Alert = {
+const _alert: CR.Alert = {
   message: '',
   open: false,
   action: '',
   duration: 0
 };
 
-let current: CR.Alert = defaultAlert;
+let current: CR.Alert = _alert;
 
-export default function alertReducer(alert = defaultAlert, action: CR.Action): CR.Alert {
+export default function alertReducer(alert = _alert, action: CR.Action): CR.Alert {
   let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
   switch (action.type) {
     case ALERT_REPLAY:
@@ -23,7 +23,7 @@ export default function alertReducer(alert = defaultAlert, action: CR.Action): C
         duration: 2000
       };
     case ALERT_TOGGLE:
-      return action.payload.alert || defaultAlert;
+      return action.payload.alert || _alert;
     case TEST_RESULT:
       let result = action.payload.result;
       if (result.pass && result.change > 0) {

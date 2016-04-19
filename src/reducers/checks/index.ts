@@ -1,7 +1,7 @@
 import {SETUP_VERIFY} from '../../actions/_types';
 import setupVerify from './verify';
 
-const defaultChecks = {
+const _checks = {
   passed: false,
   system: {
     node: false,
@@ -14,7 +14,7 @@ const defaultChecks = {
   }
 };
 
-export default function checksReducer(checks = defaultChecks, action: CR.Action): CR.Checks {
+export default function checksReducer(checks = _checks, action: CR.Action): CR.Checks {
   switch (action.type) {
     case SETUP_VERIFY:
       return setupVerify();

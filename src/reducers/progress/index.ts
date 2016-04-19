@@ -3,7 +3,7 @@ import {
 } from '../../actions/_types';
 import TutorialPackage from '../../services/tutorial-package';
 
-const defaultProgress: CR.Progress = {
+const _progress: CR.Progress = {
   completed: false,
   chapters: [{
     title: '',
@@ -17,7 +17,7 @@ const defaultProgress: CR.Progress = {
   }]
 };
 
-export default function progressReducer(progress = defaultProgress,
+export default function progressReducer(progress = _progress,
   action: CR.Action): CR.Progress {
   switch (action.type) {
     case TUTORIAL_SET:
