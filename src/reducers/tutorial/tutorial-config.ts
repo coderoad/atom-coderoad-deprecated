@@ -1,26 +1,26 @@
 import {join} from 'path';
 import {fileExists} from '../../services/exists';
 
-export function globalsSet(packageJson: PackageJson): CR.Coderoad {
+export function tutorialConfig(tutorialPj: PackageJson): CR.Coderoad {
   return Object.assign({}, {
-    tutorial: packageJson.name,
-    suffix: packageJson.config.testSuffix.substring(packageJson.config.testSuffix.lastIndexOf('.') + 1,
-    packageJson.config.testSuffix.length),
-    tutorialDir: join(window.coderoad.dir, 'node_modules', packageJson.name, packageJson.config.testDir),
-    testRunner: packageJson.config.testRunner,
-    testRunnerOptions: packageJson.config.testRunnerOptions || {},
-    runner: loadRunnerDep(packageJson),
-    repo: loadRepo(packageJson),
-    edit: packageJson.config.edit && !!window.coderoad.repo || false,
-    issuesPath: packageJson.bugs && packageJson.bugs.url ? packageJson.bugs.url : null
+    tutorial: tutorialPj.name,
+    suffix: tutorialPj.config.testSuffix.substring(tutorialPj.config.testSuffix.lastIndexOf('.') + 1,
+    tutorialPj.config.testSuffix.length),
+    tutorialDir: join(window.coderoad.dir, 'node_modules', tutorialPj.name, tutorialPj.config.testDir),
+    testRunner: tutorialPj.config.testRunner,
+    testRunnerOptions: tutorialPj.config.testRunnerOptions || {},
+    runner: loadRunnerDep(tutorialPj),
+    repo: loadRepo(tutorialPj),
+    edit: tutorialPj.config.edit && !!window.coderoad.repo || false,
+    issuesPath: tutorialPj.bugs && tutorialPj.bugs.url ? tutorialPj.bugs.url : null
   }, window.coderoad);
 }
 
-function loadRunnerDep(packageJson: PackageJson): () => any {
+function loadRunnerDep(tutorialPj: PackageJson): () => any {
   // test runner dir
-  let flatDep = join(window.coderoad.dir, 'node_modules', packageJson.config.testRunner, 'package.json');
+  let flatDep = join(window.coderoad.dir, 'node_modules', tutorialPj.config.testRunner, 'package.json');
   let treeDep = join(window.coderoad.dir, 'node_modules',
-  packageJson.name, 'node_modules', packageJson.config.testRunner, 'package.json');
+  tutorialPj.name, 'node_modules', tutorialPj.config.testRunner, 'package.json');
 
   var runnerMain;
   var runnerRoot;
@@ -51,9 +51,9 @@ function loadRunnerDep(packageJson: PackageJson): () => any {
   }
 }
 
-function loadRepo(packageJson: PackageJson): string {
-  if (packageJson.repo && packageJson.repo.url) {
-    let repo: string = packageJson.repo.url;
+function loadRepo(tutorialPj: PackageJson): string {
+  if (tutorialPj.repo && tutorialPj.repo.url) {
+    let repo: string = tutorialPj.repo.url;
     if (!!repo.match(/\.git$/)) {
       repo = repo.slice(0, repo.length - 4);
     }

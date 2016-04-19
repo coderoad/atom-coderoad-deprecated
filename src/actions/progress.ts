@@ -1,7 +1,11 @@
 import {
-  COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
+  PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
 } from './_types';
 import {store} from '../store';
+
+export function progressLoad(): CR.Action {
+  return { type: PROGRESS_LOAD };
+}
 
 export function completePage(): CR.Action {
   const position: CR.Position = store.getState().position;

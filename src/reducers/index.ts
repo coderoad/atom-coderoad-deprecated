@@ -3,7 +3,6 @@ import {combineReducers} from 'redux';
 import alert from './alert';
 import checks from './checks';
 import editorActions from './editor-actions';
-import globals from './globals';
 import hintPosition from './hint-position';
 import packageJson from './package-json';
 import page from './page';
@@ -14,11 +13,11 @@ import taskPosition from './task-position';
 import taskTests from './task-tests';
 import tasks from './tasks';
 import testRun from './test-run';
-import tutorialInfo from './tutorial-info';
+import tutorial from './tutorial';
 import tutorials from './tutorials';
 
 export default combineReducers({
-  alert, checks, editorActions, globals, hintPosition,
-  page, packageJson, position, progress, route, taskPosition,
-  taskTests, tasks, testRun, tutorialInfo, tutorials
+  alert, checks, editorActions, hintPosition, page,
+  packageJson, position, progress, route, taskPosition,
+  taskTests, tasks, testRun, tutorial, tutorials
 });

@@ -1,36 +1,42 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
-import {setRoute, alertToggle, positionSet, tutorialSet} from '../../actions';
+import {
+  positionSet, tutorialSet, progressLoad, setRoute
+} from '../../actions';
 
 import TutorialPackage from '../../services/tutorial-package';
 
+function displayName(name: string): string {
+  if (name.match(/^coderoad-tutorial-/)) {
+    return name.slice(18);
+  } else if (name.match(/^coderoad-/)) {
+    return name.slice(9);
+  }
+  return name;
+}
+
 @connect(null, (dispatch) => {
   return {
-    selectTutorial: (tutorial: CR.Tutorial) => {
-      TutorialPackage.set(tutorial.name);
-      dispatch(tutorialSet());
+    selectTutorial: (name: string) => {
+      dispatch(tutorialSet(name));
       dispatch(positionSet({chapter: 0, page: 0}));
+      dispatch(progressLoad());
       dispatch(setRoute('progress'));
     },
   };
 })
 export class SelectTutorial extends React.Component<{
-  tutorial: CR.Tutorial, selectTutorial?: any
+  tutorial: CR.TutorialInfo, selectTutorial?: any
 }, {}> {
   render() {
     const {tutorial, selectTutorial} = this.props;
-    let name = tutorial.name;
-    if (name.match(/^coderoad-tutorial-/)) {
-      name = name.slice(18);
-    } else if (name.match(/^coderoad-/)) {
-      name = name.slice(9);
-    }
+    const name = tutorial.name;
     return (
       <FlatButton
-        label={name}
+        label={displayName(name)}
         primary={true}
-        onTouchTap={selectTutorial.bind(this, tutorial)}
+        onTouchTap={selectTutorial.bind(this, name)}
       />
     );
   }
