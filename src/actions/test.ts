@@ -1,7 +1,7 @@
 import {
   TEST_RUN, TEST_RESULT, TEST_COMPLETE
 } from './_types';
-import {store} from '../store/store';
+import {store} from '../store';
 
 export function testRun(): CR.Action {
   return { type: TEST_RUN };

@@ -1,7 +1,7 @@
 import {
   COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
 } from './_types';
-import {store} from '../store/store';
+import {store} from '../store';
 
 export function completePage(): CR.Action {
   const position: CR.Position = store.getState().position;

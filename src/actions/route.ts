@@ -1,4 +1,4 @@
-import {store} from '../store/store';
+import {store} from '../store';
 import {ROUTE_SET} from './_types';
 import {tutorialsFind} from './tutorial';
 

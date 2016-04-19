@@ -1,4 +1,4 @@
-import {store} from '../store/store';
+import {store} from '../store';
 import {ALERT_TOGGLE, ALERT_REPLAY} from './_types';
 
 export function alertToggle(alert?: CR.Alert): CR.Action {

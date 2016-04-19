@@ -1,6 +1,6 @@
 import {TUTORIAL_UPDATE, TUTORIALS_FIND} from '../../actions/_types';
 import {tutorialUpdate} from './update-tutorial';
-import RootPackage from '../../services/root-package';
+import {store} from '../../store';
 import {searchForTutorials} from './check-tutorials';
 
 export default function tutorialsReducer(tutorials = [],
@@ -10,7 +10,7 @@ export default function tutorialsReducer(tutorials = [],
       tutorialUpdate(action.payload.name);
       /* falls through */
     case TUTORIALS_FIND:
-          const packageJson = RootPackage.get();
+          const packageJson = store.getState().packageJson;
           return ([]
             .concat(searchForTutorials(packageJson.dependencies))
             .concat(searchForTutorials(packageJson.devDependencies)));

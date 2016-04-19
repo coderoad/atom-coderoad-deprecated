@@ -1,6 +1,6 @@
 import {join} from 'path';
 import {globalsSet, completeTutorial} from '../actions';
-import {store} from '../store/store';
+import {store} from '../store';
 import {readFileSync} from 'fs';
 import {fileExists} from './exists';
 

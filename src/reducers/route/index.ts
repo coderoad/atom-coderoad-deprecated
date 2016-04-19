@@ -1,5 +1,5 @@
 import {ROUTE_SET} from '../../actions/_types';
-import {store} from '../../store/store';
+import {store} from '../../store';
 
 const _route: string = 'start';
 

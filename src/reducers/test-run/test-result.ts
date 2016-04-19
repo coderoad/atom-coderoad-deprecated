@@ -1,4 +1,4 @@
-import {store} from '../../store/store';
+import {store} from '../../store';
 import {testResult, completePage, testComplete} from '../../actions';
 
 export function handleResult(result: CR.TestResult): void {

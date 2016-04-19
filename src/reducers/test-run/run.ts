@@ -1,5 +1,5 @@
 import {handleResult} from './test-result';
-import {store} from '../../store/store';
+import {store} from '../../store';
 import {writeFileSync} from 'fs';
 import {join} from 'path';
 import parseLoaders from './parse-loaders';

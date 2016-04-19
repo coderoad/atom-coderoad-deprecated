@@ -6,6 +6,7 @@ export const COMPLETE_TUTORIAL = 'COMPLETE_TUTORIAL';
 export const GLOBALS_SET = 'GLOBALS_SET';
 export const HINT_POSITION_SET = 'HINT_POSITION_SET';
 export const HINT_SHOW = 'HINT_SHOW';
+export const PACKAGE_SET = 'PACKAGE_SET';
 export const PAGE_NEXT = 'PAGE_NEXT';
 export const PAGE_SET = 'PAGE_SET';
 export const POSITION_SET = 'POSITION_SET';

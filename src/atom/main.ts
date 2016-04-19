@@ -5,7 +5,7 @@ import {initRoot, togglePanel} from '../components/mount';
 import loadPolyfills from '../services/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 
-import {store} from '../store/store';
+import {store} from '../store';
 import {setupVerify} from '../actions';
 
 // TODO: find a better place to load globals

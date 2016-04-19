@@ -1,10 +1,10 @@
 import {npmMinVersion, nodeMinVersion} from './check-system';
-import RootPackage from '../../services/root-package';
+import {store} from '../../store';
 import {searchForTutorials} from '../tutorials/check-tutorials';
 
-const result = (x) => x;
+const result = x => x;
 function allTrue(obj: Object): boolean {
-  return Object.values(obj).every((x) => x === true);
+  return Object.values(obj).every(x => x === true);
 }
 
 export default function setupVerify(): CR.Checks {
@@ -12,8 +12,7 @@ export default function setupVerify(): CR.Checks {
   let packageJson = false;
   let tutorial = false;
 
-  RootPackage.set();
-  let pj = RootPackage.get();
+  let pj = store.getState().packageJson;
 
   if (dir) {
     packageJson = !!pj;
@@ -28,7 +27,9 @@ export default function setupVerify(): CR.Checks {
       npm: !!npmMinVersion()
     },
     setup: {
-      dir, packageJson, tutorial
+      dir,
+      packageJson,
+      tutorial
     }
   };
 

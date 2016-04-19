@@ -6,13 +6,13 @@ interface PackageJson {
   name: string;
   main: string;
   version: string;
-  dependencies: Object;
-  devDependencies: Object;
+  dependencies?: Object;
+  devDependencies?: Object;
   config: CR.Config;
-  bugs: {
+  bugs?: {
     url: string;
   };
-  repo: {
+  repo?: {
     url: string;
   };
 }

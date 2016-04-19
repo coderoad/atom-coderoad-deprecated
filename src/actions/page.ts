@@ -1,5 +1,5 @@
 import {ROUTE_SET, PAGE_SET} from './_types';
-import {store} from '../store/store';
+import {store} from '../store';
 import TutorialPackage from '../services/tutorial-package';
 
 export function pageNext(): CR.Action {
