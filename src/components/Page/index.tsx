@@ -12,7 +12,7 @@ import {ProgressBar} from './ProgressBar';
 
 const pageStyle = {
   height: '100%',
-  width: '100%'
+  width: '100%',
 };
 
 export class Page extends React.Component<{
@@ -39,7 +39,7 @@ render() {
       <Tasks {...this.props} />
       <div className='listEnd' ref='listEnd' />
 
-      <PageCompleteMessage page={page} />
+      <PageCompleteMessage {...this.props} />
       <Hints task={task} hintPosition={hintPosition} />
       <PageToolbar {...this.props}>
         <ProgressBar taskPosition={taskPosition} taskCount={tasks.length}/>

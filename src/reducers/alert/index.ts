@@ -7,12 +7,12 @@ const _alert: CR.Alert = {
   message: '',
   open: false,
   action: '',
-  duration: 0
+  duration: 0,
 };
 
 let current: CR.Alert = _alert;
 
-export default function alertReducer(alert = _alert, action: CR.Action): CR.Alert {
+export default function alertReducer(alert = _alert, action: Action): CR.Alert {
   let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
   switch (action.type) {
     case ALERT_REPLAY:
@@ -20,7 +20,7 @@ export default function alertReducer(alert = _alert, action: CR.Action): CR.Aler
         open: true,
         message: current.message,
         action: current.action,
-        duration: 2000
+        duration: 2000,
       };
     case ALERT_TOGGLE:
       return action.payload.alert || _alert;
@@ -33,7 +33,7 @@ export default function alertReducer(alert = _alert, action: CR.Action): CR.Aler
           message: result.msg,
           open: true,
           action: 'pass',
-          duration: result.duration || 1500
+          duration: result.duration || 1500,
         };
       } else if (result.pass === false && result.change < 1) {
         // Fail
@@ -42,7 +42,7 @@ export default function alertReducer(alert = _alert, action: CR.Action): CR.Aler
           message: result.msg,
           open: true,
           action: 'fail',
-          duration: result.duration || 2500
+          duration: result.duration || 2500,
         };
       }
       // Alert
@@ -51,28 +51,28 @@ export default function alertReducer(alert = _alert, action: CR.Action): CR.Aler
         message: result.msg,
         open: true,
         action: 'note',
-        duration: result.duration || 2500
+        duration: result.duration || 2500,
       };
     case COMPLETE_PAGE:
       return {
         message: `Page ${action.payload.position.page + 1} Complete`,
         open: true,
         action: 'pass',
-        duration: 2000
+        duration: 2000,
       };
     case COMPLETE_CHAPTER:
       return {
         message: `Chapter ${action.payload.chapter + 1} Complete`,
         open: true,
         action: 'pass',
-        duration: 2000
+        duration: 2000,
       };
     case COMPLETE_TUTORIAL:
       return {
         message: 'Tutorial Complete',
         open: true,
         action: 'pass',
-        duration: 2000
+        duration: 2000,
       };
     default:
       return alert;

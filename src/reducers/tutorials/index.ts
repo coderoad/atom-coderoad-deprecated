@@ -4,7 +4,7 @@ import {store} from '../../store';
 import {searchForTutorials} from './check-tutorials';
 
 export default function tutorialsReducer(tutorials = [],
-  action: CR.Action): CR.Tutorial[] {
+  action: Action): Tutorial.Info[] {
   switch (action.type) {
     case TUTORIAL_UPDATE:
       tutorialUpdate(action.payload.name);

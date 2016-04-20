@@ -5,16 +5,16 @@ const _checks = {
   passed: false,
   system: {
     node: false,
-    npm: false
+    npm: false,
   },
   setup: {
     dir: false,
     packageJson: false,
-    tutorial: false
+    tutorial: false,
   }
 };
 
-export default function checksReducer(checks = _checks, action: CR.Action): CR.Checks {
+export default function checksReducer(checks = _checks, action: Action): CR.Checks {
   switch (action.type) {
     case SETUP_VERIFY:
       return setupVerify();

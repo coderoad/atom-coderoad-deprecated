@@ -1,9 +1,10 @@
 import {normalize, join} from 'path';
 import {readFileSync} from 'fs';
+import {store} from '../../store';
 
 // other languages may handle comments differently
 const comments = {
-  py: '#'
+  py: '#',
 };
 
 function loaderRegex(fileType: string): RegExp {
@@ -39,7 +40,8 @@ export default function parseLoaders(data: string, fileType: string): string {
       let pathToFile: string = null;
       if (loader[2]) {
         // path to file from tutorial directory
-        pathToFile = normalize(join(window.coderoad.tutorialDir, fileToLoad));
+        const tutorialDir = store.getState().tutorial.config.dir;
+        pathToFile = normalize(join(tutorialDir, fileToLoad));
       } else {
         // path to file from working directory
         pathToFile = normalize(join(window.coderoad.dir, fileToLoad));

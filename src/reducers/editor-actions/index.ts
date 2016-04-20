@@ -1,5 +1,6 @@
-import {PAGE_SET, TEST_RESULT} from '../../actions/_types';
+import {TESTS_LOAD, TEST_RESULT} from '../../actions/_types';
 import {editorActions} from './actions';
+import {store} from '../../store';
 
 function handleEditorActions(actionArray: string[]): void {
   if (actionArray && actionArray.length) {
@@ -9,20 +10,21 @@ function handleEditorActions(actionArray: string[]): void {
 }
 
 let currentTaskPosition = 0;
-var actions;
 /**
  * Test is running, return true, else false
  */
-export default function editorActionsReducer(editorActions = [], action: CR.Action): string[] {
+export default function editorActionsReducer(editorActions = [], action: Action): string[] {
+  let actions: string[] = null;
   switch (action.type) {
-    case PAGE_SET:
-      actions = action.payload.actions;
+    case TESTS_LOAD:
+      actions = store.getState().tasks.map(task => task.actions || []);
       currentTaskPosition = 0;
       handleEditorActions(actions.shift());
       return actions;
+
     case TEST_RESULT:
       actions = action.payload.actions;
-      let nextTaskPosition = action.payload.result.taskPosition;
+      const nextTaskPosition = action.payload.result.taskPosition;
       if (nextTaskPosition > currentTaskPosition) {
         // run actions for each task position passed
         for (let i = 0; i < nextTaskPosition - currentTaskPosition; i++) {

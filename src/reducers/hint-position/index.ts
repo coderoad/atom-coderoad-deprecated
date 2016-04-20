@@ -3,7 +3,7 @@ import {
 } from '../../actions/_types';
 
 export default function hintPositionReducer(hintPosition = 0,
-  action: CR.Action): number {
+  action: Action): number {
   switch (action.type) {
     case PAGE_SET:
       return 0;

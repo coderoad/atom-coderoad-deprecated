@@ -4,8 +4,7 @@ import {fileExists} from '../../services/exists';
 import {isTutorial, tutorialError} from './is-tutorial';
 // import {canUpdateTutorial} from './update-tutorial';
 
-
-export function searchForTutorials(deps: Object): CR.Tutorial[] {
+export function searchForTutorials(deps: Object): Tutorial.Info[] {
   if (!!deps && Object.keys(deps).length > 0) {
     return (Object.keys(deps)
       .filter((name: string) => isTutorial(name))
@@ -25,7 +24,8 @@ export function searchForTutorials(deps: Object): CR.Tutorial[] {
         const version  = tutorialPackageJson.version;
 
       return {
-        name, version
+        name,
+        version,
         // latest: !!canUpdateTutorial(name, version)
       };
     }));

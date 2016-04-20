@@ -8,6 +8,7 @@ export const TaskCheckbox: React.StatelessComponent<{
   index: number, taskPosition: number, testRun: boolean
 }> = ({index, taskPosition, testRun}) => {
   let icon = null;
+  console.log(index, taskPosition, testRun);
   if (index < taskPosition) {
     icon = <CheckBox color={green500} />;
   } else if (index === taskPosition && testRun) {

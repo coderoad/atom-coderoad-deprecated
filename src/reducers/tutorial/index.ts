@@ -1,9 +1,9 @@
 import {TUTORIAL_SET} from '../../actions/_types';
-import TutorialPackage from '../../services/tutorial-package';
 import {join} from 'path';
 import {tutorialConfig} from './tutorial-config';
 
 const _tutorial = {
+  name: null,
   info: null,
   chapters: [],
   packageJson: null,
@@ -11,16 +11,17 @@ const _tutorial = {
 };
 
 export default function tutorialReducer(tutorial = _tutorial,
-  action: CR.Action): CR.Tutorial {
+  action: Action): CR.Tutorial {
   switch (action.type) {
     case TUTORIAL_SET:
       const name: string = action.payload.name;
       const packagePath: string = join(window.coderoad.dir, 'node_modules', name);
       const packageJson: PackageJson = require(join(packagePath, 'package.json'));
-      const config: CR.Coderoad = tutorialConfig(packageJson);
-      const {project, chapters} = require(join(packagePath, packageJson.main));
+      const config: Tutorial.Config = tutorialConfig(packageJson);
+      const {info, chapters} = require(join(packagePath, packageJson.main));
       return {
-        info: project,
+        name: packageJson.name,
+        info,
         chapters,
         packageJson,
         config

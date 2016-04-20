@@ -1,4 +1,3 @@
-'use strict';
 import * as React from 'react';
 import {render} from '../components/render';
 import {initRoot, togglePanel} from '../components/mount';
@@ -28,7 +27,7 @@ class Main {
     loadPolyfills(); // remove with later version of Chrome
     window.coderoad = {
       dir: setDir(),
-      win: setWin()
+      win: setWin(),
     };
     store.dispatch(setupVerify());
     this.root = initRoot();
@@ -37,7 +36,7 @@ class Main {
     // create atom panel
     atom.workspace.addRightPanel({
       item: this.root,
-      priority: 0
+      priority: 0,
     });
     onActivate();
     // render React component

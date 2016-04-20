@@ -2,7 +2,9 @@ import * as React from 'react';
 import {ListItem} from 'material-ui/List';
 import {Markdown} from '../../index';
 
-export const PageCompleteMessage: React.StatelessComponent<{page: CR.Page}> = ({page}) => (
+export const PageCompleteMessage: React.StatelessComponent<{
+  page: CR.Page
+}> = ({page}) => (
   <div className='cr-page-onComplete'>
     {
       page.completed && page.onPageComplete

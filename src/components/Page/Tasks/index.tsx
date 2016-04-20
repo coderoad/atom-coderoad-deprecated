@@ -21,7 +21,8 @@ export const Tasks: React.StatelessComponent<{
             key={index}
             index={index}
             task={task}
-            {...this.props}
+            taskPosition={taskPosition}
+            testRun={testRun}
           />)
         )}
     </List>

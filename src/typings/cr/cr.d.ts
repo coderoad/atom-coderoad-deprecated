@@ -21,13 +21,9 @@ interface Task {
   completed?: boolean;
 }
 
-/**
- * Store
- */
-
 interface State {
   route: string;
-  tutorialInfo: TutorialInfo;
+  tutorialInfo: Tutorial.Info;
   position: Position;
   page: Page;
   progress: Progress;
@@ -45,18 +41,13 @@ interface State {
 }
 
 interface Tutorial {
-  info: CR.TutorialInfo;
+  name: string;
+  info: Tutorial.Info;
   chapters: CR.Chapter[];
   packageJson: PackageJson;
-  config: CR.Coderoad;
+  config: Tutorial.Config;
 }
 
-interface TutorialInfo {
-  name: string;
-  version: string;
-  latest?: boolean;
-  description?: string;
-}
 
 interface Position {
   chapter: number;
@@ -78,13 +69,25 @@ interface Progress {
   }[];
 }
 
-interface TestResult {
-  pass: boolean;
-  taskPosition: number;
-  msg?: string;
-  timedOut?: boolean;
-  change: number;
-  completed: boolean;
+type TaskTest = string[];
+
+interface Alert {
+  message: string;
+  action: string;
+  open?: boolean;
+  duration?: number;
+}
+
+interface Log {
+  open: boolean;
+  message: string;
+}
+
+interface Coderoad {
+  dir: string;
+  taskPosition?: number;
+  win?: boolean;
+  tutorial?: Tutorial.Config;
 }
 
 interface Checks {
@@ -102,59 +105,13 @@ interface Checks {
   };
 }
 
-type TaskTest = string[];
-
-interface Alert {
-  message: string;
-  action: string;
-  open?: boolean;
-  duration?: number;
-}
-
-interface Action {
-  type: string;
-  payload?;
-  error?: boolean;
-  meta?;
-}
-
-interface Log {
-  open: boolean;
-  message: string;
-}
-
-interface Coderoad {
-  dir: string;
-  testRunner?: string;
-  suffix?: string;
-  tutorial?: string;
-  tutorialDir?: string;
-  tutorialOptions?: Object;
-  issuesPath?: string;
-  repo?: string;
-  edit?: boolean;
-  runner?: any;
-  taskPosition?: number;
-  win?: boolean;
-}
-
-interface Config {
-  testDir?: string;
-  testSuffix?: string;
-  testRunner: string;
-  edit?: boolean;
-  testRunnerOptions?: TestRunnerOptions;
-}
-
-interface SetupWarning {
-  key: string;
-  title: string;
-  click: () => void;
-  text: string;
-  verify?: string;
-  button?: string;
-}
-
-interface TestRunnerOptions { }
+// interface SetupWarning {
+//   key: string;
+//   title: string;
+//   click: () => void;
+//   text: string;
+//   verify?: string;
+//   button?: string;
+// }
 
 }

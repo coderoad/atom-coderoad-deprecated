@@ -24,12 +24,12 @@ export default function setupVerify(): CR.Checks {
   let checks: CR.Checks = {
     system: {
       node: !!nodeMinVersion(),
-      npm: !!npmMinVersion()
+      npm: !!npmMinVersion(),
     },
     setup: {
       dir,
       packageJson,
-      tutorial
+      tutorial,
     }
   };
 

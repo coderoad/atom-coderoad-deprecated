@@ -5,8 +5,6 @@ import {
   positionSet, tutorialSet, progressLoad, setRoute
 } from '../../actions';
 
-import TutorialPackage from '../../services/tutorial-package';
-
 function displayName(name: string): string {
   if (name.match(/^coderoad-tutorial-/)) {
     return name.slice(18);
@@ -27,7 +25,7 @@ function displayName(name: string): string {
   };
 })
 export class SelectTutorial extends React.Component<{
-  tutorial: CR.TutorialInfo, selectTutorial?: any
+  tutorial: Tutorial.Info, selectTutorial?: any
 }, {}> {
   render() {
     const {tutorial, selectTutorial} = this.props;

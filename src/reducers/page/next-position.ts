@@ -1,3 +1,6 @@
+import {store} from '../../store';
+import {completeTutorial} from '../../actions';
+
 export function getNextPosition({chapter, page}: CR.Position): CR.Position {
   const {chapters} = this.data;
   if (page < chapters[chapter].pages.length - 1) {

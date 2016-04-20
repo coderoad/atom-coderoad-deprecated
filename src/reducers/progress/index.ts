@@ -13,13 +13,13 @@ const _progress: CR.Progress = {
     pages: [{
       title: '',
       description: '',
-      completed: false
+      completed: false,
     }]
   }]
 };
 
 export default function progressReducer(progress = _progress,
-  action: CR.Action): CR.Progress {
+  action: Action): CR.Progress {
   switch (action.type) {
     case PROGRESS_LOAD:
       const chapters = store.getState().tutorial.chapters;
@@ -32,7 +32,7 @@ export default function progressReducer(progress = _progress,
               return {
                 title: page.title,
                 description: page.description,
-                completed: page.completed || false
+                completed: page.completed || false,
               };
             })
           };

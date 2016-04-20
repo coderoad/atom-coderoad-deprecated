@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {pageSet, setRoute} from '../../actions';
+import {pageSet, setRoute, testsLoad} from '../../actions';
 import * as classnames from 'classnames';
 import {ListItem} from 'material-ui/List';
 import {progressIcon} from './progressIcon';
@@ -9,6 +9,7 @@ import {progressIcon} from './progressIcon';
   return {
     selectPage: (position: CR.Position) => {
       dispatch(pageSet(position));
+      dispatch(testsLoad());
       dispatch(setRoute('page'));
     }
   };

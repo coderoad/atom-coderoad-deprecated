@@ -1,20 +1,25 @@
 import {readFileSync} from 'fs';
-import {PAGE_SET} from '../../actions/_types';
+import {TESTS_LOAD} from '../../actions/_types';
+import {store} from '../../store';
 
 export default function taskTestsReducer(taskTests = '',
-  action: CR.Action): string {
+  action: Action): string {
   switch (action.type) {
-    case PAGE_SET:
-      let tests = '';
-      action.payload.taskTests.forEach(function(file: string) {
+    case TESTS_LOAD:
+      const tasks = store.getState().tasks;
+      let tests: string[] = [].concat.apply([], tasks.map(
+          task => task.tests || [])
+      );
+      let output = '';
+      tests.forEach(function(file: string): void {
         try {
           let data = readFileSync(file, 'utf8');
-          tests += data + '\n';
+          output += data + '\n';
         } catch (e) {
           console.log('Error reading test file', e);
         }
       });
-      return tests;
+      return output;
     default:
       return taskTests;
   }

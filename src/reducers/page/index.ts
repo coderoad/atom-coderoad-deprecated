@@ -6,10 +6,10 @@ import {store} from '../../store';
 const _page: CR.Page = {
   title: '',
   description: '',
-  completed: false
+  completed: false,
 };
 
-export default function pageReducer(p = _page, action: CR.Action): CR.Page {
+export default function pageReducer(p = _page, action: Action): CR.Page {
   switch (action.type) {
     case PAGE_NEXT:
     let next = null;
@@ -18,25 +18,25 @@ export default function pageReducer(p = _page, action: CR.Action): CR.Page {
       if (pos.page < chapters[pos.chapter].pages.length - 1) {
         next = {
           chapter: pos.chapter,
-          page: pos.page + 1
+          page: pos.page + 1,
         };
       } else if (pos.chapter < chapters.length - 1) {
         next = {
           chapter: pos.chapter + 1,
-          page: 0
+          page: 0,
         };
       } else {
         // store.dispatch(completeTutorial());
         next = {
           chapter: pos.chapter,
           page: pos.page,
-          completed: true
+          completed: true,
         };
       }
       /* falls through */
     case PAGE_SET:
-      let {chapter, page, completed} = next || action.payload.selectedPosition;
-      const tp = store.getState().tutorials.chapters[chapter].pages[page];
+      let {chapter, page, completed} = next || action.payload.position;
+      const tp = store.getState().tutorial.chapters[chapter].pages[page];
       return Object.assign(
         {},
         { completed: completed || false},
@@ -44,7 +44,7 @@ export default function pageReducer(p = _page, action: CR.Action): CR.Page {
           title: tp.title,
           description: tp.description,
           onPageComplete: tp.onPageComplete,
-          completed: tp.completed
+          completed: tp.completed,
         }
       );
     case COMPLETE_PAGE:
@@ -53,7 +53,7 @@ export default function pageReducer(p = _page, action: CR.Action): CR.Page {
         title,
         description,
         onPageComplete,
-        completed: true
+        completed: true,
       };
     default:
       return p;

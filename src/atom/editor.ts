@@ -56,7 +56,7 @@ export function set(text: string) {
 
 export function insert(text: string, options = {}) {
   options = Object.assign(options, {
-    autoIndent: true
+    autoIndent: true,
   });
   return getEditor().then((editor: AtomCore.IEditor) => {
     editor.moveToBottom();

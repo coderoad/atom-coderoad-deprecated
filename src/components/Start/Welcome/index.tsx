@@ -2,7 +2,9 @@ import * as React from 'react';
 import {resolve} from 'path';
 import {RouteButton} from '../../index';
 
-const imagePath = resolve(__dirname, '../../../../', 'styles', 'coderoad.jpg');
+const imagePath = resolve(
+  __dirname, '../../../../', 'styles', 'coderoad.jpg'
+);
 
 const welcomeStyle = {
   backgroundImage: `url("${imagePath}")`,
@@ -12,7 +14,7 @@ const welcomeStyle = {
 
 const welcomeButtonStyle = {
   fontSize: '1.4em',
-  padding: '5px 2px'
+  padding: '5px 2px',
 };
 
 export const Welcome: React.StatelessComponent<{}> = () => (

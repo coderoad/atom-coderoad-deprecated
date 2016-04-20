@@ -23,8 +23,8 @@ export function getParams(actionString: string): string[] {
   return paramsList;
 }
 
-function createObjectFromKeyValString(string: string): Object {
-  let keyValList: string[] = string.split(/[:,]/);
+function createObjectFromKeyValString(text: string): Object {
+  let keyValList: string[] = text.split(/[:,]/);
   let obj = {};
   for (let i = 0; i < keyValList.length; i += 2) {
     let key = keyValList[i].trim();
@@ -51,6 +51,6 @@ export function getOptions(paramString: string): { param: string, options: Objec
   }
   return {
     options,
-    param
+    param,
   };
 }

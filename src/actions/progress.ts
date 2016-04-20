@@ -13,7 +13,10 @@ export function completePage(): CR.Action {
   if (position.page >= pageLength - 1) {
     return completeChapter();
   }
-  return { type: COMPLETE_PAGE, payload: { position } };
+  return {
+    payload: { position },
+    type: COMPLETE_PAGE,
+  };
 }
 
 export function completeChapter(): CR.Action {
@@ -22,9 +25,12 @@ export function completeChapter(): CR.Action {
   if (chapter >= chapterLength - 1) {
     return completeTutorial();
   }
-  return { type: COMPLETE_CHAPTER, payload: { chapter } };
+  return {
+    payload: { chapter },
+    type: COMPLETE_CHAPTER,
+  };
 }
 
-export function completeTutorial(): CR.Action {
+export function completeTutorial(): Action {
   return { type: COMPLETE_TUTORIAL };
 }

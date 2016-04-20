@@ -13,7 +13,11 @@ export const Task: React.StatelessComponent<{
       className='cr-task'
       style={{backgroundColor: isCompleted ? '#c8e6c9' : 'inherit'}}
     >
-      <TaskCheckbox {...this.props}/>
+      <TaskCheckbox
+        taskPosition={taskPosition}
+        index={index}
+        testRun={testRun}
+      />
       <span className='cr-task-index'>{index + 1}.</span>
       <div className='cr-task-description'>
         <Markdown >{task.description}</Markdown>

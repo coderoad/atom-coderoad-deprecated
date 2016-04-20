@@ -4,7 +4,7 @@ import {
 
 const _position: CR.Position = {
   chapter: 0,
-  page: 0
+  page: 0,
 };
 
 export default function positionReducer(position = _position,

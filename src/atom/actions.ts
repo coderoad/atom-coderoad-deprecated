@@ -1,5 +1,5 @@
 export function closeAllPanels(): void {
-  var editors: AtomCore.IEditor[] = atom.workspace.getTextEditors();
+  let editors: AtomCore.IEditor[] = atom.workspace.getTextEditors();
   editors.forEach((editor: AtomCore.IEditor) => {
     // if (editor !== activeEditor) {
     editor.destroy();

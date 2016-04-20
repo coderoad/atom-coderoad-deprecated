@@ -8,7 +8,7 @@ export {positionSet} from './position';
 export {setRoute} from './route';
 export {setupVerify} from './setup';
 export {
-  testRun, testComplete, testResult
+  testRun, testComplete, testResult, testsLoad
 } from './test';
 export {
   tutorialsFind, tutorialSet

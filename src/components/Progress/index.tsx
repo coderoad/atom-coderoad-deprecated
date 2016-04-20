@@ -6,7 +6,7 @@ import {ProgressChapter} from './ProgressChapter';
 
 const pageStyle = {
   width: '100%',
-  margin: 0
+  margin: 0,
 };
 
 export const Progress: React.StatelessComponent<{

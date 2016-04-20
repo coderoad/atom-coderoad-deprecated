@@ -5,7 +5,7 @@ import {pageSet, setRoute} from '../../actions';
 
 @connect(null, (dispatch) => {
   return {
-    routeTo: (route: string) => dispatch(setRoute(route))
+    routeTo: (route: string) => dispatch(setRoute(route)),
   };
 })
 export class MenuLink extends React.Component<{

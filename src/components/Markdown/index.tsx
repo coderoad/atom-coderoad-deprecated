@@ -11,12 +11,12 @@ function highlight(code: string, lang: string) {
 }
 
 const options = {
-  highlight,
-  sanitize: true,
-  gfm: true,
   breaks: true,
+  gfm: true,
+  highlight,
   tables: true,
-  smartLists: true
+  sanitize: true,
+  smartLists: true,
 };
 
 function formatText(text: string): string {

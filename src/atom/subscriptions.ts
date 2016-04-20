@@ -12,7 +12,7 @@ export function onActivate(): AtomCore.Disposable {
    */
   subscriptions.add(
     atom.commands.add('atom-workspace', {
-      'cr-viewer:toggle': togglePanel
+      'cr-viewer:toggle': togglePanel,
     }));
 
   // run tests on save
@@ -32,7 +32,7 @@ export function onActivate(): AtomCore.Disposable {
         if (store.getState().route === 'page') {
           store.dispatch(testRun());
         }
-      })
+      }),
     })
     );
   return subscriptions;

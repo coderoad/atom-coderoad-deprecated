@@ -1,8 +1,10 @@
 import * as React from 'react';
 import MenuItem from 'material-ui/MenuItem';
+import {store} from '../../store';
 
 export function issuesLink() {
-  if (!window.coderoad.issuesPath) {
+  const tutorial = store.getState().tutorial;
+  if (!tutorial || !tutorial.config || !tutorial.config.issuesPath) {
     return null;
   }
   return (
@@ -10,7 +12,7 @@ export function issuesLink() {
         key='issue'
         className='link'
     >
-      <a href={window.coderoad.issuesPath}>
+      <a href={tutorial.config.issuesPath}>
         post issue
       </a>
     </MenuItem>

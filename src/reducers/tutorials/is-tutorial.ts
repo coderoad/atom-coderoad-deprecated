@@ -22,7 +22,7 @@ export function isTutorial(name: string): boolean {
     console.log(`Error with ${name}: no coderoad.json file. ${tutorialError}`);
     return false;
   };
-  if (!packageJson.config || !packageJson.config.testRunner) {
+  if (!packageJson.config || !packageJson.config.runner) {
     console.log(`Error with ${name}: no test runner specified. ${tutorialError}`);
     return false;
   }
