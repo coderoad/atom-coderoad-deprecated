@@ -84,7 +84,6 @@
         "src/reducers/index.ts",
         "src/reducers/package-json/index.ts",
         "src/reducers/page/index.ts",
-        "src/reducers/page/next-position.ts",
         "src/reducers/position/index.ts",
         "src/reducers/progress/index.ts",
         "src/reducers/route/index.ts",

@@ -1,6 +1,4 @@
-import {
-PAGE_SET, COMPLETE_PAGE
-} from '../../actions/_types';
+import {PAGE_SET, COMPLETE_PAGE} from '../../actions/_types';
 import {store} from '../../store';
 
 const _page: CR.Page = {
@@ -21,7 +19,7 @@ export default function pageReducer(
         title,
         description,
         onPageComplete,
-        completed,
+        completed: completed || false
       };
     case COMPLETE_PAGE:
       return Object.assign({}, p, { completed: true });

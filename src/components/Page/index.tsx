@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import {Card} from 'material-ui/Card';
 import {PageContent} from './PageContent';
@@ -30,13 +29,12 @@ render() {
   const {page, taskPosition, hintPosition, tasks, testRun} = this.props;
   const task = taskPosition <= tasks.length ? tasks[taskPosition] : null;
   const allComplete = taskPosition >= tasks.length;
-
-// <Paper style={pageStyle} zDepth={1} className='cr-page' ref='page'>
+  console.log('page', page);
   return (
     <section className='cr-page'>
       <PageContent {...this.props} />
 
-      <Tasks {...this.props} />
+      <Tasks {...this.props} completed={page.completed}/>
       <div className='listEnd' ref='listEnd' />
 
       <PageComplete {...this.props} />
