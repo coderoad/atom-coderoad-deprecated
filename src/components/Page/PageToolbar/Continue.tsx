@@ -1,11 +1,14 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
-import {pageNext} from '../../../actions';
+import {pageNext, testsLoad} from '../../../actions';
 
 @connect(null, (dispatch, state) => {
   return {
-    callNextPage: () => dispatch(pageNext()),
+    callNextPage: () => {
+      dispatch(pageNext());
+      dispatch(testsLoad());
+    }
   };
 })
 export class Continue extends React.Component<{

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import MenuItem from 'material-ui/MenuItem';
-import {pageSet, setRoute} from '../../actions';
+import {pageSet, routeSet} from '../../actions';
 
 @connect(null, (dispatch) => {
   return {
-    routeTo: (route: string) => dispatch(setRoute(route)),
+    routeTo: (route: string) => dispatch(routeSet(route)),
   };
 })
 export class MenuLink extends React.Component<{

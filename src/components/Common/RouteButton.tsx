@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {setRoute} from '../../actions';
+import {routeSet} from '../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
 @connect(null, (dispatch) => {
   return {
-    routeTo: (route: string) => dispatch(setRoute(route)),
+    routeTo: (route: string) => dispatch(routeSet(route)),
   };
 })
 export class RouteButton extends React.Component<{

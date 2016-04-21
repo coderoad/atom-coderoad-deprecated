@@ -11,7 +11,7 @@ export function completePage(): Action {
   const position: CR.Position = store.getState().position;
   const pageLength: number = store.getState().progress.chapters[position.chapter].pages.length;
   if (position.page >= pageLength - 1) {
-    return completeChapter();
+    store.dispatch(completeChapter());
   }
   return {
     payload: { position },
@@ -23,7 +23,7 @@ export function completeChapter(): Action {
   const chapter: number = store.getState().position.chapter;
   const chapterLength: number = store.getState().progress.chapters.length;
   if (chapter >= chapterLength - 1) {
-    return completeTutorial();
+    store.dispatch(completeTutorial());
   }
   return {
     payload: { chapter },

@@ -29,7 +29,6 @@ render() {
   const {page, taskPosition, hintPosition, tasks, testRun} = this.props;
   const task = taskPosition <= tasks.length ? tasks[taskPosition] : null;
   const allComplete = taskPosition >= tasks.length;
-  console.log('page', page);
   return (
     <section className='cr-page'>
       <PageContent {...this.props} />

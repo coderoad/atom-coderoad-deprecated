@@ -1,5 +1,4 @@
 import {ROUTE_SET, PAGE_SET} from './_types';
-import {completePage, completeTutorial} from './index';
 import {store} from '../store';
 
 const _position = {
@@ -17,19 +16,20 @@ export function pageNext(): Action {
       page: page + 1,
     };
   } else if (chapter < chapters.length - 1) {
-    store.dispatch(completePage());
     position = {
       chapter: chapter + 1,
       page: 0,
     };
   } else {
-    store.dispatch(completeTutorial());
-    position = {
-      chapter,
-      page
+    return {
+      payload: { route: 'final' },
+      type: ROUTE_SET,
     };
   }
-  return { type: PAGE_SET, payload: { position } };
+  return {
+    payload: { position },
+    type: PAGE_SET,
+  };
 }
 
 export function pageSet(

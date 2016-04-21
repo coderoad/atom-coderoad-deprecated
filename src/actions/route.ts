@@ -5,7 +5,7 @@ import {tutorialsFind} from './tutorial';
 let previous = null;
 
 /* Navigation */
-export function setRoute(route: string): Action {
+export function routeSet(route: string): Action {
   if (route && route !== previous) {
 
     // preloading for routes

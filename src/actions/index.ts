@@ -5,7 +5,7 @@ export {
 export {hintShow, hintPositionSet} from './hint';
 export {pageSet, pageNext} from './page';
 export {positionSet} from './position';
-export {setRoute} from './route';
+export {routeSet} from './route';
 export {setupVerify} from './setup';
 export {
   testRun, testComplete, testResult, testsLoad
