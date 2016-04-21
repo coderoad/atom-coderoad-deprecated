@@ -34,13 +34,23 @@ render() {
     <section className='cr-page'>
       <PageContent {...this.props} />
 
-      <Tasks {...this.props} completed={page.completed}/>
-      <div className='listEnd' ref='listEnd' />
+      <Tasks
+        {...this.props}
+        completed={page.completed}
+      />
 
+      <div className='listEnd' ref='listEnd' />
       <PageComplete {...this.props} />
-      <Hints task={task} hintPosition={hintPosition} />
+      <Hints
+        task={task}
+        hintPosition={hintPosition}
+      />
       <PageToolbar {...this.props}>
-        <ProgressBar taskPosition={taskPosition} taskCount={tasks.length}/>
+        <ProgressBar
+          taskPosition={taskPosition}
+          taskCount={tasks.length}
+          completed={page.completed}
+        />
       </PageToolbar>
     </section>
     );
