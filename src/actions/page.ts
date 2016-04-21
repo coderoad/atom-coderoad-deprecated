@@ -1,13 +1,21 @@
 import {ROUTE_SET, PAGE_SET, PAGE_NEXT} from './_types';
 import {store} from '../store';
-// import TutorialPackage from '../services/tutorial-package';
 
-export function pageNext(): CR.Action {
+const _position = {
+  chapter: 0,
+  page: 0,
+};
+
+export function pageNext(): Action {
   const position: CR.Position = store.getState().position;
   return { type: PAGE_NEXT, payload: { position }};
 }
 
-export function pageSet(position: CR.Position = { chapter: 0, page: 0 }): CR.Action {
+
+
+export function pageSet(
+  position: CR.Position = _position
+): Action {
   if (position.completed) {
     return {
       payload: { route: 'final'},

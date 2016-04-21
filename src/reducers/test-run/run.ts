@@ -9,11 +9,15 @@ export function runTaskTests(setup?: boolean): boolean {
 
 
   if (tests && tests.length) {
-    const tutorialConfig: CR.ConfigTutorial = store.getState().tutorial.config;
+    const dir = store.getState().dir;
+    const tutorialConfig: Tutorial.Config = store.getState().tutorial.config;
     const output = parseLoaders(tests, tutorialConfig.testSuffix);
 
     // write temporary test file in tutorial directory
-    let target = join(tutorialConfig.dir || window.coderoad.dir, `_tmp.${tutorialConfig.testSuffix}`);
+    let target = join(
+      tutorialConfig.dir || dir,
+      `_tmp.${tutorialConfig.testSuffix}`
+    );
     writeFileSync(target, output, 'utf8');
 
     // call test runner

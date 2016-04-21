@@ -13,7 +13,8 @@ const packageData = `{
 }`;
 
 export function createPackageJson(): Promise<void> {
-  const packagePath = join(window.coderoad.dir, 'package.json');
+  const dir = store.getState().dir;
+  const packagePath = join(dir, 'package.json');
   return new Promise((resolve, reject) => {
     open(packagePath);
     setTimeout(function() {

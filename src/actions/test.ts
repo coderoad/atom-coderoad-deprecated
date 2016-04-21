@@ -7,7 +7,7 @@ export function testRun(): Action {
   return { type: TEST_RUN };
 }
 
-export function testResult(result: CR.TestResult): Action {
+export function testResult(result: Test.Result): Action {
   let actions = store.getState().editorActions;
   return {
     payload: { result, actions },

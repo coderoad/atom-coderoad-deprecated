@@ -8,7 +8,7 @@ function allTrue(obj: Object): boolean {
 }
 
 export default function setupVerify(): CR.Checks {
-  let dir = !!window.coderoad.dir;
+  let dir = !!store.getState().dir;
   let packageJson = false;
   let tutorial = false;
 

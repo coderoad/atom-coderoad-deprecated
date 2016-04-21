@@ -44,7 +44,8 @@ export default function parseLoaders(data: string, fileType: string): string {
         pathToFile = normalize(join(tutorialDir, fileToLoad));
       } else {
         // path to file from working directory
-        pathToFile = normalize(join(window.coderoad.dir, fileToLoad));
+        const dir = store.getState().dir;
+        pathToFile = normalize(join(dir, fileToLoad));
       }
 
       try {

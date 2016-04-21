@@ -1,11 +1,16 @@
 import {join} from 'path';
 import {readFileSync} from 'fs';
 import {fileExists} from '../../services/exists';
+import {store} from '../../store';
+
 export const tutorialError = 'This is an error with the tutorial itself';
 
 export function isTutorial(name: string): boolean {
+  const dir = store.getState().dir;
   // has package.json
-  let pathToTutorialPackageJson = join(window.coderoad.dir, 'node_modules', name, 'package.json');
+  let pathToTutorialPackageJson = join(
+    dir, 'node_modules', name, 'package.json'
+  );
   if (!fileExists(pathToTutorialPackageJson)) {
     console.log(`Error with ${name}: no package.json file found. ${tutorialError}`);
     return false;
@@ -17,7 +22,9 @@ export function isTutorial(name: string): boolean {
     return false;
   }
   // coderoad.json file exists
-  let pathToCoderoadJson = join(window.coderoad.dir, 'node_modules', name, packageJson.main);
+  let pathToCoderoadJson = join(
+    dir, 'node_modules', name, packageJson.main
+  );
   if (!fileExists(pathToCoderoadJson)) {
     console.log(`Error with ${name}: no coderoad.json file. ${tutorialError}`);
     return false;
@@ -30,7 +37,7 @@ export function isTutorial(name: string): boolean {
   // let currentTutorialVersion: string = packageJson.dependencies[name] || packageJson.devDependencies[name];
   // canUpdateTutorial(name, currentTutorialVersion);
 
-  // let pathToTestRunner = path.join(window.coderoad.dir, 'node_modules', packageJson.config.testRunner);
+  // let pathToTestRunner = path.join(dir, 'node_modules', packageJson.config.testRunner);
   // // if (!fileExists(pathToTestRunner)) {
   // //   console.log(`Error with ${name}: ${packageJson.config.testRunner} test runner not installed`);
   // //   return false;

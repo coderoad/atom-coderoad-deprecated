@@ -7,28 +7,11 @@ import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 import {store} from '../store';
 import {setupVerify} from '../actions';
 
-// TODO: find a better place to load globals
-
-function setDir(): string {
-  if (atom.project.rootDirectories.length > 0) {
-    return atom.project.rootDirectories[0].path;
-  } else {
-    return null;
-  }
-}
-function setWin(): boolean {
-  return navigator.appVersion.indexOf('Win') > -1;
-}
-
 class Main {
   root: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
     loadPolyfills(); // remove with later version of Chrome
-    window.coderoad = {
-      dir: setDir(),
-      win: setWin(),
-    };
     store.dispatch(setupVerify());
     this.root = initRoot();
   }

@@ -1,6 +1,6 @@
 declare namespace CR {
 
-  interface Info {
+interface Info {
   title: string;
   description: string;
   completed: boolean;
@@ -22,9 +22,11 @@ interface Task {
 }
 
 interface State {
+  dir: string;
   route: string;
   tutorialInfo: Tutorial.Info;
   position: Position;
+  package: PackageJson;
   page: Page;
   progress: Progress;
   tasks: Task[];
@@ -35,9 +37,7 @@ interface State {
   alert: Alert;
   tutorials: Tutorial[];
   testRun: boolean;
-  log: Log;
   checks: Checks;
-  globals: Coderoad;
 }
 
 interface Tutorial {
@@ -78,18 +78,6 @@ interface Alert {
   duration?: number;
 }
 
-interface Log {
-  open: boolean;
-  message: string;
-}
-
-interface Coderoad {
-  dir: string;
-  taskPosition?: number;
-  win?: boolean;
-  tutorial?: Tutorial.Config;
-}
-
 interface Checks {
   passed?: boolean;
   system: {
@@ -104,14 +92,5 @@ interface Checks {
     tutorial: boolean;
   };
 }
-
-// interface SetupWarning {
-//   key: string;
-//   title: string;
-//   click: () => void;
-//   text: string;
-//   verify?: string;
-//   button?: string;
-// }
 
 }

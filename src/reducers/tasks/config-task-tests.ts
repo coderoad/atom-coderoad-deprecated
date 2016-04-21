@@ -1,9 +1,10 @@
 import {join} from 'path';
 import {store} from '../../store';
+import {isWindows} from '../../services/system';
 
 function configTestString(config: Tutorial.Config, name: string, testPath: string): string {
 
-  if (window.coderoad.win) {
+  if (isWindows) {
     testPath = testPath.split('/').join('\\');
   }
 
@@ -11,7 +12,8 @@ function configTestString(config: Tutorial.Config, name: string, testPath: strin
   if (tutorial && tutorial.config.dir) {
     testPath = join(tutorial.config.dir, testPath);
   } else {
-    testPath = join(window.coderoad.dir, 'node_modules', name, testPath);
+    const dir = store.getState().dir;
+    testPath = join(dir, 'node_modules', name, testPath);
   }
 
   if (tutorial.config.testSuffix) {

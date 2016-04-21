@@ -2,14 +2,18 @@ import {join} from 'path';
 import {readFileSync} from 'fs';
 import {fileExists} from '../../services/exists';
 import {isTutorial, tutorialError} from './is-tutorial';
+import {store} from '../../store';
 // import {canUpdateTutorial} from './update-tutorial';
 
 export function searchForTutorials(deps: Object): Tutorial.Info[] {
   if (!!deps && Object.keys(deps).length > 0) {
+    const dir = store.getState().dir;
     return (Object.keys(deps)
       .filter((name: string) => isTutorial(name))
       .map(function(name: string) {
-        const pathToTutorialPackageJson = join(window.coderoad.dir, 'node_modules', name, 'package.json');
+        const pathToTutorialPackageJson = join(
+          dir, 'node_modules', name, 'package.json'
+        );
 
         // no package.json
         if (!fileExists(pathToTutorialPackageJson)) {

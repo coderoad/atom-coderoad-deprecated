@@ -1,20 +1,24 @@
 import {join} from 'path';
 import {fileExists} from '../../services/exists';
+import {isWindows} from '../../services/system';
+import {store} from '../../store';
 
 export function tutorialConfig(tutorialPj: PackageJson): Tutorial.Config {
   const {config, name} = tutorialPj;
   const repo = loadRepo(tutorialPj.repo);
+  const dir = store.getState().dir;
   return {
-    dir: join(window.coderoad.dir, 'node_modules', name, config.dir),
+    dir: join(
+      dir, 'node_modules', name, config.dir
+    ),
     testSuffix: config.testSuffix || null,
     runner: config.runner,
     runnerOptions: config.runnerOptions || null,
-    run: loadRunner(name, config.runner),
+    run: loadRunner(name, config.runner, dir),
     repo,
     edit: tutorialPj.config.edit && repo || false,
     issuesPath: getIssuesPath(tutorialPj.bugs)
   };
-  // return Object.assign({}, {tutorial}, window.coderoad);
 }
 
 // function getTestSuffix(suffix: string) {
@@ -26,15 +30,17 @@ function getIssuesPath(bugs?: {url: string}) {
   return bugs && bugs.url ? bugs.url : null;
 }
 
-function loadRunner(name: string, runner: string): () => any {
+function loadRunner(name: string, runner: string, dir: string): () => any {
   // test runner dir
-  let flatDep = join(window.coderoad.dir, 'node_modules',
-    runner, 'package.json');
-  let treeDep = join(window.coderoad.dir, 'node_modules',
-    name, 'node_modules', runner, 'package.json');
+  let flatDep = join(
+    dir, 'node_modules', runner, 'package.json'
+  );
+  let treeDep = join(
+    dir, 'node_modules', name, 'node_modules', runner, 'package.json'
+  );
 
-  var runnerMain;
-  var runnerRoot;
+  let runnerMain;
+  let runnerRoot;
   if (fileExists(flatDep)) {
     runnerMain = require(flatDep).main;
     runnerRoot = flatDep;
@@ -48,7 +54,7 @@ function loadRunner(name: string, runner: string): () => any {
   }
 
   // fix main path for Windows
-  let slash = window.coderoad.win ? '\\' : '/';
+  let slash = isWindows ? '\\' : '/';
   runnerMain = join.apply(null, runnerMain.split(slash));
   // trim root path to folder
   runnerRoot = runnerRoot.substring(0, runnerRoot.lastIndexOf(slash));
