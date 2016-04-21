@@ -6,10 +6,14 @@ import {LoadTutorials} from './LoadTutorials';
 import {UpdateTutorial} from './UpdateTutorial';
 import {SelectTutorial} from './SelectTutorial';
 
+const styles = {
+  padding: '10px',
+};
+
 export const Tutorials: React.StatelessComponent<{
   tutorials: Tutorial.Info[]
 }> = ({tutorials}) => (
-  <div className='cr-tutorials'>
+  <div style={styles}>
     <Table>
 
       <TableHeader

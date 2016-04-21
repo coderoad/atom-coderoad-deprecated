@@ -4,6 +4,26 @@ import {TaskCheckbox} from './TaskCheckbox';
 import {ListItem} from 'material-ui/List';
 import {lightGreen200, orange200} from 'material-ui/styles/colors';
 
+const styles = {
+  margin: '5px',
+  padding: '5px',
+  position: 'relative'
+};
+
+const indexStyles = {
+  position: 'absolute',
+  top: '20px',
+  left: '45px',
+};
+
+const descriptionStyles = {
+  backgroundColor: 'inherit',
+  paddingTop: '-10px',
+  paddingLeft: '55px',
+  fontSize: '14px',
+  lineHeight: '1.6',
+};
+
 function getStatus(
   index: number, taskPosition: number, testRun: boolean
 ): string {
@@ -17,12 +37,11 @@ export const Task: React.StatelessComponent<{
   return (
     <ListItem
       key={index}
-      className='cr-task'
-      style={{backgroundColor}}
+      style={Object.assign({}, styles, {backgroundColor})}
     >
       {testRun ? <TaskCheckbox /> : null}
-      <span className='cr-task-index'>{index + 1}.</span>
-      <div className='cr-task-description'>
+      <span style={indexStyles}>{index + 1}.</span>
+      <div style={descriptionStyles}>
         <Markdown >{task.description}</Markdown>
       </div>
     </ListItem>

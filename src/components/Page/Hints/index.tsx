@@ -4,6 +4,14 @@ import {Markdown} from '../../index';
 import {HintButton} from './HintButton';
 import Help from 'material-ui/svg-icons/action/help';
 
+const styles = {
+  position: 'relative',
+  margin: '-5px 20px',
+  width: '360px',
+  textAlign: 'center',
+  zIndex: '0',
+};
+
 export const Hints: React.StatelessComponent<{
   task: CR.Task, hintPosition: number
 }> = ({task, hintPosition}) => {
@@ -13,7 +21,7 @@ export const Hints: React.StatelessComponent<{
   }
   const hint = hints[hintPosition];
   return (
-    <Card className='cr-task-hints'>
+    <Card style={styles}>
       <CardHeader
         title='Hints'
         avatar={<Help />}
@@ -28,6 +36,7 @@ export const Hints: React.StatelessComponent<{
       </CardText>
       {hints.length > 1
         ? <CardActions
+          style={{paddingBottom: '30px !important'}}
           expandable={true}
           className='cr-task-hints-actions'
         >

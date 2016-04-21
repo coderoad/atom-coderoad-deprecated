@@ -9,9 +9,11 @@ import {PageComplete} from './PageComplete';
 import {PageToolbar} from './PageToolbar';
 import {ProgressBar} from './ProgressBar';
 
-const pageStyle = {
+const styles = {
   height: '100%',
   width: '100%',
+  position: 'relative',
+  overflowY: 'scroll',
 };
 
 export class Page extends React.Component<{
@@ -30,7 +32,7 @@ render() {
   const task = taskPosition <= tasks.length ? tasks[taskPosition] : null;
   const allComplete = taskPosition >= tasks.length;
   return (
-    <section className='cr-page'>
+    <section style={styles}>
       <PageContent {...this.props} />
 
       <Tasks
@@ -38,13 +40,14 @@ render() {
         completed={page.completed}
       />
 
-      <div className='listEnd' ref='listEnd' />
-      <PageComplete {...this.props} />
-      <Hints
-        task={task}
-        hintPosition={hintPosition}
-      />
+      <div ref='listEnd' style={{marginBottom: '110px'}}/>
+
       <PageToolbar {...this.props}>
+        <PageComplete {...this.props} />
+        <Hints
+          task={task}
+          hintPosition={hintPosition}
+          />
         <ProgressBar
           taskPosition={taskPosition}
           taskCount={tasks.length}

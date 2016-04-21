@@ -1,9 +1,16 @@
 import * as React from 'react';
-import * as classnames from 'classnames';
 import {ListItem} from 'material-ui/List';
 import {ProgressPage} from './ProgressPage';
 import {progressIcon} from './progressIcon';
 import {Markdown} from '../index';
+
+const styles = {
+  marginBottom: '0'
+};
+
+const descriptionStyles = {
+  fontSize: '14px'
+};
 
 export const ProgressChapter: React.StatelessComponent<{
   chapter: CR.Chapter, chapterIndex: number, position: CR.Position
@@ -12,11 +19,8 @@ export const ProgressChapter: React.StatelessComponent<{
     return (
       <ListItem
         key={'c' + chapterIndex}
-        className={classnames({
-          'chapter': true,
-          'isActive': isActive
-          })
-        }
+        className={isActive ? 'isActive' : null}
+        style={styles}
         initiallyOpen={chapterIndex === 0}
         primaryTogglesNestedList={
           chapterIndex === position.chapter && !chapter.completed
@@ -34,7 +38,7 @@ export const ProgressChapter: React.StatelessComponent<{
         }
       >
       <h3>{chapterIndex + 1}. {chapter.title}</h3>
-      <span className='chapter-description'>
+      <span style={descriptionStyles}>
         <Markdown>{chapter.description}</Markdown>
       </span>
    </ListItem>
