@@ -15,6 +15,7 @@ const welcomeStyle = {
 const welcomeButtonStyle = {
   fontSize: '1.4em',
   padding: '5px 2px',
+  textShadow: '1px 1px 0px #000',
 };
 
 export const Welcome: React.StatelessComponent<{}> = () => (

@@ -2,16 +2,16 @@ import * as React from 'react';
 import {Page, Progress, Tutorials, Start, FinalPage} from '../index';
 
 export class Routes extends React.Component<{
-  route: string, progress: CR.Progress, page: CR.Page, tutorials: CR.Tutorial[],
+  route: string, progress: CR.Progress, page: CR.Page, tutorials: Tutorial.Info[],
   testRun: boolean, checks: CR.Checks, position: CR.Position, tasks: CR.Task[],
-  taskPosition: number, hintPosition: number
+  taskPosition: number, hintPosition: number, tutorial: CR.Tutorial
 }, {}> {
   render() {
     switch (this.props.route) {
       case 'page':
         return <Page {...this.props} />;
       case 'progress':
-        return <Progress {...this.props} />;
+        return <Progress {...this.props} info={this.props.tutorial.info}/>;
       case 'start':
         return <Start {...this.props} />;
       case 'tutorials':

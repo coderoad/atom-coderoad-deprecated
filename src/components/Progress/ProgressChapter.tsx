@@ -18,7 +18,6 @@ export const ProgressChapter: React.StatelessComponent<{
           })
         }
         initiallyOpen={chapterIndex === 0}
-        leftIcon={progressIcon(chapter.completed)}
         primaryTogglesNestedList={
           chapterIndex === position.chapter && !chapter.completed
         }

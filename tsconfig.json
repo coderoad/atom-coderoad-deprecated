@@ -107,7 +107,7 @@
         "src/services/system.ts",
         "src/store/index.ts",
         "src/components/Alert/index.tsx",
-        "src/components/app.tsx",
+        "src/components/App.tsx",
         "src/components/AppMenu/index.tsx",
         "src/components/AppMenu/issuesLink.tsx",
         "src/components/AppMenu/menuIconLeft.tsx",

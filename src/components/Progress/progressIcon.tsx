@@ -9,8 +9,6 @@ export function progressIcon(completed: boolean, current?: boolean) {
     return <CheckBox />;
   } else if (current) {
     return <PlayCircleFilled color={pink500} />;
-  } else if (typeof current === 'undefined') {
-    return null;
   } else {
     return <CheckBoxOutlineBlank />;
   }

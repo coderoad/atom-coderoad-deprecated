@@ -14,7 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   - update tutorial button
 - remove 'lodash' dependency
 - attach hints to toolbar
-- style fix for Atom v1.8
+- style fixes for Atom v1.8
 
 ## [0.6.0] - 2016-04-01
 - fixes

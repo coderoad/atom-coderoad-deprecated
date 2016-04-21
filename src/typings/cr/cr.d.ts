@@ -35,7 +35,8 @@ interface State {
   hintPosition: number;
   editorActions: string[];
   alert: Alert;
-  tutorials: Tutorial[];
+  tutorial: Tutorial;
+  tutorials: Tutorial.Info[];
   testRun: boolean;
   checks: Checks;
 }

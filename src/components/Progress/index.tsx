@@ -10,15 +10,15 @@ const pageStyle = {
 };
 
 export const Progress: React.StatelessComponent<{
-  progress: CR.Progress, position: CR.Position
-}> = ({progress, position}) => (
+  progress: CR.Progress, position: CR.Position, info: Tutorial.Info
+}> = ({progress, position, info}) => (
   <Paper
     className='cr-progress'
     style={pageStyle}
     zDepth={1}
   >
     <List>
-      <Subheader>Progress</Subheader>
+      <Subheader>{info.title}</Subheader>
       {progress.chapters.map((chapter: CR.Chapter, chapterIndex: number) => (
         <ProgressChapter
           chapter={chapter}

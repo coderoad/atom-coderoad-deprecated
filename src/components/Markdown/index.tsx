@@ -26,9 +26,13 @@ function formatText(text: string): string {
 };
 
 export const Markdown: React.StatelessComponent<{
-  children?: string
-}> = ({children}) => (
-  <span className='cr-markdown' dangerouslySetInnerHTML={
-    {__html: formatText(children)}
-  }></span>
+  children?: string, style?: Object
+}> = ({style, children}) => (
+  <span
+    className='cr-markdown'
+    style={style ? style : null}
+    dangerouslySetInnerHTML={
+      {__html: formatText(children)}
+    }
+  />
 );

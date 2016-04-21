@@ -13,7 +13,6 @@ window.onresize = function() {
 })
 export class App extends React.Component<{store?: CR.State}, {}> {
   render(): React.ReactElement<{}> {
-    console.log(this.props.store)
     return (
       <section
         className='cr'
