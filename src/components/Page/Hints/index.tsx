@@ -26,23 +26,26 @@ export const Hints: React.StatelessComponent<{
       >
         <Markdown>{hint}</Markdown>
       </CardText>
-      <CardActions
-        expandable={true}
-        className='cr-task-hints-actions'
-      >
-        <HintButton
-          type='prev'
-          label='Previous'
-          hintPosition={hintPosition}
-          hintsLength={hints.length}
-        />
-        <HintButton
-          type='next'
-          label='Next'
-          hintPosition={hintPosition}
-          hintsLength={hints.length}
-        />
-      </CardActions>
+      {hints.length > 1
+        ? <CardActions
+          expandable={true}
+          className='cr-task-hints-actions'
+        >
+          <HintButton
+            type='prev'
+            label='Previous'
+            hintPosition={hintPosition}
+            hintsLength={hints.length}
+          />
+          <HintButton
+            type='next'
+            label='Next'
+            hintPosition={hintPosition}
+            hintsLength={hints.length}
+          />
+        </CardActions>
+        : null
+      }
     </Card>
     );
 };

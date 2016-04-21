@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Markdown} from '../../index';
 // import {TaskCheckbox} from './TaskCheckbox';
 import {ListItem} from 'material-ui/List';
-import {lightGreen200, orange500} from 'material-ui/styles/colors';
+import {lightGreen200, orange200} from 'material-ui/styles/colors';
 
 function getStatus(
   index: number, taskPosition: number, testRun: boolean
@@ -11,7 +11,7 @@ function getStatus(
     case index < taskPosition:
       return lightGreen200;
     case testRun:
-      return orange500;
+      return orange200;
     default:
       return 'inherit';
   }
