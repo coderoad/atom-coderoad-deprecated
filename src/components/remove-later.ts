@@ -1,2 +1,2 @@
-var injectTapEventPlugin = require('react-tap-event-plugin');
+let injectTapEventPlugin = require('react-tap-event-plugin');
 injectTapEventPlugin();

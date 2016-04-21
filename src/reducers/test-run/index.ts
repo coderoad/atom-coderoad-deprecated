@@ -7,7 +7,9 @@ const pageTimeout = 2000;
 
 let previous: number = new Date().getTime();
 
-export default function runTestReducer(testRun = false, action: CR.Action): boolean {
+export default function runTestReducer(
+  testRun = false, action: Action
+): boolean {
   switch (action.type) {
     case TEST_RUN:
       let current = new Date().getTime();

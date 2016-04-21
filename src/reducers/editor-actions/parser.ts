@@ -9,7 +9,7 @@ export class ParseParams {
   }
   trim(text: string): string {
     text = text.trim();
-    var firstBracket = text.charAt(0).match(/["']/);
+    let firstBracket = text.charAt(0).match(/["']/);
     if (firstBracket && !!text.charAt(text.length - 1).match(firstBracket[0])) {
       text = text.substring(1, text.length - 1); // trim quotes
     }

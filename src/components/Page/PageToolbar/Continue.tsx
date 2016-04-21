@@ -5,7 +5,7 @@ import {pageNext} from '../../../actions';
 
 @connect(null, (dispatch, state) => {
   return {
-    callNextPage: () => dispatch(pageNext())
+    callNextPage: () => dispatch(pageNext()),
   };
 })
 export class Continue extends React.Component<{

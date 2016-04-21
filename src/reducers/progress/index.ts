@@ -1,7 +1,8 @@
 import {
-  TUTORIAL_SET, COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
+  PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
 } from '../../actions/_types';
-import TutorialPackage from '../../services/tutorial-package';
+// import TutorialPackage from '../../services/tutorial-package';
+import {store} from '../../store';
 
 const _progress: CR.Progress = {
   completed: false,
@@ -12,16 +13,32 @@ const _progress: CR.Progress = {
     pages: [{
       title: '',
       description: '',
-      completed: false
+      completed: false,
     }]
   }]
 };
 
-export default function progressReducer(progress = _progress,
-  action: CR.Action): CR.Progress {
+export default function progressReducer(
+  progress = _progress, action: Action
+): CR.Progress {
   switch (action.type) {
-    case TUTORIAL_SET:
-      return TutorialPackage.getProgress();
+    case PROGRESS_LOAD:
+      const chapters = store.getState().tutorial.chapters;
+      return {
+        completed: false,
+        chapters: !chapters ? [] : chapters.map(({title, description, completed, pages}) => {
+          return {
+            title, description, completed: completed || false,
+            pages: !pages ? [] : pages.map((page: CR.Page) => {
+              return {
+                title: page.title,
+                description: page.description,
+                completed: page.completed || false,
+              };
+            })
+          };
+        })
+      };
     case COMPLETE_PAGE:
       const position = action.payload.position;
       progress.chapters[position.chapter].pages[position.page].completed = true;

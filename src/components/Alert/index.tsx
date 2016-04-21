@@ -6,16 +6,18 @@ import Snackbar from 'material-ui/Snackbar';
 const classNames = require('classnames');
 
 const defaultAlert = {
-  open: false,
   message: '',
+  open: false,
 };
 
 @connect(null, (dispatch) => {
   return {
-    alertToggle: () => dispatch(Action.alertToggle())
+    alertToggle: () => dispatch(Action.alertToggle()),
   };
 })
-export class Alert extends React.Component<{alert: CR.Alert, alertToggle?: any}, CR.Alert> {
+export class Alert extends React.Component<{
+  alert: CR.Alert, alertToggle?: any
+}, CR.Alert> {
   render() {
     const {alert, alertToggle} = this.props;
     const {action, open, message, duration} = alert;
@@ -25,7 +27,7 @@ export class Alert extends React.Component<{alert: CR.Alert, alertToggle?: any},
           open={open || false}
           message={message || ''}
           action={action}
-          autoHideDuration={duration || 1500}
+          autoHideDuration={duration || 2000}
           onActionTouchTap={alertToggle}
           onRequestClose={alertToggle}
       />

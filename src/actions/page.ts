@@ -1,20 +1,48 @@
 import {ROUTE_SET, PAGE_SET} from './_types';
+import {completePage, completeTutorial} from './index';
 import {store} from '../store';
-import TutorialPackage from '../services/tutorial-package';
 
-export function pageNext(): CR.Action {
-  const position: CR.Position = store.getState().position;
-  const nextPosition: CR.Position = TutorialPackage.getNextPosition(position);
-  return pageSet(nextPosition);
+const _position = {
+  chapter: 0,
+  page: 0,
+};
+
+export function pageNext(): Action {
+  let position = null;
+  const {page, chapter} = store.getState().position;
+  const {chapters} = store.getState().tutorial;
+  if (page < chapters[chapter].pages.length - 1) {
+    position = {
+      chapter,
+      page: page + 1,
+    };
+  } else if (chapter < chapters.length - 1) {
+    store.dispatch(completePage());
+    position = {
+      chapter: chapter + 1,
+      page: 0,
+    };
+  } else {
+    store.dispatch(completeTutorial());
+    position = {
+      chapter,
+      page
+    };
+  }
+  return { type: PAGE_SET, payload: { position } };
 }
 
-export function pageSet(selectedPosition: CR.Position = { chapter: 0, page: 0 }): CR.Action {
-  if (selectedPosition.completed) {
-    return { type: ROUTE_SET, payload: { route: 'final'} };
+export function pageSet(
+  position: CR.Position = _position
+  ): Action {
+  if (position.completed) {
+    return {
+      payload: { route: 'final' },
+      type: ROUTE_SET,
+    };
   }
-  const page: CR.Page = TutorialPackage.getPage(selectedPosition);
-  const tasks: CR.Task[] = TutorialPackage.getTasks(selectedPosition);
-  const taskTests: CR.TaskTest[] = [].concat.apply([], tasks.map((task) => task.tests || []));
-  const actions: string[][] = tasks.map((task: CR.Task) => task.actions || []);
-  return { type: PAGE_SET, payload: { page, tasks, position: selectedPosition, taskTests, actions } };
+  return {
+    payload: { position },
+    type: PAGE_SET,
+  };
 }

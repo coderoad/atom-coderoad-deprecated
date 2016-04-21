@@ -1,16 +1,15 @@
 export {alertToggle, alertReplay} from './alert';
 export {
-  completePage, completeChapter, completeTutorial
-} from './complete';
-export {globalsSet} from './globals';
+  progressLoad, completePage, completeChapter, completeTutorial
+} from './progress';
 export {hintShow, hintPositionSet} from './hint';
 export {pageSet, pageNext} from './page';
 export {positionSet} from './position';
 export {setRoute} from './route';
 export {setupVerify} from './setup';
 export {
-  testRun, testComplete, testResult
+  testRun, testComplete, testResult, testsLoad
 } from './test';
 export {
-  tutorialsFind, tutorialUpdate, tutorialSet
+  tutorialsFind, tutorialSet
 } from './tutorial';

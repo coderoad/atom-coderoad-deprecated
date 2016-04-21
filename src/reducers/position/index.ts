@@ -4,11 +4,12 @@ import {
 
 const _position: CR.Position = {
   chapter: 0,
-  page: 0
+  page: 0,
 };
 
-export default function positionReducer(position = _position,
-  action: CR.Action): CR.Position {
+export default function positionReducer(
+  position = _position, action: Action
+): CR.Position {
   switch (action.type) {
     case PAGE_SET:
     case POSITION_SET:

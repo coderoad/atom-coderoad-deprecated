@@ -6,7 +6,10 @@ import {issuesLink} from './issuesLink';
 import {menuIconRight} from './menuIconRight';
 import {menuRightRouteOptions} from './menuRightRouteOptions';
 
-const origin = {horizontal: 'right', vertical: 'top'};
+const origin = {
+  horizontal: 'right',
+  vertical: 'top',
+};
 
 export function menuRight(route: string) {
   return (

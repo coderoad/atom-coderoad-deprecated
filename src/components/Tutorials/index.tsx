@@ -6,8 +6,8 @@ import {LoadTutorials} from './LoadTutorials';
 import {UpdateTutorial} from './UpdateTutorial';
 import {SelectTutorial} from './SelectTutorial';
 
-export const Tutorials : React.StatelessComponent<{
-  tutorials: CR.Tutorial[]
+export const Tutorials: React.StatelessComponent<{
+  tutorials: Tutorial.Info[]
 }> = ({tutorials}) => (
   <div className='cr-tutorials'>
     <Table>
@@ -23,7 +23,9 @@ export const Tutorials : React.StatelessComponent<{
       </TableHeader>
 
       <TableBody displayRowCheckbox={false}>
-        {tutorials.map(function TutorialRow(tutorial: CR.Tutorial, index: number) {
+        {tutorials.map(function tutorialRow(
+          tutorial: Tutorial.Info, index: number
+        ) {
         return (
           <TableRow key={index}>
             <TableRowColumn>

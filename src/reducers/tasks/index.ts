@@ -1,18 +1,23 @@
 import {PAGE_SET} from '../../actions/_types';
+import {store} from '../../store';
+import {configTaskTests} from './config-task-tests';
 
 const _tasks: CR.Task[] = [{
-  description: '',
+  actions: [],
   completed: false,
-  tests: [],
+  description: '',
   hints: [],
-  actions: []
+  tests: [],
 }];
 
 export default function tasksReducer(tasks = _tasks,
-  action: CR.Action): CR.Task[] {
+  action: Action): CR.Task[] {
   switch (action.type) {
     case PAGE_SET:
-      return action.payload.tasks;
+      const {chapter, page} = action.payload.position;
+      return configTaskTests(
+        store.getState().tutorial.chapters[chapter].pages[page].tasks || []
+      );
     default:
       return tasks;
   }

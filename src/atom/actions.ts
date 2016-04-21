@@ -1,5 +1,5 @@
 export function closeAllPanels(): void {
-  var editors: AtomCore.IEditor[] = atom.workspace.getTextEditors();
+  let editors: AtomCore.IEditor[] = atom.workspace.getTextEditors();
   editors.forEach((editor: AtomCore.IEditor) => {
     // if (editor !== activeEditor) {
     editor.destroy();
@@ -34,7 +34,9 @@ export function openDevTools(): void {
 export function openTerminal(): boolean {
   if (atom.packages.isPackageActive('terminal-plus')) {
     if (!document.getElementsByClassName('xterm')[0]) {
-      atom.commands.dispatch(document.getElementsByTagName('atom-workspace')[0], 'terminal-plus:toggle');
+      atom.commands.dispatch(
+        document.getElementsByTagName('atom-workspace')[0], 'terminal-plus:toggle'
+      );
     }
     return true;
   }

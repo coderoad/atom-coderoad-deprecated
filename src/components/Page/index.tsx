@@ -1,18 +1,17 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import {Card} from 'material-ui/Card';
 import {PageContent} from './PageContent';
 import {Tasks} from './Tasks';
 import {Hints} from './Hints';
-import {PageCompleteMessage} from './PageComplete';
+import {PageComplete} from './PageComplete';
 import {PageToolbar} from './PageToolbar';
 import {ProgressBar} from './ProgressBar';
 
 const pageStyle = {
   height: '100%',
-  width: '100%'
+  width: '100%',
 };
 
 export class Page extends React.Component<{
@@ -30,19 +29,28 @@ render() {
   const {page, taskPosition, hintPosition, tasks, testRun} = this.props;
   const task = taskPosition <= tasks.length ? tasks[taskPosition] : null;
   const allComplete = taskPosition >= tasks.length;
-
-// <Paper style={pageStyle} zDepth={1} className='cr-page' ref='page'>
+  console.log('page', page);
   return (
     <section className='cr-page'>
       <PageContent {...this.props} />
 
-      <Tasks {...this.props} />
-      <div className='listEnd' ref='listEnd' />
+      <Tasks
+        {...this.props}
+        completed={page.completed}
+      />
 
-      <PageCompleteMessage page={page} />
-      <Hints task={task} hintPosition={hintPosition} />
+      <div className='listEnd' ref='listEnd' />
+      <PageComplete {...this.props} />
+      <Hints
+        task={task}
+        hintPosition={hintPosition}
+      />
       <PageToolbar {...this.props}>
-        <ProgressBar taskPosition={taskPosition} taskCount={tasks.length}/>
+        <ProgressBar
+          taskPosition={taskPosition}
+          taskCount={tasks.length}
+          completed={page.completed}
+        />
       </PageToolbar>
     </section>
     );

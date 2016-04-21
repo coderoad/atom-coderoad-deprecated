@@ -1,7 +1,7 @@
 import * as ReactDOM from 'react-dom';
 
 const rootName = 'crv';
-var root = null;
+let root = null;
 
 export function unmount() {
   ReactDOM.unmountComponentAtNode(root);

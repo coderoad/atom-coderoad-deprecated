@@ -1,5 +1,8 @@
-interface Window {
-  coderoad: CR.Coderoad;
+interface Action {
+  type: string;
+  payload?;
+  error?: boolean;
+  meta?;
 }
 
 interface PackageJson {
@@ -8,7 +11,7 @@ interface PackageJson {
   version: string;
   dependencies?: Object;
   devDependencies?: Object;
-  config: CR.Config;
+  config: Tutorial.Config;
   bugs?: {
     url: string;
   };

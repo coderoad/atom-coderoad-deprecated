@@ -7,21 +7,17 @@ const _alert: CR.Alert = {
   message: '',
   open: false,
   action: '',
-  duration: 0
 };
 
 let current: CR.Alert = _alert;
 
-export default function alertReducer(alert = _alert, action: CR.Action): CR.Alert {
+export default function alertReducer(
+  alert = _alert, action: Action
+): CR.Alert {
   let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
   switch (action.type) {
     case ALERT_REPLAY:
-      return {
-        open: true,
-        message: current.message,
-        action: current.action,
-        duration: 2000
-      };
+      return Object.assign({}, current, {open: true});
     case ALERT_TOGGLE:
       return action.payload.alert || _alert;
     case TEST_RESULT:
@@ -29,51 +25,54 @@ export default function alertReducer(alert = _alert, action: CR.Action): CR.Aler
       if (result.pass && result.change > 0) {
         // Pass
         statusBarAlert.style.color = '#73C990';
-        return {
+        current = {
           message: result.msg,
           open: true,
           action: 'pass',
-          duration: result.duration || 1500
+          duration: result.duration || 1500,
         };
+        return current;
       } else if (result.pass === false && result.change < 1) {
         // Fail
         statusBarAlert.style.color = '#FF4081';
-        return {
+        current = {
           message: result.msg,
           open: true,
           action: 'fail',
-          duration: result.duration || 2500
+          duration: result.duration || 2500,
         };
+        return current;
       }
       // Alert
       statusBarAlert.style.color = '#9DA5B4';
-      return {
+      current = {
         message: result.msg,
         open: true,
         action: 'note',
-        duration: result.duration || 2500
+        duration: result.duration || 2500,
       };
+      return current;
     case COMPLETE_PAGE:
-      return {
+      current = {
         message: `Page ${action.payload.position.page + 1} Complete`,
         open: true,
         action: 'pass',
-        duration: 2000
       };
+      return current;
     case COMPLETE_CHAPTER:
-      return {
+      current = {
         message: `Chapter ${action.payload.chapter + 1} Complete`,
         open: true,
         action: 'pass',
-        duration: 2000
       };
+      return current;
     case COMPLETE_TUTORIAL:
-      return {
+      current = {
         message: 'Tutorial Complete',
         open: true,
         action: 'pass',
-        duration: 2000
       };
+      return current;
     default:
       return alert;
   }

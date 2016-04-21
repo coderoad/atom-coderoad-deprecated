@@ -8,16 +8,25 @@ export function runTaskTests(setup?: boolean): boolean {
   const tests: string = store.getState().taskTests;
 
   if (tests && tests.length) {
-    let config = window.coderoad;
-    config.taskPosition = store.getState().taskPosition;
-    let output = parseLoaders(tests, window.coderoad.suffix);
+    const dir = store.getState().dir;
+    const tutorialConfig: Tutorial.Config = store.getState().tutorial.config;
+    const output = parseLoaders(tests, tutorialConfig.testSuffix);
 
     // write temporary test file in tutorial directory
-    let target = join(window.coderoad.tutorialDir || window.coderoad.dir, `_tmp.${window.coderoad.suffix}`);
+    let target = join(
+      tutorialConfig.dir || dir,
+      `_tmp.${tutorialConfig.testSuffix}`
+    );
     writeFileSync(target, output, 'utf8');
 
+    const config: Test.Config = {
+      dir,
+      tutorialDir: tutorialConfig.dir,
+      taskPosition: store.getState().taskPosition
+    };
+
     // call test runner
-    window.coderoad.runner(target, config, handleResult);
+    tutorialConfig.run(target, config, handleResult);
   }
   return true;
 }

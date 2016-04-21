@@ -1,9 +1,11 @@
 import {ROUTE_SET} from '../../actions/_types';
 import {store} from '../../store';
 
-const _route: string = 'start';
+const _route = 'start';
 
-export default function routeReducer(route = _route, action: CR.Action): string {
+export default function routeReducer(
+  route = _route, action: Action
+): string {
   switch (action.type) {
     case ROUTE_SET:
       const next = action.payload.route;

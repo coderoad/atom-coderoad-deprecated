@@ -5,7 +5,7 @@ import {tutorialsFind} from './tutorial';
 let previous = null;
 
 /* Navigation */
-export function setRoute(route: string): CR.Action|void {
+export function setRoute(route: string): Action {
   if (route && route !== previous) {
 
     // preloading for routes
@@ -15,6 +15,9 @@ export function setRoute(route: string): CR.Action|void {
     }
 
     previous = route;
-    return { type: ROUTE_SET, payload: { route } };
+    return {
+      payload: { route },
+      type: ROUTE_SET,
+    };
   }
 }

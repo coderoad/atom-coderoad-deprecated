@@ -5,7 +5,7 @@ import {hintPositionSet} from '../../../actions';
 
 @connect(null, (dispatch, state) => {
   return {
-    hintSet: (position: number) => dispatch(hintPositionSet(position))
+    hintSet: (position: number) => dispatch(hintPositionSet(position)),
   };
 })
 export class HintButton extends React.Component<{

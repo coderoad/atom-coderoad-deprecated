@@ -56,23 +56,25 @@ export function set(text: string) {
 
 export function insert(text: string, options = {}) {
   options = Object.assign(options, {
-    autoIndent: true
+    autoIndent: true,
   });
-  return getEditor().then((editor: AtomCore.IEditor) => {
-    editor.moveToBottom();
-    editor.insertText(text, options);
-    editor.insertNewline();
-    editor.moveToBottom();
-    editor.save();
-    setCursorPosition(editor);
-  });
+  return (
+    getEditor().then(function insertWithEditor(editor: AtomCore.IEditor) {
+      editor.moveToBottom();
+      editor.insertText(text, options);
+      editor.insertNewline();
+      editor.moveToBottom();
+      editor.save();
+      setCursorPosition(editor);
+    }));
 }
 
+const cursor: RegExp = /::\s?>/g;
 function setCursorPosition(editor: AtomCore.IEditor): void {
-  editor.scan(/::>/g, function(match) {
-    let start = match.range.start;
-    match.replace('');
-    editor.setCursorScreenPosition(start, { autoscroll: true });
+  editor.scan(cursor, function(scanned) {
+    editor.setCursorScreenPosition(scanned.range.start);
+    scanned.replace('');
+    scanned.stop();
   });
 }
 
