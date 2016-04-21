@@ -5,6 +5,7 @@ import {cyan500, grey100} from 'material-ui/styles/colors';
 
 const styles = {
   backgroundColor: cyan500,
+  zIndex: '0',
   position: 'fixed',
   bottom: '20px',
   padding: '10px 15px 30px',
@@ -23,12 +24,12 @@ export const PageComplete: React.StatelessComponent<{
 }> = ({page}) => (
   <div className='cr-page-onComplete'>
     {page.completed && page.onPageComplete
-        ? <Card style={styles}>
-            <CardText>
-                <Markdown style={textStyles}>{page.onPageComplete}</Markdown>
-            </CardText>
-          </Card>
-        : null
+      ? <Card style={styles}>
+          <CardText>
+            <Markdown style={textStyles}>{page.onPageComplete}</Markdown>
+          </CardText>
+        </Card>
+      : null
     }
   </div>
 );

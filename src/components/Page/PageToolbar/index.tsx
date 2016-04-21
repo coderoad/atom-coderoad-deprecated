@@ -5,7 +5,7 @@ import {Save} from './Save';
 import {Continue} from './Continue';
 
 const styles = {
-    zIndex: '10000',
+    zIndex: '1000',
     position: 'fixed',
     bottom: '0',
     right: '0',
