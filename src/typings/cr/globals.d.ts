@@ -5,10 +5,6 @@ interface Action {
   meta?;
 }
 
-interface Window {
-  coderoad: CR.Coderoad;
-}
-
 interface PackageJson {
   name: string;
   main: string;

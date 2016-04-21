@@ -2,8 +2,9 @@ import {readFileSync} from 'fs';
 import {TESTS_LOAD} from '../../actions/_types';
 import {store} from '../../store';
 
-export default function taskTestsReducer(taskTests = '',
-  action: Action): string {
+export default function taskTestsReducer(
+  taskTests = '', action: Action
+): string {
   switch (action.type) {
     case TESTS_LOAD:
       const tasks = store.getState().tasks;

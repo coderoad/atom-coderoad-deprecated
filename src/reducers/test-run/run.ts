@@ -7,7 +7,6 @@ import parseLoaders from './parse-loaders';
 export function runTaskTests(setup?: boolean): boolean {
   const tests: string = store.getState().taskTests;
 
-
   if (tests && tests.length) {
     const dir = store.getState().dir;
     const tutorialConfig: Tutorial.Config = store.getState().tutorial.config;
@@ -20,8 +19,14 @@ export function runTaskTests(setup?: boolean): boolean {
     );
     writeFileSync(target, output, 'utf8');
 
+    const config: Test.Config = {
+      dir,
+      tutorialDir: tutorialConfig.dir,
+      taskPosition: store.getState().taskPosition
+    };
+
     // call test runner
-    tutorialConfig.run(target, tutorialConfig, handleResult);
+    tutorialConfig.run(target, config, handleResult);
   }
   return true;
 }

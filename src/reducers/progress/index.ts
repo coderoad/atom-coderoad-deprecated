@@ -18,8 +18,9 @@ const _progress: CR.Progress = {
   }]
 };
 
-export default function progressReducer(progress = _progress,
-  action: Action): CR.Progress {
+export default function progressReducer(
+  progress = _progress, action: Action
+): CR.Progress {
   switch (action.type) {
     case PROGRESS_LOAD:
       const chapters = store.getState().tutorial.chapters;

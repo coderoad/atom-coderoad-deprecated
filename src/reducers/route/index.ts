@@ -3,7 +3,9 @@ import {store} from '../../store';
 
 const _route = 'start';
 
-export default function routeReducer(route = _route, action: Action): string {
+export default function routeReducer(
+  route = _route, action: Action
+): string {
   switch (action.type) {
     case ROUTE_SET:
       const next = action.payload.route;

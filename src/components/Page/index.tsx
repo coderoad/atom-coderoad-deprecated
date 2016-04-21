@@ -6,7 +6,7 @@ import {Card} from 'material-ui/Card';
 import {PageContent} from './PageContent';
 import {Tasks} from './Tasks';
 import {Hints} from './Hints';
-import {PageCompleteMessage} from './PageComplete';
+import {PageComplete} from './PageComplete';
 import {PageToolbar} from './PageToolbar';
 import {ProgressBar} from './ProgressBar';
 
@@ -39,7 +39,7 @@ render() {
       <Tasks {...this.props} />
       <div className='listEnd' ref='listEnd' />
 
-      <PageCompleteMessage {...this.props} />
+      <PageComplete {...this.props} />
       <Hints task={task} hintPosition={hintPosition} />
       <PageToolbar {...this.props}>
         <ProgressBar taskPosition={taskPosition} taskCount={tasks.length}/>

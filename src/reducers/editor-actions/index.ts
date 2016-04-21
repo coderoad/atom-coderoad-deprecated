@@ -15,12 +15,13 @@ let currentTaskPosition = 0;
 /**
  * Test is running, return true, else false
  */
-export default function editorActionsReducer(editorActions = [], action: Action): string[][] {
+export default function editorActionsReducer(
+  editorActions = [], action: Action
+): string[][] {
   let actions: string[][] = null;
   switch (action.type) {
     case TESTS_LOAD:
       actions = store.getState().tasks.map(task => task.actions || []);
-      console.log('LOAD', actions);
       currentTaskPosition = 0;
       handleEditorActions(actions.shift());
       return actions;

@@ -27,7 +27,7 @@ export class Alert extends React.Component<{
           open={open || false}
           message={message || ''}
           action={action}
-          autoHideDuration={duration || 1500}
+          autoHideDuration={duration || 2000}
           onActionTouchTap={alertToggle}
           onRequestClose={alertToggle}
       />

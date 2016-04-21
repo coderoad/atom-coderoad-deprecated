@@ -11,8 +11,9 @@ const _tutorial = {
   config: null,
 };
 
-export default function tutorialReducer(tutorial = _tutorial,
-  action: Action): CR.Tutorial {
+export default function tutorialReducer(
+  tutorial = _tutorial, action: Action
+): CR.Tutorial {
   switch (action.type) {
     case TUTORIAL_SET:
       const name: string = action.payload.name;

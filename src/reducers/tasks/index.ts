@@ -11,7 +11,7 @@ const _tasks: CR.Task[] = [{
 }];
 
 export default function tasksReducer(tasks = _tasks,
-  action: CR.Action): CR.Task[] {
+  action: Action): CR.Task[] {
   switch (action.type) {
     case PAGE_SET:
       const {chapter, page} = action.payload.position;

@@ -14,7 +14,9 @@ const _checks = {
   }
 };
 
-export default function checksReducer(checks = _checks, action: Action): CR.Checks {
+export default function checksReducer(
+  checks = _checks, action: Action
+): CR.Checks {
   switch (action.type) {
     case SETUP_VERIFY:
       return setupVerify();

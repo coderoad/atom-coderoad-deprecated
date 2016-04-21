@@ -7,4 +7,10 @@ declare namespace Test {
     change: number;
     completed: boolean;
   }
+
+  interface Config {
+    dir: string;
+    tutorialDir: string;
+    taskPosition: number;
+  }
 }

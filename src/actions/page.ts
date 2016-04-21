@@ -1,4 +1,5 @@
-import {ROUTE_SET, PAGE_SET, PAGE_NEXT} from './_types';
+import {ROUTE_SET, PAGE_SET} from './_types';
+import {completePage, completeTutorial} from './index';
 import {store} from '../store';
 
 const _position = {
@@ -7,18 +8,36 @@ const _position = {
 };
 
 export function pageNext(): Action {
-  const position: CR.Position = store.getState().position;
-  return { type: PAGE_NEXT, payload: { position }};
+  let position = null;
+  const {page, chapter} = store.getState().position;
+  const {chapters} = store.getState().tutorial;
+  if (page < chapters[chapter].pages.length - 1) {
+    position = {
+      chapter,
+      page: page + 1,
+    };
+  } else if (chapter < chapters.length - 1) {
+    store.dispatch(completePage());
+    position = {
+      chapter: chapter + 1,
+      page: 0,
+    };
+  } else {
+    store.dispatch(completeTutorial());
+    position = {
+      chapter,
+      page
+    };
+  }
+  return { type: PAGE_SET, payload: { position } };
 }
-
-
 
 export function pageSet(
   position: CR.Position = _position
-): Action {
+  ): Action {
   if (position.completed) {
     return {
-      payload: { route: 'final'},
+      payload: { route: 'final' },
       type: ROUTE_SET,
     };
   }
@@ -26,9 +45,4 @@ export function pageSet(
     payload: { position },
     type: PAGE_SET,
   };
-  // const page: CR.Page = TutorialPackage.getPage(selectedPosition);
-  // const tasks: CR.Task[] = TutorialPackage.getTasks(selectedPosition);
-  // const taskTests: CR.TaskTest[] = [].concat.apply([], tasks.map((task) => task.tests || []));
-  // const actions: string[][] = tasks.map((task: CR.Task) => task.actions || []);
-  // return { type: PAGE_SET, payload: { page, tasks, position: selectedPosition, taskTests, actions } };
 }
