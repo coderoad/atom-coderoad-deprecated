@@ -1,7 +1,6 @@
-'use strict';
 import * as React from 'react';
 import {connect} from 'react-redux';
-import * as Action from '../../actions';
+import {alertToggle} from '../../actions';
 import Snackbar from 'material-ui/Snackbar';
 const classNames = require('classnames');
 
@@ -12,12 +11,12 @@ const defaultAlert = {
 
 @connect(null, (dispatch) => {
   return {
-    alertToggle: () => dispatch(Action.alertToggle()),
+    alertToggle: () => dispatch(alertToggle()),
   };
 })
 export class Alert extends React.Component<{
   alert: CR.Alert, alertToggle?: any
-}, CR.Alert> {
+}, {}> {
   render() {
     const {alert, alertToggle} = this.props;
     const {action, open, message, duration} = alert;

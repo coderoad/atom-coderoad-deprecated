@@ -5,7 +5,7 @@ import {progressIcon} from '../progressIcon';
 import {Markdown} from '../../index';
 
 const styles = {
-  marginBottom: '0'
+  marginBottom: '0px'
 };
 
 const descriptionStyles = {
@@ -18,7 +18,7 @@ export const ProgressChapter: React.StatelessComponent<{
     const isActive = chapterIndex === position.chapter;
     return (
       <ListItem
-        key={'c' + chapterIndex}
+        key={chapterIndex}
         className={isActive ? 'isActive' : null}
         style={styles}
         initiallyOpen={chapterIndex === 0}
@@ -28,7 +28,7 @@ export const ProgressChapter: React.StatelessComponent<{
         nestedItems={
           chapter.pages.map((page: CR.Page, pageIndex: number) => (
               <ProgressPage
-                key={chapterIndex + '_' + pageIndex}
+                key={pageIndex}
                 pageIndex={pageIndex}
                 page={page}
                 chapterIndex={chapterIndex}

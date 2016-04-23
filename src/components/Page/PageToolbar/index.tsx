@@ -7,8 +7,8 @@ import {Continue} from './Continue';
 const styles = {
     zIndex: '1000',
     position: 'fixed',
-    bottom: '0',
-    right: '0',
+    bottom: '0px',
+    right: '0px',
     height: '60px',
     width: '400px',
 };

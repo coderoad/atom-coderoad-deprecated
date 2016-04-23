@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Markdown} from '../../index';
-import {TaskCheckbox} from './TaskCheckbox';
+import {taskCheckbox} from './taskCheckbox';
 import {ListItem} from 'material-ui/List';
 import {lightGreen200, orange200} from 'material-ui/styles/colors';
 
@@ -39,7 +39,7 @@ export const Task: React.StatelessComponent<{
       key={index}
       style={Object.assign({}, styles, {backgroundColor})}
     >
-      {testRun ? <TaskCheckbox /> : null}
+      {taskCheckbox(testRun)}
       <span style={indexStyles}>{index + 1}.</span>
       <div style={descriptionStyles}>
         <Markdown >{task.description}</Markdown>

@@ -6,14 +6,12 @@ const imagePath = resolve(
   __dirname, '../../../../', 'styles', 'coderoad.jpg'
 );
 
-
-
 const styles = {
   backgroundImage: `url("${imagePath}")`,
   backgroundRepeat: 'no-repeat',
   height: '350px',
   textAlign: 'center',
-  marginTop: '0',
+  marginTop: '0px',
   textShadow: '1px 1px 1px #000',
 };
 

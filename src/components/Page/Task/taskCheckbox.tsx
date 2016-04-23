@@ -9,8 +9,11 @@ const styles = {
   top: '15px'
 };
 
-export const TaskCheckbox: React.StatelessComponent<{}> = () => (
-  <span style={styles}>
-    <IndeterminateCheckBox color={orange500} />
-  </span>
-);
+export function taskCheckbox(testRun) {
+  if (!testRun) { return null; }
+  return (
+    <span style={styles}>
+      <IndeterminateCheckBox color={orange500} />
+    </span>
+  );
+};

@@ -8,7 +8,7 @@ import {grey400} from 'material-ui/styles/colors';
 
 const styles = {
   paddingLeft: '15px',
-  marginTop: '0',
+  marginTop: '0px',
 };
 
 @connect(null, (dispatch) => {
@@ -37,6 +37,7 @@ export class ProgressPage extends React.Component<{
     const canActivate = this.canActivate(isActive);
     return (
       <ListItem
+        key={pageIndex}
         style={Object.assign({}, styles, !canActivate ? {color: grey400} : {})}
         primaryText={`${pageIndex + 1}. ${page.title}`}
         secondaryText={canActivate ? page.description : ''}
