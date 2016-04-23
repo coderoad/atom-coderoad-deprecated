@@ -8,9 +8,7 @@ import {PageToolbar} from './PageToolbar';
 import {ProgressBar} from './ProgressBar';
 
 const styles = {
-  height: '100%',
   width: '100%',
-  position: 'relative',
   overflowY: 'scroll',
 };
 

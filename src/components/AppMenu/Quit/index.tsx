@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {togglePanel} from '../../mount';
+import {Root} from '../../root';
 import {onDeactivate} from '../../../atom/subscriptions';
 import MenuItem from 'material-ui/MenuItem';
 
@@ -12,7 +12,7 @@ const styles = {
 @connect(null, (dispatch) => {
   return {
     quit: () => {
-      togglePanel();
+      Root.toggle();
       onDeactivate();
     }
   };

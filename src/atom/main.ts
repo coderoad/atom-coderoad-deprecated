@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {render} from '../components/render';
-import {initRoot, togglePanel} from '../components/mount';
+import {Root} from '../components/root';
 import loadPolyfills from '../services/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 
@@ -13,7 +13,7 @@ class Main {
   constructor() {
     loadPolyfills(); // remove with later version of Chrome
     store.dispatch(setupVerify());
-    this.root = initRoot();
+    this.root = Root.init();
   }
   activate(): void {
     // create atom panel
@@ -38,7 +38,7 @@ class Main {
     onDeactivate();
   }
   toggle(): void {
-    togglePanel();
+    Root.toggle();
   }
 };
 export = new Main();

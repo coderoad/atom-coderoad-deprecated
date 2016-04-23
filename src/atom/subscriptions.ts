@@ -1,7 +1,7 @@
 const CompositeDisposable = require('atom').CompositeDisposable;
 import {store} from '../store';
 import {testRun, alertReplay} from '../actions';
-import {unmount, togglePanel} from '../components/mount';
+import {Root} from '../components/root';
 
 let subscriptions = null;
 
@@ -12,7 +12,7 @@ export function onActivate(): AtomCore.Disposable {
    */
   subscriptions.add(
     atom.commands.add('atom-workspace', {
-      'cr-viewer:toggle': togglePanel,
+      'cr-viewer:toggle': Root.toggle,
     }));
 
   // run tests on save
@@ -42,7 +42,7 @@ export function onDeactivate(): void {
   // unmount React
   // TODO: animate close first
   window.onresize = null;
-  unmount();
+  Root.unmount();
   // cleanup subscriptions
   subscriptions.dispose();
 }
