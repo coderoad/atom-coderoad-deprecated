@@ -4,6 +4,11 @@ import {togglePanel} from '../../mount';
 import {onDeactivate} from '../../../atom/subscriptions';
 import MenuItem from 'material-ui/MenuItem';
 
+const styles = {
+  textAlign: 'center',
+  padding: '10px 5px',
+};
+
 @connect(null, (dispatch) => {
   return {
     quit: () => {
@@ -18,6 +23,7 @@ export class Quit extends React.Component<{
   render() {
     return (
       <MenuItem
+        style={styles}
         key='quit'
         onClick={this.props.quit}
         >
