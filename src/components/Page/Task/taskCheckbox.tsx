@@ -9,8 +9,8 @@ const styles = {
   top: '15px'
 };
 
-export function taskCheckbox(testRun) {
-  if (!testRun) { return null; }
+export function taskCheckbox(currentTask: number, testRun: boolean) {
+  if (!currentTask || !testRun) { return null; }
   return (
     <span style={styles}>
       <IndeterminateCheckBox color={orange500} />

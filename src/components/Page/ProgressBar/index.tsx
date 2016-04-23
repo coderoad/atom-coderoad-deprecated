@@ -6,9 +6,9 @@ const style = {
 };
 
 export const ProgressBar: React.StatelessComponent<{
-  taskPosition: number, taskCount: number, completed: boolean
-}> = ({taskPosition, taskCount, completed}) => {
-  const progress: number = (taskPosition / taskCount) * 100;
+  taskPosition: number, taskLength: number, completed: boolean
+}> = ({taskPosition, taskLength, completed}) => {
+  const progress: number = (taskPosition / taskLength) * 100;
   if (completed) {
     return null;
   }

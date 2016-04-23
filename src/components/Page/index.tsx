@@ -1,11 +1,9 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import Divider from 'material-ui/Divider';
 import {Card} from 'material-ui/Card';
 import {PageContent} from './PageContent';
 import {Tasks} from './Tasks';
 import {Hints} from './Hints';
-import {PageComplete} from './PageComplete';
 import {PageToolbar} from './PageToolbar';
 import {ProgressBar} from './ProgressBar';
 
@@ -16,45 +14,38 @@ const styles = {
   overflowY: 'scroll',
 };
 
-export class Page extends React.Component<{
+export const Page: React.StatelessComponent<{
   page: CR.Page, tasks: CR.Task[], taskPosition: number,
   hintPosition: number, testRun: boolean
-}, {hintPos: number, taskPos: number}> {
-refs: {
-  [key: string]: (Element);
-  listEnd: Element;
-};
-componentDidUpdate() {
-  ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
-}
-render() {
-  const {page, taskPosition, hintPosition, tasks, testRun} = this.props;
+}> = ({page, taskPosition, hintPosition, tasks, testRun}) => {
   const task = taskPosition <= tasks.length ? tasks[taskPosition] : null;
-  const allComplete = taskPosition >= tasks.length;
+  const completed = page.completed;
   return (
     <section style={styles}>
-      <PageContent {...this.props} />
+      <PageContent page={page} />
 
       <Tasks
-        {...this.props}
-        completed={page.completed}
+        tasks={tasks}
+        taskPosition={taskPosition}
+        testRun={testRun}
+        completed={completed}
+        page={page}
       />
 
-      <div ref='listEnd' style={{marginBottom: '110px'}}/>
-
-      <PageToolbar {...this.props}>
-        <PageComplete {...this.props} />
+      <PageToolbar
+        tasks={tasks}
+        taskPosition={taskPosition}
+      >
         <Hints
           task={task}
           hintPosition={hintPosition}
           />
         <ProgressBar
+          taskLength={tasks.length}
           taskPosition={taskPosition}
-          taskCount={tasks.length}
-          completed={page.completed}
+          completed={completed}
         />
       </PageToolbar>
     </section>
-    );
-  }
-}
+  );
+};
