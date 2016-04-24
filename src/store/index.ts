@@ -1,24 +1,14 @@
-const env = 'dev';
+import {compose} from 'redux';
+import {mergePersistedState} from 'redux-localstorage';
+import rootReducer from '../reducers';
+import createStoreWithMiddleware from './middleware';
 
-import {createStore, compose, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import * as PouchDB from 'pouchdb';
-import {persistentStore} from 'redux-pouchdb';
-import reducer from '../reducers';
+const initialState = {};
 
-const db = new PouchDB('coderoad');
+const reducer = compose(
+  mergePersistedState()
+)(rootReducer);
 
-const middlewares = [thunk];
-
-if (env && env === 'dev') {
-  const createLogger = require('redux-logger');
-  const logger = createLogger();
-  middlewares.push(logger);
-}
-
-const createStoreWithMiddleware = compose(
-  applyMiddleware(...middlewares),
-  persistentStore(db)
-)(createStore);
-
-export let store: Redux.Store = createStoreWithMiddleware(reducer, {});
+export let store: Redux.Store = createStoreWithMiddleware(
+  reducer, initialState
+);
