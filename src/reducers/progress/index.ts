@@ -1,3 +1,4 @@
+import {persistentReducer} from 'redux-pouchdb';
 import {
   PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
 } from '../../actions/_types';
@@ -18,7 +19,7 @@ const _progress: CR.Progress = {
   }]
 };
 
-export default function progressReducer(
+function progressReducer(
   progress = _progress, action: Action
 ): CR.Progress {
   switch (action.type) {
@@ -53,3 +54,4 @@ export default function progressReducer(
       return progress;
   }
 }
+export default persistentReducer(progressReducer);
