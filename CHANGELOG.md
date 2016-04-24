@@ -2,19 +2,25 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.7.0] - in progress
-- follow AirBnB React style guide
-- update to 'react@15'
-- move to 'material-ui@0.15'
+## [0.7.0] - 2016-04-23
+
+#### Features
 - much improved setup ui & checks
   - check Node, NPM versions
   - Stepper UI
-- loading tutorials
-  - check for new versions
-  - update tutorial button
-- remove 'lodash' dependency
+  - loading tutorials
 - attach hints to toolbar
 - style fixes for Atom v1.8
+
+#### Code Base
+- follow AirBnB Javascript & React style guides
+- update to 'react@15'
+- move to 'material-ui@0.15'
+- remove 'lodash' dependency
+- remove all globals in favor of reducers
+
+#### Small Breaking Changes
+- 'project' renamed 'info'
 
 ## [0.6.0] - 2016-04-01
 - fixes
