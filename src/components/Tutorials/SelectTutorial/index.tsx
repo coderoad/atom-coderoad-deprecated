@@ -25,7 +25,7 @@ function displayName(name: string): string {
   };
 })
 export class SelectTutorial extends React.Component<{
-  tutorial: CR.Tutorial, selectTutorial?: any
+  tutorial: Tutorial.Info, selectTutorial?: any
 }, {}> {
   render() {
     const {tutorial, selectTutorial} = this.props;

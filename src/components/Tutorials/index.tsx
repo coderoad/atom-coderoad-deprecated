@@ -8,6 +8,7 @@ import {SelectTutorial} from './SelectTutorial';
 
 const styles = {
   padding: '10px',
+  textAlign: 'center',
 };
 
 export const Tutorials: React.StatelessComponent<{

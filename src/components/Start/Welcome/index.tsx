@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {resolve} from 'path';
+import {join} from 'path';
 import {RouteButton} from '../../index';
+import {store} from '../../../store';
 
-const imagePath = resolve(
-  __dirname, '../../../../', 'styles', 'coderoad.jpg'
+const imagePath = join(
+  __dirname, '../../../../', 'img', 'coderoad.jpg'
 );
 
 const styles = {

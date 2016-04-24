@@ -14,7 +14,6 @@ export class LoadTutorials extends React.Component<{
   render() {
     return (
       <FlatButton
-        style={{margin: '0 90px'}}
         label='Check for Tutorials'
         secondary={true}
         onTouchTap={this.props.tutorialsFind}
