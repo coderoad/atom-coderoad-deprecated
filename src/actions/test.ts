@@ -1,7 +1,7 @@
 import {
   TEST_RUN, TEST_RESULT, TEST_COMPLETE, TESTS_LOAD
 } from './_types';
-import {store} from '../store';
+import store from '../store';
 
 export function testRun(): Action {
   return { type: TEST_RUN };

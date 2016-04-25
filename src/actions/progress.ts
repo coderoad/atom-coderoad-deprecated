@@ -1,7 +1,7 @@
 import {
   PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
 } from './_types';
-import {store} from '../store';
+import store from '../store';
 
 export function progressLoad(): Action {
   return { type: PROGRESS_LOAD };

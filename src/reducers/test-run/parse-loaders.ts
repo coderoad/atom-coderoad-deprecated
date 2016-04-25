@@ -1,6 +1,6 @@
 import {normalize, join} from 'path';
 import {readFileSync} from 'fs';
-import {store} from '../../store';
+import store from '../../store';
 
 // other languages may handle comments differently
 const comments = {

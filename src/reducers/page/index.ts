@@ -1,5 +1,5 @@
 import {PAGE_SET, COMPLETE_PAGE} from '../../actions/_types';
-import {store} from '../../store';
+import store from '../../store';
 
 const _page: CR.Page = {
   title: '',

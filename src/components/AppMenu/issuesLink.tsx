@@ -1,6 +1,6 @@
 import * as React from 'react';
 import MenuItem from 'material-ui/MenuItem';
-import {store} from '../../store';
+import store from '../../store';
 
 export function issuesLink() {
   const tutorial = store.getState().tutorial;

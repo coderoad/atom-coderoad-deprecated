@@ -2,7 +2,7 @@ import {
   PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
 } from '../../actions/_types';
 // import TutorialPackage from '../../services/tutorial-package';
-import {store} from '../../store';
+import store from '../../store';
 
 const _progress: CR.Progress = {
   completed: false,

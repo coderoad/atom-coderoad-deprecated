@@ -1,5 +1,5 @@
 import commandLine from '../../services/command-line';
-import {store} from '../../store';
+import store from '../../store';
 import {tutorialsFind} from '../../actions';
 
 export function tutorialUpdate(name: string): void {

@@ -1,5 +1,5 @@
 import {npmMinVersion, nodeMinVersion} from './check-system';
-import {store} from '../../store';
+import store from '../../store';
 import {searchForTutorials} from '../tutorials/check-tutorials';
 
 const result = x => x;

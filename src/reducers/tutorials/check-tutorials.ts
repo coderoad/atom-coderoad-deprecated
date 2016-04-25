@@ -2,7 +2,7 @@ import {join} from 'path';
 import {readFileSync} from 'fs';
 import {fileExists} from '../../services/exists';
 import {isTutorial, tutorialError} from './is-tutorial';
-import {store} from '../../store';
+import store from '../../store';
 // import {canUpdateTutorial} from './update-tutorial';
 
 export function searchForTutorials(deps: Object): Tutorial.Info[] {

@@ -1,6 +1,6 @@
 import {readFileSync} from 'fs';
 import {TESTS_LOAD} from '../../actions/_types';
-import {store} from '../../store';
+import store from '../../store';
 
 export default function taskTestsReducer(
   taskTests = '', action: Action

@@ -1,5 +1,5 @@
 import {PAGE_SET} from '../../actions/_types';
-import {store} from '../../store';
+import store from '../../store';
 import {configTaskTests} from './config-task-tests';
 
 const _tasks: CR.Task[] = [{

@@ -9,6 +9,7 @@ const reducer = compose(
   mergePersistedState()
 )(rootReducer);
 
-export let store: Redux.Store = createStoreWithMiddleware(
+const store: Redux.Store = createStoreWithMiddleware(
   reducer, initialState
 );
+export default store;

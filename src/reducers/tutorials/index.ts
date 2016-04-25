@@ -1,6 +1,6 @@
 import {TUTORIAL_UPDATE, TUTORIALS_FIND} from '../../actions/_types';
 import {tutorialUpdate} from './update-tutorial';
-import {store} from '../../store';
+import store from '../../store';
 import {searchForTutorials} from './check-tutorials';
 
 export default function tutorialsReducer(

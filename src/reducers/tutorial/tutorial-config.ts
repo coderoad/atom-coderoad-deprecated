@@ -1,7 +1,7 @@
 import {join} from 'path';
 import {fileExists} from '../../services/exists';
 import {isWindows} from '../../services/system';
-import {store} from '../../store';
+import store from '../../store';
 
 export function tutorialConfig(tutorialPj: PackageJson): Tutorial.Config {
   const {config, name} = tutorialPj;

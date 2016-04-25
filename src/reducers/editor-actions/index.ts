@@ -1,6 +1,6 @@
 import {TESTS_LOAD, TEST_RESULT} from '../../actions/_types';
 import {editorActions} from './actions';
-import {store} from '../../store';
+import store from '../../store';
 
 // TODO: optimize editorActions to string[]
 

@@ -1,7 +1,7 @@
 import {TUTORIAL_SET} from '../../actions/_types';
 import {join} from 'path';
 import {tutorialConfig} from './tutorial-config';
-import {store} from '../../store';
+import store from '../../store';
 
 const _tutorial = {
   name: null,

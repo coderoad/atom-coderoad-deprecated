@@ -1,5 +1,5 @@
 import {ROUTE_SET, PAGE_SET} from './_types';
-import {store} from '../store';
+import store from '../store';
 
 const _position = {
   chapter: 0,

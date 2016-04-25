@@ -1,5 +1,5 @@
 const CompositeDisposable = require('atom').CompositeDisposable;
-import {store} from '../store';
+import store from '../store';
 import {testRun, alertReplay} from '../actions';
 import {Root} from '../components/root';
 

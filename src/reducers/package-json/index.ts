@@ -2,7 +2,7 @@ import {PACKAGE_SET} from '../../actions/_types';
 import {join} from 'path';
 import {readFileSync} from 'fs';
 import {fileExists} from '../../services/exists';
-import {store} from '../../store';
+import store from '../../store';
 
 export default function packageJsonReducer(
   pj = null, action: Action
