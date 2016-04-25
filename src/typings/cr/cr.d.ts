@@ -59,14 +59,8 @@ interface Position {
 interface Progress {
   completed: boolean;
   chapters: {
-    title: string;
-    description: string;
     completed: boolean;
-    pages: {
-      title: string;
-      description: string;
-      completed: boolean;
-    }[]
+    pages: boolean[];
   }[];
 }
 

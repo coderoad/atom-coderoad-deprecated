@@ -7,6 +7,7 @@ import Help from 'material-ui/svg-icons/action/help';
 const styles = {
   position: 'relative',
   margin: '-5px 20px',
+  right: '10px',
   width: '360px',
   textAlign: 'center',
   zIndex: '0',

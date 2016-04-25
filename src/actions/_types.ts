@@ -7,6 +7,7 @@ export const HINT_POSITION_SET = 'HINT_POSITION_SET';
 export const HINT_SHOW = 'HINT_SHOW';
 export const PACKAGE_SET = 'PACKAGE_SET';
 export const PAGE_SET = 'PAGE_SET';
+export const POSITION_LOAD = 'POSITION_LOAD';
 export const POSITION_SET = 'POSITION_SET';
 export const PROGRESS_LOAD = 'PROGRESS_LOAD';
 export const ROUTE_SET = 'ROUTE_SET';

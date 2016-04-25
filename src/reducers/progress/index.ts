@@ -1,21 +1,12 @@
 import {
   PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
 } from '../../actions/_types';
-// import TutorialPackage from '../../services/tutorial-package';
+import {loadProgressFromLocalStorage, saveToLocalStorage} from './local-storage';
 import store from '../../store';
 
 const _progress: CR.Progress = {
   completed: false,
-  chapters: [{
-    title: '',
-    description: '',
-    completed: false,
-    pages: [{
-      title: '',
-      description: '',
-      completed: false,
-    }]
-  }]
+  chapters: []
 };
 
 export default function progressReducer(
@@ -23,31 +14,34 @@ export default function progressReducer(
 ): CR.Progress {
   switch (action.type) {
     case PROGRESS_LOAD:
-      const chapters = store.getState().tutorial.chapters;
+      const tutorial = store.getState().tutorial;
+      // load saved progress
+      const saved = loadProgressFromLocalStorage();
+      if (saved) { return saved; }
+      // set progress defaults
       return {
         completed: false,
-        chapters: !chapters ? [] : chapters.map(({title, description, completed, pages}) => {
-          return {
-            title, description, completed: completed || false,
-            pages: !pages ? [] : pages.map((page: CR.Page) => {
-              return {
-                title: page.title,
-                description: page.description,
-                completed: page.completed || false,
-              };
-            })
-          };
-        })
+        chapters: !tutorial.chapters
+          ? []
+          : tutorial.chapters.map((chapter) => {
+            return {
+              completed: false,
+              pages: chapter.pages.map(() => false)
+            };
+          })
       };
     case COMPLETE_PAGE:
       const position = action.payload.position;
-      progress.chapters[position.chapter].pages[position.page].completed = true;
+      progress.chapters[position.chapter].pages[position.page] = true;
+      saveToLocalStorage(progress);
       return progress;
     case COMPLETE_CHAPTER:
       progress.chapters[action.payload.chapter].completed = true;
+      saveToLocalStorage(progress);
       return progress;
     case COMPLETE_TUTORIAL:
       progress.completed = true;
+      saveToLocalStorage(progress);
       return progress;
     default:
       return progress;

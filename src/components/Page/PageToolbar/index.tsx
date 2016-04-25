@@ -11,6 +11,7 @@ const styles = {
     right: '0px',
     height: '60px',
     width: '400px',
+    margin: '0px',
 };
 
 export const PageToolbar: React.StatelessComponent<{

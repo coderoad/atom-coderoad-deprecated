@@ -21,27 +21,28 @@ const styles = {
   };
 })
 export class ProgressPage extends React.Component<{
-  page: CR.Page, chapterIndex: number,
+  page: CR.Page, chapterIndex: number, progress: CR.Progress,
   position: CR.Position, pageIndex: number, selectPage?: () => void}, {}> {
   canActivate(isActive: boolean) {
-    const {chapterIndex, pageIndex, position} = this.props;
-    const earlierChapter = chapterIndex < position.chapter;
+    const {chapterIndex, pageIndex, position, progress} = this.props;
+    const completed = progress.chapters[chapterIndex].pages[pageIndex];
     const currentChapter = chapterIndex === position.chapter;
     const earlierOrCurrentPage = pageIndex <= position.page;
-    return isActive || earlierChapter ||
+    return isActive || completed ||
       (currentChapter && earlierOrCurrentPage);
   }
   render() {
-    const {page, position, chapterIndex, pageIndex, selectPage} = this.props;
+    const {page, position, chapterIndex, pageIndex, progress, selectPage} = this.props;
     const isActive = chapterIndex === position.chapter && pageIndex === position.page;
     const canActivate = this.canActivate(isActive);
+    const completed = progress.chapters[chapterIndex].pages[pageIndex];
     return (
       <ListItem
         key={pageIndex}
         style={Object.assign({}, styles, !canActivate ? {color: grey400} : {})}
         primaryText={`${pageIndex + 1}. ${page.title}`}
         secondaryText={canActivate ? page.description : ''}
-        leftIcon={progressIcon(page.completed, isActive)}
+        leftIcon={progressIcon(completed, isActive)}
         onClick={
           canActivate
             ? selectPage.bind(this, {

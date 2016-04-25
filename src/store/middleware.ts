@@ -2,7 +2,6 @@ const env = 'dev'; // toggle on/off logger
 
 import {createStore, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import localStorage from './localStorage';
 
 const middlewares = [thunk];
 
@@ -13,8 +12,7 @@ if (env && env === 'dev') {
 }
 
 const createStoreWithMiddleware = compose(
-  applyMiddleware(...middlewares),
-  localStorage
+  applyMiddleware(...middlewares)
 )(createStore);
 
 export default createStoreWithMiddleware;

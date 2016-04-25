@@ -47,8 +47,6 @@
     "react-redux": "4.4.5",
     "react-tap-event-plugin": "1.0.0",
     "redux": "3.5.2",
-    "redux-localstorage": "^1.0.0-rc4",
-    "redux-localstorage-filter": "^0.1.1",
     "redux-logger": "2.6.1",
     "redux-thunk": "2.0.1"
   },

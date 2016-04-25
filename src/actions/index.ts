@@ -4,7 +4,7 @@ export {
 } from './progress';
 export {hintShow, hintPositionSet} from './hint';
 export {pageSet, pageNext} from './page';
-export {positionSet} from './position';
+export {positionLoad, positionSet} from './position';
 export {routeSet} from './route';
 export {setupVerify} from './setup';
 export {

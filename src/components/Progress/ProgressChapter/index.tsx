@@ -13,8 +13,9 @@ const descriptionStyles = {
 };
 
 export const ProgressChapter: React.StatelessComponent<{
-  chapter: CR.Chapter, chapterIndex: number, position: CR.Position
-}> = ({chapter, chapterIndex, position}) => {
+  progress: CR.Progress, chapter: CR.Chapter,
+  chapterIndex: number, position: CR.Position
+}> = ({progress, chapter, chapterIndex, position}) => {
     const isActive = chapterIndex === position.chapter;
     return (
       <ListItem
@@ -23,7 +24,7 @@ export const ProgressChapter: React.StatelessComponent<{
         style={styles}
         initiallyOpen={chapterIndex === 0}
         primaryTogglesNestedList={
-          chapterIndex === position.chapter && !chapter.completed
+          chapterIndex === position.chapter && !progress.chapters[chapterIndex].completed
         }
         nestedItems={
           chapter.pages.map((page: CR.Page, pageIndex: number) => (
@@ -33,6 +34,7 @@ export const ProgressChapter: React.StatelessComponent<{
                 page={page}
                 chapterIndex={chapterIndex}
                 position={position}
+                progress={progress}
               />
           ))
         }
