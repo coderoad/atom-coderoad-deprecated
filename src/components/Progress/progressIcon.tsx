@@ -6,9 +6,9 @@ import CheckBoxOutlineBlank from 'material-ui/svg-icons/toggle/check-box-outline
 
 export function progressIcon(completed: boolean, current?: boolean) {
   if (completed) {
-    return <CheckBox color={green300} />;
+    return <CheckBox style={{fill: green300}} />;
   } else if (current) {
-    return <PlayCircleFilled color={pink500} />;
+    return <PlayCircleFilled style={{fill: pink500}} />;
   } else {
     return <CheckBoxOutlineBlank />;
   }
