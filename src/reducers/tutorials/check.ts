@@ -3,7 +3,7 @@ import {readFileSync} from 'fs';
 import {fileExists} from '../../services/exists';
 import {isTutorial, tutorialError} from './is-tutorial';
 import store from '../../store';
-// import {canUpdateTutorial} from './update-tutorial';
+import {canUpdateTutorial} from './update';
 
 export function searchForTutorials(deps: Object): Tutorial.Info[] {
   if (!!deps && Object.keys(deps).length > 0) {
@@ -25,14 +25,14 @@ export function searchForTutorials(deps: Object): Tutorial.Info[] {
         }
 
         let tutorialPackageJson = JSON.parse(readFileSync(pathToTutorialPackageJson, 'utf8'));
-        const version  = tutorialPackageJson.version;
+        const version = tutorialPackageJson.version;
 
-      return {
-        name,
-        version,
-        // latest: !!canUpdateTutorial(name, version)
-      };
-    }));
+        return {
+          name,
+          version,
+          latest: !canUpdateTutorial(name, version)
+        };
+      }));
   } else {
     return [];
   }

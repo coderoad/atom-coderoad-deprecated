@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.8.0] - in progress
 - save tutorial progress to localStorage
+- check for tutorial package updates
 
 ## [0.7.0] - 2016-04-23
 

@@ -1,7 +1,7 @@
 import {TUTORIAL_UPDATE, TUTORIALS_FIND} from '../../actions/_types';
-import {tutorialUpdate} from './update-tutorial';
+import {tutorialUpdate} from './update';
 import store from '../../store';
-import {searchForTutorials} from './check-tutorials';
+import {searchForTutorials} from './check';
 
 export default function tutorialsReducer(
   tutorials = [], action: Action
@@ -9,12 +9,12 @@ export default function tutorialsReducer(
   switch (action.type) {
     case TUTORIAL_UPDATE:
       tutorialUpdate(action.payload.name);
-      /* falls through */
+    /* falls through */
     case TUTORIALS_FIND:
-          const packageJson = store.getState().packageJson;
-          return ([]
-            .concat(searchForTutorials(packageJson.dependencies))
-            .concat(searchForTutorials(packageJson.devDependencies)));
+      const packageJson = store.getState().packageJson;
+      return ([]
+        .concat(searchForTutorials(packageJson.dependencies))
+        .concat(searchForTutorials(packageJson.devDependencies)));
     default:
       return tutorials;
   }
