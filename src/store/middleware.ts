@@ -1,18 +1,18 @@
-const env = 'dev'; // toggle on/off logger
+// const env = 'dev'; // toggle on/off logger
 
-import {createStore, compose, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
+// import {createStore, compose, applyMiddleware} from 'redux';
+// import thunk from 'redux-thunk';
+//
+// const middlewares = [thunk];
+//
+// if (env && env === 'dev') {
+//   const createLogger = require('redux-logger');
+//   const logger = createLogger();
+//   middlewares.push(logger);
+// }
 
-const middlewares = [thunk];
+// const createStoreWithMiddleware = compose(
+//   applyMiddleware(...middlewares)
+// )(createStore);
 
-if (env && env === 'dev') {
-  const createLogger = require('redux-logger');
-  const logger = createLogger();
-  middlewares.push(logger);
-}
-
-const createStoreWithMiddleware = compose(
-  applyMiddleware(...middlewares)
-)(createStore);
-
-export default createStoreWithMiddleware;
+// export default createStoreWithMiddleware;

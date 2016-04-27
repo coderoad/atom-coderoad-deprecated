@@ -1,15 +1,10 @@
-import {compose} from 'redux';
-import {mergePersistedState} from 'redux-localstorage';
+import {compose, createStore} from 'redux';
 import rootReducer from '../reducers';
-import createStoreWithMiddleware from './middleware';
+// import createStoreWithMiddleware from './middleware';
 
 const initialState = {};
 
-const reducer = compose(
-  mergePersistedState()
-)(rootReducer);
-
-const store: Redux.Store = createStoreWithMiddleware(
-  reducer, initialState
+const store: Redux.Store = createStore(
+  rootReducer, initialState
 );
 export default store;
