@@ -1,13 +1,17 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import FileUpload from 'material-ui/svg-icons/file/file-upload';
-// import {tutorialUpdate} from '../../actions';
+import Update from 'material-ui/svg-icons/action/update';
+import {tutorialUpdate} from '../../../actions';
+import {pink500} from 'material-ui/styles/colors';
 
-// TODO: tutorialUpdate action
+const styles = {
+  width: '18px',
+  marginLeft: '10px',
+};
 
 @connect(null, (dispatch) => {
   return {
-    // tutorialUpdate: (name: string) => dispatch(tutorialUpdate(name)),
+    tutorialUpdate: (name: string) => dispatch(tutorialUpdate(name)),
   };
 })
 export class UpdateTutorial extends React.Component<{
@@ -15,7 +19,12 @@ export class UpdateTutorial extends React.Component<{
 }, {}> {
   render() {
     const {name, tutorialUpdate} = this.props;
-    return <FileUpload />;
-    // return <FileUpload onClick={tutorialUpdate(name)} />;
+    return (
+      <Update
+        style={styles}
+        color={pink500}
+        onTouchTap={tutorialUpdate.bind(this, name)}
+      />
+    );
   }
 }

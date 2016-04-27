@@ -36,11 +36,13 @@ export const Tutorials: React.StatelessComponent<{
             <TableRowColumn>
               <SelectTutorial tutorial={tutorial} />
             </TableRowColumn>
-            {tutorial.latest
-              ? <TableRowColumn>
-                  {tutorial.version} <UpdateTutorial name={tutorial.name} />
-                </TableRowColumn>
-              : <TableRowColumn>{tutorial.version}</TableRowColumn>}
+              <TableRowColumn>
+                {tutorial.version}
+                {tutorial.latest
+                  ? <UpdateTutorial name={tutorial.name} />
+                  : null
+                }
+            </TableRowColumn>
           </TableRow>
         );
       })

@@ -30,7 +30,7 @@ export function searchForTutorials(deps: Object): Tutorial.Info[] {
         return {
           name,
           version,
-          latest: !canUpdateTutorial(name, version)
+          latest: !!canUpdateTutorial(name, version)
         };
       }));
   } else {

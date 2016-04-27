@@ -9,9 +9,9 @@ export function tutorialSet(name: string): Action {
   };
 }
 
-// export function tutorialUpdate(name: string): CR.Action {
-//   return { type: TUTORIAL_UPDATE, payload: { name } };
-// }
+export function tutorialUpdate(name: string): Action {
+  return { type: TUTORIAL_UPDATE, payload: { name } };
+}
 
 export function tutorialsFind(): Action {
   return { type: TUTORIALS_FIND };

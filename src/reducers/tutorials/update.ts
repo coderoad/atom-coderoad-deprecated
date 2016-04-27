@@ -3,10 +3,11 @@ import store from '../../store';
 import {tutorialsFind} from '../../actions';
 
 export function tutorialUpdate(name: string): void {
-  commandLine('npm', `install --save-dev ${name}`)
-    .then(() => {
-      store.dispatch(tutorialsFind());
-    });
+  alert(name);
+  // commandLine('npm', `install --save-dev ${name}`)
+  //   .then(() => {
+  //     store.dispatch(tutorialsFind());
+  //   });
 }
 
 export function canUpdateTutorial(

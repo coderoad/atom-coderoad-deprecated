@@ -11,5 +11,5 @@ export {
   testRun, testComplete, testResult, testsLoad
 } from './test';
 export {
-  tutorialsFind, tutorialSet
+  tutorialsFind, tutorialSet, tutorialUpdate
 } from './tutorial';
