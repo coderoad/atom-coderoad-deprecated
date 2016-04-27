@@ -1,6 +1,6 @@
 import {join} from 'path';
 import {open, set} from '../../atom/editor';
-import {openFolder, openTerminal} from '../../atom/actions';
+import {openFolder, openTerminal} from '../../atom/editor';
 import commandLine from '../../services/command-line';
 import store from '../../store';
 import {setupVerify} from '../../actions';

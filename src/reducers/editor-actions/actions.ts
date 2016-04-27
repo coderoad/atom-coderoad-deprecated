@@ -1,5 +1,4 @@
-import {open, set, insert} from '../../atom/editor';
-import {openDevTools} from '../../atom/actions';
+import {open, set, insert, openDevTools} from '../../atom/editor';
 import {getCommand, getParams, getOptions} from './action-helpers';
 
 const Type = {

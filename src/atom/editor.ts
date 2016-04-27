@@ -1,82 +1,19 @@
-import {unlink} from 'fs';
-import {fileExists} from '../services/exists';
+import {save, open, openFolder} from './actions/file';
+import {set, insert} from './actions/write';
+import {openDevTools, toggleDevTools} from './actions/console';
+import {openTerminal} from './actions/terminal';
+import {closeAllPanels} from './actions/tabs';
+import {quit} from './actions/quit';
 
-let getEditorCount = 0;
+export {
+  save, open, openFolder,
+  set, insert,
+  openDevTools, toggleDevTools,
+  openTerminal,
+  closeAllPanels,
+  quit
+};
 
-export function save() {
-  const editor = findEditor();
-  editor.save();
-}
-
-export function findEditor(): AtomCore.IEditor {
-  let editor = atom.workspace.getActiveTextEditor();
-  const max = 1000;
-  if (!editor) {
-    getEditorCount += 1;
-    setTimeout(function() {
-      return findEditor();
-    }, 10);
-  } else if (getEditorCount > max) {
-    console.log('Failed to find active editor');
-    return null;
-  } else {
-    getEditorCount = 0;
-    return editor;
-  }
-}
-
-export function getEditor(): Promise<AtomCore.IEditor> {
-  return new Promise((resolve, reject) => {
-    resolve(findEditor());
-  });
-}
-
-/**
- * Actions in Atom Editor
- * @return {[type]} [description]
- */
-export function open(filePath: string, options = {}): void {
-  // delete file first, to avoid bug
-  if (fileExists(filePath)) {
-    unlink(filePath);
-  }
-  atom.workspace.open(filePath, options);
-}
-
-// Set text, removes any previous content in file
-export function set(text: string) {
-  return getEditor().then((editor: AtomCore.IEditor) => {
-    editor.setText(text);
-    editor.insertNewline();
-    editor.moveToBottom();
-    editor.save();
-    setCursorPosition(editor);
-  });
-}
-
-export function insert(text: string, options = {}) {
-  options = Object.assign(options, {
-    autoIndent: true,
-  });
-  return (
-    getEditor().then(function insertWithEditor(editor: AtomCore.IEditor) {
-      editor.moveToBottom();
-      editor.insertText(text, options);
-      editor.insertNewline();
-      editor.moveToBottom();
-      editor.save();
-      setCursorPosition(editor);
-    }));
-}
-
-const cursor: RegExp = /::\s?>/g;
-function setCursorPosition(editor: AtomCore.IEditor): void {
-  editor.scan(cursor, function(scanned) {
-    editor.setCursorScreenPosition(scanned.range.start);
-    scanned.replace('');
-    scanned.stop();
-  });
-}
 
 // export function mkrdir(name: string) {}
 

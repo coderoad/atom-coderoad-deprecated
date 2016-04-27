@@ -1,0 +1,33 @@
+import {getEditor} from './editor';
+
+function write(action: 'set' | 'insert', text: string, options = {}) {
+  return getEditor().then((editor: AtomCore.IEditor) => {
+  editor.moveToBottom();
+  editor[`${action}Text`](text, options);
+  editor.insertNewline();
+  editor.moveToBottom();
+  setCursorPosition(editor);
+  editor.save();
+});
+}
+
+// Set text, removes any previous content in file
+export function set(text: string) {
+  return write('set', text);
+}
+
+export function insert(text: string, options = {}) {
+  options = Object.assign(options, {
+    autoIndent: true,
+  });
+  return write('insert', text, options);
+}
+
+const cursor: RegExp = /::>/g;
+function setCursorPosition(editor: AtomCore.IEditor) {
+  return editor.scan(cursor, function(scanned) {
+    editor.setCursorScreenPosition(scanned.range.start);
+    scanned.replace('');
+    scanned.stop();
+  });
+}
