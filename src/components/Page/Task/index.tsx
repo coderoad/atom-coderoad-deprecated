@@ -40,7 +40,7 @@ export const Task: React.StatelessComponent<{
       key={index}
       style={Object.assign({}, styles, {backgroundColor})}
     >
-      {taskCheckbox(currentTask, testRun)}
+      {taskCheckbox(task, testRun)}
       <span style={indexStyles}>{index + 1}.</span>
       <div style={descriptionStyles}>
         <Markdown >{task.description}</Markdown>

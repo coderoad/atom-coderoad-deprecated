@@ -1,4 +1,4 @@
-import {TUTORIAL_UPDATE, TUTORIALS_FIND} from '../../actions/_types';
+import {TUTORIALS_FIND} from '../../actions/_types';
 import {tutorialUpdate} from './update';
 import store from '../../store';
 import {searchForTutorials} from './check';
@@ -7,8 +7,8 @@ export default function tutorialsReducer(
   tutorials = [], action: Action
 ): Tutorial.Info[] {
   switch (action.type) {
-    case TUTORIAL_UPDATE:
-      tutorialUpdate(action.payload.name);
+    // case TUTORIAL_UPDATE:
+    //   tutorialUpdate(action.payload.name);
     /* falls through */
     case TUTORIALS_FIND:
       const packageJson = store.getState().packageJson;

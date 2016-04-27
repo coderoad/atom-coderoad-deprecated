@@ -15,16 +15,19 @@ const styles = {
   };
 })
 export class UpdateTutorial extends React.Component<{
-  name: string, tutorialUpdate?: any
+  tutorial: Tutorial.Info, tutorialUpdate?: any
 }, {}> {
   render() {
-    const {name, tutorialUpdate} = this.props;
+    const {tutorial, tutorialUpdate} = this.props;
     return (
-      <Update
-        style={styles}
-        color={pink500}
-        onTouchTap={tutorialUpdate.bind(this, name)}
-      />
+      <span>
+        <Update
+          style={styles}
+          color={pink500}
+          onTouchTap={tutorialUpdate.bind(this, tutorial.name)}
+        />
+        <span style={{marginLeft: '10px'}}>{tutorial.latest}</span>
+      </span>
     );
   }
 }

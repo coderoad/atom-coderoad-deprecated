@@ -2,7 +2,7 @@ import {fileExists} from './exists';
 import {exec} from 'child_process';
 
 export default function commandLine(root: string,
-  commands: string): Promise<string> {
+  commands?: string): Promise<string> {
 
   // use root path for mac/linux (usr/local/bin, usr/bin), or windows (root)
   if (process.platform === 'darwin' && process.resourcesPath) {
@@ -17,7 +17,7 @@ export default function commandLine(root: string,
     }
   }
 
-  let run = exec(`${root} ${commands}`);
+  const run = exec(`${root}${commands ? ' ' + commands : ''}`);
 
   return new Promise((resolve, reject) => {
     run.stdout.on('data', data => resolve(data));

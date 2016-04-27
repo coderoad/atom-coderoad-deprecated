@@ -38,10 +38,12 @@ export const Tutorials: React.StatelessComponent<{
             </TableRowColumn>
               <TableRowColumn>
                 {tutorial.version}
-                {tutorial.latest
-                  ? <UpdateTutorial name={tutorial.name} />
+
+                {!!tutorial.latest
+                  ? <UpdateTutorial tutorial={tutorial} />
                   : null
                 }
+
             </TableRowColumn>
           </TableRow>
         );

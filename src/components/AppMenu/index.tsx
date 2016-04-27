@@ -4,7 +4,7 @@ import {menuIconLeft} from './menuIconLeft';
 import {menuRight} from './menuRight';
 
 const styles = {
-  zIndex: '999 !important'
+  zIndex: '1 !important'
 };
 
 export const AppMenu: React.StatelessComponent<{
