@@ -115,7 +115,6 @@
         "src/services/polyfills.ts",
         "src/services/system.ts",
         "src/store/index.ts",
-        "src/store/middleware.ts",
         "src/components/Alert/index.tsx",
         "src/components/App.tsx",
         "src/components/AppMenu/index.tsx",
