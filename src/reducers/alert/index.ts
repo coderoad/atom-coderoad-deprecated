@@ -11,10 +11,15 @@ const _alert: CR.Alert = {
 };
 const open = {
   open: true,
-  pass: true,
+  action: 'pass',
 };
 
 let current: CR.Alert = _alert;
+
+function setAlert(options) {
+  current = Object.assign({}, open, options);
+  return current;
+}
 
 export default function alertReducer(
   alert = _alert, action: Action
@@ -22,59 +27,52 @@ export default function alertReducer(
   let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
   switch (action.type) {
     case ALERT_REPLAY:
-      return Object.assign({}, current, open);
+      return setAlert(current);
     case ALERT_TOGGLE:
       return action.payload.alert || _alert;
     case TUTORIAL_UPDATE:
-      current = Object.assign({}, {
+      return setAlert({
         message: `run \`npm install --save-dev ${action.payload.name}\``,
         action: 'note',
         duration: 4000,
-      }, open);
-      return current;
+      });
     case TEST_RESULT:
       let result = action.payload.result;
       if (result.pass && result.change > 0) {
         // Pass
         statusBarAlert.style.color = '#73C990';
-        current = Object.assign({}, {
+        return setAlert({
           message: result.msg,
           duration: result.duration || 1500,
-        }, open);
-        return current;
+        });
       } else if (result.pass === false && result.change < 1) {
         // Fail
         statusBarAlert.style.color = '#FF4081';
-        current = Object.assign({}, {
+        return setAlert({
           message: result.msg,
           action: 'fail',
           duration: result.duration || 2500,
-        }, open);
-        return current;
+        });
       }
       // Alert
       statusBarAlert.style.color = '#9DA5B4';
-      current = Object.assign({}, {
+      return setAlert({
         message: result.msg,
         action: 'note',
         duration: result.duration || 2500,
-      }, open);
-      return current;
+      });
     case COMPLETE_PAGE:
-      current = Object.assign({}, {
+      return setAlert({
         message: `Page ${action.payload.position.page + 1} Complete`,
-      }, open);
-      return current;
+      });
     case COMPLETE_CHAPTER:
-      current = Object.assign({}, {
+      return setAlert({
         message: `Chapter ${action.payload.chapter + 1} Complete`,
-      }, open);
-      return current;
+      });
     case COMPLETE_TUTORIAL:
-      current = Object.assign({}, {
+      return setAlert({
         message: 'Tutorial Complete',
-      }, open);
-      return current;
+      });
     default:
       return alert;
   }
