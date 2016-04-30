@@ -31,8 +31,8 @@ export default function progressReducer(
           })
       };
     case COMPLETE_PAGE:
-      const position = action.payload.position;
-      progress.chapters[position.chapter].pages[position.page] = true;
+      const {chapter, page} = action.payload.position;
+      progress.chapters[chapter].pages[page] = true;
       saveToLocalStorage(progress);
       return progress;
     case COMPLETE_CHAPTER:

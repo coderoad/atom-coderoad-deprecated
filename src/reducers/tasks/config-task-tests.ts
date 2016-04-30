@@ -12,8 +12,7 @@ function configTestString(config: Tutorial.Config, name: string, testPath: strin
   if (tutorial && tutorial.config.dir) {
     testPath = join(tutorial.config.dir, testPath);
   } else {
-    const dir = store.getState().dir;
-    testPath = join(dir, 'node_modules', name, testPath);
+    testPath = join(store.getState().dir, 'node_modules', name, testPath);
   }
 
   if (tutorial.config.testSuffix) {

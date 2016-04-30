@@ -4,7 +4,7 @@ export function getEditor(): Promise<AtomCore.IEditor> {
     let editor = atom.workspace.getActiveTextEditor();
     while (!editor) {
       getEditorCount += 1;
-      setTimeout(function() {
+      setTimeout(() => {
         editor = atom.workspace.getActiveTextEditor();
       }, 10);
       if (getEditorCount > 1000) {

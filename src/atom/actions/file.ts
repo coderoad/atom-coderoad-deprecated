@@ -2,6 +2,9 @@ import {unlink} from 'fs';
 import {fileExists} from '../../services/exists';
 import {getEditor} from './editor';
 
+// delay necessary since opening a file is slow
+const openTimeout = 200;
+
 export function openFolder(): void {
   atom.open();
 }
@@ -19,6 +22,6 @@ export function open(filePath: string, options = {}): Promise<any> {
     atom.workspace.open(filePath, options);
     setTimeout(() => {
       resolve();
-    }, 200); // delay necessary since opening a file is slow
+    }, openTimeout);
   });
 }

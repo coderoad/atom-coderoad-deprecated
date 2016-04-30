@@ -8,7 +8,6 @@ export default function routeReducer(
 ): string {
   switch (action.type) {
     case ROUTE_SET:
-      const next = action.payload.route;
       return action.payload.route;
     default:
       return route;

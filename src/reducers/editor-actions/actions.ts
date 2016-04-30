@@ -14,21 +14,18 @@ export function editorActions(actionString: string): Promise<void> {
     let params: string[] = getParams(actionString);
     switch (command) {
       case Type.OPEN:
-        let obj = getOptions(params[0]);
-        let file = obj.param;
-        let options = obj.options;
+        const {param, options} = getOptions(params[0]);
         if (params.length === 1) {
-          open(file, options);
-          setTimeout(function() {
+          open(param, options);
+          setTimeout(() => {
             resolve();
           }, 100);
         }
         break;
       case Type.SET:
         if (params.length === 1) {
-          let content = params[0];
-
-          setTimeout(function() {
+          const content: string = params[0];
+          setTimeout(() => {
             set(content);
             resolve(true);
           });
@@ -37,9 +34,9 @@ export function editorActions(actionString: string): Promise<void> {
       case Type.INSERT:
         if (params.length === 1) {
           // let obj = getOptions(params[0]);
-          let content: string = params[0];
+          const content: string = params[0];
           // let options: object = obj.options;
-          setTimeout(function() {
+          setTimeout(() => {
             insert(content, {});
             resolve(true);
           });
@@ -47,7 +44,7 @@ export function editorActions(actionString: string): Promise<void> {
         break;
       case Type.OPEN_CONSOLE:
         if (params.length === 0) {
-          setTimeout(function() {
+          setTimeout(() => {
             openDevTools();
             resolve(true);
           });

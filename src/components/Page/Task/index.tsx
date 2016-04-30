@@ -34,13 +34,13 @@ export const Task: React.StatelessComponent<{
   task: CR.Task, taskPosition: number, index: number, testRun: boolean
 }> = ({task, taskPosition, index, testRun}) => {
   const backgroundColor = getStatus(index, taskPosition, testRun);
-  const currentTask = taskPosition === index;
+  const isCurrentTask = taskPosition === index;
   return (
     <ListItem
       key={index}
       style={Object.assign({}, styles, {backgroundColor})}
     >
-      {taskCheckbox(task, testRun)}
+      {taskCheckbox(isCurrentTask, testRun)}
       <span style={indexStyles}>{index + 1}.</span>
       <div style={descriptionStyles}>
         <Markdown >{task.description}</Markdown>

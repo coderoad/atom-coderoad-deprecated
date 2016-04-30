@@ -23,16 +23,16 @@ export default function editorActionsReducer(
     case TESTS_LOAD:
       actions = store.getState().tasks.map(task => task.actions || []);
       currentTaskPosition = 0;
-      handleEditorActions(actions.shift());
+      handleEditorActions(actions.shift()); // run first action
       return actions;
 
     case TEST_RESULT:
-      actions = action.payload.actions;
+      actions = action.payload.actions || [];
       const nextTaskPosition = action.payload.result.taskPosition;
       if (nextTaskPosition > currentTaskPosition) {
         // run actions for each task position passed
         for (let i = 0; i < nextTaskPosition - currentTaskPosition; i++) {
-          handleEditorActions(actions.shift());
+          handleEditorActions(actions.shift()); // run first action
         }
         currentTaskPosition = nextTaskPosition;
       }

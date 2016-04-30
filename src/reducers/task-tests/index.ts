@@ -7,20 +7,16 @@ export default function taskTestsReducer(
 ): string {
   switch (action.type) {
     case TESTS_LOAD:
-      const tasks = store.getState().tasks;
-      let tests: string[] = [].concat.apply([], tasks.map(
-          task => task.tests || [])
-      );
-      let output = '';
-      tests.forEach(function(file: string): void {
+      return [].concat.apply([], store.getState().tasks.map(
+        task => task.tests || [])
+      ).reduce((output: string, file: string): string => {
         try {
-          let data = readFileSync(file, 'utf8');
-          output += data + '\n';
+          output += readFileSync(file, 'utf8') + '\n';
         } catch (e) {
           console.log('Error reading test file', e);
         }
-      });
-      return output;
+        return output;
+      }, '');
     default:
       return taskTests;
   }

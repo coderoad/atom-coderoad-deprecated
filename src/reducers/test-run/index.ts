@@ -3,7 +3,7 @@ import {
 } from '../../actions/_types';
 import {runTaskTests} from './run';
 
-const pageTimeout = 2000;
+const pageTimeout = 800;
 
 let previous: number = new Date().getTime();
 

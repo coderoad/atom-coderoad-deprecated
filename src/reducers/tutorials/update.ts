@@ -26,10 +26,10 @@ export function canUpdateTutorial(
       console.log(res);
       if (res.length > 0) {
         // npm link enabled
-        let linked = res.match(/[0-9\.]+\s+linked/);
+        const linked = res.match(/[0-9\.]+\s+linked/);
         if (linked) { return false; }
         // not latest version
-        let match = res.match(/[0-9\.]+\s+[0-9\.]+\s+([0-9\.]+)/);
+        const match = res.match(/[0-9\.]+\s+[0-9\.]+\s+([0-9\.]+)/);
         if (match.length >= 2) {
           // return match[1]; // string output
           return true;
