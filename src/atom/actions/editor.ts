@@ -6,10 +6,12 @@ export function getEditor(): Promise<AtomCore.IEditor> {
       getEditorCount += 1;
       setTimeout(function() {
         editor = atom.workspace.getActiveTextEditor();
-      });
-      if (getEditorCount > 999) {
-        console.log('Failed to find active editor');
-        reject(null);
+      }, 10);
+      if (getEditorCount > 1000) {
+        console.log('Cannot find active text editor');
+        setTimeout(() => {
+          editor = atom.workspace.getActiveTextEditor();
+        }, 100);
       }
     }
     resolve(editor);

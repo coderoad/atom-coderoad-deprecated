@@ -85,6 +85,7 @@
         "src/reducers/checks/verify.ts",
         "src/reducers/dir/index.ts",
         "src/reducers/editor-actions/action-helpers.ts",
+        "src/reducers/editor-actions/action-reducer.ts",
         "src/reducers/editor-actions/actions.ts",
         "src/reducers/editor-actions/index.ts",
         "src/reducers/editor-actions/parser.ts",

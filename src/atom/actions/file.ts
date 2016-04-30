@@ -16,6 +16,9 @@ export function open(filePath: string, options = {}): Promise<any> {
     if (fileExists(filePath)) {
       unlink(filePath);
     }
-    resolve(atom.workspace.open(filePath, options));
+    atom.workspace.open(filePath, options);
+    setTimeout(() => {
+      resolve();
+    }, 200); // delay necessary since opening a file is slow
   });
 }
