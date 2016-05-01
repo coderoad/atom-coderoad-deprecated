@@ -5,13 +5,14 @@ import store from '../../store';
 
 export function tutorialConfig(tutorialPj: PackageJson): Tutorial.Config {
   const {config, name} = tutorialPj;
-  const repo = loadRepo(tutorialPj.repo);
-  const dir = store.getState().dir;
+  const repo: string = loadRepo(tutorialPj.repo);
+  const dir: string = store.getState().dir;
+  const testSuffix: string = config.testSuffix;
   return {
-    dir: join(
-      dir, 'node_modules', name, config.dir
-    ),
-    testSuffix: config.testSuffix || null,
+    dir: join(dir, 'node_modules', name, config.dir),
+    testSuffix: testSuffix.length && testSuffix[0] === '.'
+      ? testSuffix
+      : '.' + testSuffix || null,
     runner: config.runner,
     runnerOptions: config.runnerOptions || null,
     run: loadRunner(name, config.runner, dir),
@@ -21,12 +22,7 @@ export function tutorialConfig(tutorialPj: PackageJson): Tutorial.Config {
   };
 }
 
-// function getTestSuffix(suffix: string) {
-//   console.log(suffix);
-//   return suffix.substring(suffix.lastIndexOf('.') + 1, suffix.length);
-// }
-
-function getIssuesPath(bugs?: {url: string}) {
+function getIssuesPath(bugs?: { url: string }) {
   return bugs && bugs.url ? bugs.url : null;
 }
 
@@ -68,7 +64,7 @@ function loadRunner(name: string, runner: string, dir: string): () => any {
   }
 }
 
-function loadRepo(repo?: {url: string}): string {
+function loadRepo(repo?: { url: string }): string {
   if (repo && repo.url) {
     let url: string = repo.url;
     if (!!url.match(/\.git$/)) {

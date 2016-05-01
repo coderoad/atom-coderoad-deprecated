@@ -9,7 +9,7 @@ declare namespace Tutorial {
   interface Config {
     dir: string;
     runner: string;
-    runnerOptions?: RunnerOptions;
+    runnerOptions?: Object;
     run: any;
     testSuffix?: string;
     issuesPath?: string;
