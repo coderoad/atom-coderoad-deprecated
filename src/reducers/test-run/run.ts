@@ -15,7 +15,7 @@ export function runTaskTests(setup?: boolean): boolean {
     // write temporary test file in tutorial directory
     let target = join(
       tutorialConfig.dir || dir,
-      `_tmp${tutorialConfig.testSuffix}`
+      `.tmp${tutorialConfig.testSuffix}`
     );
     writeFileSync(target, output, 'utf8');
 
