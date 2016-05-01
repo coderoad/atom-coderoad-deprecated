@@ -1,6 +1,6 @@
 import {save, open, openFolder} from './actions/file';
 import {set, insert} from './actions/write';
-import {openDevTools, toggleDevTools} from './actions/console';
+import {openDevTools, toggleDevTools, clearConsole} from './actions/console';
 import {openTerminal} from './actions/terminal';
 import {closeAllPanels} from './actions/tabs';
 import {quit} from './actions/quit';
@@ -8,7 +8,7 @@ import {quit} from './actions/quit';
 export {
   save, open, openFolder,
   set, insert,
-  openDevTools, toggleDevTools,
+  openDevTools, toggleDevTools, clearConsole,
   openTerminal,
   closeAllPanels,
   quit
