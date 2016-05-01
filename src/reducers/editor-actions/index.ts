@@ -2,19 +2,19 @@ import {TESTS_LOAD, TEST_RESULT} from '../../actions/_types';
 import {editorActions} from './actions';
 import store from '../../store';
 
-// TODO: optimize editorActions to string[]
-
-function handleEditorActions(actionArray: string[]): void {
-  if (actionArray && actionArray.length) {
-    // TODO: What is this???
-    actionArray.map((actionString) => editorActions(actionString));
+function handleEditorActions(actions: string[][]): void {
+  const next = actions.shift();
+  if (next && next.length) {
+    // resolve promises in order
+    next.reduce((total: Promise<any>, curr: string) => {
+      return total.then(() => editorActions(curr));
+    }, Promise.resolve());
   }
 }
 
+// trigger actions only once, moving fowards
 let currentTaskPosition = 0;
-/**
- * Test is running, return true, else false
- */
+
 export default function editorActionsReducer(
   editorActions = [], action: Action
 ): string[][] {
@@ -22,17 +22,17 @@ export default function editorActionsReducer(
   switch (action.type) {
     case TESTS_LOAD:
       actions = store.getState().tasks.map(task => task.actions || []);
-      currentTaskPosition = 0;
-      handleEditorActions(actions.shift()); // run first action
+      handleEditorActions(actions); // run first action
       return actions;
 
     case TEST_RESULT:
       actions = action.payload.actions || [];
-      const nextTaskPosition = action.payload.result.taskPosition;
-      if (nextTaskPosition > currentTaskPosition) {
+      const nextTaskPosition: number = action.payload.result.taskPosition;
+      const times: number = nextTaskPosition - currentTaskPosition;
+      if (times > 0) {
         // run actions for each task position passed
-        for (let i = 0; i < nextTaskPosition - currentTaskPosition; i++) {
-          handleEditorActions(actions.shift()); // run first action
+        for (let i = 0; i < times; i++) {
+          handleEditorActions(actions); // run first action
         }
         currentTaskPosition = nextTaskPosition;
       }
