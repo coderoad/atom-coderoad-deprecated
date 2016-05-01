@@ -12,7 +12,7 @@ export function getCommand(actionString: string): string {
 
 export function getParams(actionString: string): string[] {
   // content in brackets, split by comma
-  let parser = new ParseParams;
+  let parser = new ParseParams();
   let command = getCommand(actionString);
   let params = actionString.substring(command.length + 1, actionString.length - 1); // trim brackets
   if (!params.length) {

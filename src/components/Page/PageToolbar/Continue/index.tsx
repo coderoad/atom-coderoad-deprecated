@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
-import {pageNext, testsLoad} from '../../../../actions';
+import {pageNext} from '../../../../actions';
 
 const styles = {
   zIndex: '10000',
@@ -11,7 +11,6 @@ const styles = {
   return {
     callNextPage: () => {
       dispatch(pageNext());
-      dispatch(testsLoad());
     }
   };
 })

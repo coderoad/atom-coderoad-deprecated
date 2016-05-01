@@ -1,3 +1,4 @@
+import {testsLoad} from './test';
 import {ROUTE_SET, PAGE_SET} from './_types';
 import store from '../store';
 
@@ -11,11 +12,13 @@ export function pageNext(): Action {
   const {page, chapter} = store.getState().position;
   const {chapters} = store.getState().tutorial;
   if (page < chapters[chapter].pages.length - 1) {
+    store.dispatch(testsLoad());
     position = {
       chapter,
       page: page + 1,
     };
   } else if (chapter < chapters.length - 1) {
+    store.dispatch(testsLoad());
     position = {
       chapter: chapter + 1,
       page: 0,

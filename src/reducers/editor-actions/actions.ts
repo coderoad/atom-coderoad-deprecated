@@ -18,7 +18,7 @@ export function editorActions(actionString: string): Promise<void> {
         if (params.length === 1) {
           open(param, options);
           setTimeout(() => {
-            resolve();
+            resolve(true);
           }, 100);
         }
         break;
@@ -36,16 +36,16 @@ export function editorActions(actionString: string): Promise<void> {
           // let obj = getOptions(params[0]);
           const content: string = params[0];
           // let options: object = obj.options;
+          insert(content, {});
           setTimeout(() => {
-            insert(content, {});
             resolve(true);
           });
         }
         break;
       case Type.OPEN_CONSOLE:
         if (params.length === 0) {
+          openDevTools();
           setTimeout(() => {
-            openDevTools();
             resolve(true);
           });
         }
