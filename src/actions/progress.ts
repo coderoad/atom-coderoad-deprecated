@@ -1,5 +1,5 @@
 import {
-  PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL
+  PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_TUTORIAL
 } from './_types';
 import {positionLoad} from './position';
 import store from '../store';
@@ -17,27 +17,14 @@ function isTrue(x) {
 
 export function completePage(): Action {
   const position: CR.Position = store.getState().position;
-  const chapter = store.getState().progress.chapters[position.chapter];
-  // all pages are true, chapter complete
-  if (chapter.pages.every(x => x)) {
-    store.dispatch(completeChapter());
+  const progress = store.getState().progress;
+  // all pages are true, tutorial complete
+  if (progress.pages.every(x => x.completed)) {
+    store.dispatch(completeTutorial());
   }
   return {
     payload: { position },
     type: COMPLETE_PAGE,
-  };
-}
-
-export function completeChapter(): Action {
-  const chapter: number = store.getState().position.chapter;
-  const progress = store.getState().progress;
-  // all chapters complete, tutorial complete
-  if (progress.chapters.every(x => x.completed)) {
-    store.dispatch(completeTutorial());
-  }
-  return {
-    payload: { chapter },
-    type: COMPLETE_CHAPTER,
   };
 }
 

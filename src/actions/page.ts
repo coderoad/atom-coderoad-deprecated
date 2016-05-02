@@ -3,25 +3,17 @@ import {ROUTE_SET, PAGE_SET} from './_types';
 import store from '../store';
 
 const _position = {
-  chapter: 0,
   page: 0,
 };
 
 export function pageNext(): Action {
   let position = null;
-  const {page, chapter} = store.getState().position;
-  const {chapters} = store.getState().tutorial;
-  if (page < chapters[chapter].pages.length - 1) {
+  const {page} = store.getState().position;
+  const {pages} = store.getState().tutorial;
+  if (page < pages.length - 1) {
     store.dispatch(testsLoad());
     position = {
-      chapter,
       page: page + 1,
-    };
-  } else if (chapter < chapters.length - 1) {
-    store.dispatch(testsLoad());
-    position = {
-      chapter: chapter + 1,
-      page: 0,
     };
   } else {
     return {

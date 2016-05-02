@@ -13,9 +13,8 @@ export default function pageReducer(
 ): CR.Page {
   switch (action.type) {
     case PAGE_SET:
-      const {chapter, page} = action.payload.position;
-      const {title, description, onPageComplete, completed} = store.getState().tutorial
-        .chapters[chapter].pages[page];
+      const {page} = action.payload.position;
+      const {title, description, onPageComplete, completed} = store.getState().tutorial.pages[page];
       // clear dev console
       clearConsole();
       return {

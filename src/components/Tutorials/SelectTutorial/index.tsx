@@ -18,7 +18,7 @@ function displayName(name: string): string {
   return {
     selectTutorial: (name: string) => {
       dispatch(tutorialSet(name));
-      dispatch(positionSet({chapter: 0, page: 0}));
+      dispatch(positionSet({page: 0}));
       dispatch(progressLoad());
       dispatch(routeSet('progress'));
     },

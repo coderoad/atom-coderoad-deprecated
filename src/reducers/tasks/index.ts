@@ -14,9 +14,9 @@ export default function tasksReducer(tasks = _tasks,
   action: Action): CR.Task[] {
   switch (action.type) {
     case PAGE_SET:
-      const {chapter, page} = action.payload.position;
+      const {page} = action.payload.position;
       return configTaskTests(
-        store.getState().tutorial.chapters[chapter].pages[page].tasks || []
+        store.getState().tutorial.pages[page].tasks || []
       );
     default:
       return tasks;

@@ -4,7 +4,6 @@ import {
 import store from '../../store';
 
 const _position: CR.Position = {
-  chapter: 0,
   page: 0,
 };
 
@@ -13,17 +12,13 @@ export default function positionReducer(
 ): CR.Position {
   switch (action.type) {
     case POSITION_LOAD:
-      const chapters = store.getState().progress.chapters;
-      let chapter = chapters.indexOf(x => !x.completed);
-      if (chapter < 0) {
-        chapter = chapters.length - 1;
-      }
-      const progressPage = chapters[chapter].pages;
-      let page = progressPage.indexOf(x => !x);
+      const pages = store.getState().progress.pages;
+      let page = pages.indexOf(x => !x);
+      // all pages complete ? page = -1
       if (page < 0) {
-        page = progressPage.length - 1;
+        page = pages.length - 1;
       }
-      return { chapter, page };
+      return { page };
     case PAGE_SET:
     case POSITION_SET:
       return action.payload.position;

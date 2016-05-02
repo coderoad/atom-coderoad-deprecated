@@ -21,33 +21,30 @@ const styles = {
   };
 })
 export class ProgressPage extends React.Component<{
-  page: CR.Page, chapterIndex: number, progress: CR.Progress,
-  position: CR.Position, pageIndex: number, selectPage?: () => void}, {}> {
+  page: CR.Page, progress: CR.Progress,
+  position: CR.Position, index: number, selectPage?: () => void}, {}> {
   canActivate(isActive: boolean) {
-    const {chapterIndex, pageIndex, position, progress} = this.props;
-    const completed = progress.chapters[chapterIndex].pages[pageIndex];
-    const currentChapter = chapterIndex === position.chapter;
-    const earlierOrCurrentPage = pageIndex <= position.page;
-    return isActive || completed ||
-      (currentChapter && earlierOrCurrentPage);
+    const {index, position, progress} = this.props;
+    const completed = progress.pages[index];
+    return isActive || completed;
   }
   render() {
-    const {page, position, chapterIndex, pageIndex, progress, selectPage} = this.props;
-    const isActive = chapterIndex === position.chapter && pageIndex === position.page;
+    console.log(this.props);
+    const {page, position, index, progress, selectPage} = this.props;
+    const isActive = index === position.page;
     const canActivate = this.canActivate(isActive);
-    const completed = progress.chapters[chapterIndex].pages[pageIndex];
+    const completed = progress.pages[index];
     return (
       <ListItem
-        key={pageIndex}
+        key={index}
         style={Object.assign({}, styles, !canActivate ? {color: grey400} : {})}
-        primaryText={`${pageIndex + 1}. ${page.title}`}
+        primaryText={`${index + 1}. ${page.title}`}
         secondaryText={canActivate ? page.description : ''}
         leftIcon={progressIcon(completed, isActive)}
         onClick={
           canActivate
             ? selectPage.bind(this, {
-              chapter: chapterIndex,
-              page: pageIndex
+              page: index
             })
             : function () { return; }
           }

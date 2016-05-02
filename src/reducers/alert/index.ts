@@ -1,6 +1,6 @@
 import {
   ALERT_REPLAY, ALERT_TOGGLE, TEST_RESULT,
-  COMPLETE_PAGE, COMPLETE_CHAPTER, COMPLETE_TUTORIAL,
+  COMPLETE_PAGE, COMPLETE_TUTORIAL,
   TUTORIAL_UPDATE
 } from '../../actions/_types';
 
@@ -64,10 +64,6 @@ export default function alertReducer(
     case COMPLETE_PAGE:
       return setAlert({
         message: `Page ${action.payload.position.page + 1} Complete`,
-      });
-    case COMPLETE_CHAPTER:
-      return setAlert({
-        message: `Chapter ${action.payload.chapter + 1} Complete`,
       });
     case COMPLETE_TUTORIAL:
       return setAlert({

@@ -2,7 +2,7 @@ import * as React from 'react';
 import Paper from 'material-ui/Paper';
 import {List} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
-import {ProgressChapter} from './ProgressChapter';
+import {ProgressPage} from './ProgressPage';
 
 const pageStyle = {
   width: '100%',
@@ -16,15 +16,16 @@ export const Progress: React.StatelessComponent<{
   <Paper style={pageStyle}>
     <List>
       <Subheader>{info.name}</Subheader>
-      {tutorial.chapters.map((chapter: CR.Chapter, chapterIndex: number) => (
-        <ProgressChapter
-          key={chapterIndex}
-          chapter={chapter}
-          chapterIndex={chapterIndex}
+      {tutorial.pages.map((page: CR.Page, index: number) => (
+        <ProgressPage
+          key={index}
+          index={index}
+          page={page}
           position={position}
           progress={progress}
         />
-    ))}
+     ))
+    }
     </List>
   </Paper>
 );

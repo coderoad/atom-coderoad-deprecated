@@ -1,6 +1,6 @@
 export {alertToggle, alertReplay} from './alert';
 export {
-  progressLoad, completePage, completeChapter, completeTutorial
+  progressLoad, completePage, completeTutorial
 } from './progress';
 export {hintShow, hintPositionSet} from './hint';
 export {pageSet, pageNext} from './page';

@@ -3,10 +3,10 @@ import {join} from 'path';
 import {tutorialConfig} from './tutorial-config';
 import store from '../../store';
 
-const _tutorial = {
+const _tutorial: CR.Tutorial = {
   name: null,
   info: null,
-  chapters: [],
+  pages: [],
   packageJson: null,
   config: null,
 };
@@ -21,11 +21,11 @@ export default function tutorialReducer(
       const packagePath: string = join(dir, 'node_modules', name);
       const packageJson: PackageJson = require(join(packagePath, 'package.json'));
       const config: Tutorial.Config = tutorialConfig(packageJson);
-      const {info, chapters} = require(join(packagePath, packageJson.main));
+      const {info, pages} = require(join(packagePath, packageJson.main));
       return {
         name: packageJson.name,
         info,
-        chapters,
+        pages,
         packageJson,
         config,
       };
