@@ -18,8 +18,10 @@ export default function checksReducer(
   checks = _checks, action: Action
 ): CR.Checks {
   switch (action.type) {
+
     case SETUP_VERIFY:
       return setupVerify();
+
     default:
       return checks;
   }

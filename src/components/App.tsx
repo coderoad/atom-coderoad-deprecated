@@ -14,7 +14,6 @@ window.onresize = function() {
 export class App extends React.Component<{store?: CR.State}, {}> {
   render(): React.ReactElement<{}> {
     const store = this.props.store;
-    console.log(store);
     return (
       <section
         className='cr'

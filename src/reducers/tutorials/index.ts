@@ -15,6 +15,7 @@ export default function tutorialsReducer(
       return ([]
         .concat(searchForTutorials(packageJson.dependencies))
         .concat(searchForTutorials(packageJson.devDependencies)));
+
     default:
       return tutorials;
   }

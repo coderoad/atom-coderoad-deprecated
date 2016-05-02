@@ -4,17 +4,23 @@ import {testResult, completePage, testComplete} from '../../actions';
 export function handleResult(result: Test.Result): void {
   store.dispatch(testComplete());
 
-  if (result.completed) {
+  switch (true) {
     // all complete
-    store.dispatch(testResult(result));
-    store.dispatch(completePage());
-  } else if (!result.pass) {
-    // failure, on same task
-    store.dispatch(testResult(result));
-  } else if (result.pass) {
-    // success
-    result.msg = `Task ${result.taskPosition} Complete`;
-    // check if page is completed
-    store.dispatch(testResult(result));
+    case result.completed:
+      store.dispatch(testResult(result));
+      store.dispatch(completePage());
+      break;
+
+    // a task failed
+    case !result.pass:
+      store.dispatch(testResult(result));
+      break;
+
+    // a task passed
+    case result.pass:
+      result.msg = `Task ${result.taskPosition} Complete`;
+      // check if page is completed
+      store.dispatch(testResult(result));
+      break;
   }
 };

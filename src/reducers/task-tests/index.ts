@@ -6,6 +6,7 @@ export default function taskTestsReducer(
   taskTests = '', action: Action
 ): string {
   switch (action.type) {
+
     case TESTS_LOAD:
       return [].concat.apply([], store.getState().tasks.map(
         task => task.tests || [])
@@ -17,6 +18,7 @@ export default function taskTestsReducer(
         }
         return output;
       }, '');
+
     default:
       return taskTests;
   }

@@ -12,6 +12,7 @@ export default function pageReducer(
   p = _page, action: Action
 ): CR.Page {
   switch (action.type) {
+
     case PAGE_SET:
       const pagePosition: CR.PagePosition = action.payload.pagePosition;
       const {title, description, onPageComplete, completed} = store.getState().tutorial.pages[pagePosition];
@@ -23,8 +24,10 @@ export default function pageReducer(
         onPageComplete,
         completed: completed || false
       };
+
     case COMPLETE_PAGE:
       return Object.assign({}, p, { completed: true });
+
     default:
       return p;
   }

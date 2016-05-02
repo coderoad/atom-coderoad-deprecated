@@ -11,6 +11,7 @@ export default function runTestReducer(
   testRun = false, action: Action
 ): boolean {
   switch (action.type) {
+
     case TEST_RUN:
       let current = new Date().getTime();
       if (current - previous > pageTimeout) {
@@ -18,11 +19,14 @@ export default function runTestReducer(
         return runTaskTests();
       }
       return false;
+
     case TEST_COMPLETE:
       return false;
+
     case PAGE_SET:
       previous = new Date().getTime();
       return false;
+
     default:
       return testRun;
   }

@@ -15,6 +15,7 @@ export default function tutorialReducer(
   tutorial = _tutorial, action: Action
 ): CR.Tutorial {
   switch (action.type) {
+
     case TUTORIAL_SET:
       const name: string = action.payload.name;
       const dir = store.getState().dir;
@@ -29,6 +30,7 @@ export default function tutorialReducer(
         packageJson,
         config,
       };
+
     default:
       return tutorial;
   }

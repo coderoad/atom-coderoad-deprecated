@@ -8,6 +8,7 @@ export default function packageJsonReducer(
   pj = null, action: Action
 ): PackageJson {
   switch (action.type) {
+
     case PACKAGE_SET:
       const dir = store.getState().dir;
       const pathToPackageJson = join(dir, 'package.json');
@@ -15,6 +16,7 @@ export default function packageJsonReducer(
         return JSON.parse(readFileSync(pathToPackageJson, 'utf8'));
       }
       return null;
+
     default:
       return pj;
   }
