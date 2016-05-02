@@ -1,6 +1,5 @@
 /// <reference path="assertion-error/assertion-error.d.ts" />
 /// <reference path="atom/atom.d.ts" />
-/// <reference path="classnames/classnames.d.ts" />
 /// <reference path="es6-promise/es6-promise.d.ts" />
 /// <reference path="node/node.d.ts" />
 /// <reference path="react-dom/react-dom.d.ts" />

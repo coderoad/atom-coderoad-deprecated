@@ -17,14 +17,18 @@ export function searchForTutorials(deps: Object): Tutorial.Info[] {
 
         // no package.json
         if (!fileExists(pathToTutorialPackageJson)) {
-          console.log(`Error with ${name}: no package.json file found. ${tutorialError}`);
+          console.log(
+            `Error with ${name}: no package.json file found. ${tutorialError}`
+          );
           return {
             name,
             version: 'NOT INSTALLED'
           };
         }
 
-        let tutorialPackageJson = JSON.parse(readFileSync(pathToTutorialPackageJson, 'utf8'));
+        let tutorialPackageJson = JSON.parse(
+          readFileSync(pathToTutorialPackageJson, 'utf8')
+        );
         const version = tutorialPackageJson.version;
 
         return {

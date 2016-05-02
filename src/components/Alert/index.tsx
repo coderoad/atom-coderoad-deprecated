@@ -2,7 +2,6 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {alertToggle} from '../../actions';
 import Snackbar from 'material-ui/Snackbar';
-const classNames = require('classnames');
 
 const defaultAlert = {
   message: '',
@@ -22,7 +21,7 @@ export class Alert extends React.Component<{
     const {action, open, message, duration} = alert;
     return (
       <Snackbar
-          className={classNames('cr-alert', action)}
+          className={`cr-alert ${action}`}
           open={open || false}
           message={message || ''}
           action={action}

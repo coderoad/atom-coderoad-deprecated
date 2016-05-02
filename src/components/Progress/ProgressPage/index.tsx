@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {pageSet, routeSet, testsLoad} from '../../../actions';
-import * as classnames from 'classnames';
 import {ListItem} from 'material-ui/List';
 import {progressIcon} from '../progressIcon';
 import {grey400} from 'material-ui/styles/colors';

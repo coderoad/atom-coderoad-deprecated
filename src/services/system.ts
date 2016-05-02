@@ -1,1 +1,1 @@
-export const isWindows = navigator.appVersion.indexOf('Win') > -1;
+export const isWindows = window.navigator.appVersion.indexOf('Win') > -1 || false;

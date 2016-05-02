@@ -23,7 +23,6 @@
     "files": [
         "src/typings/assertion-error/assertion-error.d.ts",
         "src/typings/atom/atom.d.ts",
-        "src/typings/classnames/classnames.d.ts",
         "src/typings/cr/cr.d.ts",
         "src/typings/cr/globals.d.ts",
         "src/typings/cr/test.d.ts",
