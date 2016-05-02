@@ -25,15 +25,16 @@ export class ProgressPage extends React.Component<{
   pagePosition: CR.PagePosition, index: number, selectPage?: () => void}, {}> {
   render() {
     const {page, pagePosition, index, progress, selectPage} = this.props;
-    const isCompleted = progress.pages[index] || false;
-    const canActivate = index >= pagePosition;
+    const isCompleted: boolean = progress.pages[index] || false;
+    const canActivate: boolean = index <= pagePosition + 1;
+    const isCurrentPage: boolean = index === pagePosition;
     return (
       <ListItem
         key={index}
         style={Object.assign({}, styles, !canActivate ? {color: grey400} : {})}
         primaryText={`${index + 1}. ${page.title}`}
         secondaryText={page.description}
-        leftIcon={progressIcon(isCompleted, index === pagePosition)}
+        leftIcon={progressIcon(isCompleted, isCurrentPage)}
         onClick={
           canActivate
             ? selectPage.bind(this, index)

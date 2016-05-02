@@ -14,7 +14,7 @@ export function pageNext(): Action {
     };
   } else {
     pagePosition = pagePosition + 1;
-    store.dispatch(testsLoad(pagePosition));
+    setTimeout(() => store.dispatch(testsLoad(pagePosition)));
     return {
       payload: { pagePosition },
       type: PAGE_SET,
@@ -23,7 +23,8 @@ export function pageNext(): Action {
 }
 
 export function pageSet(pagePosition = 0): Action {
-  if (store.getState().progress.pages[pagePosition]) {
+  // beyond the final page
+  if (pagePosition >= store.getState().progress.pages.length) {
     return {
       payload: { route: 'final' },
       type: ROUTE_SET,

@@ -9,13 +9,8 @@ export default function pagePositionReducer(
   switch (action.type) {
     case PAGE_POSITION_LOAD:
       const pages = store.getState().progress.pages;
-      pagePosition = pages.indexOf(x => x) + 1;
-      console.log('expected pagePosition', pagePosition, pages);
-      // all pages complete ? page = -1
-      if (pagePosition >= pages.length) {
-        pagePosition = pages.length - 1;
-      }
-      return pagePosition;
+      const firstFail = pages.indexOf(x => !x);
+      return firstFail > 0 ? firstFail : pages.length - 1;
     case PAGE_SET:
     case PAGE_POSITION_SET:
       return action.payload.pagePosition;

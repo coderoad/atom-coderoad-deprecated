@@ -37,6 +37,7 @@ export default function editorActionsReducer(
         currentTaskPosition = nextTaskPosition;
       }
       return actions;
+
     default:
       return editorActions;
   }
