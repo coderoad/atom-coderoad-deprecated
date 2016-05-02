@@ -1,12 +1,12 @@
 import {
   PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_TUTORIAL
 } from './_types';
-import {positionLoad} from './position';
+import {pagePositionLoad} from './page';
 import store from '../store';
 
 export function progressLoad(): Action {
   setTimeout(function() {
-    store.dispatch(positionLoad());
+    store.dispatch(pagePositionLoad());
   });
   return { type: PROGRESS_LOAD };
 }
@@ -16,14 +16,14 @@ function isTrue(x) {
 }
 
 export function completePage(): Action {
-  const position: CR.Position = store.getState().position;
+  const pagePosition: CR.PagePosition = store.getState().pagePosition;
   const progress = store.getState().progress;
   // all pages are true, tutorial complete
   if (progress.pages.every(x => x.completed)) {
     store.dispatch(completeTutorial());
   }
   return {
-    payload: { position },
+    payload: { pagePosition },
     type: COMPLETE_PAGE,
   };
 }

@@ -7,7 +7,7 @@ import editorActions from './editor-actions';
 import hintPosition from './hint-position';
 import packageJson from './package-json';
 import page from './page';
-import position from './position';
+import pagePosition from './page-position';
 import progress from './progress';
 import route from './route';
 import taskPosition from './task-position';
@@ -19,6 +19,6 @@ import tutorials from './tutorials';
 
 export default combineReducers({
   alert, checks, dir, editorActions, hintPosition, page,
-  packageJson, position, progress, route, taskPosition,
+  packageJson, pagePosition, progress, route, taskPosition,
   taskTests, tasks, testRun, tutorial, tutorials,
 });

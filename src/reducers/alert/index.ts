@@ -63,7 +63,7 @@ export default function alertReducer(
       });
     case COMPLETE_PAGE:
       return setAlert({
-        message: `Page ${action.payload.position.page + 1} Complete`,
+        message: `Page ${action.payload.pagePosition.page + 1} Complete`,
       });
     case COMPLETE_TUTORIAL:
       return setAlert({

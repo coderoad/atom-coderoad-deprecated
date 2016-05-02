@@ -23,8 +23,8 @@ export default function progressReducer(
         pages: store.getState().tutorial.pages.map(() => false)
       };
     case COMPLETE_PAGE:
-      const {page} = action.payload.position;
-      progress.pages[page] = true;
+      const pagePosition = action.payload.pagePosition;
+      progress.pages[pagePosition] = true;
       saveToLocalStorage(progress);
       return progress;
     case COMPLETE_TUTORIAL:

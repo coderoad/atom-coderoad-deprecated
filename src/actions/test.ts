@@ -19,6 +19,6 @@ export function testComplete(): Action {
   return { type: TEST_COMPLETE };
 }
 
-export function testsLoad(): Action {
-  return { type: TESTS_LOAD };
+export function testsLoad(pagePosition: CR.PagePosition): Action {
+  return { type: TESTS_LOAD, payload: { pagePosition } };
 }

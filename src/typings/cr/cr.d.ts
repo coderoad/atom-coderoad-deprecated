@@ -22,7 +22,7 @@ declare namespace CR {
     dir: string;
     route: string;
     tutorialInfo: Tutorial.Info;
-    position: Position;
+    pagePosition: PagePosition;
     package: PackageJson;
     page: Page;
     progress: Progress;
@@ -46,7 +46,7 @@ declare namespace CR {
     config: Tutorial.Config;
   }
 
-  type Position = number;
+  type PagePosition = number;
 
   interface Progress {
     completed: boolean;

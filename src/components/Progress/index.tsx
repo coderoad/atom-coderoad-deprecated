@@ -10,9 +10,9 @@ const pageStyle = {
 };
 
 export const Progress: React.StatelessComponent<{
-  progress: CR.Progress, position: CR.Position,
+  progress: CR.Progress, pagePosition: CR.PagePosition,
   info: Tutorial.Info, tutorial: CR.Tutorial
-}> = ({progress, position, info, tutorial}) => (
+}> = ({progress, pagePosition, info, tutorial}) => (
   <Paper style={pageStyle}>
     <List>
       <Subheader>{info.name}</Subheader>
@@ -21,7 +21,7 @@ export const Progress: React.StatelessComponent<{
           key={index}
           index={index}
           page={page}
-          position={position}
+          pagePosition={pagePosition}
           progress={progress}
         />
      ))

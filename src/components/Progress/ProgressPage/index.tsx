@@ -13,39 +13,30 @@ const styles = {
 
 @connect(null, (dispatch) => {
   return {
-    selectPage: (position: CR.Position) => {
-      dispatch(pageSet(position));
-      dispatch(testsLoad());
+    selectPage: (pagePosition: CR.PagePosition) => {
+      dispatch(pageSet(pagePosition));
+      dispatch(testsLoad(pagePosition));
       dispatch(routeSet('page'));
     }
   };
 })
 export class ProgressPage extends React.Component<{
   page: CR.Page, progress: CR.Progress,
-  position: CR.Position, index: number, selectPage?: () => void}, {}> {
-  canActivate(isActive: boolean) {
-    const {index, position, progress} = this.props;
-    const completed = progress.pages[index];
-    return isActive || completed;
-  }
+  pagePosition: CR.PagePosition, index: number, selectPage?: () => void}, {}> {
   render() {
-    console.log(this.props);
-    const {page, position, index, progress, selectPage} = this.props;
-    const isActive = index === position.page;
-    const canActivate = this.canActivate(isActive);
-    const completed = progress.pages[index];
+    const {page, pagePosition, index, progress, selectPage} = this.props;
+    const isCompleted = progress.pages[index] || false;
+    const canActivate = index >= pagePosition;
     return (
       <ListItem
         key={index}
         style={Object.assign({}, styles, !canActivate ? {color: grey400} : {})}
         primaryText={`${index + 1}. ${page.title}`}
-        secondaryText={canActivate ? page.description : ''}
-        leftIcon={progressIcon(completed, isActive)}
+        secondaryText={page.description}
+        leftIcon={progressIcon(isCompleted, index === pagePosition)}
         onClick={
           canActivate
-            ? selectPage.bind(this, {
-              page: index
-            })
+            ? selectPage.bind(this, index)
             : function () { return; }
           }
       />

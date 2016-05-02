@@ -2,7 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
 import {
-  positionSet, tutorialSet, progressLoad, routeSet
+  pagePositionSet, tutorialSet, progressLoad, routeSet
 } from '../../../actions';
 
 function displayName(name: string): string {
@@ -18,7 +18,7 @@ function displayName(name: string): string {
   return {
     selectTutorial: (name: string) => {
       dispatch(tutorialSet(name));
-      dispatch(positionSet({page: 0}));
+      dispatch(pagePositionSet(0));
       dispatch(progressLoad());
       dispatch(routeSet('progress'));
     },
