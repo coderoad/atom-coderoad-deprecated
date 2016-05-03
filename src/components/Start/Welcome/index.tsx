@@ -33,7 +33,7 @@ const buttonStyles = {
   textShadow: '1px 1px 0px #000',
 };
 
-export const Welcome: React.StatelessComponent<{}> = () => (
+const Welcome: React.StatelessComponent<{}> = () => (
   <div style={styles} className='cr-bg'>
       <div style={titleStyles}>CodeRoad</div>
       <div style={taglineStyles}>Tutorials in your Editor</div>
@@ -45,3 +45,4 @@ export const Welcome: React.StatelessComponent<{}> = () => (
       />
   </div>
 );
+export default Welcome;

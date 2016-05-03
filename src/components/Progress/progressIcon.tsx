@@ -4,7 +4,7 @@ import CheckBox from 'material-ui/svg-icons/toggle/check-box';
 import PlayCircleFilled from 'material-ui/svg-icons/av/play-circle-filled';
 import CheckBoxOutlineBlank from 'material-ui/svg-icons/toggle/check-box-outline-blank';
 
-export function progressIcon(
+export default function progressIcon(
   pages: boolean[], index: number, pagePosition: number
 ) {
   console.log(index, pagePosition);

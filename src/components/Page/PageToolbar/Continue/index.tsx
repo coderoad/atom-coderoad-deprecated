@@ -14,7 +14,7 @@ const styles = {
     }
   };
 })
-export class Continue extends React.Component<{
+export default class Continue extends React.Component<{
   callNextPage?: any
 }, {}> {
   render() {

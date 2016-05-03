@@ -14,7 +14,7 @@ const styles = {
     tutorialUpdate: (name: string) => dispatch(tutorialUpdate(name)),
   };
 })
-export class UpdateTutorial extends React.Component<{
+export default class UpdateTutorial extends React.Component<{
   tutorial: Tutorial.Info, tutorialUpdate?: any
 }, {}> {
   render() {

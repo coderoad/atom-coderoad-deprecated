@@ -17,7 +17,7 @@ const styles = {
     }
   };
 })
-export class Quit extends React.Component<{
+export default class Quit extends React.Component<{
   quit?: any
 }, {}> {
   render() {

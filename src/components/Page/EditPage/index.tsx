@@ -10,7 +10,7 @@ const editStyle = {
   right: '10px',
 };
 
-export const EditPage: React.StatelessComponent<{
+const EditPage: React.StatelessComponent<{
   tutorial: Tutorial.Config
 }> = ({tutorial}) => {
   if (tutorial && tutorial.edit && tutorial.repo) {
@@ -22,3 +22,4 @@ export const EditPage: React.StatelessComponent<{
     );
   }
 };
+export default EditPage;

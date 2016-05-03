@@ -8,7 +8,7 @@ import {hintPositionSet} from '../../../actions';
     hintSet: (position: number) => dispatch(hintPositionSet(position)),
   };
 })
-export class HintButton extends React.Component<{
+export default class HintButton extends React.Component<{
   hintPosition: number, hintsLength: number, type: 'next'|'prev', label: string
   hintSet?: any
 }, {}> {

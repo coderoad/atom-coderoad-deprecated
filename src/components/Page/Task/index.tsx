@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Markdown} from '../../index';
-import {taskCheckbox} from './taskCheckbox';
+import taskCheckbox from './taskCheckbox';
 import {ListItem} from 'material-ui/List';
 import {lightGreen200, orange200} from 'material-ui/styles/colors';
 
@@ -30,7 +30,7 @@ function getStatus(
   return index < taskPosition ? lightGreen200 : 'inherit';
 }
 
-export const Task: React.StatelessComponent<{
+const Task: React.StatelessComponent<{
   task: CR.Task, taskPosition: number, index: number, testRun: boolean
 }> = ({task, taskPosition, index, testRun}) => {
   const backgroundColor = getStatus(index, taskPosition, testRun);
@@ -48,3 +48,4 @@ export const Task: React.StatelessComponent<{
     </ListItem>
   );
 };
+export default Task;

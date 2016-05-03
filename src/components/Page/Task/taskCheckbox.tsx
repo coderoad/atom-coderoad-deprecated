@@ -9,7 +9,7 @@ const styles = {
   top: '15px'
 };
 
-export function taskCheckbox(isCurrentTask: boolean, testRun: boolean) {
+export default function taskCheckbox(isCurrentTask: boolean, testRun: boolean) {
   if (!isCurrentTask || !testRun) { return null; }
   return (
     <span style={styles}>

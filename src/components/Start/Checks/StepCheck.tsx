@@ -4,7 +4,7 @@ import FontIcon from 'material-ui/FontIcon';
 import WarningIcon from 'material-ui/svg-icons/alert/warning';
 import {red500} from 'material-ui/styles/colors';
 
-export const StepCheck: React.StatelessComponent<{
+const StepCheck: React.StatelessComponent<{
   completed: boolean, label: string, children?: any
 }> = ({completed, label, children}) => (
   <Step
@@ -23,3 +23,4 @@ export const StepCheck: React.StatelessComponent<{
    </StepContent>
  </Step>
 );
+export default StepCheck;

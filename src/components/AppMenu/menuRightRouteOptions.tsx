@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {MenuLink} from './MenuLink';
+import MenuLink from './MenuLink';
 
-export function menuRightRouteOptions(route: string) {
+export default function menuRightRouteOptions(route: string) {
   switch (route) {
     case 'final':
     case 'page':

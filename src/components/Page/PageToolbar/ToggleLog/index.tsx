@@ -3,7 +3,7 @@ import Code from 'material-ui/svg-icons/action/code';
 import {toggleDevTools} from '../../../../atom/editor';
 import FlatButton from 'material-ui/FlatButton';
 
-export const ToggleLog = () => (
+const ToggleLog = () => (
   <FlatButton
     icon={
       <Code />
@@ -11,3 +11,4 @@ export const ToggleLog = () => (
     onTouchTap={toggleDevTools}
   />
 );
+export default ToggleLog;

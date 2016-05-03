@@ -25,7 +25,7 @@ function formatText(text: string): string {
     : marked(text.toString(), options);
 };
 
-export const Markdown: React.StatelessComponent<{
+const Markdown: React.StatelessComponent<{
   children?: string, style?: Object
 }> = ({style, children}) => (
   <span
@@ -36,3 +36,4 @@ export const Markdown: React.StatelessComponent<{
     }
   />
 );
+export default Markdown;

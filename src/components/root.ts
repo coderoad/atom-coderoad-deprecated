@@ -1,6 +1,6 @@
 import * as ReactDOM from 'react-dom';
 
-export const Root = {
+const Root = {
   root: null,
   init: (): HTMLElement => {
     this.root = document.createElement('div');
@@ -9,3 +9,4 @@ export const Root = {
   },
   unmount: () => ReactDOM.unmountComponentAtNode(this.root)
 };
+export default Root;

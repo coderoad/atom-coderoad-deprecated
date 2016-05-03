@@ -2,13 +2,13 @@ import * as React from 'react';
 import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
 import {Card, CardHeader, CardText, CardActions} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-import {VerifyButton} from './VerifyButton';
+import VerifyButton from './VerifyButton';
 import {pink500} from 'material-ui/styles/colors';
 import {updateNpm} from '../../../reducers/checks/action-system';
-import {DynamicStepper} from './DynamicStepper';
-import {StepCheck} from './StepCheck';
+import DynamicStepper from './DynamicStepper';
+import StepCheck from './StepCheck';
 
-export const SystemChecks: React.StatelessComponent<{
+const SystemChecks: React.StatelessComponent<{
   checks: CR.Checks
 }> = ({checks}) => {
   const system = checks.system;
@@ -51,3 +51,4 @@ export const SystemChecks: React.StatelessComponent<{
  </Card>
   );
 };
+export default SystemChecks;

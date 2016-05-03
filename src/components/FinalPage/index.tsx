@@ -34,3 +34,4 @@ export const FinalPage: React.StatelessComponent<{}> = () => (
 
     </Card>
 );
+export default FinalPage;

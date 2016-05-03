@@ -2,7 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {pageSet, routeSet, testsLoad} from '../../../actions';
 import {ListItem} from 'material-ui/List';
-import {progressIcon} from '../progressIcon';
+import progressIcon from '../progressIcon';
 import {grey400} from 'material-ui/styles/colors';
 
 const styles = {
@@ -19,7 +19,7 @@ const styles = {
     }
   };
 })
-export class ProgressPage extends React.Component<{
+export default class ProgressPage extends React.Component<{
   page: CR.Page, progress: CR.Progress,
   pagePosition: CR.PagePosition, index: number, selectPage?: () => void}, {}> {
   render() {

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
-import {ToggleLog} from './ToggleLog';
-import {Save} from './Save';
-import {Continue} from './Continue';
+import ToggleLog from './ToggleLog';
+import Save from './Save';
+import Continue from './Continue';
 
 const styles = {
     zIndex: '1000',
@@ -30,3 +30,4 @@ export const PageToolbar: React.StatelessComponent<{
     </Toolbar>
   </section>
 );
+export default PageToolbar;

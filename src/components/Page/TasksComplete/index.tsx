@@ -13,7 +13,7 @@ const textStyles = {
   fontSize: '1.1em'
 };
 
-export const TasksComplete: React.StatelessComponent<{
+const TasksComplete: React.StatelessComponent<{
   page: CR.Page
 }> = ({page}) => {
   if (!page.completed || !page.onPageComplete) { return null; }
@@ -25,3 +25,4 @@ export const TasksComplete: React.StatelessComponent<{
     </Card>
   );
 };
+export default TasksComplete;

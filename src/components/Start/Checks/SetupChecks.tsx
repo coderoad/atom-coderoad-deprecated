@@ -2,12 +2,12 @@ import * as React from 'react';
 import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
 import {Card, CardHeader, CardText, CardActions} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-import {VerifyButton} from './VerifyButton';
+import VerifyButton from './VerifyButton';
 import {openDirectory, createPackageJson} from '../../../reducers/checks/action-setup';
-import {DynamicStepper} from './DynamicStepper';
-import {StepCheck} from './StepCheck';
+import DynamicStepper from './DynamicStepper';
+import StepCheck from './StepCheck';
 
-export const SetupChecks: React.StatelessComponent<{
+const SetupChecks: React.StatelessComponent<{
   checks: CR.Checks
 }> = ({checks}) => {
   const setup = checks.setup;
@@ -63,3 +63,4 @@ export const SetupChecks: React.StatelessComponent<{
   </Card>
   );
 };
+export default SetupChecks;

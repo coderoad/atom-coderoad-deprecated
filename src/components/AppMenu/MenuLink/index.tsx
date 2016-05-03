@@ -13,7 +13,7 @@ const styles = {
     routeTo: (route: string) => dispatch(routeSet(route)),
   };
 })
-export class MenuLink extends React.Component<{
+export default class MenuLink extends React.Component<{
   route: string, title?: string, routeTo?: any
 }, {}> {
   render() {

@@ -23,7 +23,7 @@ function displayName(name: string): string {
     },
   };
 })
-export class SelectTutorial extends React.Component<{
+export default class SelectTutorial extends React.Component<{
   tutorial: Tutorial.Info, selectTutorial?: any
 }, {}> {
   render() {

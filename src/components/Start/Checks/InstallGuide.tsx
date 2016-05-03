@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const InstallGuide: React.StatelessComponent<{
+const InstallGuide: React.StatelessComponent<{
   show: boolean
 }> = ({show}) => {
   if (!show) {
@@ -12,3 +12,4 @@ export const InstallGuide: React.StatelessComponent<{
     </div>
   );
 };
+export default InstallGuide;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import store from '../../store';
 
-export function issuesLink() {
+export default function issuesLink() {
   const tutorial = store.getState().tutorial;
   if (!tutorial || !tutorial.config || !tutorial.config.issuesPath) {
     return null;

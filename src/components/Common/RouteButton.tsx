@@ -8,7 +8,7 @@ import FlatButton from 'material-ui/FlatButton';
     routeTo: (route: string) => dispatch(routeSet(route)),
   };
 })
-export class RouteButton extends React.Component<{
+export default class RouteButton extends React.Component<{
   label: string, route: string, routeTo?: any, style?: Object
 }, {}> {
   render() {

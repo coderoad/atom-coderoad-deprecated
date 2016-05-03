@@ -1,7 +1,7 @@
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {grey900} from 'material-ui/styles/colors';
 
-export const muiTheme = getMuiTheme({
+const muiTheme = getMuiTheme({
   palette: {
     textColor: grey900,
   },
@@ -9,3 +9,4 @@ export const muiTheme = getMuiTheme({
     height: 50,
   },
 });
+export default muiTheme;

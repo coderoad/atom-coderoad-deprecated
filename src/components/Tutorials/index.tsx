@@ -2,16 +2,16 @@ import * as React from 'react';
 import {
   Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn, TableBody
 } from 'material-ui/Table';
-import {LoadTutorials} from './LoadTutorials';
-import {UpdateTutorial} from './UpdateTutorial';
-import {SelectTutorial} from './SelectTutorial';
+import LoadTutorials from './LoadTutorials';
+import UpdateTutorial from './UpdateTutorial';
+import SelectTutorial from './SelectTutorial';
 
 const styles = {
   padding: '10px',
   textAlign: 'center',
 };
 
-export const Tutorials: React.StatelessComponent<{
+const Tutorials: React.StatelessComponent<{
   tutorials: Tutorial.Info[]
 }> = ({tutorials}) => (
   <div style={styles}>
@@ -56,3 +56,4 @@ export const Tutorials: React.StatelessComponent<{
     <LoadTutorials />
   </div>
 );
+export default Tutorials;

@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
     verify: () => store.dispatch(setupVerify())
   };
 })
-export class VerifyButton extends React.Component<{
+export default class VerifyButton extends React.Component<{
   verify?: any
 }, {}> {
   render() {

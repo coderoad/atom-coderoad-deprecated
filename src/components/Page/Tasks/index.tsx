@@ -3,9 +3,9 @@ import * as ReactDOM from 'react-dom';
 import {List} from 'material-ui/List';
 import {Card} from 'material-ui/Card';
 import Subheader from 'material-ui/Subheader';
-import {Task} from '../Task';
+import Task from '../Task';
 import {lightGreen200} from 'material-ui/styles/colors';
-import {TasksComplete} from '../TasksComplete';
+import TasksComplete from '../TasksComplete';
 
 function visibleTasks(tasks: CR.Task[], taskPosition: number): CR.Task[] {
   return tasks.slice(0, taskPosition + 1);
@@ -13,7 +13,7 @@ function visibleTasks(tasks: CR.Task[], taskPosition: number): CR.Task[] {
 
 const margin = '10px 5px';
 
-export class Tasks extends React.Component<{
+export default class Tasks extends React.Component<{
     tasks: CR.Task[], taskPosition: number,
     testRun: boolean, completed: boolean, page: CR.Page
 }, {}> {

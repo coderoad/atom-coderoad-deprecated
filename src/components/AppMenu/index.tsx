@@ -1,13 +1,13 @@
 import * as React from 'react';
 import AppBar from 'material-ui/AppBar';
-import {CloseWindow} from './CloseWindow';
-import {menuRight} from './menuRight';
+import CloseWindow from './CloseWindow';
+import menuRight from './menuRight';
 
 const styles = {
   zIndex: '1 !important'
 };
 
-export const AppMenu: React.StatelessComponent<{
+const AppMenu: React.StatelessComponent<{
   route: string, quit?: any
 }> = ({route}) => {
   return (
@@ -20,3 +20,4 @@ export const AppMenu: React.StatelessComponent<{
     />
   );
 };
+export default AppMenu;

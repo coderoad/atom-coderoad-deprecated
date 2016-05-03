@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import {Markdown} from '../../index';
-import {HintButton} from './HintButton';
+import HintButton from './HintButton';
 import Help from 'material-ui/svg-icons/action/help';
 
 const styles = {
@@ -12,7 +12,7 @@ const styles = {
   zIndex: '0',
 };
 
-export const Hints: React.StatelessComponent<{
+const Hints: React.StatelessComponent<{
   task: CR.Task, hintPosition: number
 }> = ({task, hintPosition}) => {
   const hints = task && task.hints ? task.hints : null;
@@ -58,3 +58,4 @@ export const Hints: React.StatelessComponent<{
     </Card>
     );
 };
+export default Hints;

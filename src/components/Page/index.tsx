@@ -1,18 +1,18 @@
 import * as React from 'react';
 import Divider from 'material-ui/Divider';
 import {Card} from 'material-ui/Card';
-import {PageContent} from './PageContent';
-import {Tasks} from './Tasks';
-import {Hints} from './Hints';
-import {PageToolbar} from './PageToolbar';
-import {ProgressBar} from './ProgressBar';
+import PageContent from './PageContent';
+import Tasks from './Tasks';
+import Hints from './Hints';
+import PageToolbar from './PageToolbar';
+import ProgressBar from './ProgressBar';
 
 const styles = {
   width: '100%',
   overflowY: 'scroll',
 };
 
-export const Page: React.StatelessComponent<{
+const Page: React.StatelessComponent<{
   page: CR.Page, tasks: CR.Task[], taskPosition: number,
   hintPosition: number, testRun: boolean
 }> = ({page, taskPosition, hintPosition, tasks, testRun}) => {
@@ -47,3 +47,4 @@ export const Page: React.StatelessComponent<{
     </section>
   );
 };
+export default Page;

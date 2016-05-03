@@ -13,7 +13,7 @@ const defaultAlert = {
     alertToggle: () => dispatch(alertToggle()),
   };
 })
-export class Alert extends React.Component<{
+export default class Alert extends React.Component<{
   alert: CR.Alert, alertToggle?: any
 }, {}> {
   render() {

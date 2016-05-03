@@ -5,7 +5,7 @@ const style = {
   height: '10px'
 };
 
-export const ProgressBar: React.StatelessComponent<{
+const ProgressBar: React.StatelessComponent<{
   taskPosition: number, taskLength: number, completed: boolean
 }> = ({taskPosition, taskLength, completed}) => {
   const progress: number = (taskPosition / taskLength) * 100;
@@ -20,3 +20,4 @@ export const ProgressBar: React.StatelessComponent<{
     />
   );
 };
+export default ProgressBar;

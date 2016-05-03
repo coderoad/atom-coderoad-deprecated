@@ -6,7 +6,7 @@ const styles = {
   margin: '5px'
 };
 
-export const PageContent: React.StatelessComponent<{
+const PageContent: React.StatelessComponent<{
   page: CR.Page
 }> = ({page}) => (
   <Card style={styles}>
@@ -16,3 +16,4 @@ export const PageContent: React.StatelessComponent<{
     </CardText>
   </Card>
 );
+export default PageContent;

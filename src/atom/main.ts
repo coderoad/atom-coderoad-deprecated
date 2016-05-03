@@ -1,9 +1,8 @@
 import * as React from 'react';
-import {render} from '../components/render';
-import {Root} from '../components/root';
+import render from '../components/render';
+import Root from '../components/root';
 import loadPolyfills from '../services/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
-
 import store from '../store';
 import {setupVerify} from '../actions';
 

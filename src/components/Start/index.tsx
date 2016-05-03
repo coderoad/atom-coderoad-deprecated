@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Checks} from './Checks';
-import {Welcome} from './Welcome';
+import Checks from './Checks';
+import Welcome from './Welcome';
 
 const headerStyles = {
   display: 'block',
@@ -20,3 +20,4 @@ export const Start: React.StatelessComponent<{
     </div>
   </section>
 );
+export default Start;
