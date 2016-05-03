@@ -1,6 +1,4 @@
 src
-**/*.ts
-**/*.tsx
 tsconfig.json
 tsd.json
 tslint.json
