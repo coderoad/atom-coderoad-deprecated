@@ -11,11 +11,10 @@ import StepCheck from './StepCheck';
 const SystemChecks: React.StatelessComponent<{
   checks: CR.Checks
 }> = ({checks}) => {
-  const system = checks.system;
-  if (system.passed) {
+  if (checks.system.passed) {
     return null;
   }
-  const status = [system.node, system.npm];
+  const status = [checks.system.node, checks.system.npm];
  return (
   <Card className='cr-check'>
     <CardHeader

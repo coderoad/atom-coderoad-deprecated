@@ -8,7 +8,7 @@ export const tutorialError = 'This is an error with the tutorial itself';
 export function isTutorial(name: string): boolean {
   const dir = store.getState().dir;
   // has package.json
-  let pathToTutorialPackageJson = join(
+  const pathToTutorialPackageJson = join(
     dir, 'node_modules', name, 'package.json'
   );
   if (!fileExists(pathToTutorialPackageJson)) {

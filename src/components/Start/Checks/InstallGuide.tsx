@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 const InstallGuide: React.StatelessComponent<{
-  show: boolean
-}> = ({show}) => {
-  if (!show) {
+  checks: CR.Checks
+}> = ({checks}) => {
+  if (!checks || !checks.passed) {
     return null;
   }
   return (

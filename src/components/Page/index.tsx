@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Divider from 'material-ui/Divider';
 import {Card} from 'material-ui/Card';
-import PageContent from './PageContent';
+import {ContentCard} from '../index';
 import Tasks from './Tasks';
 import Hints from './Hints';
 import PageToolbar from './PageToolbar';
@@ -20,7 +20,10 @@ const Page: React.StatelessComponent<{
   const completed = page.completed;
   return (
     <section style={styles} className='cr-page'>
-      <PageContent page={page} />
+      <ContentCard
+        title={page.title}
+        content={page.description}
+      />
 
       <Tasks
         tasks={tasks}

@@ -7,4 +7,5 @@ export {default as Progress} from './Progress';
 export {default as Routes} from './Routes';
 export {default as Start} from './Start';
 export {default as Tutorials} from './Tutorials';
-export {default as RouteButton} from './Common/RouteButton';
+export {default as RouteButton} from './common/RouteButton';
+export {default as ContentCard} from './common/ContentCard';
