@@ -20,6 +20,7 @@ export class App extends React.Component<{store?: CR.State}, {}> {
     return (
       <section
         style={{height}}
+        className='cr-bg'
       >
       <Drawer
         width={400}

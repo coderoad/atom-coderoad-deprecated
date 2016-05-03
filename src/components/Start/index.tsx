@@ -2,13 +2,6 @@ import * as React from 'react';
 import {Checks} from './Checks';
 import {Welcome} from './Welcome';
 
-const styles = {
-  position: 'relative',
-  height: '100%',
-  textAlign: 'center',
-  color: 'white',
-};
-
 const headerStyles = {
   display: 'block',
   height: '300px',
@@ -19,7 +12,7 @@ const headerStyles = {
 export const Start: React.StatelessComponent<{
   checks: CR.Checks
 }> = ({checks}) => (
-  <section style={styles}>
+  <section className='cr-start'>
     <div style={headerStyles}>
     {checks.passed
       ? <Welcome  />

@@ -28,11 +28,11 @@ export function onActivate(): AtomCore.Disposable {
   subscriptions.add(
     // run tests on hot key. See keymaps
     atom.commands.add('atom-workspace', {
-      'cr-viewer:testRun': (() => {
+      'cr-viewer:testRun': () => {
         if (store.getState().route === 'page') {
           store.dispatch(testRun());
         }
-      }),
+      },
     })
   );
   return subscriptions;
@@ -40,7 +40,6 @@ export function onActivate(): AtomCore.Disposable {
 
 export function onDeactivate(): void {
   // unmount React
-  // TODO: animate close first
   window.onresize = null;
   Root.unmount();
   // cleanup subscriptions

@@ -19,7 +19,7 @@ export const Page: React.StatelessComponent<{
   const task = taskPosition <= tasks.length ? tasks[taskPosition] : null;
   const completed = page.completed;
   return (
-    <section style={styles}>
+    <section style={styles} className='cr-page'>
       <PageContent page={page} />
 
       <Tasks
