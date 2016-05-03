@@ -5,7 +5,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 export function menuIconRight() {
   return (
     <IconButton>
-      <MoreVertIcon />
+      <MoreVertIcon color='white'/>
     </IconButton>
   );
 }

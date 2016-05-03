@@ -15,7 +15,7 @@ export class CloseWindow extends React.Component<{
   render() {
     return (
       <IconButton onClick={this.props.windowToggle}>
-        <NavigationClose />
+        <NavigationClose color='white'/>
       </IconButton>
     );
   }

@@ -12,7 +12,7 @@
     "education"
   ],
   "activationCommands": {
-    "atom-workspace": "cr-viewer:start"
+    "atom-workspace": "cr-viewer:toggle"
   },
   "bugs": {
     "url": "https://github.com/coderoad/atom-coderoad"

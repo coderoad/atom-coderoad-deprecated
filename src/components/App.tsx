@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import {AppMenu, Alert} from './index';
 import {Routes} from './Routes';
 import Drawer from 'material-ui/Drawer';
-import {Hold} from './Hold';
+// import {Hold} from './Hold';
+import Menu from 'material-ui/svg-icons/navigation/menu';
 
 let height: number = atom.getSize().height;
 window.onresize = function() {
@@ -18,16 +19,19 @@ export class App extends React.Component<{store?: CR.State}, {}> {
     const store = this.props.store;
     return (
       <section
-        className='cr'
-        key='main'
         style={{height}}
       >
-    <Drawer width={400} openSecondary={true} open={store.open} >
-        <AppMenu {...store} />
-        <Routes {...store} />
-        <Alert {...store} />
-    </Drawer>
-    <Hold />
+      <Drawer
+        width={400}
+        openSecondary={true}
+        open={store.open}
+        >
+        <div className='cr-bg'>
+          <AppMenu {...store} />
+          <Routes {...store} />
+          <Alert {...store} />
+        </div>
+      </Drawer>
     </section>
     );
   }

@@ -121,7 +121,7 @@
         "src/components/AppMenu/CloseWindow.tsx",
         "src/components/AppMenu/index.tsx",
         "src/components/AppMenu/issuesLink.tsx",
-        "src/components/AppMenu/menuIconRight.tsx",
+        "src/components/AppMenu/MenuIconRight.tsx",
         "src/components/AppMenu/MenuLink/index.tsx",
         "src/components/AppMenu/menuRight.tsx",
         "src/components/AppMenu/menuRightRouteOptions.tsx",

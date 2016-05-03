@@ -1,24 +1,25 @@
 @import "ui-variables";
-
-.cr-alert {
-  button {
-    position: relative;
-    span {
-      position: absolute;
-      top: -8px;
+#crv {
+  .cr-alert {
+    button {
+      position: relative;
+      span {
+        position: absolute;
+        top: -8px;
+      }
     }
   }
-}
-.cr-alert.pass button span {
-  color: @background-color-success;
-}
-.cr-alert.fail button span {
-  color: @background-color-error;
-}
-.cr-alert.note button span {
-  color: @background-color-info;
-}
-.cr-alert-replay {
-  display: inline-block;
-  margin: 0 10px;
+  .cr-alert.pass button span {
+    color: @background-color-success;
+  }
+  .cr-alert.fail button span {
+    color: @background-color-error;
+  }
+  .cr-alert.note button span {
+    color: @background-color-info;
+  }
+  .cr-alert-replay {
+    display: inline-block;
+    margin: 0 10px;
+  }
 }

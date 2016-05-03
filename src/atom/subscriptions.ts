@@ -9,11 +9,11 @@ export function onActivate(): AtomCore.Disposable {
   // Atom Listeners
   subscriptions = new CompositeDisposable;
 
-  // subscriptions.add(
-  //   atom.commands.add('atom-workspace', {
-  //     'cr-viewer:toggle': store.dispatch(windowToggle)
-  //   })
-  // );
+  subscriptions.add(
+    atom.commands.add('atom-workspace', {
+      'cr-viewer:toggle': () => store.dispatch(windowToggle())
+    })
+  );
 
   // run tests on save
   atom.workspace.observeTextEditors((editor: AtomCore.IEditor) => {

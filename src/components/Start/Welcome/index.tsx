@@ -10,6 +10,7 @@ const imagePath = join(
 const styles = {
   backgroundImage: `url("${imagePath}")`,
   backgroundRepeat: 'no-repeat',
+  backgroundColor: 'inherit',
   height: '350px',
   textAlign: 'center',
   marginTop: '0px',
@@ -33,7 +34,7 @@ const buttonStyles = {
 };
 
 export const Welcome: React.StatelessComponent<{}> = () => (
-  <div style={styles}>
+  <div style={styles} className='cr-bg'>
       <div style={titleStyles}>CodeRoad</div>
       <div style={taglineStyles}>Tutorials in your Editor</div>
       <br /><br />
