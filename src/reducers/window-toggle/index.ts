@@ -1,7 +1,7 @@
 import {WINDOW_TOGGLE} from '../../actions/_types';
 import store from '../../store';
 
-export default function openReducer(
+export default function windowToggleReducer(
   open = false, action: Action
 ): boolean {
   switch (action.type) {

@@ -1,5 +1,5 @@
 import {open, set, insert, openDevTools} from '../../atom/editor';
-import {getCommand, getParams, getOptions} from './action-helpers';
+import {getCommand, getParams, getOptions} from './parser';
 
 const Type = {
   OPEN: 'open',
@@ -8,11 +8,14 @@ const Type = {
   OPEN_CONSOLE: 'openConsole',
 };
 
-export function editorActions(actionString: string): Promise<void> {
+export default function editorActionReducer(
+  actionString: string
+): Promise<void> {
   return new Promise((resolve, reject) => {
-    let command: string = getCommand(actionString);
-    let params: string[] = getParams(actionString);
+    const command: string = getCommand(actionString);
+    const params: string[] = getParams(actionString);
     switch (command) {
+
       case Type.OPEN:
         let obj = getOptions(params[0]);
         let file = obj.param;
@@ -24,27 +27,27 @@ export function editorActions(actionString: string): Promise<void> {
           }, 100);
         }
         break;
+
       case Type.SET:
         if (params.length === 1) {
-          let content = params[0];
-
+          const content = params[0];
           setTimeout(function() {
             set(content);
             resolve(true);
           });
         }
         break;
+
       case Type.INSERT:
         if (params.length === 1) {
-          // let obj = getOptions(params[0]);
-          let content: string = params[0];
-          // let options: object = obj.options;
+          const content: string = params[0];
           setTimeout(function() {
             insert(content, {});
             resolve(true);
           });
         }
         break;
+
       case Type.OPEN_CONSOLE:
         if (params.length === 0) {
           setTimeout(function() {
@@ -53,6 +56,7 @@ export function editorActions(actionString: string): Promise<void> {
           });
         }
         break;
+
       default:
         console.log('Invalid editor action command');
         reject(false);

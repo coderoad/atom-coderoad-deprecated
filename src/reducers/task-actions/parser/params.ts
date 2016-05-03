@@ -1,4 +1,4 @@
-export class ParseParams {
+export default class ParseParams {
   round: number;
   square: number;
   curly: number;

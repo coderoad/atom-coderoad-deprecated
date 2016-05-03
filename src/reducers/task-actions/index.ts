@@ -1,13 +1,13 @@
 import {TESTS_LOAD, TEST_RESULT} from '../../actions/_types';
-import {editorActions} from './actions';
+import editorActionReducer from './editor-reducer';
 import store from '../../store';
 
-function handleEditorActions(actions: string[][]): void {
+function handleTaskActions(actions: string[][]): void {
   const next = actions.shift();
   if (next && next.length) {
     // resolve promises in order
     next.reduce((total: Promise<any>, curr: string) => {
-      return total.then(() => editorActions(curr));
+      return total.then(() => editorActionReducer(curr));
     }, Promise.resolve());
   }
 }
@@ -15,8 +15,8 @@ function handleEditorActions(actions: string[][]): void {
 // trigger actions only once, moving fowards
 let taskTracker = 0;
 
-export default function editorActionsReducer(
-  editorActions = [], action: Action
+export default function taskActionsReducer(
+  taskActions = [], action: Action
 ): string[][] {
   let actions: string[][] = null;
   switch (action.type) {
@@ -28,7 +28,7 @@ export default function editorActionsReducer(
       }
       taskTracker = 0;
       actions = store.getState().tasks.map(task => task.actions || []);
-      handleEditorActions(actions); // run first action
+      handleTaskActions(actions); // run first action
       return actions;
 
     case TEST_RESULT:
@@ -39,13 +39,13 @@ export default function editorActionsReducer(
       if (times > 0) {
         // run actions for each task position passed
         for (let i = 0; i < times; i++) {
-          handleEditorActions(actions); // run first action
+          handleTaskActions(actions); // run first action
         }
         taskTracker = nextTaskPosition;
       }
       return actions;
 
     default:
-      return editorActions;
+      return taskActions;
   }
 }

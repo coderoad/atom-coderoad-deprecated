@@ -3,9 +3,8 @@ import {combineReducers} from 'redux';
 import alert from './alert';
 import checks from './checks';
 import dir from './dir';
-import editorActions from './editor-actions';
+import taskActions from './task-actions';
 import hintPosition from './hint-position';
-import open from './open';
 import packageJson from './package-json';
 import page from './page';
 import pagePosition from './page-position';
@@ -17,9 +16,10 @@ import tasks from './tasks';
 import testRun from './test-run';
 import tutorial from './tutorial';
 import tutorials from './tutorials';
+import windowToggle from './window-toggle';
 
 export default combineReducers({
-  alert, checks, dir, editorActions, hintPosition, open, page,
+  alert, checks, dir, taskActions, hintPosition, page,
   packageJson, pagePosition, progress, route, taskPosition,
-  taskTests, tasks, testRun, tutorial, tutorials,
+  taskTests, tasks, testRun, tutorial, tutorials, windowToggle
 });

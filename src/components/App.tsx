@@ -16,7 +16,7 @@ export default class App extends React.Component<{store?: CR.State}, {}> {
         <Drawer
           width={400}
           openSecondary={true}
-          open={store.open}
+          open={store.windowToggle}
         >
           <div className='cr-bg'>
             <AppMenu {...store} />
