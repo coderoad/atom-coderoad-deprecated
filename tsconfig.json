@@ -21,6 +21,7 @@
         "!src/**/*.spec.tsx"
     ],
     "files": [
+        "src/typings/assertion-error/assertion-error.d.ts",
         "src/typings/atom/atom.d.ts",
         "src/typings/cr/cr.d.ts",
         "src/typings/cr/globals.d.ts",
@@ -114,7 +115,6 @@
         "src/services/exists.ts",
         "src/services/polyfills.ts",
         "src/services/system.ts",
-        "src/store/assertion-error/assertion-error.d.ts",
         "src/store/index.ts",
         "src/components/Alert/index.tsx",
         "src/components/App.tsx",
