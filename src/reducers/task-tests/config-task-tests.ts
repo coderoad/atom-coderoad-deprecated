@@ -21,7 +21,7 @@ function configTestString(config: Tutorial.Config, name: string, testPath: strin
   return testPath;
 }
 
-export function configTaskTests(tasks: CR.Task[]): CR.Task[] {
+export default function configTaskTests(tasks: CR.Task[]): CR.Task[] {
   const {config, name} = store.getState().tutorial;
   return !tasks ? [] : tasks.map((task: CR.Task) => {
     if (task.tests) {

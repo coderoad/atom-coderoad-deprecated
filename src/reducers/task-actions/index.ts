@@ -22,12 +22,18 @@ export default function taskActionsReducer(
   switch (action.type) {
 
     case TESTS_LOAD:
-
-      if (store.getState().progress.pages[store.getState().pagePosition]) {
-        return [];
+      let tasks = store.getState().tasks || [];
+      const pagePosition = store.getState().pagePosition;
+      const isCompleted = store.getState().progress.pages[pagePosition];
+      if (!isCompleted) {
+        actions = tasks.map(task => task.actions || []);
+      } else {
+        // filter to only 'open' actions
+        actions = tasks.map(task => {
+          return task.actions.filter(a => !!a.match(/^open/));
+        });
       }
       taskTracker = 0;
-      actions = store.getState().tasks.map(task => task.actions || []);
       handleTaskActions(actions); // run first action
       return actions;
 
