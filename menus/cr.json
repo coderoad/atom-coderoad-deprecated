@@ -4,6 +4,9 @@
     "submenu": [{
       "label": "CodeRoad",
       "submenu": [{
+        "label": "Start",
+        "command": "cr-viewer:start"
+        }, {
         "label": "Toggle",
         "command": "cr-viewer:toggle"
       }]

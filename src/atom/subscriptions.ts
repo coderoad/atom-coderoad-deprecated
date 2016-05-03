@@ -1,25 +1,25 @@
 const CompositeDisposable = require('atom').CompositeDisposable;
 import store from '../store';
-import {testRun, alertReplay} from '../actions';
+import {testRun, alertReplay, windowToggle} from '../actions';
 import {Root} from '../components/root';
 
 let subscriptions = null;
 
 export function onActivate(): AtomCore.Disposable {
+  // Atom Listeners
   subscriptions = new CompositeDisposable;
-  /**
-   * Atom Listeners
-   */
-  subscriptions.add(
-    atom.commands.add('atom-workspace', {
-      'cr-viewer:toggle': Root.toggle,
-    }));
+
+  // subscriptions.add(
+  //   atom.commands.add('atom-workspace', {
+  //     'cr-viewer:toggle': store.dispatch(windowToggle)
+  //   })
+  // );
 
   // run tests on save
   atom.workspace.observeTextEditors((editor: AtomCore.IEditor) => {
     subscriptions.add(
       editor.onDidSave(() => {
-          store.dispatch(testRun());
+        store.dispatch(testRun());
       }));
   });
   /**
@@ -34,7 +34,7 @@ export function onActivate(): AtomCore.Disposable {
         }
       }),
     })
-    );
+  );
   return subscriptions;
 }
 
@@ -54,5 +54,5 @@ export function addToStatusBar(statusBar) {
   replay.textContent = '▲';
   replay.onclick = () => store.dispatch(alertReplay());
   // consume with "atom status bar"
-  return statusBar.addLeftTile({item: replay, priority: 100});
+  return statusBar.addLeftTile({ item: replay, priority: 100 });
 }

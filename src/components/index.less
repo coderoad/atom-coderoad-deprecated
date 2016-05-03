@@ -2,34 +2,21 @@
 @import './AppMenu/_app-menu';
 @import './Alert/_alert';
 
-atom-panel-container > atom-panel > #crv {
-  animation: slide 0.5s forwards;
-  animation-timing-function: ease-in-out;
-  font-size: @input-font-size;
-}
-
-@keyframes slide {
-  0% { width: 0px; }
-}
-@keyframes slide {
-  100% { width: 400px; }
-}
-
 #crv {
   position: relative;
   overflow-y: scroll;
-
+  font-size: @input-font-size;
+  pre {
+    margin-bottom: 10px !important;
+    padding-bottom: 0;
+  }
   code {
-    background-color:  @input-background-color;
+    background-color: @input-background-color;
     border-radius: @component-border-radius;
   }
-}
-
-#crv a, #crv a:hover, #crv a:visited {
-  text-decoration: none
-}
-
-pre {
-  margin-bottom: 10px !important;
-  padding-bottom: 0;
+  a,
+  a:hover,
+  a:visited {
+    text-decoration: none;
+  }
 }

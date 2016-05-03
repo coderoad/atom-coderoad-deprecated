@@ -12,3 +12,4 @@ export {
 export {
   tutorialsFind, tutorialSet, tutorialUpdate
 } from './tutorial';
+export {windowToggle} from './window';

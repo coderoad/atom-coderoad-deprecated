@@ -11,7 +11,7 @@ class Main {
   root: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
-    loadPolyfills(); // remove with later version of Chrome
+    loadPolyfills(); // remove with Chrome 50
     store.dispatch(setupVerify());
     this.root = Root.init();
   }
@@ -36,9 +36,6 @@ class Main {
     }
     // remove subscriptions & unmount react app
     onDeactivate();
-  }
-  toggle(): void {
-    Root.toggle();
   }
 };
 export = new Main();

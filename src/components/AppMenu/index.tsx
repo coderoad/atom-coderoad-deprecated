@@ -1,6 +1,6 @@
 import * as React from 'react';
 import AppBar from 'material-ui/AppBar';
-import {menuIconLeft} from './menuIconLeft';
+import {CloseWindow} from './CloseWindow';
 import {menuRight} from './menuRight';
 
 const styles = {
@@ -15,7 +15,7 @@ export const AppMenu: React.StatelessComponent<{
       title='CodeRoad'
       className='cr-menu-bar'
       styles={styles}
-      iconElementLeft={menuIconLeft()}
+      iconElementLeft={<CloseWindow />}
       iconElementRight={menuRight(route)}
     />
   );

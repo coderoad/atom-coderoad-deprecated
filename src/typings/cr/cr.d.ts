@@ -22,6 +22,7 @@ declare namespace CR {
     dir: string;
     route: string;
     tutorialInfo: Tutorial.Info;
+    open: boolean;
     pagePosition: PagePosition;
     package: PackageJson;
     page: Page;

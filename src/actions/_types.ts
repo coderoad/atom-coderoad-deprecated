@@ -18,3 +18,4 @@ export const TESTS_LOAD = 'TESTS_LOAD';
 export const TUTORIAL_SET = 'TUTORIAL_SET';
 export const TUTORIAL_UPDATE = 'TUTORIAL_UPDATE';
 export const TUTORIALS_FIND = 'TUTORIALS_FIND';
+export const WINDOW_TOGGLE = 'WINDOW_TOGGLE';
