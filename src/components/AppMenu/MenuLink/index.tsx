@@ -5,7 +5,7 @@ import {pageSet, routeSet} from '../../../actions';
 
 const styles = {
   textAlign: 'center',
-  padding: '10px 5px',
+  padding: '0px 2px',
 };
 
 @connect(null, (dispatch) => {

@@ -6,7 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 const styles = {
   textAlign: 'center',
-  padding: '10px 5px',
+  padding: '0px 2px',
 };
 
 @connect(null, (dispatch) => {

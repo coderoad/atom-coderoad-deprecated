@@ -6,7 +6,10 @@ import {ProgressPage} from './ProgressPage';
 
 const pageStyle = {
   width: '100%',
-  margin: '0px',
+};
+
+const listStyle = {
+  margin: '5px',
 };
 
 export const Progress: React.StatelessComponent<{
@@ -14,7 +17,7 @@ export const Progress: React.StatelessComponent<{
   info: Tutorial.Info, tutorial: CR.Tutorial
 }> = ({progress, pagePosition, info, tutorial}) => (
   <Paper style={pageStyle}>
-    <List>
+    <List style={listStyle}>
       <Subheader>{info.name}</Subheader>
       {tutorial.pages.map((page: CR.Page, index: number) => (
         <ProgressPage
