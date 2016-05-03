@@ -12,6 +12,9 @@ export default function runTestReducer(
 ): boolean {
   switch (action.type) {
 
+    // case TESTS_LOAD:
+    //  TODO: More performant test loading
+
     case TEST_RUN:
       let current = new Date().getTime();
       if (current - previous > pageTimeout) {

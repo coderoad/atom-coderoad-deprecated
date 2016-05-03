@@ -24,7 +24,7 @@ export class ProgressPage extends React.Component<{
   pagePosition: CR.PagePosition, index: number, selectPage?: () => void}, {}> {
   render() {
     const {page, pagePosition, index, progress, selectPage} = this.props;
-    const canActivate: boolean = index <= pagePosition + 1;
+    const canActivate: boolean = index <= pagePosition;
     return (
       <ListItem
         key={index}

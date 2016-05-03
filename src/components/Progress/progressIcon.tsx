@@ -9,12 +9,12 @@ export function progressIcon(
 ) {
   console.log(index, pagePosition);
   switch (true) {
-    // current
-    case index === pagePosition:
-      return <PlayCircleFilled style={{fill: pink500}} />;
     // completed
     case pages[pagePosition]:
       return <CheckBox style={{fill: green300}} />;
+    // current
+    case index === pagePosition:
+      return <PlayCircleFilled style={{fill: pink500}} />;
     // other
     default:
       return <CheckBoxOutlineBlank />;
