@@ -15,11 +15,11 @@ import taskTests from './task-tests';
 import tasks from './tasks';
 import testRun from './test-run';
 import tutorial from './tutorial';
-import tutorials from './tutorials';
+import tutorialList from './tutorial-list';
 import windowToggle from './window-toggle';
 
 export default combineReducers({
   alert, checks, dir, taskActions, hintPosition, page,
   packageJson, pagePosition, progress, route, taskPosition,
-  taskTests, tasks, testRun, tutorial, tutorials, windowToggle
+  taskTests, tasks, testRun, tutorial, tutorialList, windowToggle
 });

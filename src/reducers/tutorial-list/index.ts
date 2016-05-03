@@ -3,8 +3,8 @@ import {tutorialUpdate} from './update';
 import store from '../../store';
 import {searchForTutorials} from './check';
 
-export default function tutorialsReducer(
-  tutorials = [], action: Action
+export default function tutorialListReducer(
+  tutorialList = [], action: Action
 ): Tutorial.Info[] {
   switch (action.type) {
     // case TUTORIAL_UPDATE:
@@ -17,6 +17,6 @@ export default function tutorialsReducer(
         .concat(searchForTutorials(packageJson.devDependencies)));
 
     default:
-      return tutorials;
+      return tutorialList;
   }
 }

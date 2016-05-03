@@ -12,8 +12,8 @@ const styles = {
 };
 
 const Tutorials: React.StatelessComponent<{
-  tutorials: Tutorial.Info[]
-}> = ({tutorials}) => (
+  tutorialList: Tutorial.Info[]
+}> = ({tutorialList}) => (
   <div style={styles}>
     <Table>
 
@@ -28,7 +28,7 @@ const Tutorials: React.StatelessComponent<{
       </TableHeader>
 
       <TableBody displayRowCheckbox={false}>
-        {tutorials.map(function tutorialRow(
+        {tutorialList.map(function tutorialRow(
           tutorial: Tutorial.Info, index: number
         ) {
         return (
