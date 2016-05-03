@@ -22,6 +22,10 @@ export default function editorActionsReducer(
   switch (action.type) {
 
     case TESTS_LOAD:
+
+      if (store.getState().progress.pages[store.getState().pagePosition]) {
+        return [];
+      }
       taskTracker = 0;
       actions = store.getState().tasks.map(task => task.actions || []);
       handleEditorActions(actions); // run first action
