@@ -16,7 +16,11 @@ const open = {
 
 let current: CR.Alert = _alert;
 
-function setAlert(options) {
+function setAlert(options: Object, color?: string) {
+  if (color) {
+    let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
+    statusBarAlert.style.color = color;
+  }
   current = Object.assign({}, open, options);
   return current;
 }
@@ -24,7 +28,6 @@ function setAlert(options) {
 export default function alertReducer(
   alert = _alert, action: Action
 ): CR.Alert {
-  let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
   switch (action.type) {
 
     case ALERT_REPLAY:
@@ -46,28 +49,26 @@ export default function alertReducer(
       switch (true) {
         // pass
         case result.pass && result.change > 0:
-          statusBarAlert.style.color = '#73C990';
           return setAlert({
             message: result.msg,
             duration: result.duration || 1500,
-          });
+          }, '#73C990');
         // Fail
         case result.pass === false && result.change < 1:
-          statusBarAlert.style.color = '#FF4081';
           return setAlert({
             message: result.msg,
             action: 'fail',
             duration: result.duration || 2500,
-          });
+          }, '#FF4081');
         // Alert
         default:
-          statusBarAlert.style.color = '#9DA5B4';
+          break;
       }
       return setAlert({
         message: result.msg,
         action: 'note',
         duration: result.duration || 2500,
-      });
+      }, '#9DA5B4');
 
     case COMPLETE_PAGE:
       return setAlert({
