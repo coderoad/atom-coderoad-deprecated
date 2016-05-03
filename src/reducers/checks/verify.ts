@@ -1,6 +1,6 @@
 import {npmMinVersion, nodeMinVersion} from './check-system';
 import store from '../../store';
-import {searchForTutorials} from '../tutorials/check';
+import {searchForTutorials} from '../tutorial-list/check';
 
 const result = x => x;
 function allTrue(obj: Object): boolean {
