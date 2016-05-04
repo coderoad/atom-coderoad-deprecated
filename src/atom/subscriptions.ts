@@ -22,19 +22,6 @@ export function onActivate(): AtomCore.Disposable {
         store.dispatch(testRun());
       }));
   });
-  /**
-   * Key subscriptions
-   */
-  subscriptions.add(
-    // run tests on hot key. See keymaps
-    atom.commands.add('atom-workspace', {
-      'cr-viewer:testRun': () => {
-        if (store.getState().route === 'page') {
-          store.dispatch(testRun());
-        }
-      },
-    })
-  );
   return subscriptions;
 }
 
