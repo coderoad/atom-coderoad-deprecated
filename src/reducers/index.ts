@@ -2,6 +2,7 @@ import {combineReducers} from 'redux';
 
 import alert from './alert';
 import checks from './checks';
+import devToolsToggle from './devTools-toggle';
 import dir from './dir';
 import taskActions from './task-actions';
 import hintPosition from './hint-position';
@@ -19,7 +20,7 @@ import tutorialList from './tutorial-list';
 import windowToggle from './window-toggle';
 
 export default combineReducers({
-  alert, checks, dir, taskActions, hintPosition, page,
+  alert, checks, dir, devToolsToggle, taskActions, hintPosition, page,
   packageJson, pagePosition, progress, route, taskPosition,
   taskTests, tasks, testRun, tutorial, tutorialList, windowToggle
 });

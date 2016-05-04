@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {windowToggle} from '../../../actions';
-import {onDeactivate} from '../../../atom/subscriptions';
+import {quit} from '../../../actions';
 import MenuItem from 'material-ui/MenuItem';
 
 const styles = {
@@ -12,8 +11,7 @@ const styles = {
 @connect(null, (dispatch) => {
   return {
     quit: () => {
-      dispatch(windowToggle());
-      onDeactivate();
+      dispatch(quit());
     }
   };
 })

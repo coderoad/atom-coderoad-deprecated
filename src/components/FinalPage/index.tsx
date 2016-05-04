@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import {Card, CardTitle, CardText, CardActions} from 'material-ui/Card';

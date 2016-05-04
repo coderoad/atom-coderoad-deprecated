@@ -1,7 +1,8 @@
 import {
-  TEST_RUN, TEST_COMPLETE, PAGE_SET
+  TEST_RUN, TEST_COMPLETE, PAGE_SET, TEST_SAVE
 } from '../../actions/_types';
 import {runTaskTests} from './run';
+import {save} from '../../atom/editor';
 
 const pageTimeout = 800;
 
@@ -29,6 +30,10 @@ export default function runTestReducer(
     case PAGE_SET:
       previous = new Date().getTime();
       return false;
+
+    case TEST_SAVE:
+      save();
+      /* falls through */
 
     default:
       return testRun;

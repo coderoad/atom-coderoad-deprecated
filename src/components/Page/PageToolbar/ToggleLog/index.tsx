@@ -1,14 +1,27 @@
 import * as React from 'react';
 import Code from 'material-ui/svg-icons/action/code';
-import {toggleDevTools} from '../../../../atom/editor';
+import {connect} from 'react-redux';
+import {devToolsToggle} from '../../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
-const ToggleLog = () => (
-  <FlatButton
-    icon={
-      <Code />
+@connect(null, (dispatch, state) => {
+  return {
+    toggleDevTools: () => {
+      dispatch(devToolsToggle());
     }
-    onTouchTap={toggleDevTools}
-  />
-);
-export default ToggleLog;
+  };
+})
+export default class ToggleLog extends React.Component<{
+  toggleDevTools?: any
+}, {}> {
+  render() {
+    return (
+      <FlatButton
+        icon={
+          <Code />
+        }
+        onTouchTap={this.props.toggleDevTools}
+      />
+    );
+  };
+}

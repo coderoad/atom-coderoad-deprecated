@@ -1,5 +1,5 @@
 import {
-  TEST_RUN, TEST_RESULT, TEST_COMPLETE, TESTS_LOAD
+  TEST_RUN, TEST_RESULT, TEST_COMPLETE, TESTS_LOAD, TEST_SAVE
 } from './_types';
 import store from '../store';
 
@@ -17,6 +17,10 @@ export function testResult(result: Test.Result): Action {
 
 export function testComplete(): Action {
   return { type: TEST_COMPLETE };
+}
+
+export function testSave(): Action {
+  return { type: TEST_SAVE };
 }
 
 export function testsLoad(pagePosition: CR.PagePosition): Action {
