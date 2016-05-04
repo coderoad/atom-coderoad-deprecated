@@ -40,7 +40,6 @@ export function onActivate(): AtomCore.Disposable {
 
 export function onDeactivate(): void {
   // unmount React
-  window.onresize = null;
   Root.unmount();
   // cleanup subscriptions
   subscriptions.dispose();
