@@ -8,7 +8,7 @@ export function testRun(): Action {
 }
 
 export function testResult(result: Test.Result): Action {
-  let actions = store.getState().editorActions;
+  let actions = store.getState().taskActions;
   return {
     payload: { result, actions },
     type: TEST_RESULT,
