@@ -42,6 +42,13 @@ const SystemChecks: React.StatelessComponent<{
           onTouchTap={updateNpm}
         />
       </StepCheck>
+
+      <StepCheck
+        label='Xcode'
+        completed={checks.system.xcode}
+      >
+        <p>Install <a style={{color: pink500}} href='https://developer.apple.com/xcode/download/'>XCode</a></p>
+      </StepCheck>
     </DynamicStepper>
   </CardText>
   <CardActions>

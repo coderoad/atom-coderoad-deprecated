@@ -40,3 +40,15 @@ export function npmMinVersion(): Promise<boolean> {
 export function nodeMinVersion(): Promise<boolean> {
   return minVersion('node', '0.10');
 }
+
+export function requiresXCode(): Promise<boolean> | boolean {
+  if (!navigator.platform.match(/Mac/)) {
+    return true;
+  }
+  return commandLine('xcode-select', '-v').then((res: string) => {
+    if (!!res.match(/xcode-select version [0-9]+/)) {
+      return true;
+    }
+    return false;
+  });
+}

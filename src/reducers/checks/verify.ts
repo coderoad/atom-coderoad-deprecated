@@ -1,4 +1,4 @@
-import {npmMinVersion, nodeMinVersion} from './check-system';
+import {npmMinVersion, nodeMinVersion, requiresXCode} from './check-system';
 import store from '../../store';
 import {searchForTutorials} from '../tutorial-list/check';
 
@@ -25,6 +25,7 @@ export default function setupVerify(): CR.Checks {
     system: {
       node: !!nodeMinVersion(),
       npm: !!npmMinVersion(),
+      xcode: !!requiresXCode(),
     },
     setup: {
       dir,

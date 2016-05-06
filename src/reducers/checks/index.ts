@@ -6,6 +6,7 @@ const _checks = {
   system: {
     node: false,
     npm: false,
+    xcode: false,
   },
   setup: {
     dir: false,
