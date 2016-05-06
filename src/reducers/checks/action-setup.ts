@@ -17,10 +17,10 @@ export function createPackageJson(): Promise<void> {
   const packagePath = join(dir, 'package.json');
   return new Promise((resolve, reject) => {
     open(packagePath);
-    setTimeout(function() {
+    setTimeout(() => {
       resolve();
     });
-  }).then(function() {
+  }).then(() => {
     set(packageData);
     store.dispatch(setupVerify());
   });

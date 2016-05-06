@@ -2,17 +2,16 @@ import {npmMinVersion, nodeMinVersion, requiresXCode} from './check-system';
 import store from '../../store';
 import {searchForTutorials} from '../tutorial-list/check';
 
-const result = x => x;
 function allTrue(obj: Object): boolean {
   return Object.values(obj).every(x => x === true);
 }
 
 export default function setupVerify(): CR.Checks {
-  let dir = !!store.getState().dir;
+  const dir = !!store.getState().dir;
   let packageJson = false;
   let tutorial = false;
 
-  let pj = store.getState().packageJson;
+  const pj: PackageJson = store.getState().packageJson;
 
   if (dir) {
     packageJson = !!pj;

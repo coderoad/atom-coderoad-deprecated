@@ -10,10 +10,11 @@ import StepCheck from './StepCheck';
 const SetupChecks: React.StatelessComponent<{
   checks: CR.Checks
 }> = ({checks}) => {
-  if (checks.setup.passed) {
+  const {setup} = checks;
+  if (setup.passed) {
     return null;
   }
-  const {dir, packageJson, tutorial} = checks.setup;
+  const {dir, packageJson, tutorial} = setup;
   const status = [dir, packageJson, tutorial];
   return (
   <Card className='cr-check'>

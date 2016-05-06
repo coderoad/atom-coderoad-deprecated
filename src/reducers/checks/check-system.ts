@@ -13,11 +13,11 @@ function minVersion(command: string, minVersion: string): Promise<boolean> {
           return false;
         }
         // two digits, ex: 0.10
-        let mins = matchVersions(minVersion);
+        const mins = matchVersions(minVersion);
         if (!!mins) {
-          let resMins = matchVersions(res);
-          let firstDigit = parseInt(resMins[1], 10);
-          let firstVersion = parseInt(mins[1], 10);
+          const resMins = matchVersions(res);
+          const firstDigit = parseInt(resMins[1], 10);
+          const firstVersion = parseInt(mins[1], 10);
           return firstDigit > firstVersion ||
             firstDigit === firstVersion && parseInt(resMins[2], 10) >= parseInt(firstVersion[2], 10);
         } else {

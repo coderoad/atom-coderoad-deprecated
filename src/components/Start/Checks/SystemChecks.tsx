@@ -11,10 +11,11 @@ import StepCheck from './StepCheck';
 const SystemChecks: React.StatelessComponent<{
   checks: CR.Checks
 }> = ({checks}) => {
-  if (checks.system.passed) {
+  const {system} = checks;
+  if (system.passed) {
     return null;
   }
-  const status = [checks.system.node, checks.system.npm];
+  const status = [system.node, system.npm];
  return (
   <Card className='cr-check'>
     <CardHeader
@@ -25,14 +26,14 @@ const SystemChecks: React.StatelessComponent<{
       <DynamicStepper  status={status}>
       <StepCheck
         label='Node >= 0.10'
-        completed={checks.system.node}
+        completed={system.node}
       >
         <p>Install a newer version of <a style={{color: pink500}} href='https://nodejs.org'>NodeJS</a></p>
       </StepCheck>
 
       <StepCheck
         label='NPM >= 3'
-        completed={checks.system.npm}
+        completed={system.npm}
       >
         Update your version of NPM.<br />
         <code>> npm update -g npm</code><br />
@@ -45,7 +46,7 @@ const SystemChecks: React.StatelessComponent<{
 
       <StepCheck
         label='Xcode'
-        completed={checks.system.xcode}
+        completed={system.xcode}
       >
         <p>Install <a style={{color: pink500}} href='https://developer.apple.com/xcode/download/'>XCode</a></p>
       </StepCheck>

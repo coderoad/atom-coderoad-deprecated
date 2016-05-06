@@ -1,7 +1,7 @@
 import {SETUP_VERIFY} from '../../actions/_types';
 import setupVerify from './verify';
 
-const _checks = {
+const _checks: CR.Checks = {
   passed: false,
   system: {
     node: false,
