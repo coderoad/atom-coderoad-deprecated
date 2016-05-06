@@ -4,7 +4,7 @@ import Welcome from './Welcome';
 
 const headerStyles = {
   display: 'block',
-  height: '300px',
+  height: '100%',
   textAlign: 'center',
   color: '#f8f8f8',
 };
@@ -16,7 +16,7 @@ export const Start: React.StatelessComponent<{
     <div style={headerStyles}>
     {checks.passed
       ? <Welcome  />
-      : <Checks {...this.props}/>}
+      : <Checks checks={checks}/>}
     </div>
   </section>
 );
