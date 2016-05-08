@@ -7,6 +7,8 @@ const Root = {
     this.root.setAttribute('id', 'crv');
     return this.root;
   },
-  unmount: () => ReactDOM.unmountComponentAtNode(this.root)
+  unmount: () => {
+    ReactDOM.unmountComponentAtNode(this.root);
+  }
 };
 export default Root;

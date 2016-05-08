@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from 'redux';
 import reducer from '../reducers';
 import * as createLogger from 'redux-logger';
 
-const devMode = true;
+const devMode = false;
 let store = null;
 
 if (devMode) {

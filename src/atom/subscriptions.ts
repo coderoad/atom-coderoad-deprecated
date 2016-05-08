@@ -28,6 +28,8 @@ export function onActivate(): AtomCore.Disposable {
 export function onDeactivate(): void {
   // unmount React
   Root.unmount();
+  // unsubscribe from Redux store
+  store.subscribe(() => null);
   // cleanup subscriptions
   subscriptions.dispose();
 }
