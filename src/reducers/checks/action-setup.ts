@@ -2,8 +2,8 @@ import {join} from 'path';
 import {open, set} from '../../atom/editor';
 import {openFolder, openTerminal} from '../../atom/editor';
 import commandLine from '../../services/command-line';
-import store from '../../store';
 import {setupVerify} from '../../actions';
+import store from '../../store';
 
 const packageData = `{
   "name": "demo",
@@ -12,14 +12,11 @@ const packageData = `{
   }
 }`;
 
-export function createPackageJson(): Promise<void> {
-  const dir = store.getState().dir;
+export function createPackageJson(dir: string): Promise<void> {
   const packagePath = join(dir, 'package.json');
   return new Promise((resolve, reject) => {
     open(packagePath);
-    setTimeout(() => {
-      resolve();
-    });
+    setTimeout(() => resolve());
   }).then(() => {
     set(packageData);
     store.dispatch(setupVerify());

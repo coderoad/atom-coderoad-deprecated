@@ -9,9 +9,9 @@ const _checks: CR.Checks = {
     xcode: false,
   },
   setup: {
-    dir: false,
-    packageJson: false,
-    tutorial: false,
+    hasDir: false,
+    hasPackageJson: false,
+    hasTutorial: false,
   }
 };
 
@@ -21,7 +21,8 @@ export default function checksReducer(
   switch (action.type) {
 
     case SETUP_VERIFY:
-      return setupVerify();
+      const {dir, packageJson} = action.payload;
+      return setupVerify(dir, packageJson);
 
     default:
       return checks;

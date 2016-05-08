@@ -36,7 +36,7 @@ export default function taskActionsReducer(
       return actions;
 
     case TEST_RESULT:
-      actions = action.payload.actions || [];
+      actions = action.payload.taskActions || [];
       const nextTaskPosition = action.payload.result.taskPosition;
       const times: number = nextTaskPosition - taskTracker;
 

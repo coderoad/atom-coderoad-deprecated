@@ -1,16 +1,18 @@
 import {handleResult} from './test-result';
-import store from '../../store';
 import {writeFileSync} from 'fs';
 import {join} from 'path';
 import parseLoaders from './parse-loaders';
 
-export function runTaskTests(setup?: boolean): boolean {
-  const tests: string = store.getState().taskTests;
+export default function runTaskTests(
+  taskTests: string, dir: string, tutorial: CR.Tutorial, taskPosition: number
+): boolean {
+  const tests: string = taskTests;
 
   if (tests && tests.length) {
-    const dir = store.getState().dir;
-    const tutorialConfig: Tutorial.Config = store.getState().tutorial.config;
-    const output = parseLoaders(tests, tutorialConfig.testSuffix);
+    const tutorialConfig: Tutorial.Config = tutorial.config;
+    const output = parseLoaders(
+      tests, tutorialConfig.testSuffix, tutorial, dir
+    );
 
     // write temporary test file in tutorial directory
     let target = join(
@@ -22,7 +24,7 @@ export function runTaskTests(setup?: boolean): boolean {
     const config: Test.Config = {
       dir,
       tutorialDir: tutorialConfig.dir,
-      taskPosition: store.getState().taskPosition
+      taskPosition
     };
 
     // call test runner

@@ -73,9 +73,9 @@ declare namespace CR {
     };
     setup: {
       passed?: boolean;
-      dir: boolean;
-      packageJson: boolean;
-      tutorial: boolean;
+      hasDir: boolean;
+      hasPackageJson: boolean;
+      hasTutorial: boolean;
     };
   }
 

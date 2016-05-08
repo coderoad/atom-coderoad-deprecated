@@ -19,7 +19,7 @@ export default function tutorialReducer(
       const {name, dir} = action.payload;
       const packagePath: string = join(dir, 'node_modules', name);
       const packageJson: PackageJson = require(join(packagePath, 'package.json'));
-      const config: Tutorial.Config = tutorialConfig(packageJson);
+      const config: Tutorial.Config = tutorialConfig(packageJson, dir);
       const {info, pages} = require(join(packagePath, packageJson.main));
       return {
         name: packageJson.name,

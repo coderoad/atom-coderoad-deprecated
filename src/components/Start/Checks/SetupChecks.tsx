@@ -14,8 +14,8 @@ const SetupChecks: React.StatelessComponent<{
   if (setup.passed) {
     return null;
   }
-  const {dir, packageJson, tutorial} = setup;
-  const status = [dir, packageJson, tutorial];
+  const {hasDir, hasPackageJson, hasTutorial} = setup;
+  const status = [hasDir, hasPackageJson, hasTutorial];
   return (
   <Card className='cr-check'>
     <CardHeader
@@ -26,7 +26,7 @@ const SetupChecks: React.StatelessComponent<{
       <DynamicStepper status={status}>
         <StepCheck
           label='open a directory'
-          completed={dir}
+          completed={hasDir}
         >
           <p>File -> Open (a new folder)</p><br />
           <FlatButton
@@ -38,7 +38,7 @@ const SetupChecks: React.StatelessComponent<{
 
         <StepCheck
           label='package.json'
-          completed={packageJson}
+          completed={hasPackageJson}
         >
           Create a package.json by running<br />
           <code>> npm init -y`</code><br />
@@ -51,7 +51,7 @@ const SetupChecks: React.StatelessComponent<{
 
         <StepCheck
           label='install a tutorial'
-          completed={tutorial}
+          completed={hasTutorial}
         >
           Install a tutorial using npm. For example:<br />
           <code>> npm install --save-dev coderoad-functional-school</code><br />

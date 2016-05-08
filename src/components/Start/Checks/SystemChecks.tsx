@@ -23,7 +23,7 @@ const SystemChecks: React.StatelessComponent<{
       subtitle='CodeRoad requires several key dependencies'
     />
     <CardText>
-      <DynamicStepper  status={status}>
+      <DynamicStepper status={status}>
       <StepCheck
         label='Node >= 0.10'
         completed={system.node}

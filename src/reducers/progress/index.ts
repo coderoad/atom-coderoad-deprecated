@@ -14,24 +14,26 @@ export default function progressReducer(
   switch (action.type) {
 
     case PROGRESS_LOAD:
+      const {tutorial} = action.payload;
       // load saved progress
-      const saved = loadProgressFromLocalStorage();
+      const saved = loadProgressFromLocalStorage(tutorial);
       if (saved) { return saved; }
       // set progress defaults
       return {
         completed: false,
-        pages: action.payload.tutorial.pages.map(() => false)
+        pages: tutorial.pages.map(() => false)
       };
 
     case COMPLETE_PAGE:
-      const pagePosition = action.payload.pagePosition;
+      const {tutorial, pagePosition} = action.payload;
       progress.pages[pagePosition] = true;
-      saveToLocalStorage(progress);
+      saveToLocalStorage(tutorial, progress);
       return progress;
 
     case COMPLETE_TUTORIAL:
+      const {tutorial} = action.payload.tutorial;
       progress.completed = true;
-      saveToLocalStorage(progress);
+      saveToLocalStorage(tutorial, progress);
       return progress;
 
     default:

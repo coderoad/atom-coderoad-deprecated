@@ -1,7 +1,7 @@
 import {
   TEST_RUN, TEST_COMPLETE, PAGE_SET, TEST_SAVE
 } from '../../actions/_types';
-import {runTaskTests} from './run';
+import runTaskTests from './run';
 import {save} from '../../atom/editor';
 
 const pageTimeout = 800;
@@ -20,7 +20,8 @@ export default function runTestReducer(
       let current = new Date().getTime();
       if (current - previous > pageTimeout) {
         previous = current;
-        return runTaskTests();
+        const {taskTests, dir, tutorial, taskPosition} = action.payload;
+        return runTaskTests(taskTests, dir, tutorial, taskPosition);
       }
       return false;
 

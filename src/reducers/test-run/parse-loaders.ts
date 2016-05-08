@@ -1,6 +1,5 @@
 import {normalize, join} from 'path';
 import {readFileSync} from 'fs';
-import store from '../../store';
 
 // other languages may handle comments differently
 const comments = {
@@ -15,7 +14,9 @@ function loaderRegex(fileType: string): RegExp {
   return new RegExp(`^${comment} ?load\\(['"](.+)['"](\, ?true)?\\)`, 'm');
 }
 
-export default function parseLoaders(data: string, fileType: string): string {
+export default function parseLoaders(
+  data: string, fileType: string, tutorial: CR.Tutorial, dir: string
+): string {
 
   // loop over lines and add editor files
   let i = -1;
@@ -40,11 +41,10 @@ export default function parseLoaders(data: string, fileType: string): string {
       let pathToFile: string = null;
       if (loader[2]) {
         // path to file from tutorial directory
-        const tutorialDir = store.getState().tutorial.config.dir;
+        const tutorialDir = tutorial.config.dir;
         pathToFile = normalize(join(tutorialDir, fileToLoad));
       } else {
         // path to file from working directory
-        const dir = store.getState().dir;
         pathToFile = normalize(join(dir, fileToLoad));
       }
 

@@ -1,5 +1,5 @@
 import {PAGE_SET} from '../../actions/_types';
-import configTaskTests from '../task-tests/config-task-tests';
+import configTaskTests from './config-task-tests';
 
 const _tasks: CR.Task[] = [{
   actions: [],
@@ -14,9 +14,10 @@ export default function tasksReducer(tasks = _tasks,
   switch (action.type) {
 
     case PAGE_SET:
-      const {tutorial, pagePosition} = action.payload;
+      const {dir, tutorial, pagePosition} = action.payload;
+      // create absolute paths for 'task-tests'
       return configTaskTests(
-        tutorial.pages[pagePosition].tasks || []
+        dir, tutorial, tutorial.pages[pagePosition].tasks || []
       );
 
     default:

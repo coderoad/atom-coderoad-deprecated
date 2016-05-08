@@ -4,5 +4,6 @@ import store from '../store';
 
 export function setupVerify(): Action {
   store.dispatch(packageSet());
-  return { type: SETUP_VERIFY };
+  const {dir, packageJson} = store.getState();
+  return { type: SETUP_VERIFY, payload: {dir, packageJson} };
 }

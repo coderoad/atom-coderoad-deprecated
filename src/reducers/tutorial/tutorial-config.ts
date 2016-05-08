@@ -1,12 +1,12 @@
 import {join} from 'path';
 import {fileExists} from '../../services/exists';
 import {isWindows} from '../../services/system';
-import store from '../../store';
 
-export function tutorialConfig(tutorialPj: PackageJson): Tutorial.Config {
+export function tutorialConfig(
+  tutorialPj: PackageJson, dir: string
+): Tutorial.Config {
   const {config, name} = tutorialPj;
   const repo: string = loadRepo(tutorialPj.repo);
-  const dir: string = store.getState().dir;
   const testSuffix: string = config.testSuffix;
   return {
     dir: join(dir, 'node_modules', name, config.dir),
@@ -14,7 +14,7 @@ export function tutorialConfig(tutorialPj: PackageJson): Tutorial.Config {
       ? testSuffix
       : '.' + testSuffix || null,
     runner: config.runner,
-    runnerOptions: config.runnerOptions || null,
+    runnerOptions: config.runnerOptions || {},
     run: loadRunner(name, config.runner, dir),
     repo,
     edit: tutorialPj.config.edit && repo || false,

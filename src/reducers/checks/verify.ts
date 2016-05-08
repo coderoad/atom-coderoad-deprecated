@@ -1,23 +1,23 @@
 import {npmMinVersion, nodeMinVersion, requiresXCode} from './check-system';
-import store from '../../store';
 import {searchForTutorials} from '../tutorial-list/check';
 
 function allTrue(obj: Object): boolean {
   return Object.values(obj).every(x => x === true);
 }
 
-export default function setupVerify(): CR.Checks {
-  const dir = !!store.getState().dir;
-  let packageJson = false;
-  let tutorial = false;
+export default function setupVerify(
+  dir: string, packageJson: PackageJson
+): CR.Checks {
+  let hasPackageJson = false;
+  let hasTutorial = false;
+  const hasDir = !!dir;
 
-  const pj: PackageJson = store.getState().packageJson;
-
-  if (dir) {
-    packageJson = !!pj;
+  if (hasDir) {
+    hasPackageJson = !!packageJson;
   }
-  if (dir && packageJson) {
-    tutorial = !!searchForTutorials(pj.dependencies).length || !!searchForTutorials(pj.devDependencies).length;
+  if (hasDir && hasPackageJson) {
+    hasTutorial = !!searchForTutorials(dir, packageJson.dependencies).length ||
+     !!searchForTutorials(dir, packageJson.devDependencies).length;
   }
 
   let checks: CR.Checks = {
@@ -27,9 +27,9 @@ export default function setupVerify(): CR.Checks {
       xcode: !!requiresXCode(),
     },
     setup: {
-      dir,
-      packageJson,
-      tutorial,
+      hasDir,
+      hasPackageJson,
+      hasTutorial,
     }
   };
 

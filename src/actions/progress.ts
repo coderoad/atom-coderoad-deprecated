@@ -12,14 +12,15 @@ export function progressLoad(): Action {
 }
 
 export function completePage(): Action {
-  const {pagePosition, progress} = store.getState();
+  const {pagePosition, progress, tutorial} = store.getState();
   // all pages are true, tutorial complete
   if (progress.pages.every(x => x.completed)) {
     store.dispatch(completeTutorial());
   }
-  return { type: COMPLETE_PAGE, payload: { pagePosition } };
+  return { type: COMPLETE_PAGE, payload: { pagePosition, tutorial } };
 }
 
 export function completeTutorial(): Action {
-  return { type: COMPLETE_TUTORIAL };
+  const {tutorial} = store.getState();
+  return { type: COMPLETE_TUTORIAL, payload: { tutorial } };
 }

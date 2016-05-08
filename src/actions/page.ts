@@ -5,28 +5,25 @@ import {
 import store from '../store';
 
 export function pageNext(): Action {
-  let pagePosition = store.getState().pagePosition;
-  const {pages} = store.getState().tutorial;
+  let {pagePosition, tutorial} = store.getState();
+  const pages = tutorial.pages;
   if (pagePosition >= pages.length - 1) {
     return { type: ROUTE_SET, payload: { route: 'final' } };
   } else {
-    pagePosition = pagePosition + 1;
+    pagePosition += 1;
     // call TESTS_LOAD after PAGE_SET
     setTimeout(() => store.dispatch(testsLoad(pagePosition)));
-    return { type: PAGE_SET, payload: { pagePosition } };
+    return pageSet(pagePosition);
   }
 }
 
 export function pageSet(pagePosition = 0): Action {
-  const {progress, tutorial} = store.getState();
+  const {dir, progress, tutorial} = store.getState();
   // beyond the final page
   if (pagePosition >= progress.pages.length) {
-    return {
-      payload: { route: 'final' },
-      type: ROUTE_SET,
-    };
+    return { type: ROUTE_SET, payload: { route: 'final' } };
   }
-  return { type: PAGE_SET, payload: { pagePosition, tutorial } };
+  return { type: PAGE_SET, payload: { dir, pagePosition, tutorial, progress } };
 }
 
 export function pagePositionLoad() {

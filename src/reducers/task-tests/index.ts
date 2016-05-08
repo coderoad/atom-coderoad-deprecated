@@ -7,7 +7,8 @@ export default function taskTestsReducer(
   switch (action.type) {
 
     case TESTS_LOAD:
-      return [].concat.apply([], action.payload.tasks.map(
+      const {tutorial, tasks} = action.payload;
+      return [].concat.apply([], tasks.map(
         task => task.tests || [])
       ).reduce((output: string, file: string): string => {
         try {

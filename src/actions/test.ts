@@ -4,12 +4,13 @@ import {
 import store from '../store';
 
 export function testRun(): Action {
-  return { type: TEST_RUN };
+  const {taskTests, dir, tutorial, taskPosition} = store.getState();
+  return { type: TEST_RUN, payload: { taskTests, dir, tutorial, taskPosition} };
 }
 
 export function testResult(result: Test.Result): Action {
-  let actions = store.getState().taskActions;
-  return { type: TEST_RESULT, payload: { result, actions } };
+  let {taskActions} = store.getState();
+  return { type: TEST_RESULT, payload: { result, taskActions } };
 }
 
 export function testComplete(): Action {
@@ -21,6 +22,8 @@ export function testSave(): Action {
 }
 
 export function testsLoad(pagePosition: CR.PagePosition): Action {
-  const {tasks, progress} = store.getState();
-  return { type: TESTS_LOAD, payload: { pagePosition, tasks, progress } };
+  const {tasks, progress, tutorial, dir} = store.getState();
+  return { type: TESTS_LOAD, payload: {
+    pagePosition, tasks, progress, tutorial, dir
+  } };
 }
