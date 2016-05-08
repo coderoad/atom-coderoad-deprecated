@@ -9,10 +9,7 @@ export function testRun(): Action {
 
 export function testResult(result: Test.Result): Action {
   let actions = store.getState().taskActions;
-  return {
-    payload: { result, actions },
-    type: TEST_RESULT,
-  };
+  return { type: TEST_RESULT, payload: { result, actions } };
 }
 
 export function testComplete(): Action {
@@ -24,5 +21,6 @@ export function testSave(): Action {
 }
 
 export function testsLoad(pagePosition: CR.PagePosition): Action {
-  return { type: TESTS_LOAD, payload: { pagePosition } };
+  const {tasks, progress} = store.getState();
+  return { type: TESTS_LOAD, payload: { pagePosition, tasks, progress } };
 }

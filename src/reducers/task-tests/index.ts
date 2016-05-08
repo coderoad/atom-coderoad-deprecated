@@ -1,6 +1,5 @@
 import {readFileSync} from 'fs';
 import {TESTS_LOAD} from '../../actions/_types';
-import store from '../../store';
 
 export default function taskTestsReducer(
   taskTests = '', action: Action
@@ -8,7 +7,7 @@ export default function taskTestsReducer(
   switch (action.type) {
 
     case TESTS_LOAD:
-      return [].concat.apply([], store.getState().tasks.map(
+      return [].concat.apply([], action.payload.tasks.map(
         task => task.tests || [])
       ).reduce((output: string, file: string): string => {
         try {

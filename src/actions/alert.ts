@@ -12,10 +12,7 @@ export function alertToggle(alert?: CR.Alert): Action {
   } else {
     alert = Object.assign({}, { open: !isOpen }, alert);
   }
-  return {
-    payload: { alert },
-    type: ALERT_TOGGLE,
-  };
+  return { type: ALERT_TOGGLE, payload: { alert } };
 }
 
 export function alertReplay(): Action {

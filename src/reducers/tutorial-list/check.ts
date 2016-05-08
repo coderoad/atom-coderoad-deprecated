@@ -2,14 +2,12 @@ import {join} from 'path';
 import {readFileSync} from 'fs';
 import {fileExists} from '../../services/exists';
 import {isTutorial, tutorialError} from './is-tutorial';
-import store from '../../store';
 import {canUpdateTutorial} from './update';
 
-export function searchForTutorials(deps: Object): Tutorial.Info[] {
+export function searchForTutorials(dir: string, deps: Object): Tutorial.Info[] {
   if (!!deps && Object.keys(deps).length > 0) {
-    const dir = store.getState().dir;
     return (Object.keys(deps)
-      .filter((name: string) => isTutorial(name))
+      .filter((name: string) => isTutorial(dir, name))
       .map(function(name: string) {
         const pathToTutorialPackageJson = join(
           dir, 'node_modules', name, 'package.json'

@@ -1,6 +1,5 @@
 import {TUTORIALS_FIND} from '../../actions/_types';
 import {tutorialUpdate} from './update';
-import store from '../../store';
 import {searchForTutorials} from './check';
 
 export default function tutorialListReducer(
@@ -11,10 +10,10 @@ export default function tutorialListReducer(
     //   tutorialUpdate(action.payload.name);
     /* falls through */
     case TUTORIALS_FIND:
-      const packageJson = store.getState().packageJson;
+      const {packageJson, dir} = action.payload;
       return ([]
-        .concat(searchForTutorials(packageJson.dependencies))
-        .concat(searchForTutorials(packageJson.devDependencies)));
+        .concat(searchForTutorials(dir, packageJson.dependencies))
+        .concat(searchForTutorials(dir, packageJson.devDependencies)));
 
     default:
       return tutorialList;

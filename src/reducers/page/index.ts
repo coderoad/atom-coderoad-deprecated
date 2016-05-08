@@ -1,5 +1,4 @@
 import {PAGE_SET, COMPLETE_PAGE} from '../../actions/_types';
-import store from '../../store';
 import {clearConsole} from '../../atom/editor';
 
 const _page: CR.Page = {
@@ -15,7 +14,7 @@ export default function pageReducer(
 
     case PAGE_SET:
       const pagePosition: CR.PagePosition = action.payload.pagePosition;
-      const {title, description, onPageComplete, completed} = store.getState().tutorial.pages[pagePosition];
+      const {title, description, onPageComplete, completed} = action.payload.tutorial.pages[pagePosition];
       // clear dev console
       clearConsole();
       return {

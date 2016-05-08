@@ -1,6 +1,5 @@
 import commandLine from '../../services/command-line';
 import {alertToggle} from '../../actions';
-import store from '../../store';
 import {tutorialsFind} from '../../actions';
 
 export function tutorialUpdate(name: string): void {

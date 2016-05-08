@@ -1,6 +1,5 @@
 import {TESTS_LOAD, TEST_RESULT} from '../../actions/_types';
 import editorActionReducer from './editor-reducer';
-import store from '../../store';
 
 function handleTaskActions(actions: string[][]): void {
   const next = actions.shift();
@@ -22,9 +21,8 @@ export default function taskActionsReducer(
   switch (action.type) {
 
     case TESTS_LOAD:
-      let tasks = store.getState().tasks || [];
-      const pagePosition = store.getState().pagePosition;
-      const isCompleted = store.getState().progress.pages[pagePosition];
+      const {tasks, pagePosition, progress} = action.payload;
+      const isCompleted = progress.pages[pagePosition];
       if (!isCompleted) {
         actions = tasks.map(task => task.actions || []);
       } else {

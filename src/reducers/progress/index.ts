@@ -2,7 +2,6 @@ import {
   PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_TUTORIAL
 } from '../../actions/_types';
 import {loadProgressFromLocalStorage, saveToLocalStorage} from './local-storage';
-import store from '../../store';
 
 const _progress: CR.Progress = {
   completed: false,
@@ -21,7 +20,7 @@ export default function progressReducer(
       // set progress defaults
       return {
         completed: false,
-        pages: store.getState().tutorial.pages.map(() => false)
+        pages: action.payload.tutorial.pages.map(() => false)
       };
 
     case COMPLETE_PAGE:

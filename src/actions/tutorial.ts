@@ -1,12 +1,11 @@
 import {
   TUTORIALS_FIND, TUTORIAL_UPDATE, TUTORIAL_SET
 } from './_types';
+import store from '../store';
 
 export function tutorialSet(name: string): Action {
-  return {
-    payload: {name},
-    type: TUTORIAL_SET,
-  };
+  const {dir} = store.getState();
+  return { type: TUTORIAL_SET, payload: {name, dir} };
 }
 
 export function tutorialUpdate(name: string): Action {
@@ -14,5 +13,6 @@ export function tutorialUpdate(name: string): Action {
 }
 
 export function tutorialsFind(): Action {
-  return { type: TUTORIALS_FIND };
+  const {packageJson, dir} = store.getState();
+  return { type: TUTORIALS_FIND, payload: { packageJson, dir } };
 }

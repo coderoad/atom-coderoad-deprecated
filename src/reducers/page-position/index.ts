@@ -1,7 +1,6 @@
 import {
   PAGE_SET, PAGE_POSITION_SET, PAGE_POSITION_LOAD
 } from '../../actions/_types';
-import store from '../../store';
 
 export default function pagePositionReducer(
   pagePosition = 0, action: Action
@@ -9,7 +8,7 @@ export default function pagePositionReducer(
   switch (action.type) {
 
     case PAGE_POSITION_LOAD:
-      const pages = store.getState().progress.pages;
+      const pages = action.payload.progress.pages;
       const firstFail = pages.indexOf(false);
       return firstFail < 0 ? pages.length - 1 : firstFail;
 

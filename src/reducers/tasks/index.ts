@@ -1,5 +1,4 @@
 import {PAGE_SET} from '../../actions/_types';
-import store from '../../store';
 import configTaskTests from '../task-tests/config-task-tests';
 
 const _tasks: CR.Task[] = [{
@@ -15,9 +14,9 @@ export default function tasksReducer(tasks = _tasks,
   switch (action.type) {
 
     case PAGE_SET:
-      const pagePosition = action.payload.pagePosition;
+      const {tutorial, pagePosition} = action.payload;
       return configTaskTests(
-        store.getState().tutorial.pages[pagePosition].tasks || []
+        tutorial.pages[pagePosition].tasks || []
       );
 
     default:

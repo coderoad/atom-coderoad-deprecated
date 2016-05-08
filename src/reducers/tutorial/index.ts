@@ -1,7 +1,6 @@
 import {TUTORIAL_SET} from '../../actions/_types';
 import {join} from 'path';
 import {tutorialConfig} from './tutorial-config';
-import store from '../../store';
 
 const _tutorial: CR.Tutorial = {
   name: null,
@@ -17,8 +16,7 @@ export default function tutorialReducer(
   switch (action.type) {
 
     case TUTORIAL_SET:
-      const name: string = action.payload.name;
-      const dir = store.getState().dir;
+      const {name, dir} = action.payload;
       const packagePath: string = join(dir, 'node_modules', name);
       const packageJson: PackageJson = require(join(packagePath, 'package.json'));
       const config: Tutorial.Config = tutorialConfig(packageJson);

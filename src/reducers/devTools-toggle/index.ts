@@ -1,5 +1,4 @@
 import {DEVTOOLS_TOGGLE} from '../../actions/_types';
-import store from '../../store';
 import {toggleDevTools} from '../../atom/editor';
 
 export default function devToolsToggleReducer(

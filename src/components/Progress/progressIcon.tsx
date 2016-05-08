@@ -7,7 +7,6 @@ import CheckBoxOutlineBlank from 'material-ui/svg-icons/toggle/check-box-outline
 export default function progressIcon(
   pages: boolean[], index: number, pagePosition: number
 ) {
-  console.log(index, pagePosition);
   switch (true) {
     // completed
     case pages[pagePosition]:
