@@ -8,7 +8,7 @@ import store from '../../store';
 const packageData = `{
   "name": "demo",
   "dependencies": {
-    "coderoad-functional-school": "^0.2.1"
+    "coderoad-functional-school": "^0.2.2"
   }
 }`;
 

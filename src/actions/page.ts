@@ -2,33 +2,39 @@ import {testsLoad} from './test';
 import {
   ROUTE_SET, PAGE_SET, PAGE_POSITION_SET, PAGE_POSITION_LOAD
 } from './_types';
-import store from '../store';
 
-export function pageNext(): Action {
-  let {pagePosition, tutorial} = store.getState();
-  const pages = tutorial.pages;
-  if (pagePosition >= pages.length - 1) {
-    return { type: ROUTE_SET, payload: { route: 'final' } };
-  } else {
-    pagePosition += 1;
-    // call TESTS_LOAD after PAGE_SET
-    setTimeout(() => store.dispatch(testsLoad(pagePosition)));
-    return pageSet(pagePosition);
-  }
+export function pageNext(): ReduxThunk.ThunkInterface | Action {
+  return (dispatch, getState): void => {
+    let {pagePosition, tutorial} = getState();
+    const pages = tutorial.pages;
+    if (pagePosition >= pages.length - 1) {
+      dispatch({ type: ROUTE_SET, payload: { route: 'final' } });
+    } else {
+      pagePosition += 1;
+      // call TESTS_LOAD after PAGE_SET
+      dispatch(pageSet(pagePosition));
+      dispatch(testsLoad(pagePosition));
+    }
+  };
 }
 
-export function pageSet(pagePosition = 0): Action {
-  const {dir, progress, tutorial} = store.getState();
-  // beyond the final page
-  if (pagePosition >= progress.pages.length) {
-    return { type: ROUTE_SET, payload: { route: 'final' } };
-  }
-  return { type: PAGE_SET, payload: { dir, pagePosition, tutorial, progress } };
+export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
+  return (dispatch, getState): void => {
+    const {dir, progress, tutorial} = getState();
+    if (pagePosition >= progress.pages.length) {
+      dispatch({ type: ROUTE_SET, payload: { route: 'final' } });
+    }
+    dispatch({
+      type: PAGE_SET, payload: { dir, pagePosition, tutorial, progress }
+    });
+  };
 }
 
-export function pagePositionLoad() {
-  const {progress} = store.getState();
-  return { type: PAGE_POSITION_LOAD, payload: { progress } };
+export function pagePositionLoad(): ReduxThunk.ThunkInterface {
+  return (dispatch, getState): void => {
+    const {progress} = getState();
+    dispatch({ type: PAGE_POSITION_LOAD, payload: { progress } });
+  };
 }
 
 export function pagePositionSet(pagePosition: CR.PagePosition): Action {

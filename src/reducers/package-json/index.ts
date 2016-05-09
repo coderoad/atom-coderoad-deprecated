@@ -9,7 +9,8 @@ export default function packageJsonReducer(
   switch (action.type) {
 
     case PACKAGE_SET:
-      const pathToPackageJson = join(action.payload.dir, 'package.json');
+      const {dir} = action.payload;
+      const pathToPackageJson = join(dir, 'package.json');
       if (fileExists(pathToPackageJson)) {
         return JSON.parse(readFileSync(pathToPackageJson, 'utf8'));
       }

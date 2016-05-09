@@ -1,7 +1,8 @@
 import {PACKAGE_SET} from './_types';
-import store from '../store';
 
-export function packageSet(): Action {
-  const {dir} = store.getState();
-  return { type: PACKAGE_SET, payload: { dir } };
+export function packageSet(): ReduxThunk.ThunkInterface {
+  return (dispatch, getState): void => {
+    const {dir} = getState();
+    dispatch({ type: PACKAGE_SET, payload: { dir } });
+  };
 }

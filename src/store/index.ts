@@ -1,18 +1,19 @@
 import { applyMiddleware, createStore } from 'redux';
 import reducer from '../reducers';
+import thunk from 'redux-thunk';
 import * as createLogger from 'redux-logger';
 
-const devMode = false;
-let store = null;
+let middlewares = [thunk];
 
+const devMode = false;
 if (devMode) {
   const logger = createLogger();
-  store = createStore(
-    reducer,
-    applyMiddleware(logger)
-  );
-} else {
-  const initialState = {};
-  store = createStore(reducer, initialState);
+  middlewares.push(logger);
 }
+
+const store: Redux.Store = createStore(
+  reducer,
+  applyMiddleware(...middlewares)
+);
+
 export default store;

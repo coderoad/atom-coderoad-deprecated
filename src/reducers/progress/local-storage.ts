@@ -1,5 +1,3 @@
-import store from '../../store';
-
 function getLocalStorageKey(tutorial: CR.Tutorial) {
   return 'coderoad:' + tutorial.name;
 }

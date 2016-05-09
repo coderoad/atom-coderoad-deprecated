@@ -43,6 +43,7 @@
         "src/typings/react/react-addons-transition-group.d.ts",
         "src/typings/react/react-tap-event-plugin.d.ts",
         "src/typings/react/react.d.ts",
+        "src/typings/redux-thunk/redux-thunk.d.ts",
         "src/typings/redux/redux-logger.d.ts",
         "src/typings/redux/redux-thunk.d.ts",
         "src/typings/redux/redux.d.ts",
