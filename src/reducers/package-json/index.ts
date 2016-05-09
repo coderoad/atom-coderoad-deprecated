@@ -1,4 +1,4 @@
-import {PACKAGE_SET} from '../../actions/_types';
+import {SETUP_PACKAGE} from '../../actions/_types';
 import {join} from 'path';
 import {readFileSync} from 'fs';
 import {fileExists} from '../../services/exists';
@@ -8,7 +8,7 @@ export default function packageJsonReducer(
 ): PackageJson {
   switch (action.type) {
 
-    case PACKAGE_SET:
+    case SETUP_PACKAGE:
       const {dir} = action.payload;
       const pathToPackageJson = join(dir, 'package.json');
       if (fileExists(pathToPackageJson)) {

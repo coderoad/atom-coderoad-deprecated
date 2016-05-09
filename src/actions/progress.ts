@@ -1,14 +1,20 @@
 import {
-  PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_TUTORIAL
+  PROGRESS_PAGE_POSITION_LOAD, PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_TUTORIAL
 } from './_types';
-import {pagePositionLoad} from './page';
+
+export function progressPagePositionLoad(): ReduxThunk.ThunkInterface {
+  return (dispatch, getState): void => {
+    const {progress} = getState();
+    dispatch({ type: PROGRESS_PAGE_POSITION_LOAD, payload: { progress } });
+  };
+}
 
 export function progressLoad(): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
     const {tutorial} = getState();
     dispatch({ type: PROGRESS_LOAD, payload: { tutorial } });
     // call pagePositionLoad after progress loads
-    dispatch(pagePositionLoad());
+    dispatch(progressPagePositionLoad());
   };
 }
 

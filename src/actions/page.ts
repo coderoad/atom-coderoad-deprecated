@@ -1,5 +1,5 @@
 import {
-  ROUTE_SET, PAGE_SET, PAGE_POSITION_SET, PAGE_POSITION_LOAD
+  ROUTE_SET, PAGE_SET, PAGE_POSITION_SET
 } from './_types';
 import configTaskTests from './config-task-tests';
 
@@ -29,13 +29,6 @@ export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
     dispatch({
       type: PAGE_SET, payload: { dir, pagePosition, tutorial, progress, tasks }
     });
-  };
-}
-
-export function pagePositionLoad(): ReduxThunk.ThunkInterface {
-  return (dispatch, getState): void => {
-    const {progress} = getState();
-    dispatch({ type: PAGE_POSITION_LOAD, payload: { progress } });
   };
 }
 

@@ -56,7 +56,6 @@
         "src/actions/config-task-tests.ts",
         "src/actions/hint.ts",
         "src/actions/index.ts",
-        "src/actions/package.ts",
         "src/actions/page.ts",
         "src/actions/progress.ts",
         "src/actions/route.ts",

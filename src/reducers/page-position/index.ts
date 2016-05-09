@@ -1,5 +1,5 @@
 import {
-  PAGE_SET, PAGE_POSITION_SET, PAGE_POSITION_LOAD
+  PAGE_SET, PAGE_POSITION_SET, PROGRESS_PAGE_POSITION_LOAD
 } from '../../actions/_types';
 
 export default function pagePositionReducer(
@@ -7,7 +7,7 @@ export default function pagePositionReducer(
 ): CR.PagePosition {
   switch (action.type) {
 
-    case PAGE_POSITION_LOAD:
+    case PROGRESS_PAGE_POSITION_LOAD:
       const pages = action.payload.progress.pages;
       const firstFail = pages.indexOf(false);
       return firstFail < 0 ? pages.length - 1 : firstFail;

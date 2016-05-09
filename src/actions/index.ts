@@ -1,11 +1,12 @@
 export {alertToggle, alertReplay} from './alert';
 export {
-  progressLoad, completePage, completeTutorial
+  progressLoad, completePage, completeTutorial,
+  progressPagePositionLoad
 } from './progress';
 export {hintShow, hintPositionSet} from './hint';
-export {pageSet, pageNext, pagePositionLoad, pagePositionSet} from './page';
+export {pageSet, pageNext, pagePositionSet} from './page';
 export {routeSet} from './route';
-export {setupVerify} from './setup';
+export {setupVerify, setupPackage} from './setup';
 export {
   testRun, testComplete, testResult, testSave
 } from './test';
