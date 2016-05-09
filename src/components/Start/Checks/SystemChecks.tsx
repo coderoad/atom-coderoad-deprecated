@@ -4,7 +4,7 @@ import {Card, CardHeader, CardText, CardActions} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import VerifyButton from './VerifyButton';
 import {pink500} from 'material-ui/styles/colors';
-import {updateNpm} from '../../../reducers/checks/action-system';
+// import {updateNpm} from '../../../reducers/checks/action-system';
 import DynamicStepper from './DynamicStepper';
 import StepCheck from './StepCheck';
 
@@ -40,7 +40,7 @@ const SystemChecks: React.StatelessComponent<{
         <FlatButton
           label='Update NPM'
           secondary={true}
-          onTouchTap={updateNpm}
+          /* onTouchTap={updateNpm} */
         />
       </StepCheck>
 

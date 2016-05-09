@@ -3,7 +3,7 @@ import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
 import {Card, CardHeader, CardText, CardActions} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import VerifyButton from './VerifyButton';
-import {openDirectory, createPackageJson} from '../../../reducers/checks/action-setup';
+// import {openDirectory, createPackageJson} from '../../../reducers/checks/action-setup';
 import DynamicStepper from './DynamicStepper';
 import StepCheck from './StepCheck';
 
@@ -32,7 +32,7 @@ const SetupChecks: React.StatelessComponent<{
           <FlatButton
             label='Open Directory'
             secondary={true}
-            onTouchTap={openDirectory}
+            /* onTouchTap={openDirectory} */
           />
         </StepCheck>
 
@@ -45,7 +45,7 @@ const SetupChecks: React.StatelessComponent<{
           <FlatButton
             label='Create package.json'
             secondary={true}
-            onTouchTap={createPackageJson}
+            /* onTouchTap={createPackageJson} */
           />
         </StepCheck>
 
