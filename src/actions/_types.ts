@@ -17,7 +17,6 @@ export const SETUP_VERIFY = 'SETUP_VERIFY';
 export const TEST_COMPLETE = 'TEST_COMPLETE';
 export const TEST_RESULT = 'TEST_RESULT';
 export const TEST_RUN = 'TEST_RUN';
-export const TESTS_LOAD = 'TESTS_LOAD';
 export const TUTORIAL_SET = 'TUTORIAL_SET';
 export const TUTORIAL_UPDATE = 'TUTORIAL_UPDATE';
 export const TUTORIALS_FIND = 'TUTORIALS_FIND';

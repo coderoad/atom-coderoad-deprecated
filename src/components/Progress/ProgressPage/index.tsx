@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {pageSet, routeSet, testsLoad} from '../../../actions';
+import {pageSet, routeSet} from '../../../actions';
 import {ListItem} from 'material-ui/List';
 import progressIcon from '../progressIcon';
 import {grey400} from 'material-ui/styles/colors';
@@ -14,7 +14,6 @@ const styles = {
   return {
     selectPage: (pagePosition: CR.PagePosition) => {
       dispatch(pageSet(pagePosition));
-      dispatch(testsLoad(pagePosition));
       dispatch(routeSet('page'));
     }
   };

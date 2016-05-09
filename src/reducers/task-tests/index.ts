@@ -1,12 +1,12 @@
 import {readFileSync} from 'fs';
-import {TESTS_LOAD} from '../../actions/_types';
+import {PAGE_SET} from '../../actions/_types';
 
 export default function taskTestsReducer(
   taskTests = '', action: Action
 ): string {
   switch (action.type) {
 
-    case TESTS_LOAD:
+    case PAGE_SET:
       const {tutorial, tasks} = action.payload;
       return [].concat.apply([], tasks.map(
         task => task.tests || [])

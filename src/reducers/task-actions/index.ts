@@ -1,4 +1,4 @@
-import {TESTS_LOAD, TEST_RESULT} from '../../actions/_types';
+import {PAGE_SET, TEST_RESULT} from '../../actions/_types';
 import editorActionReducer from './editor-reducer';
 
 function handleTaskActions(actions: string[][]): void {
@@ -20,7 +20,7 @@ export default function taskActionsReducer(
   let actions: string[][] = null;
   switch (action.type) {
 
-    case TESTS_LOAD:
+    case PAGE_SET:
       const {tasks, pagePosition, progress} = action.payload;
       const isCompleted = progress.pages[pagePosition];
       if (!isCompleted) {

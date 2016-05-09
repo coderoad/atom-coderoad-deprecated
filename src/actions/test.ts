@@ -1,5 +1,5 @@
 import {
-  TEST_RUN, TEST_RESULT, TEST_COMPLETE, TESTS_LOAD, TEST_SAVE
+  TEST_RUN, TEST_RESULT, TEST_COMPLETE, TEST_SAVE
 } from './_types';
 
 export function testRun(): ReduxThunk.ThunkInterface {
@@ -24,17 +24,4 @@ export function testComplete(): Action {
 
 export function testSave(): Action {
   return { type: TEST_SAVE };
-}
-
-export function testsLoad(
-  pagePosition: CR.PagePosition
-): ReduxThunk.ThunkInterface {
-  return (dispatch, getState): void => {
-    const {tasks, progress, tutorial, dir} = getState();
-    dispatch({
-      type: TESTS_LOAD, payload: {
-        pagePosition, tasks, progress, tutorial, dir
-      }
-    });
-  };
 }

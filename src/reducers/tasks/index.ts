@@ -14,11 +14,7 @@ export default function tasksReducer(tasks = _tasks,
   switch (action.type) {
 
     case PAGE_SET:
-      const {dir, tutorial, pagePosition} = action.payload;
-      // create absolute paths for 'task-tests'
-      return configTaskTests(
-        dir, tutorial, tutorial.pages[pagePosition].tasks || []
-      );
+      return action.payload.tasks;
 
     default:
       return tasks;

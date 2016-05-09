@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
+// import {reducers} from 'coderoad-core';
 
 import alert from './alert';
 import checks from './checks';
@@ -19,8 +20,10 @@ import tutorial from './tutorial';
 import tutorialList from './tutorial-list';
 import windowToggle from './window-toggle';
 
-export default combineReducers({
-  alert, checks, dir, devToolsToggle, taskActions, hintPosition, page,
-  packageJson, pagePosition, progress, route, taskPosition,
-  taskTests, tasks, testRun, tutorial, tutorialList, windowToggle
-});
+export default combineReducers(
+  Object.assign({}, {
+    alert, checks, dir, devToolsToggle, taskActions, hintPosition,
+    packageJson, page, pagePosition, progress, route, taskPosition,
+    taskTests, tasks, testRun, tutorial, tutorialList, windowToggle
+  })
+);
