@@ -17,7 +17,7 @@ export default function setupVerify(
   }
   if (hasDir && hasPackageJson) {
     hasTutorial = !!searchForTutorials(dir, packageJson.dependencies).length ||
-     !!searchForTutorials(dir, packageJson.devDependencies).length;
+      !!searchForTutorials(dir, packageJson.devDependencies).length;
   }
 
   let checks: CR.Checks = {

@@ -3,7 +3,6 @@ import {open, set} from '../../atom/editor';
 import {openFolder, openTerminal} from '../../atom/editor';
 import commandLine from '../../services/command-line';
 import {setupVerify} from '../../actions';
-import store from '../../store';
 
 const packageData = `{
   "name": "demo",
@@ -19,7 +18,7 @@ export function createPackageJson(dir: string): Promise<void> {
     setTimeout(() => resolve());
   }).then(() => {
     set(packageData);
-    store.dispatch(setupVerify());
+    // store.dispatch(setupVerify());
   });
 }
 
