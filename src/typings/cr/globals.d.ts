@@ -3,6 +3,7 @@ interface Action {
   payload?;
   error?: boolean;
   meta?;
+  filter?: string;
 }
 
 interface PackageJson {

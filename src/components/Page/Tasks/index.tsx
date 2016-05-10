@@ -45,7 +45,10 @@ export default class Tasks extends React.Component<{
         </List>
       </Card>
 
-        <TasksComplete page={page} />
+        <TasksComplete
+          page={page}
+          completed={completed}
+        />
 
         <div ref='listEnd' />
     </div>

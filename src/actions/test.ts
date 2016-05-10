@@ -2,6 +2,7 @@ import {
   TEST_RUN, TEST_RESULT, TEST_COMPLETE, TEST_SAVE
 } from './_types';
 import {hintPositionSet} from './hint';
+import {completePage} from './progress';
 
 export function testRun(): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
@@ -14,10 +15,13 @@ export function testRun(): ReduxThunk.ThunkInterface {
 
 export function testResult(result: Test.Result): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
-    const {taskActions} = getState();
+    const {taskActions, progress, pagePosition} = getState();
     const filter: string = getTestFilter(result);
-    if (result.change !== 0) {
+    if (filter === 'PASS' || filter === 'FAIL') {
       dispatch(hintPositionSet(0));
+    }
+    if (filter === 'FAIL' && progress.pages[pagePosition]) {
+      dispatch(completePage(false));
     }
     dispatch({ type: TEST_RESULT, payload: { result, taskActions }, filter });
   };

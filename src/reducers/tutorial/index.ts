@@ -1,6 +1,7 @@
 import {join} from 'path';
 import {tutorialConfig} from './tutorial-config';
 import {TUTORIAL_SET} from '../../actions/_types';
+import configPaths from './config-paths';
 
 const _tutorial: CR.Tutorial = {
   name: null,
@@ -20,7 +21,9 @@ export default function tutorialReducer(
       const packagePath: string = join(dir, 'node_modules', name);
       const packageJson: PackageJson = require(join(packagePath, 'package.json'));
       const config: Tutorial.Config = tutorialConfig(packageJson, dir);
-      const {info, pages} = require(join(packagePath, packageJson.main));
+      let {info, pages} = require(join(packagePath, packageJson.main));
+      // configure test paths to absolute paths
+      pages = configPaths(dir, name, config, pages || []);
       return {
         name: packageJson.name,
         info,
