@@ -5,8 +5,8 @@ import Save from './Save';
 import Continue from './Continue';
 
 const styles = {
-    zIndex: '1000',
-    position: 'fixed',
+    zIndex: '5',
+    position: 'relative',
     bottom: '0px',
     right: '0px',
     height: '60px',

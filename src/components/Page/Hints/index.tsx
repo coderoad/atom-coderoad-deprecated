@@ -6,10 +6,9 @@ import Help from 'material-ui/svg-icons/action/help';
 
 const styles = {
   position: 'relative',
-  margin: '0 20px -8px 20px',
+  margin: '5px auto 10px',
   width: '360px',
   textAlign: 'center',
-  zIndex: '0',
 };
 
 const Hints: React.StatelessComponent<{
