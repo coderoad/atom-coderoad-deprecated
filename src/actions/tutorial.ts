@@ -1,5 +1,6 @@
 import {
-  TUTORIALS_FIND, TUTORIAL_UPDATE, TUTORIAL_SET
+  TUTORIALS_FIND, TUTORIAL_UPDATE, TUTORIAL_SET,
+  ALERT_TOGGLE
 } from './_types';
 
 export function tutorialSet(name: string): ReduxThunk.ThunkInterface {
@@ -9,8 +10,16 @@ export function tutorialSet(name: string): ReduxThunk.ThunkInterface {
   };
 }
 
-export function tutorialUpdate(name: string): Action {
-  return { type: TUTORIAL_UPDATE, payload: { name } };
+export function tutorialUpdate(name: string): ReduxThunk.ThunkInterface {
+  return (dispatch, getState): void => {
+    const alert = {
+      message: `run \`npm install --save-dev ${name}\``,
+      action: 'note',
+      duration: 4000,
+    };
+    dispatch({ type: TUTORIAL_UPDATE, payload: { name } });
+    dispatch({ type: ALERT_TOGGLE, payload: { alert } });
+  };
 }
 
 export function tutorialsFind(): ReduxThunk.ThunkInterface {

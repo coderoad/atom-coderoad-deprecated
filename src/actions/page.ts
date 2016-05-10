@@ -2,6 +2,7 @@ import {
   ROUTE_SET, PAGE_SET, PAGE_POSITION_SET
 } from './_types';
 import configTaskTests from './config-task-tests';
+import {hintPositionSet} from './hint';
 
 export function pageNext(): ReduxThunk.ThunkInterface | Action {
   return (dispatch, getState): void => {
@@ -29,6 +30,7 @@ export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
     dispatch({
       type: PAGE_SET, payload: { dir, pagePosition, tutorial, progress, tasks }
     });
+    dispatch(hintPositionSet(0));
   };
 }
 

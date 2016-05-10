@@ -6,11 +6,13 @@ import {
 const _alert: CR.Alert = {
   message: '',
   open: false,
-  action: '',
+  action: 'note',
+  duration: 1500,
 };
 const open = {
   open: true,
-  action: 'pass',
+  action: 'note',
+  duration: 1500
 };
 
 let current: CR.Alert = _alert;
@@ -33,51 +35,38 @@ export default function alertReducer(
       return setAlert(current);
 
     case ALERT_TOGGLE:
-      return action.payload.alert || _alert;
+      return setAlert(action.payload.alert || _alert);
 
     case TUTORIAL_UPDATE:
       return setAlert({
         message: `run \`npm install --save-dev ${action.payload.name}\``,
-        action: 'note',
         duration: 4000,
       });
 
     case TEST_RESULT:
       const result = action.payload.result;
 
-      switch (true) {
-        // pass
-        case result.pass && result.change > 0:
+      switch (action.payload.filter) {
+
+        case 'PASS':
           return setAlert({
             message: result.msg,
-            duration: result.duration || 1500,
+            action: 'pass',
+            duration: result.duration || 1200,
           }, '#73C990');
-        // Fail
-        case result.pass === false && result.change < 1:
+
+        case 'FAIL':
           return setAlert({
             message: result.msg,
             action: 'fail',
-            duration: result.duration || 2500,
+            duration: result.duration || 2200,
           }, '#FF4081');
-        // Alert
-        default:
-          break;
       }
+      // Note
       return setAlert({
         message: result.msg,
-        action: 'note',
-        duration: result.duration || 2500,
+        duration: result.duration || 2200,
       }, '#9DA5B4');
-
-    case COMPLETE_PAGE:
-      return setAlert({
-        message: `Page ${action.payload.pagePosition + 1} Complete`,
-      });
-
-    case COMPLETE_TUTORIAL:
-      return setAlert({
-        message: 'Tutorial Complete',
-      });
 
     default:
       return alert;
