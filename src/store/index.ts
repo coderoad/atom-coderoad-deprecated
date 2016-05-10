@@ -3,7 +3,7 @@ import reducer from '../reducers';
 import thunk from 'redux-thunk';
 import * as createLogger from 'redux-logger';
 
-let middlewares = [thunk];
+const middlewares = [thunk];
 
 const devMode = false;
 if (devMode) {
