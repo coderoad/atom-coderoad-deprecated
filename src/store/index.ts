@@ -5,7 +5,7 @@ import * as createLogger from 'redux-logger';
 
 const middlewares = [thunk];
 
-const devMode = false;
+const devMode = true;
 if (devMode) {
   const logger = createLogger();
   middlewares.push(logger);

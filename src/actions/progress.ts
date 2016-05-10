@@ -32,7 +32,7 @@ export function completePage(completed = true): ReduxThunk.ThunkInterface {
       } else {
         dispatch(alertToggle({
           message: `Page ${pagePosition + 1} Complete`,
-          action: 'pass',
+          action: 'PASS',
         }));
       }
     } else if (progress.completed) {
@@ -47,7 +47,7 @@ export function completeTutorial(completed = true): ReduxThunk.ThunkInterface {
     dispatch({ type: COMPLETE_TUTORIAL, payload: { tutorial, completed } });
     dispatch(alertToggle({
       message: 'Tutorial Complete',
-      action: 'pass',
+      action: 'PASS',
     }));
   };
 }

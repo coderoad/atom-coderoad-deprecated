@@ -1,8 +1,8 @@
 import {ALERT_REPLAY, ALERT_TOGGLE} from './_types';
 
-export function alertToggle(alert: Object, filter?: string): ReduxThunk.ThunkInterface {
+export function alertToggle(alert: Object): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
-    dispatch({ type: ALERT_TOGGLE, payload: { alert }, filter });
+    dispatch({ type: ALERT_TOGGLE, payload: { alert } });
   };
 }
 

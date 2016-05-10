@@ -3,6 +3,7 @@ import {
 } from './_types';
 import {hintPositionSet} from './hint';
 import {completePage} from './progress';
+import {alertToggle} from './alert';
 
 export function testRun(): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
@@ -17,13 +18,25 @@ export function testResult(result: Test.Result): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
     const {taskActions, progress, pagePosition} = getState();
     const filter: string = getTestFilter(result);
+    let alert: CR.Alert = {
+      message: result.msg,
+      action: 'note',
+    };
     if (filter === 'PASS' || filter === 'FAIL') {
       dispatch(hintPositionSet(0));
-    }
-    if (filter === 'FAIL' && progress.pages[pagePosition]) {
+      alert = Object.assign({}, alert, {
+        action: filter,
+        duration: 1200,
+      });
+    } else if (filter === 'FAIL' && progress.pages[pagePosition]) {
       dispatch(completePage(false));
+      alert = Object.assign({}, alert, {
+        action: filter,
+        duration: 2200,
+      });
     }
-    dispatch({ type: TEST_RESULT, payload: { result, taskActions }, filter });
+    dispatch({ type: TEST_RESULT, payload: { result, taskActions } });
+    dispatch(alertToggle(alert));
   };
 }
 

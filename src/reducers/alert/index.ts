@@ -9,10 +9,17 @@ const _alert: CR.Alert = {
   action: 'note',
   duration: 1500,
 };
+
 const open = {
   open: true,
   action: 'note',
   duration: 1500
+};
+
+const colors = {
+  pass: '#73C990',
+  FAIL: '#FF4081',
+  NOTE: '#9DA5B4',
 };
 
 let current: CR.Alert = _alert;
@@ -35,38 +42,14 @@ export default function alertReducer(
       return setAlert(current);
 
     case ALERT_TOGGLE:
-      return setAlert(action.payload.alert || _alert);
+      const a = action.payload.alert;
 
-    case TUTORIAL_UPDATE:
-      return setAlert({
-        message: `run \`npm install --save-dev ${action.payload.name}\``,
-        duration: 4000,
-      });
-
-    case TEST_RESULT:
-      const result = action.payload.result;
-
-      switch (action.filter) {
-
-        case 'PASS':
-          return setAlert({
-            message: result.msg,
-            action: 'pass',
-            duration: result.duration || 1200,
-          }, '#73C990');
-
-        case 'FAIL':
-          return setAlert({
-            message: result.msg,
-            action: 'fail',
-            duration: result.duration || 2200,
-          }, '#FF4081');
+      if (!a) {
+        // close alert
+        return _alert;
       }
-      // Note
-      return setAlert({
-        message: result.msg,
-        duration: result.duration || 2200,
-      }, '#9DA5B4');
+
+      return setAlert(a, colors[a.action] || colors.NOTE);
 
     default:
       return alert;
