@@ -28,7 +28,7 @@ const taglineStyles = {
 
 const buttonStyles = {
   fontSize: '1.4em',
-  padding: '5px 2px',
+  boxShadow: '2px 2px 1px #888888',
   textShadow: '1px 1px 0px #000',
 };
 

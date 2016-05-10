@@ -1,10 +1,15 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import {pageNext} from '../../../../actions';
 
 const styles = {
   zIndex: '10000',
+  border: '0',
+  boxShadow: 'none',
+  backgroundColor: 'inherit',
+  position: 'relative',
+  top: '10px',
 };
 
 @connect(null, (dispatch, state) => {
@@ -19,10 +24,10 @@ export default class Continue extends React.Component<{
 }, {}> {
   render() {
     return (
-      <FlatButton
+      <RaisedButton
         style={styles}
         label='Continue'
-        secondary={true}
+        primary={true}
         onTouchTap={this.props.callNextPage}
       />
     );

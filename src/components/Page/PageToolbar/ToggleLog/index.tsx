@@ -4,6 +4,11 @@ import {connect} from 'react-redux';
 import {devToolsToggle} from '../../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
+const styles = {
+  position: 'relative',
+  top: '10px',
+};
+
 @connect(null, (dispatch, state) => {
   return {
     toggleDevTools: () => {
@@ -17,6 +22,7 @@ export default class ToggleLog extends React.Component<{
   render() {
     return (
       <FlatButton
+        style={styles}
         icon={
           <Code />
         }

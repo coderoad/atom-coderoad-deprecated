@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {routeSet} from '../../actions';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 @connect(null, (dispatch) => {
   return {
@@ -14,7 +14,7 @@ export default class RouteButton extends React.Component<{
   render() {
     const {label, route, style, routeTo} = this.props;
     return (
-        <FlatButton
+        <RaisedButton
           label={label}
           style={style || {}}
           onTouchTap={routeTo.bind(this, route)}
