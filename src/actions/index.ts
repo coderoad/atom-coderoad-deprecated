@@ -3,7 +3,7 @@ export {
   progressLoad, completePage, completeTutorial,
   progressPagePositionLoad
 } from './progress';
-export {hintShow, hintPositionSet} from './hint';
+export {hintPositionSet} from './hint';
 export {pageSet, pageNext, pagePositionSet} from './page';
 export {routeSet} from './route';
 export {setupVerify, setupPackage} from './setup';

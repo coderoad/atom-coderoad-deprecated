@@ -2,11 +2,15 @@ import {
   TUTORIALS_FIND, TUTORIAL_UPDATE, TUTORIAL_SET,
   ALERT_TOGGLE
 } from './_types';
+import {progressLoad} from './progress';
+import {routeSet} from './route';
 
 export function tutorialSet(name: string): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
     const {dir} = getState();
     dispatch({ type: TUTORIAL_SET, payload: { name, dir } });
+    dispatch(progressLoad());
+    dispatch(routeSet('progress'));
   };
 }
 
