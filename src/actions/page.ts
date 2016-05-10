@@ -1,7 +1,6 @@
 import {
   ROUTE_SET, PAGE_SET, PAGE_POSITION_SET
 } from './_types';
-import configTaskTests from './config-task-tests';
 import {hintPositionSet} from './hint';
 
 export function pageNext(): ReduxThunk.ThunkInterface | Action {
@@ -21,9 +20,7 @@ export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
     const {dir, progress, tutorial} = getState();
     // create absolute paths for 'task-tests'
-    const tasks = configTaskTests(
-      dir, tutorial, tutorial.pages[pagePosition].tasks || []
-    );
+    const tasks = tutorial.pages[pagePosition].tasks || [];
     if (pagePosition >= progress.pages.length) {
       dispatch({ type: ROUTE_SET, payload: { route: 'final' } });
     }

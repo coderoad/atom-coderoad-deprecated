@@ -46,7 +46,7 @@ export default function alertReducer(
     case TEST_RESULT:
       const result = action.payload.result;
 
-      switch (action.payload.filter) {
+      switch (action.filter) {
 
         case 'PASS':
           return setAlert({

@@ -108,6 +108,7 @@
         "src/reducers/tutorial-list/index.ts",
         "src/reducers/tutorial-list/is-tutorial.ts",
         "src/reducers/tutorial-list/update.ts",
+        "src/reducers/tutorial/config-paths.ts",
         "src/reducers/tutorial/index.ts",
         "src/reducers/tutorial/tutorial-config.ts",
         "src/reducers/window-toggle/index.ts",
