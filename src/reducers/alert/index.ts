@@ -6,18 +6,18 @@ import {
 const _alert: CR.Alert = {
   message: '',
   open: false,
-  action: 'note',
+  action: 'NOTE',
   duration: 1500,
 };
 
 const open = {
   open: true,
-  action: 'note',
+  action: 'NOTE',
   duration: 1500
 };
 
 const colors = {
-  pass: '#73C990',
+  PASS: '#73C990',
   FAIL: '#FF4081',
   NOTE: '#9DA5B4',
 };
