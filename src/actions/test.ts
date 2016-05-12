@@ -20,15 +20,18 @@ export function testResult(result: Test.Result): ReduxThunk.ThunkInterface {
     const filter: string = getTestFilter(result);
     let alert: CR.Alert = {
       message: result.msg,
-      action: 'note',
+      action: 'NOTE',
     };
+    // passes or fails
     if (filter === 'PASS' || filter === 'FAIL') {
       dispatch(hintPositionSet(0));
       alert = Object.assign({}, alert, {
         action: filter,
         duration: 1200,
       });
-    } else if (filter === 'FAIL' && progress.pages[pagePosition]) {
+    }
+    // previously passed, but now fails
+    if (filter === 'FAIL' && progress.pages[pagePosition]) {
       dispatch(completePage(false));
       alert = Object.assign({}, alert, {
         action: filter,
@@ -44,7 +47,7 @@ function getTestFilter(result: Test.Result): string {
   switch (true) {
     case result.pass && result.change > 0:
       return 'PASS';
-    case result.pass === false && result.change < 1:
+    case result.pass === false && result.change <= 0:
       return 'FAIL';
     default:
       return 'NOTE';

@@ -17,20 +17,19 @@ const open = {
 };
 
 const colors = {
-  PASS: '#73C990',
-  FAIL: '#FF4081',
-  NOTE: '#9DA5B4',
+  PASS: '#73C990', // green
+  FAIL: '#FF4081', // red
+  NOTE: '#9DA5B4', // blue
 };
 
 let current: CR.Alert = _alert;
 
-function setAlert(options: Object, color?: string) {
-  if (color) {
-    let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
-    statusBarAlert.style.color = color;
-  }
-  current = Object.assign({}, open, options);
-  return current;
+function setAlert(a: CR.Alert): CR.Alert {
+
+  const color = colors[a.action] || colors.NOTE;
+  let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
+  statusBarAlert.style.color = color;
+  return Object.assign({}, open, a);
 }
 
 export default function alertReducer(
@@ -48,8 +47,7 @@ export default function alertReducer(
         // close alert
         return _alert;
       }
-
-      return setAlert(a, colors[a.action] || colors.NOTE);
+      return setAlert(a);
 
     default:
       return alert;
