@@ -5,9 +5,9 @@ import * as createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 // const middlewares = [ramMiddleware];
-const middlewares = [ratMiddleware, thunk];
+const middlewares = [ratMiddleware];
 
-const devMode = false;
+const devMode = true;
 if (devMode) {
   const logger = createLogger();
   middlewares.push(logger);

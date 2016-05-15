@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {routeSet} from '../../actions';
 import RaisedButton from 'material-ui/RaisedButton';
 
-@connect(null, (dispatch) => {
+@connect(null, dispatch => {
   return {
     routeTo: (route: string) => dispatch(routeSet(route)),
   };

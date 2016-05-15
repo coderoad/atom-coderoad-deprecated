@@ -1,16 +1,16 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {alertToggle} from '../../actions';
 import Snackbar from 'material-ui/Snackbar';
+import {alertToggle} from '../../actions';
 
 const defaultAlert = {
   message: '',
   open: false,
 };
 
-@connect(null, (dispatch) => {
+@connect(null, dispatch => {
   return {
-    alertToggle: () => dispatch(alertToggle()),
+    alertToggle: () => dispatch(alertToggle({open: false}))
   };
 })
 export default class Alert extends React.Component<{
@@ -18,15 +18,14 @@ export default class Alert extends React.Component<{
 }, {}> {
   render() {
     const {alert, alertToggle} = this.props;
-    const {action, open, message, duration} = alert;
+    const {action, message, open, duration} = alert;
     return (
       <Snackbar
           className={`cr-alert ${action}`}
-          open={open || false}
+          open={open}
           message={message || ''}
-          action={action}
+          action={action || 'NOTE'}
           autoHideDuration={duration || 2000}
-          onActionTouchTap={alertToggle}
           onRequestClose={alertToggle}
       />
     );

@@ -9,3 +9,11 @@ export function alertToggle(alert: Object): ReduxThunk.ThunkInterface {
 export function alertReplay(): Action {
   return { type: ALERT_REPLAY };
 }
+
+// import {rat} from 'redux-action-thunk';
+//
+// rat.add('ALERT_TOGGLE', (dispatch, getState) => (alert) => {
+//   dispatch({ type: 'ALERT_TOGGLE', payload: { alert } });
+// });
+//
+// rat.add('ALERT_REPLAY');

@@ -41,13 +41,7 @@ export default function alertReducer(
       return setAlert(current);
 
     case ALERT_TOGGLE:
-      const a = action.payload.alert;
-
-      if (!a) {
-        // close alert
-        return _alert;
-      }
-      return setAlert(a);
+      return setAlert(action.payload.alert);
 
     default:
       return alert;

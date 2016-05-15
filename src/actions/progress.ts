@@ -45,7 +45,7 @@ export function completeTutorial(completed = true): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
     const {tutorial} = getState();
     dispatch({ type: COMPLETE_TUTORIAL, payload: { tutorial, completed } });
-    dispatch(alertToggle({
+    dispatch('ALER'({
       message: 'Tutorial Complete',
       action: 'PASS',
     }));

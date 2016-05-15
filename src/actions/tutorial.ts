@@ -1,9 +1,9 @@
 import {
-  TUTORIALS_FIND, TUTORIAL_UPDATE, TUTORIAL_SET,
-  ALERT_TOGGLE
+  TUTORIALS_FIND, TUTORIAL_UPDATE, TUTORIAL_SET
 } from './_types';
 import {progressLoad} from './progress';
 import {routeSet} from './route';
+import {alertToggle} from './alert';
 
 export function tutorialSet(name: string): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
@@ -19,10 +19,10 @@ export function tutorialUpdate(name: string): ReduxThunk.ThunkInterface {
     const alert = {
       message: `run \`npm install --save-dev ${name}\``,
       action: 'note',
-      duration: 4000,
+      duration: 3000,
     };
     dispatch({ type: TUTORIAL_UPDATE, payload: { name } });
-    dispatch({ type: ALERT_TOGGLE, payload: { alert } });
+    dispatch(alertToggle(alert));
   };
 }
 
