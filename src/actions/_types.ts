@@ -1,5 +1,6 @@
 export const ALERT_REPLAY = 'ALERT_REPLAY';
-export const ALERT_TOGGLE = 'ALERT_TOGGLE';
+export const ALERT_OPEN = 'ALERT_OPEN';
+export const ALERT_CLOSE = 'ALERT_CLOSE';
 export const COMPLETE_PAGE = 'COMPLETE_PAGE';
 export const COMPLETE_TUTORIAL = 'COMPLETE_TUTORIAL';
 export const DEVTOOLS_TOGGLE = 'DEVTOOLS_TOGGLE';

@@ -1,8 +1,8 @@
-import {ALERT_REPLAY, ALERT_TOGGLE} from './_types';
+import {ALERT_REPLAY, ALERT_OPEN, ALERT_CLOSE} from './_types';
 
-export function alertToggle(alert: Object): ReduxThunk.ThunkInterface {
+export function alertOpen(alert: Object): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
-    dispatch({ type: ALERT_TOGGLE, payload: { alert } });
+    dispatch({ type: ALERT_OPEN, payload: { alert } });
   };
 }
 
@@ -10,10 +10,6 @@ export function alertReplay(): Action {
   return { type: ALERT_REPLAY };
 }
 
-// import {rat} from 'redux-action-thunk';
-//
-// rat.add('ALERT_TOGGLE', (dispatch, getState) => (alert) => {
-//   dispatch({ type: 'ALERT_TOGGLE', payload: { alert } });
-// });
-//
-// rat.add('ALERT_REPLAY');
+export function alertClose(): Action {
+  return { type: ALERT_CLOSE };
+}

@@ -1,11 +1,10 @@
 import { applyMiddleware, createStore } from 'redux';
-import {ratMiddleware} from 'redux-action-thunk';
 import reducer from '../reducers';
 import * as createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 // const middlewares = [ramMiddleware];
-const middlewares = [ratMiddleware];
+const middlewares = [thunk];
 
 const devMode = true;
 if (devMode) {

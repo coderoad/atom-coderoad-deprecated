@@ -1,7 +1,7 @@
 import {
   PROGRESS_PAGE_POSITION_LOAD, PROGRESS_LOAD, COMPLETE_PAGE, COMPLETE_TUTORIAL
 } from './_types';
-import {alertToggle} from './alert';
+import {alertOpen} from './alert';
 import {testRun} from './test';
 
 export function progressPagePositionLoad(): ReduxThunk.ThunkInterface {
@@ -30,7 +30,7 @@ export function completePage(completed = true): ReduxThunk.ThunkInterface {
       if (progress.pages.every(x => x.completed)) {
         dispatch(completeTutorial());
       } else {
-        dispatch(alertToggle({
+        dispatch(alertOpen({
           message: `Page ${pagePosition + 1} Complete`,
           action: 'PASS',
         }));
@@ -45,7 +45,7 @@ export function completeTutorial(completed = true): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
     const {tutorial} = getState();
     dispatch({ type: COMPLETE_TUTORIAL, payload: { tutorial, completed } });
-    dispatch('ALER'({
+    dispatch(alertOpen({
       message: 'Tutorial Complete',
       action: 'PASS',
     }));

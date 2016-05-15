@@ -1,5 +1,4 @@
-export {alertToggle, alertReplay} from './alert';
-// import './alert';
+export {alertOpen, alertClose, alertReplay} from './alert';
 export {
   progressLoad, completePage, completeTutorial,
   progressPagePositionLoad

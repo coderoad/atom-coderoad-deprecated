@@ -3,7 +3,7 @@ import {
 } from './_types';
 import {progressLoad} from './progress';
 import {routeSet} from './route';
-import {alertToggle} from './alert';
+import {alertOpen} from './alert';
 
 export function tutorialSet(name: string): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
@@ -22,7 +22,7 @@ export function tutorialUpdate(name: string): ReduxThunk.ThunkInterface {
       duration: 3000,
     };
     dispatch({ type: TUTORIAL_UPDATE, payload: { name } });
-    dispatch(alertToggle(alert));
+    dispatch(alertOpen(alert));
   };
 }
 

@@ -3,7 +3,7 @@ import {
 } from './_types';
 import {hintPositionSet} from './hint';
 import {completePage} from './progress';
-import {alertToggle} from './alert';
+import {alertOpen} from './alert';
 
 export function testRun(): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
@@ -39,7 +39,7 @@ export function testResult(result: Test.Result): ReduxThunk.ThunkInterface {
       });
     }
     dispatch({ type: TEST_RESULT, payload: { result, taskActions } });
-    dispatch(alertToggle(alert));
+    dispatch(alertOpen(alert));
   };
 }
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import Snackbar from 'material-ui/Snackbar';
-import {alertToggle} from '../../actions';
+import {alertClose} from '../../actions';
 
 const defaultAlert = {
   message: '',
@@ -10,14 +10,14 @@ const defaultAlert = {
 
 @connect(null, dispatch => {
   return {
-    alertToggle: () => dispatch(alertToggle({open: false}))
+    close: () => dispatch(alertClose())
   };
 })
 export default class Alert extends React.Component<{
-  alert: CR.Alert, alertToggle?: any
+  alert: CR.Alert, close?: any
 }, {}> {
   render() {
-    const {alert, alertToggle} = this.props;
+    const {alert, close} = this.props;
     const {action, message, open, duration} = alert;
     return (
       <Snackbar
@@ -26,7 +26,7 @@ export default class Alert extends React.Component<{
           message={message || ''}
           action={action || 'NOTE'}
           autoHideDuration={duration || 2000}
-          onRequestClose={alertToggle}
+          onRequestClose={close}
       />
     );
   }

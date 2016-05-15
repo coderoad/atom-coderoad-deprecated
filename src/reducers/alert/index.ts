@@ -1,6 +1,5 @@
 import {
-  ALERT_REPLAY, ALERT_TOGGLE, TUTORIAL_UPDATE,
-  TEST_RESULT, COMPLETE_PAGE, COMPLETE_TUTORIAL
+  ALERT_REPLAY, ALERT_OPEN, ALERT_CLOSE
 } from '../../actions/_types';
 
 const _alert: CR.Alert = {
@@ -25,7 +24,6 @@ const colors = {
 let current: CR.Alert = _alert;
 
 function setAlert(a: CR.Alert): CR.Alert {
-
   const color = colors[a.action] || colors.NOTE;
   let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
   statusBarAlert.style.color = color;
@@ -40,8 +38,11 @@ export default function alertReducer(
     case ALERT_REPLAY:
       return setAlert(current);
 
-    case ALERT_TOGGLE:
+    case ALERT_OPEN:
       return setAlert(action.payload.alert);
+
+    case ALERT_CLOSE:
+      return Object.assign({}, alert, {open: false});
 
     default:
       return alert;
