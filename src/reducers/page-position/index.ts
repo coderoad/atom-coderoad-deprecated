@@ -12,7 +12,6 @@ export default function pagePositionReducer(
       const firstFail = pages.indexOf(false);
       return firstFail < 0 ? pages.length - 1 : firstFail;
 
-    case PAGE_SET:
     case PAGE_POSITION_SET:
       return action.payload.pagePosition;
 

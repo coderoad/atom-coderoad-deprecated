@@ -5,7 +5,7 @@ export {
   progressPagePositionLoad
 } from './progress';
 export {hintPositionSet} from './hint';
-export {pageSet, pageNext, pagePositionSet} from './page';
+export {pageSet, pageNext} from './page';
 export {routeSet} from './route';
 export {setupVerify, setupPackage} from './setup';
 export {

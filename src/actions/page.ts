@@ -30,7 +30,3 @@ export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
     dispatch(hintPositionSet(0));
   };
 }
-
-export function pagePositionSet(pagePosition: CR.PagePosition): Action {
-  return { type: PAGE_POSITION_SET, payload: { pagePosition } };
-}
