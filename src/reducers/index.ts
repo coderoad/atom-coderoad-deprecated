@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
 
 import {reducer as alert} from '../modules/alert';
+import {reducer as windowToggle} from '../modules/window';
 import checks from './checks';
 import devToolsToggle from './devTools-toggle';
 import dir from './dir';
@@ -17,7 +18,6 @@ import taskTests from './task-tests';
 import testRun from './test-run';
 import tutorial from './tutorial';
 import tutorialList from './tutorial-list';
-import windowToggle from './window-toggle';
 
 export default combineReducers({
   alert, checks, devToolsToggle, dir, hintPosition,

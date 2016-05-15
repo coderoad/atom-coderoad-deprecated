@@ -32,6 +32,7 @@ export default class Alert extends React.Component<{
           message={message || ''}
           action={action || ''}
           autoHideDuration={duration || 2000}
+          onActionTouchTap={close}
           onRequestClose={close}
       />
     );

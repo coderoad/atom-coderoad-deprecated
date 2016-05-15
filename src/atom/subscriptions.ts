@@ -1,6 +1,6 @@
 const CompositeDisposable = require('atom').CompositeDisposable;
 import store from '../store';
-import {testRun, alertReplay, windowToggle} from '../actions';
+import {testRun, alertReplay} from '../actions';
 import Root from '../components/root';
 
 let subscriptions = null;
@@ -11,7 +11,7 @@ export function onActivate(): AtomCore.Disposable {
 
   subscriptions.add(
     atom.commands.add('atom-workspace', {
-      'cr-viewer:toggle': () => store.dispatch(windowToggle())
+      'cr-viewer:toggle': () => store.dispatch({ type: 'WINDOW_TOGGLE'})
     })
   );
 
