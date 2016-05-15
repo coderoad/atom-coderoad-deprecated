@@ -3,7 +3,6 @@ declare namespace CR {
   interface Info {
     title: string;
     description: string;
-    completed: boolean;
   }
 
   interface Page extends Info {
@@ -61,6 +60,7 @@ declare namespace CR {
     action: string;
     open?: boolean;
     duration?: number;
+    color: string;
   }
 
   interface Checks {

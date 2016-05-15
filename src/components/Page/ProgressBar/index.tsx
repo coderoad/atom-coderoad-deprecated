@@ -4,7 +4,7 @@ import LinearProgress from 'material-ui/LinearProgress';
 const style = {
   height: '10px',
   position: 'relative',
-  margin: '0',
+  margin: '0px',
 };
 
 const ProgressBar: React.StatelessComponent<{

@@ -20,7 +20,6 @@ export function pageNext(): ReduxThunk.ThunkInterface | Action {
 export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
     const {dir, progress, tutorial, route} = getState();
-    console.log(pagePosition, dir, progress, tutorial, route);
 
     // routes
     if (pagePosition >= progress.pages.length) {

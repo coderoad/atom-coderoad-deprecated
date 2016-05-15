@@ -3,7 +3,7 @@ import {
 } from './_types';
 import {hintPositionSet} from './hint';
 import {completePage} from './progress';
-import {alertOpen} from './alert';
+import {alertOpen} from '../modules/alert/actions';
 
 export function testRun(): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {

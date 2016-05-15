@@ -1,12 +1,17 @@
-import {
-  ALERT_REPLAY, ALERT_OPEN, ALERT_CLOSE
-} from '../../actions/_types';
+import {ALERT_REPLAY, ALERT_OPEN, ALERT_CLOSE} from './types';
+
+const colors = {
+  PASS: '#73C990', // green
+  FAIL: '#FF4081', // red
+  NOTE: '#9DA5B4', // blue
+};
 
 const _alert: CR.Alert = {
   message: '',
   open: false,
   action: 'NOTE',
   duration: 1500,
+  color: colors.NOTE
 };
 
 const open = {
@@ -15,23 +20,17 @@ const open = {
   duration: 1500
 };
 
-const colors = {
-  PASS: '#73C990', // green
-  FAIL: '#FF4081', // red
-  NOTE: '#9DA5B4', // blue
-};
-
 let current: CR.Alert = _alert;
 
 function setAlert(a: CR.Alert): CR.Alert {
-  const color = colors[a.action] || colors.NOTE;
+  a.color = colors[a.action] || colors.NOTE;
   let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
-  statusBarAlert.style.color = color;
+  statusBarAlert.style.color = a.color;
   current = a;
   return Object.assign({}, open, a);
 }
 
-export default function alertReducer(
+export default function alert(
   alert = _alert, action: Action
 ): CR.Alert {
   switch (action.type) {

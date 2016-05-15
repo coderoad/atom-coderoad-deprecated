@@ -1,11 +1,16 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import Snackbar from 'material-ui/Snackbar';
-import {alertClose} from '../../actions';
+import {alertClose} from './actions';
 
 const defaultAlert = {
   message: '',
   open: false,
+};
+
+const styles = {
+  display: 'inline-block',
+  margin: '0px 10px',
 };
 
 @connect(null, dispatch => {
@@ -18,13 +23,14 @@ export default class Alert extends React.Component<{
 }, {}> {
   render() {
     const {alert, close} = this.props;
-    const {action, message, open, duration} = alert;
+    const {action, message, open, duration, color} = alert;
     return (
       <Snackbar
-          className={`cr-alert ${action}`}
+          style={styles}
+          bodyStyle={{color}}
           open={open}
           message={message || ''}
-          action={action || 'NOTE'}
+          action={action || ''}
           autoHideDuration={duration || 2000}
           onRequestClose={close}
       />

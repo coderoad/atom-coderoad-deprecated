@@ -1,4 +1,4 @@
-import {ALERT_REPLAY, ALERT_OPEN, ALERT_CLOSE} from './_types';
+import {ALERT_REPLAY, ALERT_OPEN, ALERT_CLOSE} from './types';
 
 export function alertOpen(alert: Object): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {

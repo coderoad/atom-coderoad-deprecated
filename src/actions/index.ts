@@ -1,4 +1,4 @@
-export {alertOpen, alertClose, alertReplay} from './alert';
+export {alertOpen, alertClose, alertReplay} from '../modules/alert/actions';
 export {
   progressLoad, completePage, completeTutorial,
   progressPagePositionLoad

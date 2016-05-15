@@ -3,7 +3,7 @@ import {
 } from './_types';
 import {progressLoad} from './progress';
 import {routeSet} from './route';
-import {alertOpen} from './alert';
+import {alertOpen} from '../modules/alert/actions';
 
 export function tutorialSet(name: string): ReduxThunk.ThunkInterface {
   return (dispatch, getState) => {

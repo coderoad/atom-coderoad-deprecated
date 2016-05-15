@@ -1,7 +1,6 @@
 import {combineReducers} from 'redux';
-// import {reducers} from 'coderoad-core';
 
-import alert from './alert';
+import {reducer as alert} from '../modules/alert';
 import checks from './checks';
 import devToolsToggle from './devTools-toggle';
 import dir from './dir';
