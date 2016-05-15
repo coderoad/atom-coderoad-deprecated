@@ -40,6 +40,7 @@ export default class ProgressPage extends React.Component<{
         onClick={
           canActivate
             ? selectPage.bind(this, index)
+            // do nothing
             : function () { return; }
           }
       />

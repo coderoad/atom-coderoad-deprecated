@@ -5,7 +5,7 @@ import {pageNext} from '../../../../actions';
 
 const styles = {
   zIndex: '10000',
-  border: '0',
+  border: '0px',
   boxShadow: 'none',
   backgroundColor: 'inherit',
   position: 'relative',
@@ -14,9 +14,7 @@ const styles = {
 
 @connect(null, (dispatch, state) => {
   return {
-    callNextPage: () => {
-      dispatch(pageNext());
-    }
+    callNextPage: () => dispatch(pageNext())
   };
 })
 export default class Continue extends React.Component<{

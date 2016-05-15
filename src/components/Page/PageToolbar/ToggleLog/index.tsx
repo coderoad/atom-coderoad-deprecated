@@ -11,9 +11,7 @@ const styles = {
 
 @connect(null, (dispatch, state) => {
   return {
-    toggleDevTools: () => {
-      dispatch(devToolsToggle());
-    }
+    toggleDevTools: () => dispatch(devToolsToggle())
   };
 })
 export default class ToggleLog extends React.Component<{

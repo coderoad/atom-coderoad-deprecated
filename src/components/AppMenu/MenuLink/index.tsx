@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import MenuItem from 'material-ui/MenuItem';
-import {pageSet, routeSet} from '../../../actions';
+import {routeSet} from '../../../actions';
 
 const styles = {
   textAlign: 'center',

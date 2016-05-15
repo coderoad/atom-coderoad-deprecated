@@ -6,7 +6,7 @@ let previous = null;
 /* Navigation */
 export function routeSet(route: string): ReduxThunk.ThunkInterface {
   if (route && route !== previous) {
-    return (dispatch): void => {
+    return (dispatch) => {
       // preloading for routes
       switch (route) {
         case 'tutorials':

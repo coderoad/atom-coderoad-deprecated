@@ -1,7 +1,8 @@
 import {
-  ROUTE_SET, PAGE_SET, PAGE_POSITION_SET
+  ROUTE_SET, PAGE_SET
 } from './_types';
 import {hintPositionSet} from './hint';
+import {routeSet} from './route';
 
 export function pageNext(): ReduxThunk.ThunkInterface | Action {
   return (dispatch, getState): void => {
@@ -18,15 +19,18 @@ export function pageNext(): ReduxThunk.ThunkInterface | Action {
 
 export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
-    const {dir, progress, tutorial} = getState();
-    // create absolute paths for 'task-tests'
-    const tasks = tutorial.pages[pagePosition].tasks || [];
+    const {dir, progress, tutorial, route} = getState();
+    console.log(pagePosition, dir, progress, tutorial, route);
+
+    // routes
     if (pagePosition >= progress.pages.length) {
       dispatch({ type: ROUTE_SET, payload: { route: 'final' } });
     }
+    dispatch(hintPositionSet(0));
+    // create absolute paths for 'task-tests'
+    const tasks = tutorial.pages[pagePosition].tasks || [];
     dispatch({
       type: PAGE_SET, payload: { dir, pagePosition, tutorial, progress, tasks }
     });
-    dispatch(hintPositionSet(0));
   };
 }

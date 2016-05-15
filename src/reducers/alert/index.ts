@@ -27,6 +27,7 @@ function setAlert(a: CR.Alert): CR.Alert {
   const color = colors[a.action] || colors.NOTE;
   let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
   statusBarAlert.style.color = color;
+  current = a;
   return Object.assign({}, open, a);
 }
 

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {join} from 'path';
 import {RouteButton} from '../../index';
 
+// TODO: fix path
 const imagePath = join(
   __dirname, '../../../../', 'img', 'coderoad.jpg'
 );

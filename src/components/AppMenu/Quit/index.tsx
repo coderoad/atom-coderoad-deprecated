@@ -10,9 +10,7 @@ const styles = {
 
 @connect(null, (dispatch) => {
   return {
-    quit: () => {
-      dispatch(quit());
-    }
+    quit: () => dispatch(quit())
   };
 })
 export default class Quit extends React.Component<{

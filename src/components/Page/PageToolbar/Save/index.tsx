@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {testSave} from '../../../../actions';
 
 const styles = {
-  border: '0',
+  border: '0px',
   boxShadow: 'none',
   backgroundColor: 'inherit',
   position: 'relative',
@@ -13,9 +13,7 @@ const styles = {
 
 @connect(null, (dispatch, state) => {
   return {
-    save: () => {
-      dispatch(testSave());
-    }
+    save: () => dispatch(testSave())
   };
 })
 export default class Save extends React.Component<{

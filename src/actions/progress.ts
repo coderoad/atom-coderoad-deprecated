@@ -5,14 +5,14 @@ import {alertOpen} from './alert';
 import {testRun} from './test';
 
 export function progressPagePositionLoad(): ReduxThunk.ThunkInterface {
-  return (dispatch, getState): void => {
+  return (dispatch, getState) => {
     const {progress} = getState();
     dispatch({ type: PROGRESS_PAGE_POSITION_LOAD, payload: { progress } });
   };
 }
 
 export function progressLoad(): ReduxThunk.ThunkInterface {
-  return (dispatch, getState): void => {
+  return (dispatch, getState) => {
     const {tutorial} = getState();
     dispatch({ type: PROGRESS_LOAD, payload: { tutorial } });
     // call pagePositionLoad after progress loads
@@ -22,7 +22,7 @@ export function progressLoad(): ReduxThunk.ThunkInterface {
 }
 
 export function completePage(completed = true): ReduxThunk.ThunkInterface {
-  return (dispatch, getState): void => {
+  return (dispatch, getState) => {
     const {pagePosition, progress, tutorial} = getState();
     // all pages are true, tutorial complete
     dispatch({ type: COMPLETE_PAGE, payload: { pagePosition, tutorial, completed } });
@@ -42,7 +42,7 @@ export function completePage(completed = true): ReduxThunk.ThunkInterface {
 }
 
 export function completeTutorial(completed = true): ReduxThunk.ThunkInterface {
-  return (dispatch, getState): void => {
+  return (dispatch, getState) => {
     const {tutorial} = getState();
     dispatch({ type: COMPLETE_TUTORIAL, payload: { tutorial, completed } });
     dispatch(alertOpen({
