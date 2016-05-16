@@ -1,5 +1,5 @@
 import {npmMinVersion, nodeMinVersion, requiresXCode} from './check-system';
-import {searchForTutorials} from '../../../reducers/tutorial-list/check';
+import {searchForTutorials} from '../../tutorials/utils/check';
 
 function allTrue(obj: Object): boolean {
   return Object.values(obj).every(x => x === true);

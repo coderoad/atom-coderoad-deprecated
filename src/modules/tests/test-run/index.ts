@@ -6,7 +6,7 @@ const pageTimeout = 800;
 
 let previous: number = new Date().getTime();
 
-export default function runTestReducer(
+export default function runTest(
   testRun = false, action: Action
 ): boolean {
   switch (action.type) {

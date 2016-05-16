@@ -33,7 +33,7 @@ declare namespace CR {
     taskActions: string[];
     alert: Alert;
     tutorial: Tutorial;
-    tutorialList: Tutorial.Info[];
+    tutorials: Tutorial.Info[];
     testRun: boolean;
     checks: Checks;
   }

@@ -1,6 +1,7 @@
-ContentCard
-atom
-commandLine
-searchForTutorials
+components: ContentCard
 
-Todo: refactor out deps
+atom
+
+services: commandLine
+
+tutorials/searchForTutorials

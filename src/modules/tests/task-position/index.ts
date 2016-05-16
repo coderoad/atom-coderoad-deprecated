@@ -1,6 +1,6 @@
 import {TEST_RESULT} from '../types';
 
-export default function taskPositionReducer(
+export default function taskPosition(
   taskPosition = 0, action: Action
 ): number {
   switch (action.type) {
