@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Code from 'material-ui/svg-icons/action/code';
 import {connect} from 'react-redux';
-import {devToolsToggle} from '../../../../actions';
+import {editorDevToolsToggle} from '../actions';
 import FlatButton from 'material-ui/FlatButton';
+import Code from 'material-ui/svg-icons/action/code';
 
 const styles = {
   position: 'relative',
@@ -11,11 +11,11 @@ const styles = {
 
 @connect(null, (dispatch, state) => {
   return {
-    toggleDevTools: () => dispatch(devToolsToggle())
+    toggle: () => dispatch(editorDevToolsToggle())
   };
 })
-export default class ToggleLog extends React.Component<{
-  toggleDevTools?: any
+export default class ToggleDevTools extends React.Component<{
+  toggle?: any
 }, {}> {
   render() {
     return (
@@ -24,7 +24,7 @@ export default class ToggleLog extends React.Component<{
         icon={
           <Code />
         }
-        onTouchTap={this.props.toggleDevTools}
+        onTouchTap={this.props.toggle}
       />
     );
   };

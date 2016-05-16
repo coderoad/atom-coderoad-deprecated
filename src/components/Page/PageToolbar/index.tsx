@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
-import ToggleLog from './ToggleLog';
+import {ToggleDevTools} from '../../index';
 import Save from './Save';
 import Continue from './Continue';
 
@@ -21,7 +21,7 @@ export const PageToolbar: React.StatelessComponent<{
     {children}
     <Toolbar>
       <ToolbarGroup float='left'>
-        <ToggleLog />
+        <ToggleDevTools />
       </ToolbarGroup>
       <ToolbarGroup float='right'>
         {taskPosition >= tasks.length ?
