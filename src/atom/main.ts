@@ -3,14 +3,16 @@ import render from '../components/render';
 import Root from '../components/root';
 import loadPolyfills from '../services/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
+// activate Redux
 import store from '../store';
-import {setupVerify} from '../actions';
+import {setupVerify} from '../modules/setup/actions';
 
 class Main {
   root: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
     loadPolyfills(); // remove with Chrome 50
+    // run startup checks
     store.dispatch(setupVerify());
     this.root = Root.init();
   }

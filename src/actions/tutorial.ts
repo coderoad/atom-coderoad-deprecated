@@ -1,9 +1,7 @@
 import {
   TUTORIALS_FIND, TUTORIAL_UPDATE, TUTORIAL_SET
 } from './_types';
-import {progressLoad} from './progress';
-import {routeSet} from '../modules/route/actions';
-import {alertOpen} from '../modules/alert/actions';
+import {progressLoad, routeSet, alertOpen} from './index';
 
 export function tutorialSet(name: string): ReduxThunk.ThunkInterface {
   return (dispatch, getState) => {

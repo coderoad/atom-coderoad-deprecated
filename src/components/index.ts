@@ -6,8 +6,8 @@ export {default as Routes} from './Routes';
 export {default as Start} from './Start';
 export {default as Tutorials} from './Tutorials';
 export {default as Markdown} from './common/Markdown';
-
 export {default as ContentCard} from './common/ContentCard';
 
 export {Alert} from '../modules/alert';
 export {RouteButton} from '../modules/route';
+export {Checks} from '../modules/setup';

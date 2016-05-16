@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Checks from './Checks';
+import {Checks} from '../index';
 import Welcome from './Welcome';
 
 const headerStyles = {
