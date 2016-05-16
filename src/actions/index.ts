@@ -1,11 +1,10 @@
-export {alertOpen, alertClose, alertReplay} from '../modules/alert/actions';
+// Actions
 export {
   progressLoad, completePage, completeTutorial,
   progressPagePositionLoad
 } from './progress';
 export {hintPositionSet} from './hint';
 export {pageSet, pageNext} from './page';
-export {routeSet} from './route';
 export {setupVerify, setupPackage} from './setup';
 export {
   testRun, testComplete, testResult, testSave
@@ -13,4 +12,8 @@ export {
 export {
   tutorialsFind, tutorialSet, tutorialUpdate
 } from './tutorial';
-export {windowToggle, devToolsToggle, quit} from './toggle';
+export {devToolsToggle} from './toggle';
+
+// Modules
+export {alertOpen, alertClose, alertReplay} from '../modules/alert/actions';
+export {routeSet} from '../modules/route/actions';

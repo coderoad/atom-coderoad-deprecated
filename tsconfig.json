@@ -56,7 +56,6 @@
         "src/actions/index.ts",
         "src/actions/page.ts",
         "src/actions/progress.ts",
-        "src/actions/route.ts",
         "src/actions/setup.ts",
         "src/actions/test.ts",
         "src/actions/toggle.ts",
@@ -79,6 +78,10 @@
         "src/modules/alert/index.ts",
         "src/modules/alert/reducer.ts",
         "src/modules/alert/types.ts",
+        "src/modules/route/actions.ts",
+        "src/modules/route/index.ts",
+        "src/modules/route/reducer.ts",
+        "src/modules/route/types.ts",
         "src/modules/window/actions.ts",
         "src/modules/window/index.ts",
         "src/modules/window/reducer.ts",
@@ -97,7 +100,6 @@
         "src/reducers/page/index.ts",
         "src/reducers/progress/index.ts",
         "src/reducers/progress/local-storage.ts",
-        "src/reducers/route/index.ts",
         "src/reducers/task-actions/editor-reducer.ts",
         "src/reducers/task-actions/index.ts",
         "src/reducers/task-actions/parser/index.ts",
@@ -165,7 +167,8 @@
         "src/components/Tutorials/LoadTutorials/index.tsx",
         "src/components/Tutorials/SelectTutorial/index.tsx",
         "src/components/Tutorials/UpdateTutorial/index.tsx",
-        "src/modules/alert/Alert.tsx"
+        "src/modules/alert/Alert.tsx",
+        "src/modules/route/RouteButton.tsx"
     ],
     "exclude": [
         "node_modules"

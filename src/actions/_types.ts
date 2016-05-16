@@ -5,7 +5,6 @@ export const HINT_POSITION_SET = 'HINT_POSITION_SET';
 export const PAGE_SET = 'PAGE_SET';
 export const PROGRESS_LOAD = 'PROGRESS_LOAD';
 export const PROGRESS_PAGE_POSITION_LOAD = 'PROGRESS_PAGE_POSITION_LOAD';
-export const ROUTE_SET = 'ROUTE_SET';
 export const TEST_SAVE = 'TEST_SAVE';
 export const SETUP_PACKAGE = 'SETUP_PACKAGE';
 export const SETUP_VERIFY = 'SETUP_VERIFY';

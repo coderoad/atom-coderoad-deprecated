@@ -1,19 +1,36 @@
 import * as React from 'react';
+import {connect} from 'react-redux';
 import {
   Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn, TableBody
 } from 'material-ui/Table';
 import LoadTutorials from './LoadTutorials';
 import UpdateTutorial from './UpdateTutorial';
 import SelectTutorial from './SelectTutorial';
+import {tutorialsFind} from '../../actions';
 
 const styles = {
   padding: '10px',
   textAlign: 'center',
 };
 
-const Tutorials: React.StatelessComponent<{
-  tutorialList: Tutorial.Info[]
-}> = ({tutorialList}) => (
+
+@connect(null, (dispatch) => {
+  return {
+    loadTutorials: () => dispatch(tutorialsFind())
+  };
+})
+export default class Tutorials extends React.Component<{
+  tutorialList: Tutorial.Info[], loadTutorials?: any
+}, {}> {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    this.props.loadTutorials();
+  }
+  render() {
+    const {tutorialList} = this.props;
+    return (
   <div style={styles}>
     <Table>
 
@@ -55,5 +72,6 @@ const Tutorials: React.StatelessComponent<{
     <br />
     <LoadTutorials />
   </div>
-);
-export default Tutorials;
+    );
+  }
+}

@@ -1,9 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
-import {
-  pagePositionSet, tutorialSet, progressLoad, routeSet
-} from '../../../actions';
+import {tutorialSet} from '../../../actions';
 
 function displayName(name: string): string {
   if (name.match(/^coderoad-tutorial-/)) {
@@ -16,9 +14,7 @@ function displayName(name: string): string {
 
 @connect(null, (dispatch) => {
   return {
-    selectTutorial: (name: string) => {
-      dispatch(tutorialSet(name));
-    },
+    selectTutorial: (name: string) => dispatch(tutorialSet(name))
   };
 })
 export default class SelectTutorial extends React.Component<{

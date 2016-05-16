@@ -1,4 +1,4 @@
-import {ROUTE_SET} from './_types';
+import {ROUTE_SET} from './types';
 import {tutorialsFind} from './tutorial';
 
 let previous = null;
@@ -7,11 +7,6 @@ let previous = null;
 export function routeSet(route: string): ReduxThunk.ThunkInterface {
   if (route && route !== previous) {
     return (dispatch) => {
-      // preloading for routes
-      switch (route) {
-        case 'tutorials':
-          dispatch(tutorialsFind());
-      }
       previous = route;
       dispatch({ type: ROUTE_SET, payload: { route } });
     };

@@ -1,4 +1,4 @@
-import {ROUTE_SET} from '../../actions/_types';
+import {ROUTE_SET} from './types';
 
 const _route = 'start';
 
