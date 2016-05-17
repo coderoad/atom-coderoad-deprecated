@@ -1,6 +1,6 @@
 import {join} from 'path';
 import {readFileSync} from 'fs';
-import {fileExists} from '../../../services/exists';
+import fileExists from 'node-file-exists';
 import {isTutorial, tutorialError} from './is-tutorial';
 import {canUpdateTutorial} from './update';
 

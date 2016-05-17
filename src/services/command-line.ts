@@ -1,4 +1,4 @@
-import {fileExists} from './exists';
+import fileExists from 'node-file-exists';
 import {exec} from 'child_process';
 
 export default function commandLine(root: string,

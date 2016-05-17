@@ -1,5 +1,5 @@
 import {unlink} from 'fs';
-import {fileExists} from '../../../services/exists';
+import fileExists from 'node-file-exists';
 import {getEditor} from './editor';
 
 // delay necessary since opening a file is slow
@@ -19,9 +19,8 @@ export function open(filePath: string, options = {}): Promise<any> {
     if (fileExists(filePath)) {
       unlink(filePath);
     }
+
     atom.workspace.open(filePath, options);
-    setTimeout(() => {
-      resolve();
-    }, openTimeout);
+    setTimeout(() => resolve(), openTimeout);
   });
 }

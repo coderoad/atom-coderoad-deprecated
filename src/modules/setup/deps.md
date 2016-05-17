@@ -2,6 +2,7 @@ components: ContentCard
 
 atom
 
-services: commandLine, exists
+services: commandLine
 
 tutorials/searchForTutorials
+editor/{open, set, openFolder, openTerminal}

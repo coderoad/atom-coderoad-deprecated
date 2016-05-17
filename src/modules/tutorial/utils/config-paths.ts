@@ -1,5 +1,5 @@
 import {join} from 'path';
-import {isWindows} from '../../../services/system';
+import {isWindows} from './system';
 
 function configTestString(
   dir: string, name: string, config: Tutorial.Config, testPath: string

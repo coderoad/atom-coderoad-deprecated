@@ -1,6 +1,6 @@
 import {join} from 'path';
 import {readFileSync} from 'fs';
-import {fileExists} from '../../../services/exists';
+import fileExists from 'node-file-exists';
 
 export default function packageJson(
   pj = null, action: Action

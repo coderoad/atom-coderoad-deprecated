@@ -1,6 +1,6 @@
 import {join} from 'path';
-import {fileExists} from '../../../services/exists';
-import {isWindows} from '../../../services/system';
+import fileExists from 'node-file-exists';
+import {isWindows} from './system';
 
 export function tutorialConfig(
   tutorialPj: PackageJson, dir: string
