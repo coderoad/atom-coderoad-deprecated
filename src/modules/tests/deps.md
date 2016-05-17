@@ -2,4 +2,4 @@ store
 
 atom: save
 
-actions: hintPositionSet, alertOpen, completePage, testComplete
+actions: hintPositionSet, alertOpen, progressCompletePage, testComplete

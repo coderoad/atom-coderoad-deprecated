@@ -2,6 +2,6 @@ components: ContentCard
 
 atom
 
-services: commandLine
+services: commandLine, exists
 
 tutorials/searchForTutorials

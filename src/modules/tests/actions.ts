@@ -1,5 +1,5 @@
 import {TEST_RUN, TEST_RESULT, TEST_COMPLETE, TEST_SAVE} from './types';
-import {hintPositionSet, completePage, alertOpen} from '../../actions';
+import {hintPositionSet, progressCompletePage, alertOpen} from '../../actions';
 
 export function testRun(): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
@@ -28,7 +28,7 @@ export function testResult(result: Test.Result): ReduxThunk.ThunkInterface {
     }
     // previously passed, but now fails
     if (filter === 'FAIL' && progress.pages[pagePosition]) {
-      dispatch(completePage(false));
+      dispatch(progressCompletePage(false));
       alert = Object.assign({}, alert, {
         action: filter,
         duration: 2200,
@@ -56,7 +56,7 @@ export function testComplete(result: Test.Result) {
       // all complete
       case result.completed:
         dispatch(testResult(result));
-        dispatch(completePage());
+        dispatch(progressCompletePage());
         break;
 
       // a task failed

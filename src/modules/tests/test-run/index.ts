@@ -1,6 +1,6 @@
 import {TEST_RUN, TEST_COMPLETE, TEST_SAVE} from '../types';
 import runTaskTests from '../utils/run';
-import {save} from '../../../atom/editor';
+import {save} from '../../../modules/editor';
 
 const pageTimeout = 800;
 

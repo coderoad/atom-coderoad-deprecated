@@ -2,7 +2,7 @@ import * as React from 'react';
 import AppBar from 'material-ui/AppBar';
 import CloseWindow from './CloseWindow';
 import menuRight from './menuRight';
-import {onDeactivate} from '../../atom/subscriptions';
+import {onDeactivate} from '../../subscriptions';
 
 const styles = {
   zIndex: '1 !important'

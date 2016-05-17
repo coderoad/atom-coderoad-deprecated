@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {quit} from '../../../actions';
+import {quit} from '../../../modules/editor';
+import {onDeactivate} from '../../../subscriptions';
 import MenuItem from 'material-ui/MenuItem';
-import {onDeactivate} from '../../../atom/subscriptions';
 
 const styles = {
   textAlign: 'center',
