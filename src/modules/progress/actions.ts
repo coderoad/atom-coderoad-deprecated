@@ -1,5 +1,5 @@
 import {
-  PROGRESS_LOAD, PROGRESS_COMPLETE_PAGE, PROGRESS_COMPLETE_TUTORIAL
+  PROGRESS_LOAD, PROGRESS_COMPLETE_PAGE, PROGRESS_PAGE_POSITION, PROGRESS_COMPLETE_TUTORIAL
 } from './types';
 import {alertOpen, testRun} from '../../actions';
 
@@ -8,7 +8,15 @@ export function progressLoad(): ReduxThunk.ThunkInterface {
   return (dispatch, getState) => {
     const {tutorial} = getState();
     dispatch({ type: PROGRESS_LOAD, payload: { tutorial } });
+    dispatch(_progressPagePosition());
     dispatch(testRun());
+  };
+}
+
+function _progressPagePosition() {
+  return function(dispatch, getState) {
+    const {progress} = getState();
+    dispatch({ type: PROGRESS_PAGE_POSITION, payload: { progress } });
   };
 }
 
