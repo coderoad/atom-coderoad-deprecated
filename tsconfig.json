@@ -133,7 +133,6 @@
         "src/modules/window/reducer.ts",
         "src/modules/window/types.ts",
         "src/reducers.ts",
-        "src/services/command-line.ts",
         "src/services/polyfills.ts",
         "src/store.ts",
         "src/subscriptions.ts",

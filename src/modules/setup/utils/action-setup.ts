@@ -1,6 +1,5 @@
 import {join} from 'path';
 import {open, set, openFolder, openTerminal} from '../../../modules/editor';
-import commandLine from '../../../services/command-line';
 import {setupVerify} from '../actions';
 
 const packageData = `{

@@ -1,4 +1,4 @@
-import commandLine from '../../../services/command-line';
+import commandLine from 'atom-plugin-command-line';
 
 function matchVersions(v: string): string[] {
   return v.match(/([0-9]+)\.([0-9]+)/);

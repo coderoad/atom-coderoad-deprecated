@@ -1,4 +1,4 @@
-import commandLine from '../../../services/command-line';
+import commandLine from 'atom-plugin-command-line';
 import {tutorialsFind} from '../actions';
 
 export function tutorialUpdate(name: string): void {

@@ -1,4 +1,4 @@
-import commandLine from '../../../services/command-line';
+import commandLine from 'atom-plugin-command-line';
 import {setupVerify} from '../actions';
 
 export function updateNpm(): void {
