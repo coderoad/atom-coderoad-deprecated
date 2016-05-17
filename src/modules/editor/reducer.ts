@@ -1,5 +1,5 @@
-import {EDITOR_DEVTOOLS_TOGGLE} from './types';
-import {toggleDevTools} from './index';
+import {EDITOR_DEVTOOLS_TOGGLE, EDITOR_SAVE} from './types';
+import {toggleDevTools, save} from './index';
 
 export default function editor(
   editor = 'atom', action: Action
@@ -8,6 +8,10 @@ export default function editor(
 
     case EDITOR_DEVTOOLS_TOGGLE:
       toggleDevTools();
+      return editor;
+
+    case EDITOR_SAVE:
+      save();
       return editor;
 
     default:

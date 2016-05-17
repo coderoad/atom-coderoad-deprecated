@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
-import {ToggleDevTools} from '../../index';
-import Save from './Save';
+import {ToggleDevTools, Save} from '../../index';
 import Continue from './Continue';
 
 const styles = {

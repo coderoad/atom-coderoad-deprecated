@@ -1,6 +1,5 @@
-import {TEST_RUN, TEST_COMPLETE, TEST_SAVE} from '../types';
+import {TEST_RUN, TEST_COMPLETE} from '../types';
 import runTaskTests from '../utils/run';
-import {save} from '../../../modules/editor';
 
 const pageTimeout = 800;
 
@@ -26,10 +25,6 @@ export default function runTest(
     case 'PAGE_SET':
       previous = new Date().getTime();
       return false;
-
-    case TEST_SAVE:
-      save();
-      /* falls through */
 
     default:
       return testRun;

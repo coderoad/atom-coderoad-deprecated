@@ -2,6 +2,7 @@ export {default as reducer} from './reducer';
 export {default as dir} from './dir';
 
 export {default as ToggleDevTools} from './ToggleDevTools';
+export {default as Save} from './Save';
 
 export {save, open, openFolder} from './actions/file';
 export {set, insert} from './actions/write';

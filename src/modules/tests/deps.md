@@ -1,5 +1,3 @@
 store
 
-atom: save
-
-actions: hintPositionSet, alertOpen, progressCompletePage, testComplete
+actions: hintPositionSet, alertOpen, progressCompletePage

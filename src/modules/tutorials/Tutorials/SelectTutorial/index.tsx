@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {tutorialSet} from '../../../../actions';
+import {tutorialSet} from '../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
 function displayName(name: string): string {

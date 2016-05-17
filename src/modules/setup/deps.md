@@ -2,7 +2,5 @@ components: ContentCard
 
 atom
 
-services: commandLine
-
-tutorials/searchForTutorials
-editor/{open, set, openFolder, openTerminal}
+modules/tutorials/searchForTutorials
+modules/editor/{open, set, openFolder, openTerminal}

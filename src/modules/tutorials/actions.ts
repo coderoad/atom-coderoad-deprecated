@@ -1,5 +1,6 @@
 import {TUTORIALS_FIND, TUTORIAL_UPDATE} from './types';
 import {alertOpen} from '../../actions';
+export {tutorialSet} from '../../actions';
 
 export function tutorialUpdate(name: string): ReduxThunk.ThunkInterface {
   return (dispatch, getState) => {

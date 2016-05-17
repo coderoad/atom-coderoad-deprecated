@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
-import {testSave} from '../../../../actions';
+import {editorSave} from '../actions';
 
 const styles = {
   border: '0px',
@@ -13,7 +13,7 @@ const styles = {
 
 @connect(null, (dispatch, state) => {
   return {
-    save: () => dispatch(testSave())
+    save: () => dispatch(editorSave())
   };
 })
 export default class Save extends React.Component<{

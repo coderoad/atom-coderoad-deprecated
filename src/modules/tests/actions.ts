@@ -74,7 +74,3 @@ export function testComplete(result: Test.Result) {
     dispatch({ type: TEST_COMPLETE });
   };
 }
-
-export function testSave(): Action {
-  return { type: TEST_SAVE };
-}
