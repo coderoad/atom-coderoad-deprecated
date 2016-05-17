@@ -1,5 +1,6 @@
-import {open, set, insert, openDevTools} from './index';
+import store from '../../../store';
 import {getCommand, getParams, getOptions} from './parser';
+import {editorOpen, editorInsert, editorSave, editorSet} from '../actions';
 
 const Type = {
   OPEN: 'open',
@@ -8,7 +9,8 @@ const Type = {
   OPEN_CONSOLE: 'openConsole',
 };
 
-export default function editorActionReducer(
+// parse task string for command/params
+export default function handleActionString(
   actionString: string
 ): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -17,22 +19,20 @@ export default function editorActionReducer(
     switch (command) {
 
       case Type.OPEN:
-        let obj = getOptions(params[0]);
-        let file = obj.param;
-        let options = obj.options;
+        const obj = getOptions(params[0]);
+        const file = obj.param;
+        const options = obj.options;
         if (params.length === 1) {
-          open(file, options);
-          setTimeout(function() {
-            resolve();
-          }, 100);
+          store.dispatch(editorOpen(file, options));
+          setTimeout(() => resolve(), 100);
         }
         break;
 
       case Type.SET:
         if (params.length === 1) {
           const content = params[0];
-          setTimeout(function() {
-            set(content);
+          setTimeout(() => {
+            store.dispatch(editorSet(content));
             resolve(true);
           });
         }
@@ -41,21 +41,21 @@ export default function editorActionReducer(
       case Type.INSERT:
         if (params.length === 1) {
           const content: string = params[0];
-          setTimeout(function() {
-            insert(content, {});
+          setTimeout(() => {
+            store.dispatch(editorInsert(content));
             resolve(true);
           });
         }
         break;
 
-      case Type.OPEN_CONSOLE:
-        if (params.length === 0) {
-          setTimeout(function() {
-            openDevTools();
-            resolve(true);
-          });
-        }
-        break;
+      // case Type.OPEN_CONSOLE:
+      //   if (params.length === 0) {
+      //     setTimeout(function() {
+      //       store.dispatch(editorDevTools());
+      //       resolve(true);
+      //     });
+      //   }
+      //   break;
 
       default:
         console.log('Invalid editor action command');

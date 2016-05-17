@@ -1,4 +1,4 @@
-import ParseParams from './params';
+import ParseParams from './parse-params';
 
 export function getCommand(actionString: string): string {
   // content before bracket

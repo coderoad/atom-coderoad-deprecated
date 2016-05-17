@@ -1,4 +1,4 @@
-export {default as reducer} from './reducer';
+export {default as editor} from './reducer';
 export {default as dir} from './dir';
 
 export {default as ToggleDevTools} from './ToggleDevTools';

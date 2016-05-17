@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
-import {pageNext} from '../../../../actions';
+import {pageNext} from '../actions';
 
 const styles = {
   zIndex: '10000',

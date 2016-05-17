@@ -11,7 +11,7 @@ import {testRun, taskPosition} from './modules/tests';
 import {reducer as tutorial} from './modules/tutorial';
 import {reducer as tutorials} from './modules/tutorials';
 import {reducer as windowToggle} from './modules/window';
-import {reducer as editor, dir} from './modules/editor';
+import {editor, dir} from './modules/editor';
 
 export default combineReducers({
   alert, checks, editor, dir, hintPosition,

@@ -1,4 +1,4 @@
-import {TEST_RUN, TEST_RESULT, TEST_COMPLETE, TEST_SAVE} from './types';
+import {TEST_RUN, TEST_RESULT, TEST_COMPLETE} from './types';
 import {hintPositionSet, progressCompletePage, alertOpen} from '../../actions';
 
 export function testRun(): ReduxThunk.ThunkInterface {

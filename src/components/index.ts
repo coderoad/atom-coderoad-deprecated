@@ -11,5 +11,5 @@ export {Alert} from '../modules/alert';
 export {RouteButton} from '../modules/route';
 export {Checks} from '../modules/setup';
 export {Tutorials} from '../modules/tutorials';
-export {ToggleDevTools} from '../modules/editor';
-export {Save} from '../modules/editor';
+export {ToggleDevTools, Save} from '../modules/editor';
+export {Continue} from '../modules/page';

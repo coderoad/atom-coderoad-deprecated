@@ -1,12 +1,12 @@
 import {PAGE_SET} from '../types';
-import editor from '../../editor/editor';
+import handleActionString from './handle-action-string';
 
 function handleTaskActions(actions: string[][]): void {
   const next = actions.shift();
   if (next && next.length) {
     // resolve promises in order
     next.reduce((total: Promise<any>, curr: string) => {
-      return total.then(() => editor(curr));
+      return total.then(() => handleActionString(curr));
     }, Promise.resolve());
   }
 }
@@ -20,6 +20,7 @@ export default function taskActionsReducer(
   let actions: string[][] = null;
   switch (action.type) {
 
+    // load task actions
     case PAGE_SET:
       const {tasks, pagePosition, progress} = action.payload;
       const isCompleted = progress.pages[pagePosition];
@@ -35,6 +36,7 @@ export default function taskActionsReducer(
       handleTaskActions(actions); // run first action
       return actions;
 
+    // run task actions
     case 'TEST_RESULT':
       actions = action.payload.taskActions || [];
       const nextTaskPosition = action.payload.result.taskPosition;

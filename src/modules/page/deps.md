@@ -1,1 +1,3 @@
 actions: hintPositionSet, routeSet
+actions: editor...
+store

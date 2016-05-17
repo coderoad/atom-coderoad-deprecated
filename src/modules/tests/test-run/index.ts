@@ -1,5 +1,5 @@
 import {TEST_RUN, TEST_COMPLETE} from '../types';
-import runTaskTests from '../utils/run';
+import runTaskTests from './run';
 
 const pageTimeout = 800;
 
