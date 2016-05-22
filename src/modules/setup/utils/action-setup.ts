@@ -1,5 +1,5 @@
 import {join} from 'path';
-import {open, set, openFolder, openTerminal} from '../../../modules/editor';
+import {open, set, openFolder, openTerminal} from '../../editor';
 import {setupVerify} from '../actions';
 
 const packageData = `{

@@ -12,7 +12,6 @@ export function searchForTutorials(dir: string, deps: Object): Tutorial.Info[] {
         const pathToTutorialPackageJson = join(
           dir, 'node_modules', name, 'package.json'
         );
-
         // no package.json
         if (!fileExists(pathToTutorialPackageJson)) {
           console.log(

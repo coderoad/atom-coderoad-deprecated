@@ -1,18 +1,8 @@
 import {PAGE_SET} from '../types';
-import handleActionString from './handle-action-string';
-
-function handleTaskActions(actions: string[][]): void {
-  const next = actions.shift();
-  if (next && next.length) {
-    // resolve promises in order
-    next.reduce((total: Promise<any>, curr: string) => {
-      return total.then(() => handleActionString(curr));
-    }, Promise.resolve());
-  }
-}
+import handleTaskActions from './handle-actions';
 
 // trigger actions only once, moving fowards
-let taskTracker = 0;
+let taskPositionTracker = 0;
 
 export default function taskActionsReducer(
   taskActions = [], action: Action
@@ -32,7 +22,7 @@ export default function taskActionsReducer(
           return task.actions.filter(a => !!a.match(/^open/));
         });
       }
-      taskTracker = 0;
+      taskPositionTracker = 0;
       handleTaskActions(actions); // run first action
       return actions;
 
@@ -40,14 +30,13 @@ export default function taskActionsReducer(
     case 'TEST_RESULT':
       actions = action.payload.taskActions || [];
       const nextTaskPosition = action.payload.result.taskPosition;
-      const times: number = nextTaskPosition - taskTracker;
-
+      const times: number = nextTaskPosition - taskPositionTracker;
       if (times > 0) {
         // run actions for each task position passed
         for (let i = 0; i < times; i++) {
           handleTaskActions(actions); // run first action
         }
-        taskTracker = nextTaskPosition;
+        taskPositionTracker = nextTaskPosition;
       }
       return actions;
 

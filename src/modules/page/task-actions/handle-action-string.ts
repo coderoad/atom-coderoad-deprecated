@@ -16,6 +16,7 @@ export default function handleActionString(
   return new Promise((resolve, reject) => {
     const command: string = getCommand(actionString);
     const params: string[] = getParams(actionString);
+
     switch (command) {
 
       case Type.OPEN:
@@ -24,7 +25,7 @@ export default function handleActionString(
         const options = obj.options;
         if (params.length === 1) {
           store.dispatch(editorOpen(file, options));
-          setTimeout(() => resolve(), 100);
+          resolve();
         }
         break;
 
@@ -33,7 +34,7 @@ export default function handleActionString(
           const content = params[0];
           setTimeout(() => {
             store.dispatch(editorSet(content));
-            resolve(true);
+            resolve();
           });
         }
         break;
@@ -43,7 +44,7 @@ export default function handleActionString(
           const content: string = params[0];
           setTimeout(() => {
             store.dispatch(editorInsert(content));
-            resolve(true);
+            resolve();
           });
         }
         break;
