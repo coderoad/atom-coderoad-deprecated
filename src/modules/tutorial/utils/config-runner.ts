@@ -2,31 +2,7 @@ import {join} from 'path';
 import fileExists from 'node-file-exists';
 import {isWindows} from './system';
 
-export function tutorialConfig(
-  tutorialPj: PackageJson, dir: string
-): Tutorial.Config {
-  const {config, name} = tutorialPj;
-  const repo: string = loadRepo(tutorialPj.repo);
-  const testSuffix: string = config.testSuffix;
-  return {
-    dir: join(dir, 'node_modules', name, config.dir),
-    testSuffix: testSuffix.length && testSuffix[0] === '.'
-      ? testSuffix
-      : '.' + testSuffix || null,
-    runner: config.runner,
-    runnerOptions: config.runnerOptions || {},
-    run: loadRunner(name, config.runner, dir),
-    repo,
-    edit: tutorialPj.config.edit && repo || false,
-    issuesPath: getIssuesPath(tutorialPj.bugs)
-  };
-}
-
-function getIssuesPath(bugs?: { url: string }) {
-  return bugs && bugs.url ? bugs.url : null;
-}
-
-function loadRunner(name: string, runner: string, dir: string): () => any {
+export default function configRunner(name: string, runner: string, dir: string): () => any {
   // test runner dir
   let flatDep = join(
     dir, 'node_modules', runner, 'package.json'
@@ -62,15 +38,4 @@ function loadRunner(name: string, runner: string, dir: string): () => any {
   } else {
     return require(pathToMain);
   }
-}
-
-function loadRepo(repo?: { url: string }): string {
-  if (repo && repo.url) {
-    let url: string = repo.url;
-    if (!!url.match(/\.git$/)) {
-      url = url.slice(0, url.length - 4);
-    }
-    return url;
-  }
-  return null;
 }

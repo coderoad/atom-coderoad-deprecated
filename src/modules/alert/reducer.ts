@@ -42,7 +42,7 @@ export default function alert(
       return setAlert(action.payload.alert);
 
     case ALERT_CLOSE:
-      return Object.assign({}, alert, {open: false});
+      return Object.assign({}, alert, { open: false });
 
     default:
       return alert;
