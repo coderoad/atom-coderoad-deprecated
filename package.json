@@ -43,7 +43,6 @@
     "marked": "0.3.5",
     "material-ui": "0.15.0",
     "node-file-exists": "1.1.0",
-    "process-console-log": "^0.1.0",
     "react": "15.1.0",
     "react-dom": "15.1.0",
     "react-redux": "4.4.5",
