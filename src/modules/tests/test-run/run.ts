@@ -1,7 +1,6 @@
-import {handleResult} from './test-result';
-import {writeFileSync} from 'fs';
 import {join} from 'path';
 import parseLoaders from './parse-loaders';
+import handleResult from './handle-result';
 
 export default function runTaskTests(
   taskTests: string, dir: string, tutorial: CR.Tutorial, taskPosition: number
@@ -14,13 +13,6 @@ export default function runTaskTests(
       tests, tutorialConfig.testSuffix, tutorial, dir
     );
 
-    // write temporary test file in tutorial directory
-    let target = join(
-      tutorialConfig.dir || dir,
-      `.tmp${tutorialConfig.testSuffix}`
-    );
-    writeFileSync(target, output, 'utf8');
-
     const config: Test.Config = {
       dir,
       tutorialDir: tutorialConfig.dir,
@@ -28,7 +20,7 @@ export default function runTaskTests(
     };
 
     // call test runner
-    tutorialConfig.run(target, config, handleResult);
+    tutorialConfig.run(output, config, handleResult);
   }
   return true;
 }

@@ -13,4 +13,9 @@ declare namespace Test {
     tutorialDir: string;
     taskPosition: number;
   }
+
+  interface Log {
+    type: string;
+    output: any;
+  }
 }
