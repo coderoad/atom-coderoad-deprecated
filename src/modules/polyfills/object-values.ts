@@ -1,4 +1,4 @@
-export default function loadPolyfills(): void {
+export default function polyfillObjectValues(): void {
 
   // Object.values (ES7)
   if (typeof Object.values !== 'function') {
