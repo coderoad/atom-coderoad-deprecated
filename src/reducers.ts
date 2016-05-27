@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 
 // module reducers
 import {reducer as alert} from './modules/alert';
-import {reducer as checks, packageJson} from './modules/setup';
+import {checks, packageJson} from './modules/setup';
 import {reducer as hintPosition} from './modules/hints';
 import {page, pagePosition, tasks, taskActions, taskTests} from './modules/page';
 import {reducer as progress} from './modules/progress';

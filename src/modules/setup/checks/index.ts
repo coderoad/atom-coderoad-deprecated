@@ -1,5 +1,5 @@
-import {SETUP_VERIFY} from './types';
-import setupVerify from './utils/verify';
+import {SETUP_VERIFY} from '../types';
+import setupVerify from '../utils/verify';
 
 const _checks: CR.Checks = {
   passed: false,

@@ -1,3 +1,2 @@
-export {default as Checks} from './Checks';
-export {default as reducer} from './reducer';
+export {default as checks} from './checks';
 export {default as packageJson} from './package-json';
