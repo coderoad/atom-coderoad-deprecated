@@ -2,7 +2,7 @@ import * as React from 'react';
 import SystemChecks from './SystemChecks';
 import SetupChecks from './SetupChecks';
 import InstallGuide from './InstallGuide';
-import {ContentCard} from '../../../components/index';
+import {ContentCard} from '../../index';
 
 const styles = {
   margin: '5px',

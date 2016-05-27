@@ -6,7 +6,7 @@ export {pageSet, pageNext} from './modules/page/actions';
 export {
 progressLoad, progressCompletePage
 } from './modules/progress/actions';
-export {routeSet} from './modules/route/actions'
+export {routeSet} from 'core-coderoad/lib/route';
 export {setupVerify, setupPackage} from './modules/setup/actions';
 export {testRun, testResult, testComplete} from './modules/tests/actions';
 export {tutorialSet} from './modules/tutorial/actions';
