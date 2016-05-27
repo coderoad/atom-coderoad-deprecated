@@ -1,7 +1,7 @@
 import * as React from 'react';
 import render from './components/render';
 import Root from './components/root';
-import loadPolyfills from './modules/polyfills';
+import loadPolyfills from 'core-coderoad/lib/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 // activate Redux
 import store from './store';
