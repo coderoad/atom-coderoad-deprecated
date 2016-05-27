@@ -11,3 +11,4 @@ export {setupVerify, setupPackage} from './modules/setup/actions';
 export {testRun, testResult, testComplete} from './modules/tests/actions';
 export {tutorialSet} from './modules/tutorial/actions';
 export {tutorialsFind, tutorialUpdate} from './modules/tutorials/actions';
+export {windowToggle} from 'core-coderoad/lib/window';

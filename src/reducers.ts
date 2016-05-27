@@ -10,7 +10,7 @@ import {reducer as route} from 'core-coderoad/lib/route';
 import {testRun, taskPosition} from './modules/tests';
 import {reducer as tutorial} from './modules/tutorial';
 import {reducer as tutorials} from './modules/tutorials';
-import {reducer as windowToggle} from './modules/window';
+import {reducer as windowToggle} from 'core-coderoad/lib/window';
 import {editor, dir} from './modules/editor';
 
 export default combineReducers({

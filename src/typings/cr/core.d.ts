@@ -6,3 +6,8 @@ declare module 'core-coderoad/lib/route' {
 declare module 'core-coderoad/lib/polyfills' {
   export default function loadPolyfills(): void;
 }
+
+declare module 'core-coderoad/lib/window' {
+  export function reducer(open: boolean, action: Action): boolean;
+  export function windowToggle();
+}
