@@ -5,7 +5,7 @@ import loadPolyfills from 'core-coderoad/lib/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 // activate Redux
 import store from './store';
-import {setupVerify} from './modules/setup/actions';
+import {setupVerify} from 'core-coderoad/lib/setup';
 
 class Main {
   root: HTMLElement;
