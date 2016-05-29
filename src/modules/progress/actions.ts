@@ -3,7 +3,6 @@ import {
 } from './types';
 import {alertOpen, testRun} from '../../actions';
 
-
 export function progressLoad(): ReduxThunk.ThunkInterface {
   return (dispatch, getState) => {
     const {tutorial} = getState();

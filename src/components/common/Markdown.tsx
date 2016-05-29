@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as marked from 'marked';
-const Highlights = require('highlights');
+import * as Highlights from 'highlights';
+
 const highlighter = new Highlights({registry: atom.grammars});
 
 function highlight(code: string, lang: string) {

@@ -1,2 +1,0 @@
-export const SETUP_PACKAGE = 'SETUP_PACKAGE';
-export const SETUP_VERIFY = 'SETUP_VERIFY';

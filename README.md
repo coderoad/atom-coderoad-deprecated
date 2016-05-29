@@ -6,7 +6,7 @@ Interactive coding tutorials inside of the Atom editor. [Learn more](https://cod
 
 See a [video](https://youtu.be/DbLpdgrYVOU).
 
-## Docs
+## DocsREADM
 
 * [QuickStart](https://coderoad.github.io/docs#install)
 * [Docs](https://coderoad.github.io/docs).
