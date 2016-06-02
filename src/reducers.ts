@@ -4,14 +4,14 @@ import {combineReducers} from 'redux';
 import {reducer as hintPosition} from './modules/hints';
 import {page, pagePosition, tasks, taskActions, taskTests} from './modules/page';
 import {reducer as progress} from './modules/progress';
+import {checks, packageJson} from './modules/setup';
 import {testRun, taskPosition} from './modules/tests';
+import {reducer as tutorial} from './modules/tutorial';
+import {reducer as tutorials} from './modules/tutorials';
 
 import {reducer as alert} from 'core-coderoad/lib/alert';
 import {reducer as editor, dir} from 'core-coderoad/lib/editor';
 import {reducer as route} from 'core-coderoad/lib/route';
-import {checks, packageJson} from 'core-coderoad/lib/setup';
-import {reducer as tutorial} from 'core-coderoad/lib/tutorial';
-import {reducer as tutorials} from 'core-coderoad/lib/tutorials';
 import {reducer as windowToggle} from 'core-coderoad/lib/window';
 
 export default combineReducers({

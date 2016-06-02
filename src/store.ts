@@ -6,8 +6,8 @@ import thunk from 'redux-thunk';
 
 const middlewares = [thunk];
 
-const throttleRunTest = throttleActions(['TEST_RUN'], 800);
-middlewares.push(throttleRunTest);
+const throttleTestRun = throttleActions(['TEST_RUN'], 800);
+middlewares.push(throttleTestRun);
 
 const devMode = false;
 if (devMode) {
