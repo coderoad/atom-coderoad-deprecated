@@ -6,7 +6,7 @@ import Quit from './Quit';
 import menuIconRight from './menuIconRight';
 import menuRightRouteOptions from './menuRightRouteOptions';
 
-const origin = {
+const origin: __MaterialUI.propTypes.origin = {
   horizontal: 'right',
   vertical: 'top',
 };

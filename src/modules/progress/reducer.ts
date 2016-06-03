@@ -12,14 +12,13 @@ export default function progress(
   switch (action.type) {
 
     case PROGRESS_LOAD:
-      const {tutorial} = action.payload;
       // load saved progress
-      const saved = loadProgressFromLocalStorage(tutorial);
+      const saved = loadProgressFromLocalStorage(action.payload.tutorial);
       if (saved) { return saved; }
       // set progress defaults
       return {
         completed: false,
-        pages: tutorial.pages.map(() => false)
+        pages: action.payload.tutorial.pages.map(() => false)
       };
 
     case PROGRESS_COMPLETE_PAGE:
@@ -29,9 +28,8 @@ export default function progress(
       return progress;
 
     case PROGRESS_COMPLETE_TUTORIAL:
-      const {tutorial, completed} = action.payload.tutorial;
-      progress.completed = completed;
-      saveToLocalStorage(tutorial, progress);
+      progress.completed = action.payload.completed;
+      saveToLocalStorage(action.payload.tutorial, progress);
       return progress;
 
     default:

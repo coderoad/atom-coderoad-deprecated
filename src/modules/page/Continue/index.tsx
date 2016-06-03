@@ -23,7 +23,7 @@ export default class Continue extends React.Component<{
   render() {
     return (
       <RaisedButton
-        style={styles}
+        style={{styles}}
         label='Continue'
         primary={true}
         onTouchTap={this.props.callNextPage}

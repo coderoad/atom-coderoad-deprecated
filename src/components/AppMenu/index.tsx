@@ -15,7 +15,7 @@ const AppMenu: React.StatelessComponent<{
     <AppBar
       title='CodeRoad'
       className='cr-menu-bar'
-      styles={styles}
+      style={{styles}}
       iconElementLeft={<CloseWindow />}
       iconElementRight={menuRight(route)}
     />

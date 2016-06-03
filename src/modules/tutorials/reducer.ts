@@ -13,7 +13,7 @@ export default function tutorials(
 
     case TUTORIALS_FIND:
       const {dir} = action.payload;
-      const tuts = tutorials(dir);
+      const tuts: Tutorial.Info[] = tutorials(dir);
       return tuts ? tuts : t;
 
     default:
