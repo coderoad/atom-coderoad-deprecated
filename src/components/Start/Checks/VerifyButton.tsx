@@ -15,7 +15,7 @@ export default class VerifyButton extends React.Component<{
     return (
       <FlatButton
         label='Verify Setup Complete'
-        primtary={true}
+        primary={true}
         onTouchTap={this.props.verify}
       />
     );
