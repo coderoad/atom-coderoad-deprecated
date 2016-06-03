@@ -6,12 +6,13 @@ import Subheader from 'material-ui/Subheader';
 import ProgressPage from './ProgressPage';
 import {progressLoad} from '../../modules/progress/actions';
 
-const pageStyle = {
-  width: '100%',
-};
-
-const listStyle = {
-  margin: '5px',
+const styles = {
+  page: {
+    width: '100%',
+  },
+  list: {
+    margin: '5px',
+  },
 };
 
 @connect(null, dispatch => {
@@ -29,8 +30,8 @@ export default class Progress extends React.Component<{
   render() {
     const {progress, pagePosition, info, tutorial} = this.props;
     return (
-      <Paper style={pageStyle}>
-        <List style={listStyle}>
+      <Paper style={styles.page}>
+        <List style={styles.list}>
           <Subheader>{info.name}</Subheader>
           {tutorial.pages.map((page: CR.Page, index: number) => (
             <ProgressPage

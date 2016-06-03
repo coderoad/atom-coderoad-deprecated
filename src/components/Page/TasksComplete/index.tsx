@@ -4,13 +4,14 @@ import {Markdown} from '../../index';
 import {cyan500, grey100} from 'material-ui/styles/colors';
 
 const styles = {
-  backgroundColor: cyan500,
-  margin: '10px 5px',
-};
-
-const textStyles = {
-  color: grey100,
-  fontSize: '1.1em'
+  card: {
+    backgroundColor: cyan500,
+    margin: '10px 5px',
+  },
+  text: {
+    color: grey100,
+    fontSize: '1.1em'
+  },
 };
 
 const TasksComplete: React.StatelessComponent<{
@@ -18,9 +19,9 @@ const TasksComplete: React.StatelessComponent<{
 }> = ({page, completed}) => {
   if (!completed || !page.onPageComplete) { return null; }
   return (
-    <Card style={styles}>
+    <Card style={styles.card}>
       <CardText>
-        <Markdown style={textStyles}>{page.onPageComplete}</Markdown>
+        <Markdown style={styles.text}>{page.onPageComplete}</Markdown>
       </CardText>
     </Card>
   );
