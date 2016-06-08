@@ -1,21 +1,23 @@
 import * as React from 'react';
+import {connect} from 'react-redux';
 import {Page, Progress, Tutorials, Start, FinalPage} from '../index';
 
+@connect(state => ({
+  route: state.route,
+}))
 export default class Routes extends React.Component<{
-  route: string, progress: CR.Progress, page: CR.Page, tutorials: Tutorial.Info[],
-  testRun: boolean, checks: CR.Checks, pagePosition: CR.PagePosition, tasks: CR.Task[],
-  taskPosition: number, hintPosition: number, tutorial: CR.Tutorial
+  route?: string
 }, {}> {
   render() {
     switch (this.props.route) {
       case 'page':
-        return <Page {...this.props} />;
+        return <Page />;
       case 'progress':
-        return <Progress {...this.props} info={this.props.tutorial.info}/>;
+        return <Progress />;
       case 'start':
-        return <Start {...this.props} />;
+        return <Start />;
       case 'tutorials':
-        return <Tutorials {...this.props} />;
+        return <Tutorials />;
       case 'final':
         return <FinalPage />;
       default:

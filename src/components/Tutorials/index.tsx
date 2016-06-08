@@ -13,14 +13,13 @@ const styles = {
   textAlign: 'center',
 };
 
-
-@connect(null, (dispatch) => {
-  return {
-    loadTutorials: () => dispatch(tutorialsFind())
-  };
-})
+@connect(state => ({
+  tutorials: state.tutorials,
+}), dispatch => ({
+  loadTutorials: () => dispatch(tutorialsFind()),
+}))
 export default class Tutorials extends React.Component<{
-  tutorials: Tutorial.Info[], loadTutorials?: any
+  tutorials?: Tutorial.Info[], loadTutorials?: any
 }, {}> {
   constructor(props) {
     super(props);

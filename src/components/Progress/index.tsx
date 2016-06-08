@@ -15,14 +15,19 @@ const styles = {
   },
 };
 
-@connect(null, dispatch => {
+@connect(state => ({
+  progress: state.progress,
+  pagePosition: state.pagePosition,
+  info: state.tutorial.info,
+  tutorial: state.tutorial
+}), dispatch => {
   return {
     progressLoad: () => dispatch(progressLoad())
   };
 })
 export default class Progress extends React.Component<{
-    progress: CR.Progress, pagePosition: CR.PagePosition,
-    info: Tutorial.Info, tutorial: CR.Tutorial, progressLoad?: () => any;
+    progress?: CR.Progress, pagePosition?: CR.PagePosition,
+    info?: Tutorial.Info, tutorial?: CR.Tutorial, progressLoad?: () => any;
 }, {}> {
   componentWillMount() {
     this.props.progressLoad();
@@ -32,7 +37,7 @@ export default class Progress extends React.Component<{
     return (
       <Paper style={styles.page}>
         <List style={styles.list}>
-          <Subheader>{info.name}</Subheader>
+          <Subheader>{info.title}</Subheader>
           {tutorial.pages.map((page: CR.Page, index: number) => (
             <ProgressPage
               key={index}

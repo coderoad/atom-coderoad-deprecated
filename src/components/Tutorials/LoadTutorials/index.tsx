@@ -3,11 +3,9 @@ import {connect} from 'react-redux';
 import {tutorialsFind} from '../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
-@connect(null, (dispatch) => {
-  return {
-    tutorialsFind: () => dispatch(tutorialsFind()),
-  };
-})
+@connect(null, dispatch => ({
+  tutorialsFind: () => dispatch(tutorialsFind()),
+}))
 export default class LoadTutorials extends React.Component<{
   tutorialsFind?: any
 }, {}> {

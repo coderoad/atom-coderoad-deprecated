@@ -10,14 +10,12 @@ const styles = {
   marginTop: '0px',
 };
 
-@connect(null, (dispatch) => {
-  return {
-    selectPage: (pagePosition: CR.PagePosition) => {
-      dispatch(pageSet(pagePosition));
-      dispatch(routeSet('page'));
-    }
-  };
-})
+@connect(null, dispatch => ({
+  selectPage: (pagePosition: CR.PagePosition) => {
+    dispatch(pageSet(pagePosition));
+    dispatch(routeSet('page'));
+  },
+}))
 export default class ProgressPage extends React.Component<{
   page: CR.Page, progress: CR.Progress,
   pagePosition: CR.PagePosition, index: number, selectPage?: () => void}, {}> {

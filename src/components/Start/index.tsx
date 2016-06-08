@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Checks} from '../index';
+import {connect} from 'react-redux';
+import Checks from './Checks';
 import Welcome from './Welcome';
 
 const headerStyles = {
@@ -9,15 +10,22 @@ const headerStyles = {
   color: '#f8f8f8',
 };
 
-export const Start: React.StatelessComponent<{
-  checks: CR.Checks
-}> = ({checks}) => (
-  <section className='cr-start'>
-    <div style={headerStyles}>
-    {checks.passed
-      ? <Welcome  />
-      : <Checks checks={checks}/>}
-    </div>
-  </section>
-);
-export default Start;
+@connect(state => ({
+  checks: state.checks,
+}))
+export default class Start extends React.Component<{
+  checks?: CR.Checks
+}, {}> {
+  render() {
+    const {checks} = this.props;
+    return (
+      <section className='cr-start'>
+        <div style={headerStyles}>
+        {checks.passed
+          ? <Welcome  />
+          : <Checks checks={checks} />}
+        </div>
+      </section>
+    );
+  }
+}

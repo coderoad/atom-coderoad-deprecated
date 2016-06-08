@@ -8,7 +8,7 @@ export default function tutorials(
   switch (action.type) {
 
     // case TUTORIAL_UPDATE:
-    //   tutorialUpdate(action.payload.name);
+    //   tutorialUpdate(action.payload.title);
     /* falls through */
 
     case TUTORIALS_FIND:

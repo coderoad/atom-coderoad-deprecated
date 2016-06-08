@@ -13,13 +13,13 @@ const styles = {
   margin: '0px 10px',
 };
 
-@connect(null, dispatch => {
-  return {
-    close: () => dispatch(alertClose())
-  };
-})
+@connect(state => ({
+  alert: state.alert,
+}), dispatch => ({
+  close: () => dispatch(alertClose()),
+}))
 export default class Alert extends React.Component<{
-  alert: CR.Alert, close?: any
+  alert?: CR.Alert, close?: any
 }, {}> {
   render() {
     const {alert, close} = this.props;

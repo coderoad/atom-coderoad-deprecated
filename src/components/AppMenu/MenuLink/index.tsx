@@ -8,11 +8,9 @@ const styles = {
   padding: '0px 2px',
 };
 
-@connect(null, (dispatch) => {
-  return {
-    routeTo: (route: string) => dispatch(routeSet(route)),
-  };
-})
+@connect(null, dispatch => ({
+  routeTo: (route: string) => dispatch(routeSet(route)),
+}))
 export default class MenuLink extends React.Component<{
   route: string, title?: string, routeTo?: any
 }, {}> {

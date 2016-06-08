@@ -9,11 +9,9 @@ const styles = {
   top: '10px',
 };
 
-@connect(null, (dispatch, state) => {
-  return {
-    toggle: () => dispatch(editorDevToolsToggle())
-  };
-})
+@connect(null, dispatch => ({
+  toggle: () => dispatch(editorDevToolsToggle()),
+}))
 export default class ToggleDevTools extends React.Component<{
   toggle?: any
 }, {}> {

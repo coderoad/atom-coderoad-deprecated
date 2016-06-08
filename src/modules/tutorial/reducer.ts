@@ -4,7 +4,7 @@ import {TUTORIAL_SET} from './types';
 import configPaths from './utils/config-paths';
 
 const _tutorial: CR.Tutorial = {
-  name: null,
+  title: null,
   info: null,
   pages: [],
   packageJson: null,
@@ -17,15 +17,15 @@ export default function tutorialReducer(
   switch (action.type) {
 
     case TUTORIAL_SET:
-      const {name, dir} = action.payload;
-      const packagePath: string = join(dir, 'node_modules', name);
+      const {title, dir} = action.payload;
+      const packagePath: string = join(dir, 'node_modules', title);
       const packageJson: PackageJson = require(join(packagePath, 'package.json'));
       const config: Tutorial.Config = tutorialConfig(packageJson, dir);
       let {info, pages} = require(join(packagePath, packageJson.main));
       // configure test paths to absolute paths
-      pages = configPaths(dir, name, config, pages || []);
+      pages = configPaths(dir, title, config, pages || []);
       return {
-        name: packageJson.name,
+        title: packageJson.name,
         info,
         pages,
         packageJson,

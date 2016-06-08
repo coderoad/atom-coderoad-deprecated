@@ -12,22 +12,20 @@ function displayName(name: string): string {
   return name;
 }
 
-@connect(null, (dispatch) => {
-  return {
-    selectTutorial: (name: string) => dispatch(tutorialSet(name))
-  };
-})
+@connect(null, dispatch => ({
+  selectTutorial: (title: string) => dispatch(tutorialSet(name)),
+}))
 export default class SelectTutorial extends React.Component<{
   tutorial: Tutorial.Info, selectTutorial?: any
 }, {}> {
   render() {
     const {tutorial, selectTutorial} = this.props;
-    const name = tutorial.name;
+    const title = tutorial.title;
     return (
       <FlatButton
-        label={displayName(name)}
+        label={displayName(title)}
         primary={true}
-        onTouchTap={selectTutorial.bind(this, name)}
+        onTouchTap={selectTutorial.bind(this, title)}
       />
     );
   }

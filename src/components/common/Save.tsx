@@ -11,11 +11,9 @@ const styles = {
   top: '10px',
 };
 
-@connect(null, (dispatch, state) => {
-  return {
-    save: () => dispatch(editorSave())
-  };
-})
+@connect(null, dispatch => ({
+  save: () => dispatch(editorSave()),
+}))
 export default class Save extends React.Component<{
   save?: any
 }, {}> {

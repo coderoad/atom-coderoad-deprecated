@@ -5,25 +5,27 @@ import Routes from './Routes';
 import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 
-@connect((store: CR.State) => {
-  return { store };
-})
-export default class App extends React.Component<{store?: CR.State}, {}> {
+@connect(state => ({
+  windowToggle: state.windowToggle,
+}))
+export default class App extends React.Component<{
+  windowToggle?: boolean
+}, {}> {
   render(): React.ReactElement<{}> {
-    const store = this.props.store;
+    const {windowToggle} = this.props;
     return (
       <section>
         <Drawer
           width={400}
           openSecondary={true}
-          open={store.windowToggle}
+          open={windowToggle}
         >
           <div className='cr-bg'>
-            <AppMenu {...store} />
-            <Routes {...store} />
+            <AppMenu />
+            <Routes />
           </div>
         </Drawer>
-      <Alert {...store} />
+      <Alert />
     </section>
     );
   }
