@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
-import {pageNext} from '../actions';
+import {pageNext} from '../../../actions';
 
 const styles = {
   zIndex: '10000',
@@ -12,11 +12,9 @@ const styles = {
   top: '10px',
 };
 
-@connect(null, (dispatch, state) => {
-  return {
-    callNextPage: () => dispatch(pageNext())
-  };
-})
+@connect(null, dispatch => ({
+  callNextPage: () => dispatch(pageNext())
+}))
 export default class Continue extends React.Component<{
   callNextPage?: any
 }, {}> {

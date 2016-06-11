@@ -7,6 +7,7 @@ import Tasks from './Tasks';
 import Hints from './Hints';
 import PageToolbar from './PageToolbar';
 import ProgressBar from './ProgressBar';
+import {pageSelector, tasksSelector} from '../../selectors';
 
 const styles = {
   width: '100%',
@@ -14,12 +15,12 @@ const styles = {
 };
 
 @connect(state => ({
-  page: state.page,
-  tasks: state.tasks,
-  taskPosition: state.taskPosition,
-  hintPosition: state.hintPosition,
+  page: pageSelector(state),
+  tasks: tasksSelector(state),
   testRun: state.testRun,
   progress: state.progress,
+  taskPosition: state.taskPosition,
+  hintPosition: state.hintPosition,
   pagePosition: state.pagePosition,
 }))
 export default class Page extends React.Component<{

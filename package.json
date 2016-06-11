@@ -42,7 +42,8 @@
     "redux": "3.5.2",
     "redux-logger": "2.6.1",
     "redux-throttle-actions": "1.0.1",
-    "redux-thunk": "2.1.0"
+    "redux-thunk": "2.1.0",
+    "reselect": "^2.5.1"
   },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

@@ -16,7 +16,7 @@ function displayName(name: string): string {
   selectTutorial: (title: string) => dispatch(tutorialSet(name)),
 }))
 export default class SelectTutorial extends React.Component<{
-  tutorial: Tutorial.Info, selectTutorial?: any
+  tutorial:  Tutorial.Info, selectTutorial?: any
 }, {}> {
   render() {
     const {tutorial, selectTutorial} = this.props;

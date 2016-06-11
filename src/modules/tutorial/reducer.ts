@@ -22,6 +22,7 @@ export default function tutorialReducer(
       const packageJson: PackageJson = require(join(packagePath, 'package.json'));
       const config: Tutorial.Config = tutorialConfig(packageJson, dir);
       let {info, pages} = require(join(packagePath, packageJson.main));
+      console.log(packageJson, packageJson.name);
       // configure test paths to absolute paths
       pages = configPaths(dir, title, config, pages || []);
       return {
