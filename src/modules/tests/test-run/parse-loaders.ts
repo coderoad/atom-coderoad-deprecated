@@ -1,9 +1,11 @@
 import {normalize, join} from 'path';
 import {readFileSync} from 'fs';
 
-// other languages may handle comments differently
+// TODO: load comments from core-coderoad/lib/options
+
 const comments = {
   py: '#',
+  js: '\/{2,3}',
 };
 
 function loaderRegex(fileType: string): RegExp {
@@ -40,9 +42,8 @@ export default function parseLoaders(
 
       let pathToFile: string = null;
       if (loader[2]) {
-        // path to file from tutorial directory
-        const tutorialDir = tutorial.config.dir;
-        pathToFile = normalize(join(tutorialDir, fileToLoad));
+        // path to file from config specified dir
+        pathToFile = normalize(join(tutorial.config.dir, fileToLoad));
       } else {
         // path to file from working directory
         pathToFile = normalize(join(dir, fileToLoad));

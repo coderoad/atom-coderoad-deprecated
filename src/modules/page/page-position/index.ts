@@ -8,8 +8,8 @@ export default function pagePosition(
     case PAGE_SET:
       return action.payload.pagePosition;
 
-    // allow access until before first incomplete tutorial
     case 'PROGRESS_PAGE_POSITION':
+      // allow access until before first incomplete tutorial
       const pages = action.payload.progress.pages;
       const firstFail = pages.indexOf(false);
       return firstFail < 0 ? pages.length - 1 : firstFail;

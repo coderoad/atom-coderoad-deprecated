@@ -8,14 +8,18 @@ export default function taskTestsReducer(
 
     case PAGE_SET:
       const {tutorial, tasks} = action.payload;
+      // map over task tests from coderoad.json
       return [].concat.apply([], tasks.map(
-        task => task.tests || [])
+          task => task.tests || []
+        )
+      // concat test files together
       ).reduce((output: string, file: string): string => {
         try {
           output += readFileSync(file, 'utf8') + '\n';
         } catch (e) {
           console.log('Error reading test file', e);
         }
+        // return concatted test files
         return output;
       }, '');
 

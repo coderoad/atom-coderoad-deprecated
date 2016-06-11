@@ -5,16 +5,18 @@ import handleTaskActions from './handle-actions';
 let taskPositionTracker = 0;
 
 export default function taskActionsReducer(
-  taskActions = [], action: Action
+  t = [], action: Action
 ): string[][] {
   let actions: string[][] = null;
   switch (action.type) {
 
-    // load task actions
     case PAGE_SET:
+      // load task actions
       const {tasks, pagePosition, progress} = action.payload;
+
       const isCompleted = progress.pages[pagePosition];
       if (!isCompleted) {
+        // if page is completed, mark tasks as completed
         actions = tasks.map(task => task.actions || []);
       } else {
         // filter to only 'open' actions
@@ -22,25 +24,31 @@ export default function taskActionsReducer(
           return task.actions.filter(a => !!a.match(/^open/));
         });
       }
+      // page loads - reset tracker
       taskPositionTracker = 0;
-      handleTaskActions(actions); // run first action
+      // run first action
+      handleTaskActions(actions);
       return actions;
 
-    // run task actions
     case 'TEST_RESULT':
-      actions = action.payload.taskActions || [];
-      const nextTaskPosition = action.payload.result.taskPosition;
+      const {taskActions, result} = action.payload;
+      // task position from test result
+      const nextTaskPosition = result.taskPosition;
+      // calculate task position difference
       const times: number = nextTaskPosition - taskPositionTracker;
+      //
       if (times > 0) {
         // run actions for each task position passed
         for (let i = 0; i < times; i++) {
-          handleTaskActions(actions); // run first action
+          // run action
+          handleTaskActions(actions);
         }
+        // set current task position
         taskPositionTracker = nextTaskPosition;
       }
-      return actions;
+      return taskActions;
 
     default:
-      return taskActions;
+      return t;
   }
 }
