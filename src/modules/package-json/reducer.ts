@@ -1,6 +1,4 @@
-import {PJ_SAVE} from './types';
-import {readPackageJson, writePackageJson} from './utils/packageJson';
-import {sortPackageJson} from 'sort-package-json';
+import {readPackageJson} from './utils/packageJson';
 
 const _pj = null;
 

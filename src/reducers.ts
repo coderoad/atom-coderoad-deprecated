@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 
 // module reducers
 import {reducer as hintPosition} from './modules/hints';
-import {page, pagePosition, tasks, taskActions, taskTests} from './modules/page';
+import {pagePosition, taskActions, taskTests} from './modules/page';
 import {reducer as progress} from './modules/progress';
 import {checks, packageJson} from './modules/setup';
 import {testRun, taskPosition} from './modules/tests';
@@ -16,7 +16,7 @@ import {reducer as windowToggle} from 'core-coderoad/lib/window';
 
 export default combineReducers({
   alert, checks, editor, dir, hintPosition,
-  packageJson, page, pagePosition, progress, route, tasks,
+  packageJson, pagePosition, progress, route,
   tutorial, tutorials,
   taskActions, taskPosition, taskTests, testRun, windowToggle
 });

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
-import {ToggleDevTools, Save, Continue} from '../../index';
+import {ToggleDevTools, Save} from '../../index';
+import Continue from '../Continue';
 
 const styles = {
     zIndex: '5',

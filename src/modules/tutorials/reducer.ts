@@ -2,7 +2,7 @@
 import {tutorials} from 'coderoad-cli';
 import {TUTORIALS_FIND} from './types';
 
-export default function tutorials(
+export default function tutorialsReducer(
   t = [], action: Action
 ): Tutorial.Info[] {
   switch (action.type) {
@@ -12,8 +12,7 @@ export default function tutorials(
     /* falls through */
 
     case TUTORIALS_FIND:
-      const {dir} = action.payload;
-      const tuts: Tutorial.Info[] = tutorials(dir);
+      const tuts = tutorials(action.payload.dir);
       return tuts ? tuts : t;
 
     default:
