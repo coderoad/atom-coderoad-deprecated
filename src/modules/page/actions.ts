@@ -1,6 +1,6 @@
 import {PAGE_SET} from './types';
 import {hintPositionSet, routeSet} from '../../actions';
-export {editorOpen, editorSave, editorSet, editorInsert} from '../../actions';
+import {tasksSelector} from '../../selectors';
 
 export function pageNext(): ReduxThunk.ThunkInterface | Action {
   return (dispatch, getState): void => {
@@ -11,16 +11,17 @@ export function pageNext(): ReduxThunk.ThunkInterface | Action {
 
 export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
-    const {dir, progress, tutorial, route} = getState();
+    const state = getState();
+    const {progress, tutorial, route} = state;
     // routes
     if (pagePosition >= progress.pages.length) {
       return dispatch(routeSet('final'));
     }
     dispatch(hintPositionSet(0));
     // create absolute paths for 'task-tests'
-    const tasks = tutorial.pages[pagePosition].tasks || [];
+    const tasks = tasksSelector(state) || [];
     dispatch({
-      type: PAGE_SET, payload: { dir, pagePosition, tutorial, progress, tasks }
+      type: PAGE_SET, payload: { pagePosition, tutorial, progress, tasks }
     });
   };
 }

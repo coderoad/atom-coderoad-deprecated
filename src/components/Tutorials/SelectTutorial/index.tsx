@@ -3,29 +3,28 @@ import {connect} from 'react-redux';
 import {tutorialSet} from '../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
-function displayName(name: string): string {
-  if (name.match(/^coderoad-tutorial-/)) {
-    return name.slice(18);
-  } else if (name.match(/^coderoad-/)) {
-    return name.slice(9);
-  }
-  return name;
-}
-
 @connect(null, dispatch => ({
-  selectTutorial: (title: string) => dispatch(tutorialSet(name)),
+  selectTutorial: (name: string) => dispatch(tutorialSet(name)),
 }))
 export default class SelectTutorial extends React.Component<{
-  tutorial:  Tutorial.Info, selectTutorial?: any
+  tutorial: Tutorial.Info, selectTutorial?: any
 }, {}> {
+  displayName(name: string): string {
+    if (name.match(/^coderoad-tutorial-/)) {
+      return name.slice(18);
+    } else if (name.match(/^coderoad-/)) {
+      return name.slice(9);
+    }
+    return name;
+  }
   render() {
     const {tutorial, selectTutorial} = this.props;
-    const title = tutorial.title;
+    const {name} = tutorial;
     return (
       <FlatButton
-        label={displayName(title)}
+        label={this.displayName(name)}
         primary={true}
-        onTouchTap={selectTutorial.bind(this, title)}
+        onTouchTap={selectTutorial.bind(this, name)}
       />
     );
   }
