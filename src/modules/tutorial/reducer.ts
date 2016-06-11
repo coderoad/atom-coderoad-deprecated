@@ -1,6 +1,6 @@
 import {join} from 'path';
-import {tutorialConfig} from './utils/config';
 import {TUTORIAL_SET} from './types';
+import {tutorialConfig} from './utils/config';
 import configPaths from './utils/config-paths';
 
 const _tutorial: CR.Tutorial = {
@@ -8,6 +8,7 @@ const _tutorial: CR.Tutorial = {
   info: null,
   pages: [],
   packageJson: null,
+  config: null,
 };
 
 export default function tutorialReducer(

@@ -21,7 +21,7 @@ export default function handleActionString(
 
       case Type.OPEN:
         const obj = getOptions(params[0]);
-        const file = obj.param;
+        const file: string = obj.param;
         const options = obj.options;
         if (params.length === 1) {
           store.dispatch(editorOpen(file, options));

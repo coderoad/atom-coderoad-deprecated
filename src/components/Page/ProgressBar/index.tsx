@@ -8,16 +8,15 @@ const style = {
 };
 
 const ProgressBar: React.StatelessComponent<{
-  taskPosition: number, taskLength: number, completed: boolean
-}> = ({taskPosition, taskLength, completed}) => {
-  const progress: number = (taskPosition / taskLength) * 100;
+  taskProgress: number, completed: boolean
+}> = ({taskProgress, completed}) => {
   if (completed) {
     return null;
   }
   return (
     <LinearProgress
       mode='determinate'
-      value={progress}
+      value={taskProgress}
       style={style}
     />
   );

@@ -31,22 +31,17 @@ export default function taskActionsReducer(
       return actions;
 
     case 'TEST_RESULT':
-      const {taskActions, result} = action.payload;
-      // task position from test result
-      const nextTaskPosition = result.taskPosition;
-      // calculate task position difference
+      actions = action.payload.taskActions || [];
+      const nextTaskPosition = action.payload.result.taskPosition;
       const times: number = nextTaskPosition - taskPositionTracker;
-      //
       if (times > 0) {
         // run actions for each task position passed
         for (let i = 0; i < times; i++) {
-          // run action
-          handleTaskActions(actions);
+          handleTaskActions(actions); // run first action
         }
-        // set current task position
         taskPositionTracker = nextTaskPosition;
       }
-      return taskActions;
+      return actions;
 
     default:
       return t;

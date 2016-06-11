@@ -20,12 +20,8 @@ export default class Tasks extends React.Component<{
   componentDidUpdate() {
     ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
   }
-  visibleTasks(tasks: CR.Task[], taskPosition: number): CR.Task[] {
-    return tasks.slice(0, taskPosition + 1);
-  }
   render() {
     const {tasks, taskPosition, testRun, completed, page} = this.props;
-    const visTasks = this.visibleTasks(tasks, taskPosition);
     const backgroundColor = completed ? lightGreen200 : 'white';
     return (
     <div>
@@ -33,7 +29,7 @@ export default class Tasks extends React.Component<{
         <List>
           <Subheader>Tasks</Subheader>
 
-          {visTasks.map((task: CR.Task, index: number) => (
+          {tasks.map((task: CR.Task, index: number) => (
             <Task
               key={index}
               index={index}

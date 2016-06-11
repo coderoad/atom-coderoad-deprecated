@@ -7,7 +7,10 @@ import Tasks from './Tasks';
 import Hints from './Hints';
 import PageToolbar from './PageToolbar';
 import ProgressBar from './ProgressBar';
-import {pageSelector, tasksSelector} from '../../selectors';
+import {
+  pageSelector, tasksSelector, pageCompletedSelector, taskSelector,
+  taskProgressSelector
+} from '../../selectors';
 
 const styles = {
   width: '100%',
@@ -22,16 +25,18 @@ const styles = {
   taskPosition: state.taskPosition,
   hintPosition: state.hintPosition,
   pagePosition: state.pagePosition,
+  completed: pageCompletedSelector(state),
+  task: taskSelector(state),
+  taskProgress: taskProgressSelector(state),
 }))
 export default class Page extends React.Component<{
   page?: CR.Page, tasks?: CR.Task[], taskPosition?: number,
-  hintPosition?: number, testRun?: boolean,
-  progress?: CR.Progress, pagePosition?: number
+  hintPosition?: number, testRun?: boolean, task?: CR.Task
+  progress?: CR.Progress, pagePosition?: number, completed?: boolean,
+  taskProgress?: number
 }, {}> {
   render() {
-    const {page, tasks, taskPosition, hintPosition, testRun, progress, pagePosition} = this.props;
-    const task = taskPosition <= tasks.length ? tasks[taskPosition] : null;
-    const completed = progress.pages[pagePosition];
+    const {page, tasks, taskPosition, hintPosition, testRun, progress,pagePosition, completed, task, visibleTasks, taskProgress} = this.props;
     return (
       <section style={styles} className='cr-page'>
         <ContentCard
@@ -40,7 +45,7 @@ export default class Page extends React.Component<{
         />
 
         <Tasks
-          tasks={tasks}
+          tasks={tasks.slice(0, taskPosition + 1)}
           taskPosition={taskPosition}
           testRun={testRun}
           completed={completed}
@@ -56,8 +61,7 @@ export default class Page extends React.Component<{
             hintPosition={hintPosition}
             />
           <ProgressBar
-            taskLength={tasks.length}
-            taskPosition={taskPosition}
+            taskProgress={taskProgress}
             completed={completed}
           />
         </PageToolbar>
