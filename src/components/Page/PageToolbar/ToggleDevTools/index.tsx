@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {editorDevToolsToggle} from '../../actions';
 import FlatButton from 'material-ui/FlatButton';
 import Code from 'material-ui/svg-icons/action/code';
+import {editorDevToolsToggle} from '../../../../actions';
 
 const styles = {
   position: 'relative',

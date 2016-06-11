@@ -11,5 +11,3 @@ export {default as Tutorials} from './Tutorials';
 export {default as Markdown} from './common/Markdown';
 export {default as ContentCard} from './common/ContentCard';
 export {default as RouteButton} from './common/RouteButton';
-export {default as Save} from './common/Save';
-export {default as ToggleDevTools} from './common/ToggleDevTools';

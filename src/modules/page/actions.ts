@@ -18,8 +18,10 @@ export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
       return dispatch(routeSet('final'));
     }
     dispatch(hintPositionSet(0));
-    // create absolute paths for 'task-tests'
-    const tasks = tasksSelector(state) || [];
+
+    // sets tasks to new pagePosition
+    const tasks = tutorial.pages[pagePosition].tasks || [];
+
     dispatch({
       type: PAGE_SET, payload: { pagePosition, tutorial, progress, tasks }
     });

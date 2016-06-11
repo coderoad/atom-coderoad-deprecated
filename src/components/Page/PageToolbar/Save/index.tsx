@@ -1,10 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
-import {pageNext} from '../../../actions';
+import {editorSave} from '../../../../actions';
 
 const styles = {
-  zIndex: '10000',
   border: '0px',
   boxShadow: 'none',
   backgroundColor: 'inherit',
@@ -13,18 +12,18 @@ const styles = {
 };
 
 @connect(null, dispatch => ({
-  callNextPage: () => dispatch(pageNext())
+  save: () => dispatch(editorSave()),
 }))
-export default class Continue extends React.Component<{
-  callNextPage?: any
+export default class Save extends React.Component<{
+  save?: any
 }, {}> {
   render() {
     return (
       <RaisedButton
-        style={{styles}}
-        label='Continue'
-        primary={true}
-        onTouchTap={this.props.callNextPage}
+        label='Save'
+        style={styles}
+        secondary={true}
+        onTouchTap={this.props.save}
       />
     );
   }
