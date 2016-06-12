@@ -20,11 +20,8 @@ const options = {
   smartLists: true,
 };
 
-function formatText(text: string): string {
-  return typeof text !== 'string'
-    ? ''
-    : marked(text.toString(), options);
-};
+const formatText = (text: string): string => typeof text !== 'string' ?
+  '' : marked(text.toString(), options);
 
 const Markdown: React.StatelessComponent<{
   children?: string, style?: Object

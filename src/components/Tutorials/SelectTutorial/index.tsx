@@ -10,16 +10,15 @@ export default class SelectTutorial extends React.Component<{
   tutorial: Tutorial.Item, selectTutorial?: any
 }, {}> {
   displayName(name: string): string {
-    if (name.match(/^coderoad-tutorial-/)) {
-      return name.slice(18);
-    } else if (name.match(/^coderoad-/)) {
-      return name.slice(9);
+    switch (true) {
+      case !!name.match(/^coderoad-tutorial-/): return name.slice(18);
+      case !!name.match(/^coderoad-/): return name.slice(9);
+      default: return name;
     }
-    return name;
   }
   render() {
     const {tutorial, selectTutorial} = this.props;
-    const name = tutorial.name;
+    const {name} = tutorial;
     return (
       <FlatButton
         label={this.displayName(name)}

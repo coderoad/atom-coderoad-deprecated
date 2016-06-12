@@ -17,11 +17,9 @@ export function onActivate(): AtomCore.Disposable {
 
   // run tests on save
   atom.workspace.observeTextEditors((editor: AtomCore.IEditor) => {
-    subscriptions.add(
-      editor.onDidSave(() => {
-        store.dispatch(testRun());
-      }));
+    subscriptions.add(editor.onDidSave(() => store.dispatch(testRun())));
   });
+  // return all subscriptions
   return subscriptions;
 }
 

@@ -25,8 +25,8 @@ export default class App extends React.Component<{
             <Routes />
           </div>
         </Drawer>
-      <Alert />
-    </section>
+        <Alert />
+      </section>
     );
   }
 };

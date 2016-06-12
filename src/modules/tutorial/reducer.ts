@@ -24,6 +24,7 @@ export default function tutorialReducer(
       // get tutorial package.json
       const packagePath: string = join(dir, 'node_modules', name);
       const packageJson: PackageJson = require(join(packagePath, 'package.json'));
+      console.log(packageJson);
 
       const config: Tutorial.Config = tutorialConfig(packageJson, dir);
       const coderoadJsonPath = join(packagePath, packageJson.main);

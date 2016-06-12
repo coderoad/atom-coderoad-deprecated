@@ -10,11 +10,12 @@ export default class LoadTutorials extends React.Component<{
   tutorialsFind?: any
 }, {}> {
   render() {
+    const {tutorialsFind} = this.props;
     return (
       <FlatButton
         label='Check for Tutorials'
         secondary={true}
-        onTouchTap={this.props.tutorialsFind}
+        onTouchTap={tutorialsFind}
       />
     );
   }

@@ -1,36 +1,43 @@
 import * as React from 'react';
+import {connect} from 'react-redux';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import {Card, CardTitle, CardText, CardActions} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 const styles = {
-  margin: '5px',
-  padding: '10px',
+  card: {
+    margin: '5px',
+    padding: '10px',
+  },
 };
 
-export const FinalPage: React.StatelessComponent<{}> = () => (
-    <Card style={styles}>
-      <CardTitle
-        title='Congratulations!'
-        subtitle='Tutorial Complete!'
-      />
-      <CardText>
-        What's next?
-        <br /><br />
-        <a href='https://coderoad.github.io/#tutorials'>
-          <FlatButton
-            label='See More Tutorials'
-            disabled={true}
-          />
-        </a>
-        <span> (coming soon)</span>
-        <br /><br />
-        <a href='https://coderoad.github.io/build'>
-          <FlatButton label='Learn how to Create a Tutorial' />
-        </a>
-      </CardText>
+@connect(null, null)
+export default class FinalPage extends React.Component<{}, {}> {
+  render() {
+    return (
+      <Card style={styles.card}>
+        <CardTitle
+          title='Congratulations!'
+          subtitle='Tutorial Complete!'
+        />
+        <CardText>
+          What's next?
+          <br /><br />
+          <a href='https://coderoad.github.io/#tutorials'>
+            <FlatButton
+              label='See More Tutorials'
+              disabled={true}
+            />
+          </a>
+          <span> (coming soon)</span>
+          <br /><br />
+          <a href='https://coderoad.github.io/build'>
+            <FlatButton label='Learn how to Create a Tutorial' />
+          </a>
+        </CardText>
 
-    </Card>
-);
-export default FinalPage;
+      </Card>
+    );
+  }
+}

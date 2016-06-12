@@ -2,9 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Page, Progress, Tutorials, Start, FinalPage} from '../index';
 
-@connect(state => ({
-  route: state.route,
-}))
+@connect(state => ({ route: state.route }))
 export default class Routes extends React.Component<{
   route?: string
 }, {}> {

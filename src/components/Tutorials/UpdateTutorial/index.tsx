@@ -5,8 +5,13 @@ import Update from 'material-ui/svg-icons/action/update';
 import {pink500} from 'material-ui/styles/colors';
 
 const styles = {
-  width: '18px',
-  marginLeft: '10px',
+  icon: {
+    width: '18px',
+    marginLeft: '10px',
+  },
+  latest: {
+    marginLeft: '10px',
+  },
 };
 
 @connect(null, dispatch => ({
@@ -20,11 +25,11 @@ export default class UpdateTutorial extends React.Component<{
     return (
       <span>
         <Update
-          style={styles}
+          style={styles.icon}
           color={pink500}
           onTouchTap={tutorialUpdate.bind(this, tutorial.name)}
         />``
-        <span style={{marginLeft: '10px'}}>{tutorial.latest}</span>
+        <span style={styles.latest}>{tutorial.latest}</span>
       </span>
     );
   }
