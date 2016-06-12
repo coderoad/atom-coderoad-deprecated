@@ -4,7 +4,7 @@ import {Markdown} from '../../index';
 import TaskCheckbox from './taskCheckbox';
 import {ListItem} from 'material-ui/List';
 import {lightGreen200, orange200} from 'material-ui/styles/colors';
-import {taskByIndexSelector} from '../../../selectors';
+import {taskByIndexSelector} from 'core-coderoad/lib/selectors';
 
 const styles = {
   task: {

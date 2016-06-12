@@ -4,7 +4,7 @@ import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import Save from './Save';
 import Continue from './Continue';
 import ToggleDevTools from './ToggleDevTools';
-import {taskProgressSelector} from '../../../selectors';
+import {taskProgressSelector} from 'core-coderoad/lib/selectors';
 
 const styles = {
     zIndex: '5',

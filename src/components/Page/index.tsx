@@ -8,7 +8,7 @@ import Hints from './Hints';
 import PageToolbar from './PageToolbar';
 import ProgressBar from './ProgressBar';
 import TasksComplete from './TasksComplete';
-import {pageSelector, taskProgressSelector} from '../../selectors';
+import {pageSelector, taskProgressSelector} from 'core-coderoad/lib/selectors';
 
 const styles = {
   page: {
