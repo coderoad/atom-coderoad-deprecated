@@ -6,7 +6,7 @@ import {Card} from 'material-ui/Card';
 import Subheader from 'material-ui/Subheader';
 import Task from '../Task';
 import {lightGreen200} from 'material-ui/styles/colors';
-import {visibleTasksSelector, pageCompletedSelector} from '../../../selectors';
+import {pageCompletedSelector, visibleTasksSelector} from '../../../selectors';
 
 const margin = '10px 5px';
 
@@ -32,13 +32,9 @@ export default class Tasks extends React.Component<{
         <List>
           <Subheader>Tasks</Subheader>
 
-          {tasks.map((task: CR.Task, index: number) => (
-            <Task
-              key={index}
-              index={index}
-              task={task}
-            />)
-          )}
+        {tasks.map((task, index: number) => {
+          return <Task key={index} index={index} />;
+        })}}
 
         </List>
         <div ref='listEnd' />

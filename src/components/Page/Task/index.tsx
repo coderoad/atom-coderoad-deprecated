@@ -4,6 +4,7 @@ import {Markdown} from '../../index';
 import TaskCheckbox from './taskCheckbox';
 import {ListItem} from 'material-ui/List';
 import {lightGreen200, orange200} from 'material-ui/styles/colors';
+import {taskByIndexSelector} from '../../../selectors';
 
 const styles = {
   task: {
@@ -28,9 +29,10 @@ const styles = {
 @connect((state, props) => ({
   testRun: state.testRun,
   isCompletedTask: state.taskPosition > props.index,
+  task: taskByIndexSelector(state, props)
 }))
 export default class Task extends React.Component<{
-  task: CR.Task, index: number, testRun?: boolean,
+  task?: CR.Task, index: number, testRun?: boolean,
   isCurrentTask?: boolean, isCompletedTask?: boolean
 }, {}> {
   render() {

@@ -1,8 +1,8 @@
 import {createSelector} from 'reselect';
-import {taskSelector} from './tasks';
+import {currentTaskSelector} from './tasks';
 
 export const hintsSelector = createSelector(
-  taskSelector,
+  currentTaskSelector,
   task => task && task.hints ? task.hints : []
 );
 

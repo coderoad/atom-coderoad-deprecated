@@ -6,13 +6,17 @@ export const tasksSelector = createSelector(
   page => page.tasks
 );
 
-export const taskPositionSelector = state => state.taskPosition;
-
-export const taskSelector = createSelector(
+export const currentTaskSelector = createSelector(
   tasksSelector,
   state => state.taskPosition,
   (tasks, taskPosition) => tasks.length && taskPosition <= tasks.length - 1 ?
       tasks[taskPosition] : null
+);
+
+export const taskByIndexSelector = createSelector(
+  tasksSelector,
+  (state, props) => props.index,
+  (tasks, index) => tasks[index]
 );
 
 export const visibleTasksSelector = createSelector(
