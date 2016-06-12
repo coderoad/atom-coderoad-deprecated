@@ -13,7 +13,7 @@ const styles = {
   tutorialUpdate: (title: string) => dispatch(tutorialUpdate(title)),
 }))
 export default class UpdateTutorial extends React.Component<{
-  tutorial: Tutorial.Info, tutorialUpdate?: any
+  tutorial: Tutorial.Item, tutorialUpdate?: any
 }, {}> {
   render() {
     const {tutorial, tutorialUpdate} = this.props;
@@ -22,8 +22,8 @@ export default class UpdateTutorial extends React.Component<{
         <Update
           style={styles}
           color={pink500}
-          onTouchTap={tutorialUpdate.bind(this, tutorial.title)}
-        />
+          onTouchTap={tutorialUpdate.bind(this, tutorial.name)}
+        />``
         <span style={{marginLeft: '10px'}}>{tutorial.latest}</span>
       </span>
     );

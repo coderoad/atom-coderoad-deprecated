@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
   selectTutorial: (name: string) => dispatch(tutorialSet(name)),
 }))
 export default class SelectTutorial extends React.Component<{
-  tutorial: Tutorial.Info, selectTutorial?: any
+  tutorial: Tutorial.Item, selectTutorial?: any
 }, {}> {
   displayName(name: string): string {
     if (name.match(/^coderoad-tutorial-/)) {
@@ -19,7 +19,7 @@ export default class SelectTutorial extends React.Component<{
   }
   render() {
     const {tutorial, selectTutorial} = this.props;
-    const {name} = tutorial;
+    const name = tutorial.name;
     return (
       <FlatButton
         label={this.displayName(name)}

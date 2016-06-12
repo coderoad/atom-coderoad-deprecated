@@ -19,7 +19,7 @@ const styles = {
   loadTutorials: () => dispatch(tutorialsFind()),
 }))
 export default class Tutorials extends React.Component<{
-  tutorials?: Tutorial.Info[], loadTutorials?: any
+  tutorials?: Tutorial.Item[], loadTutorials?: any
 }, {}> {
   constructor(props) {
     super(props);
@@ -45,7 +45,7 @@ export default class Tutorials extends React.Component<{
 
       <TableBody displayRowCheckbox={false}>
         {tutorials.map(function tutorialRow(
-          tutorial: Tutorial.Info, index: number
+          tutorial: Tutorial.Item, index: number
         ) {
         return (
           <TableRow key={index}>
