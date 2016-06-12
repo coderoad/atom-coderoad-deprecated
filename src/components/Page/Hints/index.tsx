@@ -4,7 +4,7 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import {Markdown} from '../../index';
 import HintButton from './HintButton';
 import Help from 'material-ui/svg-icons/action/help';
-import {hintsSelector, hintSelector} from '../../../selectors';
+import {hintSelector} from '../../../selectors';
 
 const styles = {
   position: 'relative',
@@ -14,14 +14,13 @@ const styles = {
 };
 
 @connect(state => ({
-  hints: hintsSelector(state),
   hint: hintSelector(state),
 }))
 export default class Hints extends React.Component<{
-  hints?: string[], hint?: string
+  hintsLength?: number, hint?: string
 }, {}> {
   render() {
-    const {hint, hints} = this.props;
+    const {hint} = this.props;
     if (!hint) {
       return null;
     }
@@ -39,25 +38,20 @@ export default class Hints extends React.Component<{
         >
           <Markdown>{hint}</Markdown>
         </CardText>
-        {hints.length > 1
-          ? <CardActions
-            style={{paddingBottom: '30px !important'}}
-            expandable={true}
-            className='cr-task-hints-actions'
-          >
-            <HintButton
-              type='prev'
-              label='Previous'
-              hintsLength={hints.length}
-            />
-            <HintButton
-              type='next'
-              label='Next'
-              hintsLength={hints.length}
-            />
-          </CardActions>
-          : null
-        }
+        <CardActions
+          style={{paddingBottom: '30px !important'}}
+          expandable={true}
+          className='cr-task-hints-actions'
+        >
+          <HintButton
+            type='prev'
+            label='Previous'
+          />
+          <HintButton
+            type='next'
+            label='Next'
+          />
+        </CardActions>
       </Card>
     );
   }

@@ -3,7 +3,7 @@ import {taskSelector} from './tasks';
 
 export const hintsSelector = createSelector(
   taskSelector,
-  task => task && task.hints ? task.hints : null
+  task => task && task.hints ? task.hints : []
 );
 
 export const hintSelector = createSelector(

@@ -15,9 +15,10 @@ export const taskSelector = createSelector(
       tasks[taskPosition] : null
 );
 
-export const visibleTasksSelector = state => createSelector(
+export const visibleTasksSelector = createSelector(
   tasksSelector,
-  tasks => tasks.slice(0, state.taskPosition + 1)
+  state => state.taskPosition,
+  (tasks, taskPosition) => tasks.slice(0, taskPosition + 1)
 );
 
 export const taskProgressSelector = createSelector(

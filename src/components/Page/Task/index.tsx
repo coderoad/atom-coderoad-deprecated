@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {connect} from 'react-redux';
 import {Markdown} from '../../index';
 import taskCheckbox from './taskCheckbox';
 import {ListItem} from 'material-ui/List';
@@ -24,28 +25,29 @@ const styles = {
   },
 };
 
-function getStatus(
-  index: number, taskPosition: number, testRun: boolean
-): string {
-  return index < taskPosition ? lightGreen200 : 'inherit';
+@connect((state, props) => ({
+  testRun: state.testRun,
+  isCurrentTask: state.taskPosition === props.index,
+  isCompletedTask: state.taskPosition > props.index,
+}))
+export default class Task extends React.Component<{
+  task: CR.Task, index: number, testRun?: boolean,
+  isCurrentTask?: boolean, isCompletedTask?: boolean
+}, {}> {
+  render() {
+    const {testRun, task, index, isCurrentTask, isCompletedTask} = this.props;
+    const backgroundColor = isCompletedTask ? lightGreen200 : 'inherit';
+    return (
+      <ListItem
+        key={index}
+        style={Object.assign({}, styles.task, {backgroundColor})}
+      >
+        {taskCheckbox(isCurrentTask, testRun)}
+        <span style={styles.index}>{index + 1}.</span>
+        <div style={styles.description}>
+          <Markdown >{task.description}</Markdown>
+        </div>
+      </ListItem>
+    );
+  }
 }
-
-const Task: React.StatelessComponent<{
-  task: CR.Task, taskPosition: number, index: number, testRun: boolean
-}> = ({task, taskPosition, index, testRun}) => {
-  const backgroundColor = getStatus(index, taskPosition, testRun);
-  const isCurrentTask = taskPosition === index;
-  return (
-    <ListItem
-      key={index}
-      style={Object.assign({}, styles.task, {backgroundColor})}
-    >
-      {taskCheckbox(isCurrentTask, testRun)}
-      <span style={styles.index}>{index + 1}.</span>
-      <div style={styles.description}>
-        <Markdown >{task.description}</Markdown>
-      </div>
-    </ListItem>
-  );
-};
-export default Task;

@@ -1,17 +1,21 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import {connect} from 'react-redux';
 import {List} from 'material-ui/List';
 import {Card} from 'material-ui/Card';
 import Subheader from 'material-ui/Subheader';
 import Task from '../Task';
 import {lightGreen200} from 'material-ui/styles/colors';
-import TasksComplete from '../TasksComplete';
+import {visibleTasksSelector, pageCompletedSelector} from '../../../selectors';
 
 const margin = '10px 5px';
 
+@connect(state => ({
+  tasks: visibleTasksSelector(state),
+  completed: pageCompletedSelector(state),
+}))
 export default class Tasks extends React.Component<{
-    tasks: CR.Task[], taskPosition: number,
-    testRun: boolean, completed: boolean, page: CR.Page
+    tasks?: CR.Task[], completed?: boolean, page?: CR.Page
 }, {}> {
   refs: {
     [key: string]: (Element);
@@ -21,10 +25,9 @@ export default class Tasks extends React.Component<{
     ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
   }
   render() {
-    const {tasks, taskPosition, testRun, completed, page} = this.props;
+    const {tasks, completed} = this.props;
     const backgroundColor = completed ? lightGreen200 : 'white';
     return (
-    <div>
       <Card style={{backgroundColor, margin}}>
         <List>
           <Subheader>Tasks</Subheader>
@@ -34,21 +37,12 @@ export default class Tasks extends React.Component<{
               key={index}
               index={index}
               task={task}
-              taskPosition={taskPosition}
-              testRun={testRun}
             />)
           )}
 
         </List>
-      </Card>
-
-        <TasksComplete
-          page={page}
-          completed={completed}
-        />
-
         <div ref='listEnd' />
-    </div>
+      </Card>
     );
   }
 }

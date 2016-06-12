@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import LinearProgress from 'material-ui/LinearProgress';
-import {taskProgressSelector, pageCompletedSelector} from '../../../selectors';
+import {taskProgressSelector} from '../../../selectors';
 
 const style = {
   height: '10px',
@@ -10,18 +10,13 @@ const style = {
 };
 
 @connect(state => ({
-  // pageCompletedSelector(state),
-  completed: state.progress.pages[state.pagePosition],
   taskProgress: (state.taskPosition / state.tutorial.pages[state.pagePosition].tasks.length) * 100
 }))
 export default class ProgressBar extends React.Component<{
-  taskProgress?: number, completed?: boolean
+  taskProgress?: number
 }, {}> {
   render() {
-    const {completed, taskProgress} = this.props;
-    if (completed) {
-      return null;
-    }
+    const {taskProgress} = this.props;
     return (
       <LinearProgress
         mode='determinate'

@@ -7,55 +7,35 @@ import Tasks from './Tasks';
 import Hints from './Hints';
 import PageToolbar from './PageToolbar';
 import ProgressBar from './ProgressBar';
-import {
-  pageSelector, tasksSelector, pageCompletedSelector, taskSelector,
-  taskProgressSelector
-} from '../../selectors';
+import TasksComplete from './TasksComplete';
+import {pageSelector, taskProgressSelector} from '../../selectors';
 
 const styles = {
-  width: '100%',
-  overflowY: 'scroll',
+  page: {
+    width: '100%',
+    overflowY: 'scroll',
+  },
 };
 
 @connect(state => ({
   page: pageSelector(state),
-  tasks: tasksSelector(state),
-  testRun: state.testRun,
-  progress: state.progress,
-  taskPosition: state.taskPosition,
-  pagePosition: state.pagePosition,
-  completed: pageCompletedSelector(state),
-  task: taskSelector(state),
-  taskProgress: taskProgressSelector(state),
+  tasksCompleted: taskProgressSelector(state) === 100,
 }))
 export default class Page extends React.Component<{
-  page?: CR.Page, tasks?: CR.Task[], taskPosition?: number,
-  testRun?: boolean, task?: CR.Task, taskProgress?: number
-  progress?: CR.Progress, pagePosition?: number, completed?: boolean,
+  page?: CR.Page, isCompleted?: boolean
 }, {}> {
   render() {
-    const {page, tasks, taskPosition, testRun, progress, pagePosition, completed, task, taskProgress} = this.props;
+    const {page, isCompleted} = this.props;
     return (
-      <section style={styles} className='cr-page'>
+      <section style={styles.page} className='cr-page'>
         <ContentCard
           title={page.title}
           content={page.description}
         />
-
-        <Tasks
-          tasks={tasks.slice(0, taskPosition + 1)}
-          taskPosition={taskPosition}
-          testRun={testRun}
-          completed={completed}
-          page={page}
-        />
-
-        <PageToolbar
-          tasks={tasks}
-          taskPosition={taskPosition}
-        >
+        <Tasks />
+        <PageToolbar>
           <Hints />
-          <ProgressBar />
+          {isCompleted ? <TasksComplete /> : <ProgressBar />}
         </PageToolbar>
       </section>
     );
