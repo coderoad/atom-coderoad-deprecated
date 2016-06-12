@@ -2,9 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.10.0] - 2016-06-11
-- extract common modules into [core-coderoad](https://github.com/coderoad/core-coderoad) to share with the new [tutorial builder](https://github.com/coderoad/builder-coderoad)
+## [0.10.0] - 2016-06-12
 - throttle saves at 800ms
+- extract common modules into [core-coderoad](https://github.com/coderoad/core-coderoad) to share with the new [tutorial builder](https://github.com/coderoad/builder-coderoad)
 
 ## [0.9.0] - 2016-05-02
 - remove chapters, now only pages
