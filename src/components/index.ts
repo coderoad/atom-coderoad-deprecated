@@ -5,7 +5,6 @@ export {default as Page} from './Page';
 export {default as Progress} from './Progress';
 export {default as Routes} from './Routes';
 export {default as Start} from './Start';
-export {default as Checks} from './Start/Checks';
 export {default as Tutorials} from './Tutorials';
 
 export {default as Markdown} from './common/Markdown';

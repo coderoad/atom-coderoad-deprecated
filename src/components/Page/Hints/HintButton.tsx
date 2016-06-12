@@ -2,12 +2,16 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
 import {hintPositionSet} from '../../../actions';
+import {hintsSelector} from '../../../selectors';
 
-@connect(null, dispatch => ({
+@connect(state => ({
+  hintPosition: state.hintPosition,
+  hintsLength: hintsSelector(state).length,
+}), dispatch => ({
   hintSet: (position: number) => dispatch(hintPositionSet(position)),
 }))
 export default class HintButton extends React.Component<{
-  hintPosition: number, hintsLength: number, type: 'next'|'prev', label: string
+  hintPosition?: number, hintsLength?: number, type: 'next'|'prev', label: string
   hintSet?: any
 }, {}> {
   render() {

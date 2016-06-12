@@ -23,7 +23,6 @@ const styles = {
   testRun: state.testRun,
   progress: state.progress,
   taskPosition: state.taskPosition,
-  hintPosition: state.hintPosition,
   pagePosition: state.pagePosition,
   completed: pageCompletedSelector(state),
   task: taskSelector(state),
@@ -31,12 +30,11 @@ const styles = {
 }))
 export default class Page extends React.Component<{
   page?: CR.Page, tasks?: CR.Task[], taskPosition?: number,
-  hintPosition?: number, testRun?: boolean, task?: CR.Task
+  testRun?: boolean, task?: CR.Task, taskProgress?: number
   progress?: CR.Progress, pagePosition?: number, completed?: boolean,
-  taskProgress?: number
 }, {}> {
   render() {
-    const {page, tasks, taskPosition, hintPosition, testRun, progress,pagePosition, completed, task, visibleTasks, taskProgress} = this.props;
+    const {page, tasks, taskPosition, testRun, progress, pagePosition, completed, task, taskProgress} = this.props;
     return (
       <section style={styles} className='cr-page'>
         <ContentCard
@@ -56,14 +54,8 @@ export default class Page extends React.Component<{
           tasks={tasks}
           taskPosition={taskPosition}
         >
-          <Hints
-            task={task}
-            hintPosition={hintPosition}
-            />
-          <ProgressBar
-            taskProgress={taskProgress}
-            completed={completed}
-          />
+          <Hints />
+          <ProgressBar />
         </PageToolbar>
       </section>
     );
