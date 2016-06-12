@@ -109,7 +109,7 @@
         "src/components/Page/PageToolbar/ToggleDevTools/index.tsx",
         "src/components/Page/ProgressBar/index.tsx",
         "src/components/Page/Task/index.tsx",
-        "src/components/Page/Task/taskCheckbox.tsx",
+        "src/components/Page/Task/TaskCheckbox.tsx",
         "src/components/Page/Tasks/index.tsx",
         "src/components/Page/TasksComplete/index.tsx",
         "src/components/Progress/index.tsx",

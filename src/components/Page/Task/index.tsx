@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {Markdown} from '../../index';
-import taskCheckbox from './taskCheckbox';
+import TaskCheckbox from './taskCheckbox';
 import {ListItem} from 'material-ui/List';
 import {lightGreen200, orange200} from 'material-ui/styles/colors';
 
@@ -27,7 +27,6 @@ const styles = {
 
 @connect((state, props) => ({
   testRun: state.testRun,
-  isCurrentTask: state.taskPosition === props.index,
   isCompletedTask: state.taskPosition > props.index,
 }))
 export default class Task extends React.Component<{
@@ -42,7 +41,7 @@ export default class Task extends React.Component<{
         key={index}
         style={Object.assign({}, styles.task, {backgroundColor})}
       >
-        {taskCheckbox(isCurrentTask, testRun)}
+        <TaskCheckbox index={index} />
         <span style={styles.index}>{index + 1}.</span>
         <div style={styles.description}>
           <Markdown >{task.description}</Markdown>
