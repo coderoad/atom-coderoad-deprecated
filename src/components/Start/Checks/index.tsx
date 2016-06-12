@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {connect} from 'react-redux';
 import SystemChecks from './SystemChecks';
 import SetupChecks from './SetupChecks';
 import InstallGuide from './InstallGuide';
@@ -9,25 +10,23 @@ const styles = {
   padding: '10px',
 };
 
-const Checks: React.StatelessComponent<{
-  checks: CR.Checks
-}> = ({checks}) => {
-  if (!checks) {
-    return <ContentCard
-        title='Error Loading Package.json'
-        content=''
-      />;
+@connect(state => ({
+  checks: state.checks,
+}))
+export default class Checks extends React.Component<{
+  checks?: CR.Checks
+}, {}> {
+  render() {
+    const {checks} = this.props;
+    if (!checks) {
+      return <ContentCard title='Error Loading Package.json' />;
+    }
+    return (
+      <div style={styles}>
+        {!checks.system.passed ? <SystemChecks checks={checks} /> : null}
+        {!checks.setup.passed ? <SetupChecks checks={checks} /> : null}
+        <InstallGuide checks={checks} />
+      </div>
+    );
   }
-  return (
-    <div style={styles}>
-    {!checks.system.passed
-      ? <SystemChecks checks={checks} />
-      : null}
-      {!checks.setup.passed
-        ? <SetupChecks checks={checks} />
-        : null}
-      <InstallGuide checks={checks} />
-    </div>
-  );
-};
-export default Checks;
+}

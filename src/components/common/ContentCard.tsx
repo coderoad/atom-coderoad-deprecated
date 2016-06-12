@@ -7,12 +7,12 @@ const styles = {
 };
 
 const ContentCard: React.StatelessComponent<{
-  title: string, content: string
+  title: string, content?: string
 }> = ({title, content}) => (
   <Card style={styles}>
     {title ? <CardHeader title={title} /> : null}
     <CardText>
-      <Markdown>{content}</Markdown>
+      <Markdown>{content || ''}</Markdown>
     </CardText>
   </Card>
 );

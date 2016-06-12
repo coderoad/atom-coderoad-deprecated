@@ -19,9 +19,7 @@ export default class ToggleDevTools extends React.Component<{
     return (
       <FlatButton
         style={styles}
-        icon={
-          <Code />
-        }
+        icon={<Code />}
         onTouchTap={this.props.toggle}
       />
     );
