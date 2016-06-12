@@ -6,9 +6,11 @@ function configTestString(
 ): string {
 
   if (isWindows) {
+    // adjust paths for windows slashes
     testPath = testPath.split('/').join('\\');
   }
 
+  // adjust absolute file path
   if (config.dir) {
     testPath = join(config.dir, testPath);
   } else {
@@ -16,8 +18,10 @@ function configTestString(
   }
 
   if (config.testSuffix) {
+    // prevent repeat appending test suffix
     testPath += config.testSuffix;
   }
+
   return testPath;
 }
 

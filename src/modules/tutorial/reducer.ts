@@ -11,6 +11,8 @@ const _tutorial: CR.Tutorial = {
   config: null,
 };
 
+const configured = [];
+
 export default function tutorialReducer(
   t = _tutorial, action: Action
 ): CR.Tutorial {
@@ -27,8 +29,11 @@ export default function tutorialReducer(
       const coderoadJsonPath = join(packagePath, packageJson.main);
       let {info, pages} = require(coderoadJsonPath);
 
-      // configure test paths to absolute paths
-      pages = configPaths(dir, name, config, pages || []);
+      // configure test paths to absolute paths. Only once.
+      if (configured.indexOf(name) === -1) {
+        pages = configPaths(dir, name, config, pages || []);
+      }
+      configured.push(name);
 
       // return tutorial (info, pages) & tutorial package.json
       return {
