@@ -1,7 +1,7 @@
 import {normalize, join} from 'path';
 import {readFileSync} from 'fs';
 
-// TODO: load comments from core-coderoad/lib/options
+// TODO: load comments from core-coderoad
 
 const comments = {
   py: '#',

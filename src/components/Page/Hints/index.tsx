@@ -4,7 +4,7 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import {Markdown} from '../../index';
 import HintButton from './HintButton';
 import Help from 'material-ui/svg-icons/action/help';
-import {hintSelector} from 'core-coderoad/lib/selectors';
+import {hintSelector} from 'core-coderoad';
 
 const styles = {
   position: 'relative',

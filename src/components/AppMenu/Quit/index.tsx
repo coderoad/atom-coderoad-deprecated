@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {quit} from 'core-coderoad/lib/editor';
+import {quit} from 'core-coderoad';
 import {onDeactivate} from '../../../subscriptions';
 import MenuItem from 'material-ui/MenuItem';
 

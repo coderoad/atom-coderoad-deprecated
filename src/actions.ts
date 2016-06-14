@@ -6,8 +6,10 @@ export {setupVerify, setupPackage} from './modules/setup/actions';
 export {tutorialSet} from './modules/tutorial';
 export {tutorialsFind, tutorialUpdate} from './modules/tutorials';
 
-export {alertOpen, alertClose, alertReplay} from 'core-coderoad/lib/alert';
-export {editorDevToolsToggle, editorOpen, editorInsert,
-editorSave, editorSet} from 'core-coderoad/lib/editor';
-export {routeSet} from 'core-coderoad/lib/route';
-export {windowToggle} from 'core-coderoad/lib/window';
+export {
+  alertOpen, alertClose, alertReplay,
+  editorDevToolsToggle, editorOpen, editorInsert,
+  editorSave, editorSet,
+  routeSet,
+  windowToggle
+} from 'core-coderoad';

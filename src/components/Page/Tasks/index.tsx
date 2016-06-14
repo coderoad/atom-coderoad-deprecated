@@ -6,7 +6,7 @@ import {Card} from 'material-ui/Card';
 import Subheader from 'material-ui/Subheader';
 import Task from '../Task';
 import {lightGreen200} from 'material-ui/styles/colors';
-import {pageCompletedSelector, visibleTasksSelector} from 'core-coderoad/lib/selectors';
+import {pageCompletedSelector, visibleTasksSelector} from 'core-coderoad';
 
 const margin = '10px 5px';
 

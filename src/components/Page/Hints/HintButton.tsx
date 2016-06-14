@@ -2,7 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
 import {hintPositionSet} from '../../../actions';
-import {hintsSelector} from 'core-coderoad/lib/selectors';
+import {hintsSelector} from 'core-coderoad';
 
 @connect(state => ({
   hintPosition: state.hintPosition,

@@ -1,5 +1,5 @@
 import {join} from 'path';
-import {open, set, openFolder, openTerminal} from 'core-coderoad/lib/editor';
+import {open, set, openFolder, openTerminal} from 'core-coderoad';
 import {setupVerify} from '../actions';
 
 const packageData = `{

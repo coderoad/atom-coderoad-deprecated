@@ -1,23 +1,10 @@
-import { applyMiddleware, createStore } from 'redux';
 import reducer from './reducers';
-import * as createLogger from 'redux-logger';
-import throttleActions from 'redux-throttle-actions';
-import thunk from 'redux-thunk';
+import {configureStore} from 'core-coderoad';
 
-const middlewares = [thunk];
-
-const throttleTestRun = throttleActions(['TEST_RUN'], 800);
-middlewares.push(throttleTestRun);
-
-const devMode = false;
-if (devMode) {
-  const logger = createLogger();
-  middlewares.push(logger);
-}
-
-const store: Redux.Store = createStore(
+export default configureStore(
   reducer,
-  applyMiddleware(...middlewares)
+  // devMode
+  true,
+  // throttled actions
+  { TEST_RUN: 800}
 );
-
-export default store;

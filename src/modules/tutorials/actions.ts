@@ -1,5 +1,5 @@
 import {TUTORIALS_FIND, TUTORIAL_UPDATE} from './types';
-import {alertOpen} from 'core-coderoad/lib/alert';
+import {alertOpen} from 'core-coderoad';
 export {tutorialSet} from '../tutorial/actions';
 
 export function tutorialUpdate(title: string): ReduxThunk.ThunkInterface {

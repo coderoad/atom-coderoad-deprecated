@@ -1,5 +1,5 @@
 import {TUTORIAL_SET} from './types';
-import {routeSet} from 'core-coderoad/lib/route';
+import {routeSet} from 'core-coderoad';
 
 export function tutorialSet(name: string): ReduxThunk.ThunkInterface {
   return (dispatch, getState) => {
