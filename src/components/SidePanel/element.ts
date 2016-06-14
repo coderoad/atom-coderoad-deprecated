@@ -1,14 +1,14 @@
 import * as ReactDOM from 'react-dom';
 
-const Root = {
+const sidePanelElement = {
   root: null,
-  init: (): HTMLElement => {
+  init() {
     this.root = document.createElement('div');
     this.root.setAttribute('id', 'crv');
     return this.root;
   },
-  unmount: () => {
+  unmount() {
     ReactDOM.unmountComponentAtNode(this.root);
   }
 };
-export default Root;
+export default sidePanelElement;

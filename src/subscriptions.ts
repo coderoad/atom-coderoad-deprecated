@@ -1,7 +1,7 @@
 const CompositeDisposable = require('atom').CompositeDisposable;
 import store from './store';
 import {testRun, alertReplay} from './actions';
-import Root from './components/root';
+import sidePanelElement from './components/SidePanel/element';
 
 let subscriptions = null;
 
@@ -25,7 +25,7 @@ export function onActivate(): AtomCore.Disposable {
 
 export function onDeactivate(): void {
   // unmount React
-  Root.unmount();
+  sidePanelElement.unmount();
   // unsubscribe from Redux store
   store.subscribe(() => null);
   // cleanup subscriptions

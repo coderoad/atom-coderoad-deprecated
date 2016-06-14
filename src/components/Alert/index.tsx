@@ -16,7 +16,7 @@ const styles = {
 @connect(state => ({
   alert: state.alert,
 }), dispatch => ({
-  close: () => dispatch(alertClose()),
+  close() { dispatch(alertClose()); },
 }))
 export default class Alert extends React.Component<{
   alert?: CR.Alert, close?: any

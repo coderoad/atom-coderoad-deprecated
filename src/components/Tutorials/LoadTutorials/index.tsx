@@ -4,7 +4,7 @@ import {tutorialsFind} from '../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
 @connect(null, dispatch => ({
-  tutorialsFind: () => dispatch(tutorialsFind()),
+  tutorialsFind() { dispatch(tutorialsFind()); },
 }))
 export default class LoadTutorials extends React.Component<{
   tutorialsFind?: any

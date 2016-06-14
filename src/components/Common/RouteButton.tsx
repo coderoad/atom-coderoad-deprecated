@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {routeSet} from '../../actions';
 
 @connect(null, dispatch => ({
-  routeTo: (route: string) => dispatch(routeSet(route)),
+  routeTo(route: string) { dispatch(routeSet(route)); },
 }))
 export default class RouteButton extends React.Component<{
   label: string, route: string, routeTo?: any, style?: Object

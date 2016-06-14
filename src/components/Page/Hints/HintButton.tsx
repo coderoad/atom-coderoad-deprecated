@@ -8,7 +8,7 @@ import {hintsSelector} from 'core-coderoad/lib/selectors';
   hintPosition: state.hintPosition,
   hintsLength: hintsSelector(state).length,
 }), dispatch => ({
-  hintSet: (position: number) => dispatch(hintPositionSet(position)),
+  hintSet(position: number) { dispatch(hintPositionSet(position)); },
 }))
 export default class HintButton extends React.Component<{
   hintPosition?: number, hintsLength?: number, type: 'next'|'prev', label: string

@@ -12,7 +12,7 @@ const styles = {
 };
 
 @connect(null, dispatch => ({
-  callNextPage: () => dispatch(pageNext())
+  callNextPage() { dispatch(pageNext()); },
 }))
 export default class Continue extends React.Component<{
   callNextPage?: any

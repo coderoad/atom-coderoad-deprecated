@@ -12,7 +12,7 @@ const styles = {
 };
 
 @connect(null, dispatch => ({
-  save: () => dispatch(editorSave()),
+  save() { dispatch(editorSave()); },
 }))
 export default class Save extends React.Component<{
   save?: any

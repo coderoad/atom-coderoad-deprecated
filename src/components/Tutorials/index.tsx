@@ -16,7 +16,7 @@ const styles = {
 @connect(state => ({
   tutorials: state.tutorials,
 }), dispatch => ({
-  loadTutorials: () => dispatch(tutorialsFind()),
+  loadTutorials() { dispatch(tutorialsFind()); },
 }))
 export default class Tutorials extends React.Component<{
   tutorials?: Tutorial.Item[], loadTutorials?: any

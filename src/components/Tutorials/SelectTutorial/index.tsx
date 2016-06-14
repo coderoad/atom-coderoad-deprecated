@@ -4,7 +4,7 @@ import {tutorialSet} from '../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
 @connect(null, dispatch => ({
-  selectTutorial: (name: string) => dispatch(tutorialSet(name)),
+  selectTutorial(name: string) { dispatch(tutorialSet(name)); },
 }))
 export default class SelectTutorial extends React.Component<{
   tutorial: Tutorial.Item, selectTutorial?: any

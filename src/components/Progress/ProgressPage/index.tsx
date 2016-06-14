@@ -11,7 +11,7 @@ const styles = {
 };
 
 @connect(null, dispatch => ({
-  selectPage: (pagePosition: CR.PagePosition) => {
+  selectPage(pagePosition: CR.PagePosition) {
     dispatch(pageSet(pagePosition));
     dispatch(routeSet('page'));
   },

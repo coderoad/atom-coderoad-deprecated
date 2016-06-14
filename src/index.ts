@@ -1,20 +1,22 @@
 import * as React from 'react';
 import render from './components/render';
-import Root from './components/root';
+import sidePanelElement from './components/SidePanel/element';
 import loadPolyfills from 'core-coderoad/lib/polyfills';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 // activate Redux
 import store from './store';
 import {setupVerify} from './modules/setup';
+import * as injectTapEventPlugin from 'react-tap-event-plugin';
 
 class Main {
   root: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
+    injectTapEventPlugin(); // remove later
     loadPolyfills();
     // run startup checks
     store.dispatch(setupVerify());
-    this.root = Root.init();
+    this.root = sidePanelElement.init();
   }
   activate(): void {
     // create atom panel

@@ -10,7 +10,7 @@ const styles = {
 };
 
 @connect(null, dispatch => ({
-  toggle: () => dispatch(editorDevToolsToggle()),
+  toggle() { dispatch(editorDevToolsToggle()); },
 }))
 export default class ToggleDevTools extends React.Component<{
   toggle?: any
