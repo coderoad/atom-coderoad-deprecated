@@ -7,22 +7,20 @@ import {hintsSelector} from 'core-coderoad/lib/selectors';
 @connect(state => ({
   hintPosition: state.hintPosition,
   hintsLength: hintsSelector(state).length,
-}), dispatch => ({
-  hintSet(position: number) { dispatch(hintPositionSet(position)); },
-}))
+}), {hintPositionSet})
 export default class HintButton extends React.Component<{
   hintPosition?: number, hintsLength?: number, type: 'next'|'prev', label: string
-  hintSet?: any
+  hintPositionSet?: any
 }, {}> {
   render() {
-    const {hintPosition, hintsLength, label, type, hintSet} = this.props;
+    const {hintPosition, hintsLength, label, type, hintPositionSet} = this.props;
     switch (type) {
       case 'next':
       return (
         <FlatButton
           label={label}
           disabled={hintPosition > hintsLength - 2}
-          onTouchTap={hintSet.bind(this, hintPosition + 1)}
+          onTouchTap={hintPositionSet.bind(this, hintPosition + 1)}
         />
       );
       case 'prev':
@@ -30,7 +28,7 @@ export default class HintButton extends React.Component<{
         <FlatButton
           label={label}
           disabled={hintPosition === 0}
-          onTouchTap={hintSet.bind(this, hintPosition - 1)}
+          onTouchTap={hintPositionSet.bind(this, hintPosition - 1)}
         />
       );
     }

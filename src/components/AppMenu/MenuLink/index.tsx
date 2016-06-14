@@ -8,19 +8,17 @@ const styles = {
   padding: '0px 2px',
 };
 
-@connect(null, dispatch => ({
-  routeTo(route: string) { dispatch(routeSet(route)); },
-}))
+@connect(null, {routeSet})
 export default class MenuLink extends React.Component<{
-  route: string, title?: string, routeTo?: any
+  route: string, title?: string, routeSet?: any
 }, {}> {
   render() {
-    const {route, title, routeTo} = this.props;
+    const {route, title, routeSet} = this.props;
     return (
       <MenuItem
         style={styles}
         primaryText={title ? title : route}
-        onTouchTap={routeTo.bind(this, route)}
+        onTouchTap={routeSet.bind(this, route)}
         key={route}
       />
     );

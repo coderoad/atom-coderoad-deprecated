@@ -15,17 +15,15 @@ const styles = {
 
 @connect(state => ({
   tutorials: state.tutorials,
-}), dispatch => ({
-  loadTutorials() { dispatch(tutorialsFind()); },
-}))
+}), {tutorialsFind})
 export default class Tutorials extends React.Component<{
-  tutorials?: Tutorial.Item[], loadTutorials?: any
+  tutorials?: Tutorial.Item[], tutorialsFind?: any
 }, {}> {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    this.props.loadTutorials();
+    this.props.tutorialsFind();
   }
   render() {
     const {tutorials} = this.props;

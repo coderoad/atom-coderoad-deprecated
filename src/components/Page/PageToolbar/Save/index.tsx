@@ -11,11 +11,9 @@ const styles = {
   top: '10px',
 };
 
-@connect(null, dispatch => ({
-  save() { dispatch(editorSave()); },
-}))
+@connect(null, {editorSave})
 export default class Save extends React.Component<{
-  save?: any
+  editorSave?: any
 }, {}> {
   render() {
     return (
@@ -23,7 +21,7 @@ export default class Save extends React.Component<{
         label='Save'
         style={styles}
         secondary={true}
-        onTouchTap={this.props.save}
+        onTouchTap={this.props.editorSave}
       />
     );
   }

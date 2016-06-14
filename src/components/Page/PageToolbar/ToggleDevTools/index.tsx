@@ -9,18 +9,16 @@ const styles = {
   top: '10px',
 };
 
-@connect(null, dispatch => ({
-  toggle() { dispatch(editorDevToolsToggle()); },
-}))
+@connect(null, {editorDevToolsToggle})
 export default class ToggleDevTools extends React.Component<{
-  toggle?: any
+  editorDevToolsToggle?: any
 }, {}> {
   render() {
     return (
       <FlatButton
         style={styles}
         icon={<Code />}
-        onTouchTap={this.props.toggle}
+        onTouchTap={this.props.editorDevToolsToggle}
       />
     );
   };

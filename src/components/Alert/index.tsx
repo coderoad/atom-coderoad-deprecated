@@ -15,14 +15,12 @@ const styles = {
 
 @connect(state => ({
   alert: state.alert,
-}), dispatch => ({
-  close() { dispatch(alertClose()); },
-}))
+}), {alertClose})
 export default class Alert extends React.Component<{
-  alert?: CR.Alert, close?: any
+  alert?: CR.Alert, alertClose?: any
 }, {}> {
   render() {
-    const {alert, close} = this.props;
+    const {alert, alertClose} = this.props;
     const {action, message, open, duration, color} = alert;
     return (
       <Snackbar
@@ -32,8 +30,8 @@ export default class Alert extends React.Component<{
           message={message || ''}
           action={action || ''}
           autoHideDuration={duration || 2000}
-          onActionTouchTap={close}
-          onRequestClose={close}
+          onActionTouchTap={alertClose}
+          onRequestClose={alertClose}
       />
     );
   }

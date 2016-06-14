@@ -20,9 +20,7 @@ const styles = {
   pagePosition: state.pagePosition,
   info: state.tutorial.info,
   tutorial: state.tutorial
-}), dispatch => ({
-    progressLoad() { dispatch(progressLoad()); }
-}))
+}), {progressLoad})
 export default class Progress extends React.Component<{
     progress?: CR.Progress, pagePosition?: CR.PagePosition,
     info?: Tutorial.Info, tutorial?: CR.Tutorial, progressLoad?: () => any;

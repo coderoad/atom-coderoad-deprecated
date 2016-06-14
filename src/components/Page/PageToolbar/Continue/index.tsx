@@ -11,11 +11,9 @@ const styles = {
   top: '10px',
 };
 
-@connect(null, dispatch => ({
-  callNextPage() { dispatch(pageNext()); },
-}))
+@connect(null, {pageNext})
 export default class Continue extends React.Component<{
-  callNextPage?: any
+  pageNext?: any
 }, {}> {
   render() {
     return (
@@ -23,7 +21,7 @@ export default class Continue extends React.Component<{
         style={styles}
         label='Continue'
         primary={true}
-        onTouchTap={this.props.callNextPage}
+        onTouchTap={this.props.pageNext}
       />
     );
   }

@@ -3,11 +3,9 @@ import {connect} from 'react-redux';
 import {tutorialSet} from '../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
-@connect(null, dispatch => ({
-  selectTutorial(name: string) { dispatch(tutorialSet(name)); },
-}))
+@connect(null, {tutorialSet})
 export default class SelectTutorial extends React.Component<{
-  tutorial: Tutorial.Item, selectTutorial?: any
+  tutorial: Tutorial.Item, tutorialSet?: any
 }, {}> {
   displayName(name: string): string {
     switch (true) {
@@ -17,13 +15,13 @@ export default class SelectTutorial extends React.Component<{
     }
   }
   render() {
-    const {tutorial, selectTutorial} = this.props;
+    const {tutorial, tutorialSet} = this.props;
     const {name} = tutorial;
     return (
       <FlatButton
         label={this.displayName(name)}
         primary={true}
-        onTouchTap={selectTutorial.bind(this, name)}
+        onTouchTap={tutorialSet.bind(this, name)}
       />
     );
   }

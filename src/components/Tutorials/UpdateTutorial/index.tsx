@@ -14,9 +14,7 @@ const styles = {
   },
 };
 
-@connect(null, dispatch => ({
-  tutorialUpdate(title: string) { dispatch(tutorialUpdate(title)); },
-}))
+@connect(null, {tutorialUpdate})
 export default class UpdateTutorial extends React.Component<{
   tutorial: Tutorial.Item, tutorialUpdate?: any
 }, {}> {
