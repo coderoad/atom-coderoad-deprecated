@@ -6,19 +6,19 @@ import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 
 @connect(state => ({
-  windowToggle: state.windowToggle,
+  isWindowOpen: state.window,
 }))
 export default class SidePanel extends React.Component<{
-  windowToggle?: boolean
+  isWindowOpen?: boolean
 }, {}> {
   render(): React.ReactElement<{}> {
-    const {windowToggle} = this.props;
+    const {isWindowOpen} = this.props;
     return (
       <section>
         <Drawer
           width={400}
           openSecondary={true}
-          open={windowToggle}
+          open={isWindowOpen}
         >
           <div className='cr-bg'>
             <AppMenu />

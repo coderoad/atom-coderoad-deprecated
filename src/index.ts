@@ -1,7 +1,7 @@
 import * as React from 'react';
-import render from './components/render';
 import sidePanelElement from './components/SidePanel/element';
-import {loadPolyfills} from 'core-coderoad';
+import sidePanelRoot from './components/SidePanel/root';
+import {loadPolyfills, render} from 'core-coderoad';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 // activate Redux
 import store from './store';
@@ -26,7 +26,7 @@ class Main {
     });
     onActivate();
     // render React component
-    render(this.root);
+    render(this.root, sidePanelRoot(store));
   }
   consumeStatusBar(statusBar) {
     this.statusBarTile = addToStatusBar(statusBar);

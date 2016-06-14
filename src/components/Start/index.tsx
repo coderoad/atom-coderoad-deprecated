@@ -21,7 +21,13 @@ export default class Start extends React.Component<{
     return (
       <section className='cr-start'>
         <div style={headerStyles}>
-        {ready ? <Welcome  /> : <Checks />}
+        {ready
+          ? <Welcome
+              title='CodeRoad'
+              tagline='Tutorials in your Editor'
+              firstRoute='tutorials'
+            />
+          : <Checks />}
         </div>
       </section>
     );

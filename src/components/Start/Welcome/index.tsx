@@ -32,14 +32,16 @@ const styles = {
   },
 };
 
-const Welcome: React.StatelessComponent<{}> = () => (
+const Welcome: React.StatelessComponent<{
+  title: string, tagline: string, firstRoute: string
+}> = ({title, tagline, firstRoute}) => (
   <div style={styles.header} className='cr-bg'>
-      <div style={styles.title}>CodeRoad</div>
-      <div style={styles.tagline}>Tutorials in your Editor</div>
+      <div style={styles.title}>{title}</div>
+      <div style={styles.tagline}>{tagline}</div>
       <br /><br />
       <RouteButton
         label='Start'
-        route='tutorials'
+        route={firstRoute}
         style={styles.button}
       />
   </div>

@@ -14,12 +14,12 @@ import {
   editorReducer as editor,
   dirReducer as dir,
   routeReducer as route,
-  windowToggle
+  windowReducer as window
 } from 'core-coderoad';
 
 export default combineReducers({
   alert, checks, editor, dir, hintPosition,
   packageJson, pagePosition, progress, route,
   tutorial, tutorials,
-  taskActions, taskPosition, taskTests, testRun, windowToggle
+  taskActions, taskPosition, taskTests, testRun, window
 });
