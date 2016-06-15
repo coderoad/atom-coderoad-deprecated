@@ -1,21 +1,28 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {quit} from 'core-coderoad';
-import {onDeactivate} from '../../../subscriptions';
 import MenuItem from 'material-ui/MenuItem';
+import {quit} from '../../../actions';
 
 const styles = {
-  textAlign: 'center',
-  padding: '0px 2px',
+    menuItem: {
+    textAlign: 'center',
+    padding: '0px 2px',
+  },
 };
 
-const Quit = () => (
-  <MenuItem
-    style={styles}
-    key='quit'
-    onClick={onDeactivate}
-  >
-    quit
-  </MenuItem>
-);
-export default Quit;
+@connect(null, {quit})
+export default class Quit extends React.Component<{
+  quit?: () => Redux.ActionCreator
+}, {}> {
+  render() {
+    return (
+      <MenuItem
+        style={styles.menuItem}
+        key='quit'
+        onClick={this.props.quit}
+      >
+        quit
+      </MenuItem>
+    );
+  }
+}

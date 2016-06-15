@@ -1,17 +1,16 @@
-const CompositeDisposable = require('atom').CompositeDisposable;
+import {CompositeDisposable} from 'atom';
 import store from './store';
-import {testRun, alertReplay} from './actions';
-import sidePanelElement from './components/SidePanel/element';
+import {testRun, alertReplay, windowToggle} from './actions';
 
 let subscriptions = null;
 
-export function onActivate(): AtomCore.Disposable {
+export function onActivate(store: Redux.Store): AtomCore.Disposable {
   // Atom Listeners
   subscriptions = new CompositeDisposable;
 
   subscriptions.add(
     atom.commands.add('atom-workspace', {
-      'cr-viewer:toggle': () => store.dispatch({ type: 'WINDOW_TOGGLE'})
+      'cr-viewer:toggle': () => store.dispatch(windowToggle())
     })
   );
 
@@ -23,9 +22,7 @@ export function onActivate(): AtomCore.Disposable {
   return subscriptions;
 }
 
-export function onDeactivate(): void {
-  // unmount React
-  sidePanelElement.unmount();
+export function onDeactivate(store: Redux.Store): void {
   // unsubscribe from Redux store
   store.subscribe(() => null);
   // cleanup subscriptions

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import sidePanelElement from './components/SidePanel/element';
-import sidePanelRoot from './components/SidePanel/root';
+import * as ReactDOM from 'react-dom';
+import {sideElement, SideRoot} from './components/SidePanel';
 import {loadPolyfills, render} from 'core-coderoad';
 import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
 // activate Redux
@@ -9,24 +9,27 @@ import {setupVerify} from './modules/setup';
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
 
 class Main {
-  root: HTMLElement;
+  side: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
   constructor() {
     injectTapEventPlugin(); // remove later
     loadPolyfills();
     // run startup checks
     store.dispatch(setupVerify());
-    this.root = sidePanelElement.init();
+    this.side = sideElement.init();
   }
   activate(): void {
     // create atom panel
     atom.workspace.addRightPanel({
-      item: this.root,
+      item: this.side,
       priority: 0,
     });
-    onActivate();
+
+    // activate subscriptions
+    onActivate(store);
+
     // render React component
-    render(this.root, sidePanelRoot(store));
+    ReactDOM.render(SideRoot(store), this.side);
   }
   consumeStatusBar(statusBar) {
     this.statusBarTile = addToStatusBar(statusBar);
@@ -38,7 +41,9 @@ class Main {
       this.statusBarTile = null;
     }
     // remove subscriptions & unmount react app
-    onDeactivate();
+    onDeactivate(store);
+    // unmount React
+    sideElement.unmount();
   }
 };
 export = new Main();

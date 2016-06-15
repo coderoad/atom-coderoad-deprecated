@@ -11,5 +11,5 @@ export {
   editorDevToolsToggle, editorOpen, editorInsert,
   editorSave, editorSet,
   routeSet,
-  windowToggle
+  windowToggle, quit
 } from 'core-coderoad';

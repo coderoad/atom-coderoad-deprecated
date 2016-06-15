@@ -1,6 +1,6 @@
 import * as ReactDOM from 'react-dom';
 
-const sidePanelElement = {
+const sideElement = {
   root: null,
   init() {
     this.root = document.createElement('div');
@@ -11,4 +11,4 @@ const sidePanelElement = {
     ReactDOM.unmountComponentAtNode(this.root);
   }
 };
-export default sidePanelElement;
+export default sideElement;
