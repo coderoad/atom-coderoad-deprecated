@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.10.1] - WIP
+- style fix for Atom 1.9
+- rely on core-coderoad@0.3
+
 ## [0.10.0] - 2016-06-12
 - throttle saves at 800ms
 - extract common modules into [core-coderoad](https://github.com/coderoad/core-coderoad) to share with the new [tutorial builder](https://github.com/coderoad/builder-coderoad)

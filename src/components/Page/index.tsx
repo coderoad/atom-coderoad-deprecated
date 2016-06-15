@@ -12,6 +12,7 @@ import {pageSelector, taskProgressSelector} from 'core-coderoad';
 
 const styles = {
   page: {
+    height: '100%',
     width: '100%',
     overflowY: 'scroll',
   },

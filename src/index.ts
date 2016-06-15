@@ -24,10 +24,8 @@ class Main {
       item: this.side,
       priority: 0,
     });
-
     // activate subscriptions
     onActivate(store);
-
     // render React component
     ReactDOM.render(SideRoot(store), this.side);
   }
