@@ -25,6 +25,7 @@
         "src/components/index.ts",
         "src/components/SidePanel/index.ts",
         "src/components/SidePanel/sideElement.ts",
+        "src/components/StatusBar/index.ts",
         "src/components/styles/theme.ts",
         "src/index.ts",
         "src/modules/hints/actions.ts",

@@ -4,7 +4,7 @@ import {configureStore} from 'core-coderoad';
 export default configureStore(
   reducer,
   // devMode
-  true,
+  false,
   // throttled actions
-  { TEST_RUN: 800}
+  { TEST_RUN: 500 }
 );

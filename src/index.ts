@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {sideElement, SideRoot} from './components/SidePanel';
 import {loadPolyfills, render} from 'core-coderoad';
-import {onActivate, onDeactivate, addToStatusBar} from './subscriptions';
+import Subscriptions from './subscriptions';
+import addToStatusBar from './components/StatusBar';
 // activate Redux
 import store from './store';
 import {setupVerify} from './modules/setup';
@@ -11,12 +12,14 @@ import * as injectTapEventPlugin from 'react-tap-event-plugin';
 class Main {
   side: HTMLElement;
   statusBarTile: StatusBar.IStatusBarView;
+  subscriptions: any;
   constructor() {
     injectTapEventPlugin(); // remove later
     loadPolyfills();
     // run startup checks
     store.dispatch(setupVerify());
     this.side = sideElement.init();
+    this.subscriptions = new Subscriptions;
   }
   activate(): void {
     // create atom panel
@@ -25,12 +28,12 @@ class Main {
       priority: 0,
     });
     // activate subscriptions
-    onActivate(store);
+    this.subscriptions.onActivate(store);
     // render React component
     ReactDOM.render(SideRoot(store), this.side);
   }
   consumeStatusBar(statusBar) {
-    this.statusBarTile = addToStatusBar(statusBar);
+    this.statusBarTile = addToStatusBar(store, statusBar);
   }
   deactivate(): void {
     // remove bottom status bar icon
@@ -39,7 +42,7 @@ class Main {
       this.statusBarTile = null;
     }
     // remove subscriptions & unmount react app
-    onDeactivate(store);
+    this.subscriptions.onDeactivate(store);
     // unmount React
     sideElement.unmount();
   }
