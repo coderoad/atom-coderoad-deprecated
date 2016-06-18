@@ -2,9 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.10.1] - WIP
+## [0.10.1] - 2016-06-18
 - style fix for Atom 1.9
-- rely on core-coderoad@0.3
+- rely on core-coderoad@0.4
+    - drops node-gyp dependency from syntax-highlighter
 
 ## [0.10.0] - 2016-06-12
 - throttle saves at 800ms

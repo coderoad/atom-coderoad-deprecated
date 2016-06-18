@@ -32,17 +32,13 @@
     "atom-plugin-command-line": "1.0.2",
     "coderoad-cli": "0.6.0",
     "core-coderoad": "0.3.0",
-    "lodash": "^4.13.1",
     "material-ui": "0.15.0",
     "node-file-exists": "1.1.0",
     "react": "15.1.0",
     "react-dom": "15.1.0",
     "react-redux": "4.4.5",
     "react-tap-event-plugin": "1.0.0",
-    "redux": "3.5.2",
-    "redux-logger": "2.6.1",
-    "redux-throttle-actions": "1.1.0",
-    "redux-thunk": "2.1.0"
+    "redux": "3.5.2"
   },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

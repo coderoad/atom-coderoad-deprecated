@@ -6,5 +6,5 @@ export default configureStore(
   // devMode
   false,
   // throttled actions
-  { TEST_RUN: 500 }
+  { TEST_RUN: 800 }
 );
