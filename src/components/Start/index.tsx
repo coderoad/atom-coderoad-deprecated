@@ -18,6 +18,7 @@ export default class Start extends React.Component<{
 }, {}> {
   render() {
     const {ready} = this.props;
+
     return (
       <section className='cr-start'>
         <div style={headerStyles}>

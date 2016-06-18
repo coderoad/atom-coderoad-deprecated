@@ -120,6 +120,7 @@
         "src/components/Start/Checks/VerifyButton.tsx",
         "src/components/Start/index.tsx",
         "src/components/Start/Welcome/index.tsx",
+        "src/components/TextEditor/index.tsx",
         "src/components/Tutorials/index.tsx",
         "src/components/Tutorials/LoadTutorials/index.tsx",
         "src/components/Tutorials/SelectTutorial/index.tsx",
