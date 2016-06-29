@@ -1,7 +1,6 @@
-export {
-Alert, Markdown
-} from 'core-coderoad';
+export {Markdown} from 'core-coderoad';
 
+export {default as Alert} from './Alert';
 export {default as AppMenu} from './AppMenu';
 export {default as FinalPage} from './FinalPage';
 export {default as Page} from './Page';

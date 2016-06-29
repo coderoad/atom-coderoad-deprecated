@@ -9,7 +9,7 @@ export default function runTaskTests(
 
   if (tests && tests.length) {
     const tutorialConfig: Tutorial.Config = tutorial.config;
-    const output = parseLoaders(
+    const testString = parseLoaders(
       tests, tutorialConfig.testSuffix, tutorial, dir
     );
 
@@ -20,7 +20,7 @@ export default function runTaskTests(
     };
 
     // call test runner
-    tutorialConfig.run(output, config, handleResult);
+    tutorialConfig.run({testString, config, handleResult});
   }
   return true;
 }

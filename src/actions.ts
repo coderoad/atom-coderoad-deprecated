@@ -1,3 +1,4 @@
+export {alertOpen, alertClose, alertReplay} from './modules/alert/actions';
 export {hintPositionSet} from './modules/hints/actions';
 export {pageSet, pageNext} from './modules/page/actions';
 export {progressLoad, progressCompletePage} from './modules/progress/actions';
@@ -7,7 +8,6 @@ export {tutorialSet} from './modules/tutorial';
 export {tutorialsFind, tutorialUpdate} from './modules/tutorials';
 
 export {
-  alertOpen, alertClose, alertReplay,
   editorDevToolsToggle, editorOpen, editorInsert,
   editorSave, editorSet,
   routeSet,
