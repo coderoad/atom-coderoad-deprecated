@@ -10,7 +10,7 @@ const styles = {
   task: {
     margin: '5px',
     padding: '5px',
-    position: 'relative'
+    position: 'relative',
   },
   index: {
     position: 'absolute',

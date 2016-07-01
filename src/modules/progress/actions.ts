@@ -13,7 +13,7 @@ export function progressLoad(): ReduxThunk.ThunkInterface {
 }
 
 function _progressPagePosition() {
-  return function(dispatch, getState) {
+  return (dispatch, getState) => {
     const {progress} = getState();
     dispatch({ type: PROGRESS_PAGE_POSITION, payload: { progress } });
   };
