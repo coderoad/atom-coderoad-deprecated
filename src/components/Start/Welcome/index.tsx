@@ -1,15 +1,9 @@
 import * as React from 'react';
-import {join} from 'path';
+import {resolve} from 'path';
 import {RouteButton} from '../../index';
 
-// TODO: fix path
-const imagePath = join(
-  __dirname, '../../../../', 'img', 'coderoad.jpg'
-);
-
-const styles = {
+let styles = {
   header: {
-    backgroundImage: `url("${imagePath}")`,
     backgroundRepeat: 'no-repeat',
     backgroundColor: 'inherit',
     height: '350px',
@@ -31,6 +25,16 @@ const styles = {
     textShadow: '1px 1px 0px #000',
   },
 };
+
+// issue: image not loading on Windows
+// due to url parse/replacing providing
+// invalid path
+if (!navigator.platform.match(/Win/)) {
+  const imagePath = resolve(
+    __dirname, '..', '..', '..', '..', 'img', 'coderoad.jpg'
+  );
+  styles.header.backgroundImage = `url(${imagePath})`;
+}
 
 const Welcome: React.StatelessComponent<{
   title: string, tagline: string, firstRoute: string
