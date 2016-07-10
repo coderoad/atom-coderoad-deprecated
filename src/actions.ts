@@ -7,9 +7,4 @@ export {setupVerify, setupPackage} from './modules/setup/actions';
 export {tutorialSet} from './modules/tutorial';
 export {tutorialsFind, tutorialUpdate} from './modules/tutorials';
 
-export {
-  editorDevToolsToggle, editorOpen, editorInsert,
-  editorSave, editorSet,
-  routeSet,
-  windowToggle, quit
-} from 'core-coderoad';
+export {editorDevToolsToggle, editorOpen, editorInsert, editorSave, editorSet, routeSet, windowToggle, quit} from 'core-coderoad';

@@ -16,7 +16,8 @@
   "rootDir": "src"
  },
  "filesGlob": [
-  "typings/**/*.d.ts",
+  "typings.d.ts",
+  "*.ts",
   "**/*.tsx?",
   "!**/*.spec.tsx?"
  ],

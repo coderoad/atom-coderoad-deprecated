@@ -1,11 +1,11 @@
-import {CompositeDisposable} from 'atom';
+import {alertReplay, testRun, windowToggle} from './actions';
 import store from './store';
-import {testRun, alertReplay, windowToggle} from './actions';
+import {CompositeDisposable} from 'atom';
 
 export default class Subscriptions {
-  public subscriptions = new CompositeDisposable;
+  private subscriptions = new CompositeDisposable();
 
-  onActivate(store: Redux.Store): AtomCore.Disposable {
+  public onActivate(store: Redux.Store): AtomCore.Disposable {
     this.subscriptions.add(
       atom.commands.add('atom-workspace', {
         'cr-viewer:toggle': () => store.dispatch(windowToggle())
@@ -19,7 +19,7 @@ export default class Subscriptions {
     return this.subscriptions;
   }
 
-  onDeactivate(store: Redux.Store): void {
+  public onDeactivate(store: Redux.Store): void {
     // unsubscribe from Redux store
     store.subscribe(() => null);
     // cleanup subscriptions
