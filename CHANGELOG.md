@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.11.0] - 2016-06-28
+## [0.10.2] - 2016-06-28
 - rely on core-coderoad@0.5
 - require newer version of test runners
 - update to material-ui@0.15.1

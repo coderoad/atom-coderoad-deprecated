@@ -1,4 +1,4 @@
-import {PROGRESS_LOAD, PROGRESS_COMPLETE_PAGE, PROGRESS_COMPLETE_TUTORIAL} from './types';
+import {PROGRESS_COMPLETE_PAGE, PROGRESS_COMPLETE_TUTORIAL, PROGRESS_LOAD} from './types';
 import {loadProgressFromLocalStorage, saveToLocalStorage} from './utils/local-storage';
 
 const _progress: CR.Progress = {

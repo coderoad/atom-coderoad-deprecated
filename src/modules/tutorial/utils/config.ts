@@ -1,8 +1,9 @@
 import {join} from 'path';
-import fileExists from 'node-file-exists';
-import {isWindows} from './system';
+
+import {configIssuesPath, configRepo} from './config-repo';
 import configRunner from './config-runner';
-import {configRepo, configIssuesPath} from './config-repo';
+import {isWindows} from './system';
+import fileExists from 'node-file-exists';
 
 export function tutorialConfig(
   tutorialPj: PackageJson, dir: string

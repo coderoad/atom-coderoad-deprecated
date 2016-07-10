@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import Snackbar from 'material-ui/Snackbar';
+
 import {alertClose} from '../../actions';
+import Snackbar from 'material-ui/Snackbar';
 
 const defaultAlert = {
   message: '',
@@ -20,7 +21,7 @@ const styles = {
 export default class Alert extends React.Component<{
   alert?: CR.Alert, alertClose?: () => Redux.ActionCreator
 }, {}> {
-  render() {
+  public render() {
     const {alert, alertClose} = this.props;
     const {action, message, open, duration, color} = alert;
     return (

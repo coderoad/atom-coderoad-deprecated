@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import AppBar from 'material-ui/AppBar';
+
+// import {onDeactivate} from '../../subscriptions';
 import CloseWindow from './CloseWindow';
 import menuRight from './menuRight';
-import {onDeactivate} from '../../subscriptions';
+import AppBar from 'material-ui/AppBar';
 
 const styles = {
   zIndex: '1',
@@ -15,7 +16,7 @@ const styles = {
 export default class AppMenu extends React.Component<{
   route?: string
 }, {}> {
-  render() {
+  public render() {
     const {route} = this.props;
     return (
       <AppBar

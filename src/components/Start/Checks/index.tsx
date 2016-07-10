@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import SystemChecks from './SystemChecks';
-import SetupChecks from './SetupChecks';
-import InstallGuide from './InstallGuide';
+
 import {ContentCard} from '../../index';
+import InstallGuide from './InstallGuide';
+import SetupChecks from './SetupChecks';
+import SystemChecks from './SystemChecks';
 
 const styles = {
   margin: '5px',
@@ -16,7 +17,7 @@ const styles = {
 export default class Checks extends React.Component<{
   checks?: CR.Checks
 }, {}> {
-  render() {
+  public render() {
     const {checks} = this.props;
     if (!checks) {
       return <ContentCard title='Error Loading Package.json' />;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+
 import {tutorialsFind} from '../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -7,7 +8,7 @@ import FlatButton from 'material-ui/FlatButton';
 export default class LoadTutorials extends React.Component<{
   tutorialsFind?: any
 }, {}> {
-  render() {
+  public render() {
     const {tutorialsFind} = this.props;
     return (
       <FlatButton

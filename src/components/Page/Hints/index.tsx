@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+
 import {Markdown} from '../../index';
 import HintButton from './HintButton';
-import Help from 'material-ui/svg-icons/action/help';
 import {hintSelector} from 'core-coderoad';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import Help from 'material-ui/svg-icons/action/help';
 
 const styles = {
   position: 'relative',
@@ -19,7 +20,7 @@ const styles = {
 export default class Hints extends React.Component<{
   hintsLength?: number, hint?: string
 }, {}> {
-  render() {
+  public render() {
     const {hint} = this.props;
     if (!hint) {
       return null;

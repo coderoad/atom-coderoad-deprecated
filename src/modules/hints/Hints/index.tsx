@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+
 import {Markdown} from '../../../components/index';
 import HintButton from './HintButton';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import Help from 'material-ui/svg-icons/action/help';
 
 const styles = {

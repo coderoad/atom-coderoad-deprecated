@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import MenuLink from './MenuLink';
 
 export default function menuRightRouteOptions(route: string) {
@@ -15,5 +16,5 @@ export default function menuRightRouteOptions(route: string) {
       return <MenuLink route='tutorials' />;
     default:
       return null;
-  };
+  }
 }

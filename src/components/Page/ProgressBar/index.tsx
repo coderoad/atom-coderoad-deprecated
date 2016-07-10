@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import LinearProgress from 'material-ui/LinearProgress';
+
 import {taskProgressSelector} from 'core-coderoad';
+import LinearProgress from 'material-ui/LinearProgress';
 
 const style = {
   height: '10px',
@@ -15,7 +16,7 @@ const style = {
 export default class ProgressBar extends React.Component<{
   taskProgress?: number
 }, {}> {
-  render() {
+  public render() {
     const {taskProgress} = this.props;
     return (
       <LinearProgress

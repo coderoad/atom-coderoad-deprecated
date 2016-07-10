@@ -1,7 +1,8 @@
-import * as React from 'react';
 import {join} from 'path';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import * as React from 'react';
+
 import ModeEdit from 'material-ui/svg-icons/editor/mode-edit';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 const editStyle = {
   position: 'absolute',

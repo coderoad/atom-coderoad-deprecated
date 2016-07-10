@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+
 import {tutorialSet} from '../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -7,14 +8,7 @@ import FlatButton from 'material-ui/FlatButton';
 export default class SelectTutorial extends React.Component<{
   tutorial: Tutorial.Item, tutorialSet?: any
 }, {}> {
-  displayName(name: string): string {
-    switch (true) {
-      case !!name.match(/^coderoad-tutorial-/): return name.slice(18);
-      case !!name.match(/^coderoad-/): return name.slice(9);
-      default: return name;
-    }
-  }
-  render() {
+  public render() {
     const {tutorial, tutorialSet} = this.props;
     const {name} = tutorial;
     return (
@@ -24,5 +18,12 @@ export default class SelectTutorial extends React.Component<{
         onTouchTap={tutorialSet.bind(this, name)}
       />
     );
+  }
+  private displayName(name: string): string {
+    switch (true) {
+      case !!name.match(/^coderoad-tutorial-/): return name.slice(18);
+      case !!name.match(/^coderoad-/): return name.slice(9);
+      default: return name;
+    }
   }
 }

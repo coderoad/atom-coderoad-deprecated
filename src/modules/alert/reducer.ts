@@ -1,4 +1,4 @@
-import {ALERT_REPLAY, ALERT_OPEN, ALERT_CLOSE} from './types';
+import {ALERT_CLOSE, ALERT_OPEN, ALERT_REPLAY} from './types';
 
 const colors = {
   PASS: '#73C990', // green

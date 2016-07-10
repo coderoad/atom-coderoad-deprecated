@@ -1,12 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
-import {List} from 'material-ui/List';
-import {Card} from 'material-ui/Card';
-import Subheader from 'material-ui/Subheader';
+
 import Task from '../Task';
-import {lightGreen200} from 'material-ui/styles/colors';
 import {pageCompletedSelector, visibleTasksSelector} from 'core-coderoad';
+import {Card} from 'material-ui/Card';
+import {List} from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
+import {lightGreen200} from 'material-ui/styles/colors';
 
 const margin = '10px 5px';
 
@@ -17,14 +18,11 @@ const margin = '10px 5px';
 export default class Tasks extends React.Component<{
     tasks?: CR.Task[], completed?: boolean, page?: CR.Page
 }, {}> {
-  refs: {
+  public refs: {
     [key: string]: (Element);
     listEnd: Element;
   };
-  componentDidUpdate() {
-    ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
-  }
-  render() {
+  public render() {
     const {tasks, completed} = this.props;
     const backgroundColor = completed ? lightGreen200 : 'white';
     return (
@@ -40,5 +38,8 @@ export default class Tasks extends React.Component<{
         <div ref='listEnd' />
       </Card>
     );
+  }
+  private componentDidUpdate() {
+    ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
   }
 }

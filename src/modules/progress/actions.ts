@@ -1,7 +1,7 @@
-import {
-  PROGRESS_LOAD, PROGRESS_COMPLETE_PAGE, PROGRESS_PAGE_POSITION, PROGRESS_COMPLETE_TUTORIAL
-} from './types';
 import {alertOpen, testRun} from '../../actions';
+import {
+  PROGRESS_COMPLETE_PAGE, PROGRESS_COMPLETE_TUTORIAL, PROGRESS_LOAD, PROGRESS_PAGE_POSITION
+} from './types';
 
 export function progressLoad(): ReduxThunk.ThunkInterface {
   return (dispatch, getState) => {

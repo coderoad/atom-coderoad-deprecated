@@ -18,8 +18,10 @@
  "filesGlob": [
   "typings.d.ts",
   "*.ts",
-  "**/*.tsx?",
-  "!**/*.spec.tsx?"
+  "**/*.ts",
+  "**/*.tsx",
+  "!**/*.spec.ts",
+  "!**/*.spec.tsx"
  ],
  "exclude": [
   "node_modules"

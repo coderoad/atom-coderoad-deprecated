@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+
 import Checks from './Checks';
 import Welcome from './Welcome';
 
@@ -16,14 +17,14 @@ const headerStyles = {
 export default class Start extends React.Component<{
   ready?: CR.Checks
 }, {}> {
-  render() {
+  public render() {
     const {ready} = this.props;
 
     return (
       <section className='cr-start'>
         <div style={headerStyles}>
         {ready
-          ? <Welcome
+            ? <Welcome
               title='CodeRoad'
               tagline='Tutorials in your Editor'
               firstRoute='tutorials'

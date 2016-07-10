@@ -1,4 +1,4 @@
-import {TEST_RUN, TEST_COMPLETE} from '../types';
+import {TEST_COMPLETE, TEST_RUN} from '../types';
 import runTaskTests from './run';
 
 export default function runTest(

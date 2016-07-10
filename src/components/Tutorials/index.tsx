@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {
-  Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn, TableBody
-} from 'material-ui/Table';
-import LoadTutorials from './LoadTutorials';
-import UpdateTutorial from './UpdateTutorial';
-import SelectTutorial from './SelectTutorial';
+
 import {tutorialsFind} from '../../actions';
+import LoadTutorials from './LoadTutorials';
+import SelectTutorial from './SelectTutorial';
+import UpdateTutorial from './UpdateTutorial';
+import {
+  Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn
+} from 'material-ui/Table';
 
 const styles = {
   padding: '10px',
@@ -22,10 +23,7 @@ export default class Tutorials extends React.Component<{
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
-    this.props.tutorialsFind();
-  }
-  render() {
+  public render() {
     const {tutorials} = this.props;
     return (
   <div style={styles}>
@@ -70,5 +68,8 @@ export default class Tutorials extends React.Component<{
     <LoadTutorials />
   </div>
     );
+  }
+  private componentDidMount() {
+    this.props.tutorialsFind();
   }
 }

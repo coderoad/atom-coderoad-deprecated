@@ -1,13 +1,14 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import RaisedButton from 'material-ui/RaisedButton';
+
 import {routeSet} from '../../actions';
+import RaisedButton from 'material-ui/RaisedButton';
 
 @connect(null, {routeSet})
 export default class RouteButton extends React.Component<{
   label: string, route: string, routeSet?: any, style?: Object
 }, {}> {
-  render() {
+  public render() {
     const {label, route, style, routeSet} = this.props;
     return (
         <RaisedButton

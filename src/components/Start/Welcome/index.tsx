@@ -1,5 +1,6 @@
-import * as React from 'react';
 import {resolve} from 'path';
+import * as React from 'react';
+
 import {RouteButton} from '../../index';
 
 let styles = {

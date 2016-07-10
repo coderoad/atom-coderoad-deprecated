@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import MenuItem from 'material-ui/MenuItem';
+
 import {quit} from '../../../actions';
+import MenuItem from 'material-ui/MenuItem';
 
 const styles = {
     menuItem: {
@@ -14,7 +15,7 @@ const styles = {
 export default class Quit extends React.Component<{
   quit?: () => Redux.ActionCreator
 }, {}> {
-  render() {
+  public render() {
     return (
       <MenuItem
         style={styles.menuItem}

@@ -1,7 +1,8 @@
 import * as React from 'react';
-import FlatButton from 'material-ui/FlatButton';
-import {setupVerify} from '../../../actions';
 import {connect} from 'react-redux';
+
+import {setupVerify} from '../../../actions';
+import FlatButton from 'material-ui/FlatButton';
 
 @connect(null, {setupVerify})
 export default class VerifyButton extends React.Component<{
@@ -11,7 +12,7 @@ export default class VerifyButton extends React.Component<{
     return (
       <FlatButton
         label='Verify Setup Complete'
-        primary={true}
+        primary
         onTouchTap={this.props.setupVerify}
       />
     );

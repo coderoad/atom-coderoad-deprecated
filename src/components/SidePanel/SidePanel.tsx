@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {AppMenu, Alert} from '../index';
+
 import Routes from '../Routes';
+import {Alert, AppMenu} from '../index';
 import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 
@@ -11,7 +12,7 @@ import Menu from 'material-ui/svg-icons/navigation/menu';
 export default class SidePanel extends React.Component<{
   isWindowOpen?: boolean
 }, {}> {
-  render(): React.ReactElement<{}> {
+  public render(): React.ReactElement<{}> {
     const {isWindowOpen} = this.props;
     return (
       <section>

@@ -1,6 +1,6 @@
+import {editorInsert, editorOpen, editorSave, editorSet} from '../../../actions';
 import store from '../../../store';
-import {getCommand, getParams, getOptions} from './parser';
-import {editorOpen, editorInsert, editorSave, editorSet} from '../../../actions';
+import {getCommand, getOptions, getParams} from './parser';
 
 const Type = {
   OPEN: 'open',

@@ -1,3 +1,6 @@
+import {alertReplay} from '../../actions';
+import store from '../../store';
+
 export default function addToStatusBar(store: Redux.Store, statusBar) {
   let replay = document.createElement('div');
   // create status bar element

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import Paper from 'material-ui/Paper';
+
+import {Card, CardActions, CardText, CardTitle} from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
-import {Card, CardTitle, CardText, CardActions} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import Paper from 'material-ui/Paper';
 
 const styles = {
   card: {
@@ -14,7 +15,7 @@ const styles = {
 
 @connect(null, null)
 export default class FinalPage extends React.Component<{}, {}> {
-  render() {
+  public render() {
     return (
       <Card style={styles.card}>
         <CardTitle

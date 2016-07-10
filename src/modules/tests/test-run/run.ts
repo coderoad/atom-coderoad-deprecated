@@ -1,6 +1,7 @@
 import {join} from 'path';
-import parseLoaders from './parse-loaders';
+
 import handleResult from './handle-result';
+import parseLoaders from './parse-loaders';
 
 export default function runTaskTests(
   taskTests: string, dir: string, tutorial: CR.Tutorial, taskPosition: number

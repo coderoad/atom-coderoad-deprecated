@@ -1,6 +1,7 @@
 import {join} from 'path';
-import fileExists from 'node-file-exists';
+
 import {isWindows} from './system';
+import fileExists from 'node-file-exists';
 
 export default function configRunner(name: string, runner: string, dir: string): () => any {
   // test runner dir

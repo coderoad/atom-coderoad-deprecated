@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {Card, CardText} from 'material-ui/Card';
+
 import {Markdown} from '../../index';
-import {cyan500, grey100} from 'material-ui/styles/colors';
 import {pageSelector} from 'core-coderoad';
+import {Card, CardText} from 'material-ui/Card';
+import {cyan500, grey100} from 'material-ui/styles/colors';
 
 const styles = {
   card: {
@@ -22,7 +23,7 @@ const styles = {
 export default class TasksComplete extends React.Component<{
   onPageComplete?: string
 }, {}> {
-  render() {
+  public render() {
     const {onPageComplete} = this.props;
     return (
       <Card style={styles.card}>

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import RaisedButton from 'material-ui/RaisedButton';
+
 import {editorSave} from '../../../../actions';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const styles = {
   border: '0px',
@@ -15,7 +16,7 @@ const styles = {
 export default class Save extends React.Component<{
   editorSave?: any
 }, {}> {
-  render() {
+  public render() {
     return (
       <RaisedButton
         label='Save'

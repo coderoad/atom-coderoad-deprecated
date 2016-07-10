@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+
 import {Markdown} from '../../index';
 import TaskCheckbox from './taskCheckbox';
+import {taskByIndexSelector} from 'core-coderoad';
 import {ListItem} from 'material-ui/List';
 import {lightGreen200, orange200} from 'material-ui/styles/colors';
-import {taskByIndexSelector} from 'core-coderoad';
 
 const styles = {
   task: {
@@ -35,7 +36,7 @@ export default class Task extends React.Component<{
   task?: CR.Task, index: number, testRun?: boolean,
   isCurrentTask?: boolean, isCompletedTask?: boolean
 }, {}> {
-  render() {
+  public render() {
     const {testRun, task, index, isCurrentTask, isCompletedTask} = this.props;
     const backgroundColor = isCompletedTask ? lightGreen200 : 'inherit';
     return (
@@ -46,7 +47,7 @@ export default class Task extends React.Component<{
         <TaskCheckbox index={index} />
         <span style={styles.index}>{index + 1}.</span>
         <div style={styles.description}>
-          <Markdown >{task.description}</Markdown>
+          <Markdown>{task.description}</Markdown>
         </div>
       </ListItem>
     );

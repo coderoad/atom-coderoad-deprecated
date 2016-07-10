@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+
 import {pageSet, routeSet} from '../../../actions';
-import {ListItem} from 'material-ui/List';
 import progressIcon from '../progressIcon';
+import {ListItem} from 'material-ui/List';
 import {grey400} from 'material-ui/styles/colors';
 
 const styles = {
@@ -19,7 +20,7 @@ const styles = {
 export default class ProgressPage extends React.Component<{
   page: CR.Page, progress: CR.Progress,
   pagePosition: CR.PagePosition, index: number, selectPage?: () => void}, {}> {
-  render() {
+  public render() {
     const {page, pagePosition, index, progress, selectPage} = this.props;
     const canActivate: boolean = index <= pagePosition;
     return (
@@ -39,7 +40,7 @@ export default class ProgressPage extends React.Component<{
           canActivate
             ? selectPage.bind(this, index)
             // do nothing
-            : function () { return; }
+            : null
           }
       />
     );

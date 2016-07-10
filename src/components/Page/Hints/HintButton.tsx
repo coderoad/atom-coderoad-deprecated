@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import FlatButton from 'material-ui/FlatButton';
+
 import {hintPositionSet} from '../../../actions';
 import {hintsSelector} from 'core-coderoad';
+import FlatButton from 'material-ui/FlatButton';
 
 @connect(state => ({
   hintPosition: state.hintPosition,
@@ -12,7 +13,7 @@ export default class HintButton extends React.Component<{
   hintPosition?: number, hintsLength?: number, type: 'next'|'prev', label: string
   hintPositionSet?: any
 }, {}> {
-  render() {
+  public render() {
     const {hintPosition, hintsLength, label, type, hintPositionSet} = this.props;
     switch (type) {
       case 'next':
@@ -31,6 +32,8 @@ export default class HintButton extends React.Component<{
           onTouchTap={hintPositionSet.bind(this, hintPosition - 1)}
         />
       );
+      default:
+        return null;
     }
   }
 }

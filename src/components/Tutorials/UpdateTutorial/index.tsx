@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+
 import {tutorialUpdate} from '../../../actions';
-import Update from 'material-ui/svg-icons/action/update';
 import {pink500} from 'material-ui/styles/colors';
+import Update from 'material-ui/svg-icons/action/update';
 
 const styles = {
   icon: {
@@ -18,7 +19,7 @@ const styles = {
 export default class UpdateTutorial extends React.Component<{
   tutorial: Tutorial.Item, tutorialUpdate?: any
 }, {}> {
-  render() {
+  public render() {
     const {tutorial, tutorialUpdate} = this.props;
     return (
       <span>

@@ -1,5 +1,5 @@
-import {PAGE_SET} from './types';
 import {hintPositionSet, routeSet} from '../../actions';
+import {PAGE_SET} from './types';
 
 export function pageNext(): ReduxThunk.ThunkInterface | Action {
   return (dispatch, getState): void => {

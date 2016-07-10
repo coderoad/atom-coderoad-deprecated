@@ -1,6 +1,6 @@
 // import {tutorialUpdate} from './utils/update';
-import {tutorials} from 'coderoad-cli';
 import {TUTORIALS_FIND} from './types';
+import {tutorials} from 'coderoad-cli';
 
 export default function tutorialsReducer(
   t = [], action: Action

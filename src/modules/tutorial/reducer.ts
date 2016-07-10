@@ -1,4 +1,5 @@
 import {join} from 'path';
+
 import {TUTORIAL_SET} from './types';
 import {tutorialConfig} from './utils/config';
 import configPaths from './utils/config-paths';

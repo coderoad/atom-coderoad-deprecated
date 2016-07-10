@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
+
 import FontIcon from 'material-ui/FontIcon';
-import WarningIcon from 'material-ui/svg-icons/alert/warning';
+import {Step, StepContent, StepLabel} from 'material-ui/Stepper';
 import {red500} from 'material-ui/styles/colors';
+import WarningIcon from 'material-ui/svg-icons/alert/warning';
 
 const StepCheck: React.StatelessComponent<{
   completed: boolean, label: string, children?: any
@@ -14,13 +15,14 @@ const StepCheck: React.StatelessComponent<{
     <StepLabel
       icon={completed
         ? <FontIcon>✓</FontIcon>
-        : <WarningIcon color={red500} />}>
+        : <WarningIcon color={red500} />}
+    >
         {label}
     </StepLabel>
    <StepContent>
     {children}
     <br />
-   </StepContent>
- </Step>
+    </StepContent>
+  </Step>
 );
 export default StepCheck;

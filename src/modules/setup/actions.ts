@@ -1,4 +1,4 @@
-import {SETUP_VERIFY, SETUP_PACKAGE} from './types';
+import {SETUP_PACKAGE, SETUP_VERIFY} from './types';
 
 export function setupVerify(): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {

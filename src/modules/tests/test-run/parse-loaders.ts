@@ -1,5 +1,5 @@
-import {normalize, join} from 'path';
 import {readFileSync} from 'fs';
+import {join, normalize} from 'path';
 
 // TODO: load comments from core-coderoad
 

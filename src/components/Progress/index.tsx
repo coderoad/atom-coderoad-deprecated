@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import Paper from 'material-ui/Paper';
-import {List} from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
-import ProgressPage from './ProgressPage';
+
 import {progressLoad} from '../../modules/progress/actions';
+import ProgressPage from './ProgressPage';
+import {List} from 'material-ui/List';
+import Paper from 'material-ui/Paper';
+import Subheader from 'material-ui/Subheader';
 
 const styles = {
   page: {
@@ -25,10 +26,7 @@ export default class Progress extends React.Component<{
     progress?: CR.Progress, pagePosition?: CR.PagePosition,
     info?: Tutorial.Info, tutorial?: CR.Tutorial, progressLoad?: () => any;
 }, {}> {
-  componentWillMount() {
-    this.props.progressLoad();
-  }
-  render() {
+  public render() {
     const {progress, pagePosition, info, tutorial} = this.props;
     return (
       <Paper style={styles.page}>
@@ -47,5 +45,8 @@ export default class Progress extends React.Component<{
         </List>
       </Paper>
     );
+  }
+  private componentWillMount() {
+    this.props.progressLoad();
   }
 }

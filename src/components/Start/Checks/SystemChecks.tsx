@@ -1,12 +1,13 @@
 import * as React from 'react';
-import {Step, StepLabel, StepContent} from 'material-ui/Stepper';
-import {Card, CardHeader, CardText, CardActions} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import VerifyButton from './VerifyButton';
-import {pink500} from 'material-ui/styles/colors';
-// import {updateNpm} from '../../../reducers/checks/action-system';
+
 import DynamicStepper from './DynamicStepper';
 import StepCheck from './StepCheck';
+import VerifyButton from './VerifyButton';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import {Step, StepContent, StepLabel} from 'material-ui/Stepper';
+import {pink500} from 'material-ui/styles/colors';
+// import {updateNpm} from '../../../reducers/checks/action-system';
 
 const SystemChecks: React.StatelessComponent<{
   checks: CR.Checks
@@ -16,7 +17,7 @@ const SystemChecks: React.StatelessComponent<{
     return null;
   }
   const status = [system.node, system.npm];
- return (
+  return (
   <Card className='cr-check'>
     <CardHeader
       title='System Checks'

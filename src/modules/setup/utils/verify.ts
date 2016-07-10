@@ -1,4 +1,4 @@
-import {npmMinVersion, nodeMinVersion, requiresXCode} from './check-system';
+import {nodeMinVersion, npmMinVersion, requiresXCode} from './check-system';
 import {tutorials} from 'coderoad-cli';
 
 function allTrue(obj: Object): boolean {

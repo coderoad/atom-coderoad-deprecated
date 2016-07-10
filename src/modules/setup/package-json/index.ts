@@ -1,7 +1,8 @@
-import {join} from 'path';
 import {readFileSync} from 'fs';
-import fileExists from 'node-file-exists';
+import {join} from 'path';
+
 import {SETUP_PACKAGE} from '../types';
+import fileExists from 'node-file-exists';
 
 const readParse = p => JSON.parse(readFileSync(p, 'utf8'));
 

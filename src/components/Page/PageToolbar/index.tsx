@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
-import Save from './Save';
+
 import Continue from './Continue';
+import Save from './Save';
 import ToggleDevTools from './ToggleDevTools';
 import {taskProgressSelector} from 'core-coderoad';
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 
 const styles = {
     zIndex: '5',
@@ -22,7 +23,7 @@ const styles = {
 export default class PageToolbar extends React.Component<{
   tasksComplete?: boolean, children?: any
 }, {}> {
-  render() {
+  public render() {
     const {tasksComplete, children} = this.props;
     return (
       <section styles={styles}>

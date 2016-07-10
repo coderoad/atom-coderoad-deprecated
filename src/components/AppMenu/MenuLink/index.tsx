@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import MenuItem from 'material-ui/MenuItem';
+
 import {routeSet} from '../../../actions';
+import MenuItem from 'material-ui/MenuItem';
 
 const styles = {
   textAlign: 'center',
@@ -12,7 +13,7 @@ const styles = {
 export default class MenuLink extends React.Component<{
   route: string, title?: string, routeSet?: any
 }, {}> {
-  render() {
+  public render() {
     const {route, title, routeSet} = this.props;
     return (
       <MenuItem

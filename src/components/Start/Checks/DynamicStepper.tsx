@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {Stepper, Step, StepButton, StepContent} from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
+
 import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
+import RaisedButton from 'material-ui/RaisedButton';
+import {Step, StepButton, StepContent, Stepper} from 'material-ui/Stepper';
 
 export default class DynamicStepper extends React.Component<{
   status: boolean[], children?: any
@@ -15,7 +16,7 @@ export default class DynamicStepper extends React.Component<{
       stepIndex: this.props.status.indexOf(false) || 0
     };
   }
-  render() {
+  public render() {
     return (
         <Stepper
           activeStep={this.state.stepIndex}
