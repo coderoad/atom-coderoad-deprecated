@@ -30,12 +30,12 @@
   },
   "dependencies": {
     "atom-plugin-command-line": "1.0.2",
-    "coderoad-cli": "0.7.1",
+    "coderoad-cli": "0.6.0",
     "core-coderoad": "0.5.0",
-    "material-ui": "0.15.1",
+    "material-ui": "0.15.2",
     "node-file-exists": "1.1.0",
-    "react": "15.2.0",
-    "react-dom": "15.2.0",
+    "react": "15.2.1",
+    "react-dom": "15.2.1",
     "react-redux": "4.4.5",
     "react-tap-event-plugin": "1.0.0",
     "redux": "3.5.2"
@@ -49,8 +49,13 @@
   "consumedServices": {
     "status-bar": {
       "versions": {
-        "^1.0.0": "consumeStatusBar"
+        "1.0.0": "consumeStatusBar"
       }
     }
+  },
+  "devDependencies": {
+    "tslint": "3.13.0",
+    "tslint-react": "0.4.0",
+    "typescript": "^2.0.0-dev.20160707"
   }
 }

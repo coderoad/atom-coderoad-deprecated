@@ -1,5 +1,11 @@
 {
+  "extends": ["tslint:latest", "tslint-react"],
   "rules": {
+    "jsx-alignment": true,
+    "jsx-no-lambda": true,
+    "jsx-no-string-ref": true,
+    "jsx-self-close": true,
+    "align": [true, "parameters", "statements"],
     "class-name": true,
     "comment-format": [true, "check-space"],
     "curly": true,
@@ -24,6 +30,7 @@
       "trace"
     ],
     "no-construct": true,
+    "no-consecutive-blank-lines": true,
     "no-debugger": true,
     "no-duplicate-key": true,
     "no-duplicate-variable": true,
@@ -61,7 +68,7 @@
       "property-declaration": "nospace",
       "variable-declaration": "nospace"
     }],
-    "variable-name": [true, "ban-keywords"],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
     "whitespace": [true,
       "check-branch",
       "check-decl",
