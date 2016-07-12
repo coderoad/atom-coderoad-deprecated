@@ -11,13 +11,13 @@ const _alert: CR.Alert = {
   open: false,
   action: 'NOTE',
   duration: 1500,
-  color: colors.NOTE
+  color: colors.NOTE,
 };
 
 const open = {
   open: true,
   action: 'NOTE',
-  duration: 1500
+  duration: 1500,
 };
 
 let current: CR.Alert = _alert;

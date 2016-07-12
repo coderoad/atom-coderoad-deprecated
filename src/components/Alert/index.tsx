@@ -11,8 +11,10 @@ const defaultAlert = {
 };
 
 const styles = {
-  display: 'inline-block',
-  margin: '0px 10px',
+  snackbar: {
+    display: 'inline-block',
+    margin: '0px 10px',
+  },
 };
 
 @connect(state => ({
@@ -23,11 +25,11 @@ export default class Alert extends React.Component<{
 }, {}> {
   public render() {
     const {alert, alertClose} = this.props;
-    const {action, message, open, duration, color} = alert;
+    const {action, message, open, duration} = alert;
     return (
       <Snackbar
-        style={styles}
-        bodyStyle={{color}}
+        className={'cr-alert ' + action}
+        style={styles.snackbar}
         open={open}
         action={action || 'NOTE'}
         message={message || ''}
