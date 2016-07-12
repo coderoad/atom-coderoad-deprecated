@@ -10,7 +10,7 @@
     "tutorial"
   ],
   "bugs": {
-    "url": "https://github.com/coderoad/atom-coderoad"
+    "url": "//github.com/coderoad/atom-coderoad"
   },
   "license": "Apache",
   "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
@@ -23,7 +23,7 @@
     "*.md"
   ],
   "main": "./lib/index.js",
-  "repository": "https://github.com/coderoad/atom-coderoad",
+  "repository": "//github.com/coderoad/atom-coderoad",
   "scripts": {
     "compile": "tsc",
     "test": "tsc test/*.ts src/typings.d.ts && ava"
@@ -37,6 +37,7 @@
     "react": "15.2.1",
     "react-dom": "15.2.1",
     "react-redux": "4.4.5",
+    "react-router-sans-urls": "0.1.0",
     "react-tap-event-plugin": "1.0.0",
     "redux": "3.5.2"
   },
