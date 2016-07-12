@@ -39,4 +39,12 @@ export default class Alert extends React.Component<{
   }
 }
 
-// action={action || ''} removed from Snackbar as of Material 0.15.1 due to bug
+Alert.propTypes = {
+  alert: React.PropTypes.shape({
+    action: React.PropTypes.string,
+    message: React.PropTypes.string,
+    duration: React.PropTypes.number.optional,
+    color: React.PropTypes.string,
+  }),
+  alertClose: React.PropTypes.func.optional
+};

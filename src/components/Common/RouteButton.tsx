@@ -20,3 +20,10 @@ export default class RouteButton extends React.Component<{
     );
   }
 }
+
+RouteButton.propTypes = {
+  label: React.PropTypes.string,
+  route: React.PropTypes.string,
+  routeSet: React.PropTypes.func.optional,
+  style: React.PropTypes.object.optional,
+};

@@ -29,3 +29,7 @@ export default class AppMenu extends React.Component<{
     );
   }
 }
+
+AppMenu.propTypes = {
+  route: React.PropTypes.string.optional,
+};

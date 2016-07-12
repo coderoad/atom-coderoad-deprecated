@@ -27,3 +27,7 @@ export default class Quit extends React.Component<{
     );
   }
 }
+
+Quit.propTypes = {
+  quit: React.PropTypes.func.optional,
+};

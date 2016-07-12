@@ -25,3 +25,9 @@ export default class MenuLink extends React.Component<{
     );
   }
 }
+
+MenuLink.propTypes = {
+  route: React.PropTypes.string,
+  title: React.PropTypes.string.optional,
+  routeSet: React.PropTypes.func.optional,
+};

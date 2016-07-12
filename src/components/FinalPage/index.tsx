@@ -42,3 +42,5 @@ export default class FinalPage extends React.Component<{}, {}> {
     );
   }
 }
+
+FinalPage.propTypes = {};

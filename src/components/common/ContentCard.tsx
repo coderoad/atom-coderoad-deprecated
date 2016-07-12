@@ -20,3 +20,8 @@ const ContentCard: React.StatelessComponent<{
   </Card>
 );
 export default ContentCard;
+
+ContentCard.propTypes = {
+  title: React.PropTypes.string,
+  content: React.PropTypes.string.optional,
+};

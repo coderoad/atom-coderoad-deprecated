@@ -1,6 +1,6 @@
 {
- "compileOnSave": false,
- "buildOnSave": false,
+ "compileOnSave": true,
+ "buildOnSave": true,
  "compilerOptions": {
   "target": "ES5",
   "module": "commonjs",
@@ -13,7 +13,8 @@
   "emitDecoratorMetadata": true,
   "outDir": "lib",
   "moduleResolution": "node",
-  "rootDirs": ["src"]
+  "rootDirs": ["src"],
+  "strictNullChecks": true
  },
  "filesGlob": [
   "typings.d.ts",
