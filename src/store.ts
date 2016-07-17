@@ -3,6 +3,6 @@ import {configureStore} from 'core-coderoad';
 
 export default configureStore({
   reducer,
-  devMode: true,
+  devMode: false,
   throttle: { TEST_RUN: 800 },
 });

@@ -8,7 +8,7 @@ export function progressLoad(): ReduxThunk.ThunkInterface {
     const {tutorial} = getState();
     dispatch({ type: PROGRESS_LOAD, payload: { tutorial } });
     dispatch(_progressPagePosition());
-    dispatch(testRun());
+    // dispatch(testRun());
   };
 }
 
