@@ -25,7 +25,7 @@ export default class FinalPage extends React.Component<{}, {}> {
         <CardText>
           What's next?
           <br /><br />
-          <a href='https://coderoad.github.io/#tutorials'>
+          <a href='https://coderoad.github.io/tutorials.html'>
             <FlatButton
               label='See More Tutorials'
               disabled={true}
@@ -33,7 +33,7 @@ export default class FinalPage extends React.Component<{}, {}> {
           </a>
           <span> (coming soon)</span>
           <br /><br />
-          <a href='https://coderoad.github.io/build'>
+          <a href='https://coderoad.github.io/builder-coderoad.html'>
             <FlatButton label='Learn how to Create a Tutorial' />
           </a>
         </CardText>
