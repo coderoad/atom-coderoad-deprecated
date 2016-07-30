@@ -5,7 +5,7 @@ import parseLoaders from './parse-loaders';
 
 export default function runTaskTests(
   taskTests: string, dir: string, tutorial: CR.Tutorial, taskPosition: number
-): boolean {
+): number {
   const tests: string = taskTests;
 
   if (tests && tests.length) {
@@ -23,5 +23,7 @@ export default function runTaskTests(
     // call test runner
     tutorialConfig.run({testString, config, handleResult});
   }
-  return true;
+  // return finishing time of test
+  // used to throttle test runs
+  return performance.now();
 }

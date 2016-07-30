@@ -3,6 +3,11 @@ import {TEST_COMPLETE, TEST_RESULT, TEST_RUN} from './types';
 
 export function testRun(): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
+    // less than a second since the last test run, skip
+    const timeSinceLastTestRun = performance.now() - getState().testRun.time;
+    if (timeSinceLastTestRun < 1000) {
+      return;
+    }
     const {taskTests, dir, tutorial, taskPosition} = getState();
     dispatch({
       type: TEST_RUN, payload: { taskTests, dir, tutorial, taskPosition }
@@ -70,6 +75,8 @@ export function testComplete(result: Test.Result) {
         // check if page is completed
         dispatch(testResult(result));
         break;
+      default:
+        return;
     }
     dispatch({ type: TEST_COMPLETE });
   };

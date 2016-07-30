@@ -9,6 +9,7 @@ import Subscriptions from './subscriptions';
 import {loadPolyfills, render} from 'core-coderoad';
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
 
+// React optimization
 process.env.NODE_ENV = 'production';
 
 class Main {

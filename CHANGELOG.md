@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# [0.10.10] - 2016-07-30
+- performance increase
+- fix test run on page load
+
 ## [0.10.9] - 2016-07-24
 - improved error handling
 

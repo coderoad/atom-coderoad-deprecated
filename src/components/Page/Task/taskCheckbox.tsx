@@ -14,15 +14,15 @@ const styles = {
 };
 
 @connect((state, props) => ({
-  testRun: state.testRun,
+  isRunning: state.testRun.running,
   isCurrentTask: state.taskPosition === props.index,
 }))
 export default class TaskCheckbox extends React.Component<{
-  testRun?: boolean, isCurrentTask?: boolean, index: number
+  isRunning?: boolean, isCurrentTask?: boolean, index: number
 }, {}> {
   public render() {
-    const {testRun, isCurrentTask} = this.props;
-    if (!isCurrentTask || !testRun) { return null; }
+    const {isRunning, isCurrentTask} = this.props;
+    if (!isCurrentTask || !isRunning) { return null; }
     return <IndeterminateCheckBox
       color={orange500}
       style={styles.checkbox}
