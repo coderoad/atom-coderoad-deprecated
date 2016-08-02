@@ -14,6 +14,9 @@ export default function handleActionString(
   actionString: string
 ): Promise<void> {
   return new Promise((resolve, reject) => {
+    if (typeof actionString !== 'string') {
+      reject(actionString);
+    }
     const command: string = getCommand(actionString);
     const params: string[] = getParams(actionString);
 
@@ -63,6 +66,6 @@ export default function handleActionString(
         reject(false);
     }
   }).catch((err) => {
-    console.error('Error with editor', err);
+    console.error('Error handling action string', err);
   });
 }

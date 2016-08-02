@@ -5,19 +5,23 @@ export function getCommand(actionString: string): string {
   let command = actionString.substring(0, actionString.indexOf('('));
   if (!command.length) {
     console.log('Error loading editor action command ', actionString);
-  } else {
-    return command;
+    return '';
   }
+  return command;
 }
 
 export function getParams(actionString: string): string[] {
+  if (typeof actionString !== 'string') {
+    console.log('Error in tutorial with action command. Expected a string but received ', actionString);
+    return [];
+  }
   // content in brackets, split by comma
   let parser = new ParseParams();
   let command = getCommand(actionString);
   let params = actionString.substring(command.length + 1, actionString.length - 1); // trim brackets
   if (!params.length) {
     console.error('Error loading editor action params ', actionString);
-    return null;
+    return [];
   }
   let paramsList: string[] = parser.getParams(params);
   return paramsList;
