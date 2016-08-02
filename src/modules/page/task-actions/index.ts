@@ -7,7 +7,7 @@ let taskPositionTracker = 0;
 export default function taskActionsReducer(
   t = [], action: Action
 ): string[][] {
-  let actions: string[][] = null;
+  let actions: string[][] = [[]];
   switch (action.type) {
 
     case PAGE_SET:
@@ -21,7 +21,11 @@ export default function taskActionsReducer(
       } else {
         // filter to only 'open' actions
         actions = tasks.map(task => {
-          return task.actions.filter(a => !!a.match(/^open/));
+          if (task.actions && task.actions.length) {
+            return task.actions.filter(a => !!a.match(/^open/));
+          } else {
+            return [[]];
+          }
         });
       }
       // page loads - reset tracker
