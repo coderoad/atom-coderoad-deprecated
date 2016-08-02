@@ -1,6 +1,10 @@
 import {TEST_COMPLETE, TEST_RUN} from '../types';
 import runTaskTests from './run';
 
+// timeouts = throttle test runs
+const pageSetTimeout = 1200;
+const testCompleteTimeout = 800;
+
 interface IRunTest {
   running: boolean;
   time: number;
@@ -27,14 +31,14 @@ export default function runTest(
     case TEST_COMPLETE:
       return {
         running: false,
-        time: performance.now() + 800,
+        time: performance.now() + testCompleteTimeout,
       };
 
     case 'PAGE_SET':
       // add extra time, as page loading takes longer
       return {
         running: false,
-        time: performance.now() + 2000,
+        time: performance.now() + pageSetTimeout,
       };
 
     default:
