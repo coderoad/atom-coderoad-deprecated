@@ -11,10 +11,6 @@ export function getCommand(actionString: string): string {
 }
 
 export function getParams(actionString: string): string[] {
-  if (typeof actionString !== 'string') {
-    console.log('Error in tutorial with action command. Expected a string but received ', actionString);
-    return [];
-  }
   // content in brackets, split by comma
   let parser = new ParseParams();
   let command = getCommand(actionString);

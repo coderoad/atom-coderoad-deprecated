@@ -10,7 +10,7 @@
     "tutorial"
   ],
   "bugs": {
-    "url": "//github.com/coderoad/atom-coderoad"
+    "url": "https://github.com/coderoad/atom-coderoad"
   },
   "license": "Apache",
   "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
@@ -23,7 +23,7 @@
     "*.md"
   ],
   "main": "./lib/index.js",
-  "repository": "//github.com/coderoad/atom-coderoad",
+  "repository": "https://github.com/coderoad/atom-coderoad",
   "scripts": {
     "compile": "tsc",
     "test": "tsc test/*.ts src/typings.d.ts && ava"
