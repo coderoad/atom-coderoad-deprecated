@@ -6,6 +6,7 @@ export function testLoad() {
   return (dispatch, getState): void => {
     const { dir, pagePosition, tutorial, taskTests } = getState();
     const testFile = getTestName({tutorial, pagePosition});
+    console.log('testLoad file', testFile);
 
     dispatch({
       type: TEST_LOAD, payload: {

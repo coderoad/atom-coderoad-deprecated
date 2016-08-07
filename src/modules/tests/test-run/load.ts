@@ -1,3 +1,3 @@
-export default function loadTaskTests({dir, tutorial, tests, pagePosition, load}) {
-  load({dir, tutorial, tests, pagePosition});
+export default function loadTaskTests({dir, tests, load, testFile}) {
+  load({dir, tests, testFile});
 }
