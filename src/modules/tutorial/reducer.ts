@@ -6,6 +6,7 @@ import configPaths from './utils/config-paths';
 
 const _tutorial: CR.Tutorial = {
   name: null,
+  version: null,
   info: null,
   pages: [],
   packageJson: null,
@@ -20,7 +21,7 @@ export default function tutorialReducer(
   switch (action.type) {
 
     case TUTORIAL_SET:
-      const {name, dir} = action.payload;
+      const {name, dir, version} = action.payload;
 
       // get tutorial package.json
       const packagePath: string = join(dir, 'node_modules', name);
@@ -39,6 +40,7 @@ export default function tutorialReducer(
       // return tutorial (info, pages) & tutorial package.json
       return {
         name: packageJson.name,
+        version,
         info,
         pages,
         packageJson,

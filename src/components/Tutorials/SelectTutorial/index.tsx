@@ -10,12 +10,13 @@ export default class SelectTutorial extends React.Component<{
 }, {}> {
   public render() {
     const {tutorial, tutorialSet} = this.props;
-    const {name} = tutorial;
+    const {name, version} = tutorial;
+    console.log(name, version);
     return (
       <FlatButton
         label={this.displayName(name)}
         primary={true}
-        onTouchTap={tutorialSet.bind(this, name)}
+        onTouchTap={tutorialSet.bind(this, {name, version})}
       />
     );
   }

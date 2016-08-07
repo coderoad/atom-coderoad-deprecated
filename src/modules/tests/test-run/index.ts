@@ -1,4 +1,5 @@
 import {TEST_COMPLETE, TEST_RUN} from '../types';
+import loadTaskTests from './load';
 import runTaskTests from './run';
 
 // timeouts = throttle test runs
@@ -35,6 +36,7 @@ export default function runTest(
       };
 
     case 'PAGE_SET':
+      loadTaskTests();
       // add extra time, as page loading takes longer
       return {
         running: false,

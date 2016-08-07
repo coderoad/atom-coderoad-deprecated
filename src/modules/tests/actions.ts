@@ -1,5 +1,5 @@
 import {alertOpen, hintPositionSet, progressCompletePage} from '../../actions';
-import {TEST_COMPLETE, TEST_RESULT, TEST_RUN} from './types';
+import {TEST_COMPLETE, TEST_LOAD, TEST_RESULT, TEST_RUN} from './types';
 
 export function testRun(): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
@@ -11,6 +11,22 @@ export function testRun(): ReduxThunk.ThunkInterface {
     const {taskTests, dir, tutorial, taskPosition} = getState();
     dispatch({
       type: TEST_RUN, payload: { taskTests, dir, tutorial, taskPosition }
+    });
+  };
+}
+
+export function testLoad() {
+  return (dispatch, getState): void => {
+    const { dir, pagePosition, tutorial } = getState();
+    dispatch({
+      type: TEST_LOAD, payload: {
+        dir,
+        pagePosition,
+        tutorial: {
+          name: tutorial.name,
+          version: tutorial.version
+        }
+      }
     });
   };
 }
