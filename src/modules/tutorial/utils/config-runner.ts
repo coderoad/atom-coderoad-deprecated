@@ -3,7 +3,7 @@ import {join} from 'path';
 import {isWindows} from './system';
 import fileExists from 'node-file-exists';
 
-export default function configRunner(name: string, runner: string, dir: string): () => any {
+export default function configRunner(name: string, runner: string, dir: string): { run: () => any, load: () => any } {
   // test runner dir
   let flatDep = join(
     dir, 'node_modules', runner, 'package.json'
@@ -34,9 +34,8 @@ export default function configRunner(name: string, runner: string, dir: string):
 
   let pathToMain = join(runnerRoot, runnerMain);
 
-  if (!!require(pathToMain).default) {
-    return require(pathToMain).default;
-  } else {
-    return require(pathToMain);
-  }
+  return {
+    load: require(pathToMain).load,
+    run: require(pathToMain).run,
+  };
 }

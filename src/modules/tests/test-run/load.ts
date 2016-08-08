@@ -1,4 +1,3 @@
-export default function loadTaskTests() {
-  console.log('load')
-  // tutorialConfig.run({});
+export default function loadTaskTests({dir, tutorial, tests, pagePosition, load}) {
+  load({dir, tutorial, tests, pagePosition});
 }

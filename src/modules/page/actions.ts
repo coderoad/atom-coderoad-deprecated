@@ -1,4 +1,4 @@
-import {hintPositionSet, routeSet} from '../../actions';
+import {hintPositionSet, routeSet, testLoad} from '../../actions';
 import {PAGE_SET} from './types';
 
 export function pageNext(): ReduxThunk.ThunkInterface | Action {
@@ -24,5 +24,6 @@ export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
     dispatch({
       type: PAGE_SET, payload: { pagePosition, tutorial, progress, tasks }
     });
+    dispatch(testLoad());
   };
 }

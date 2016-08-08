@@ -1,5 +1,22 @@
 import {alertOpen, hintPositionSet, progressCompletePage} from '../../actions';
+import getTestName from './test-run/testName';
 import {TEST_COMPLETE, TEST_LOAD, TEST_RESULT, TEST_RUN} from './types';
+
+export function testLoad() {
+  return (dispatch, getState): void => {
+    const { dir, pagePosition, tutorial, taskTests } = getState();
+    const testFile = getTestName({tutorial, pagePosition});
+
+    dispatch({
+      type: TEST_LOAD, payload: {
+        dir,
+        tests: taskTests,
+        load: tutorial.config.load,
+        testFile,
+      }
+    });
+  };
+}
 
 export function testRun(): ReduxThunk.ThunkInterface {
   return (dispatch, getState): void => {
@@ -8,25 +25,12 @@ export function testRun(): ReduxThunk.ThunkInterface {
     if (timeSinceLastTestRun < 1000) {
       return;
     }
-    const {taskTests, dir, tutorial, taskPosition} = getState();
-    dispatch({
-      type: TEST_RUN, payload: { taskTests, dir, tutorial, taskPosition }
-    });
-  };
-}
+    const {taskTests, dir, tutorial, taskPosition, pagePosition} = getState();
+    const testFile = getTestName({tutorial, pagePosition});
 
-export function testLoad() {
-  return (dispatch, getState): void => {
-    const { dir, pagePosition, tutorial } = getState();
     dispatch({
-      type: TEST_LOAD, payload: {
-        dir,
-        pagePosition,
-        tutorial: {
-          name: tutorial.name,
-          version: tutorial.version
-        }
-      }
+      type: TEST_RUN,
+      payload: { taskTests, dir, tutorial, taskPosition, testFile }
     });
   };
 }

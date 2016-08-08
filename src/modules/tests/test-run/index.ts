@@ -1,4 +1,4 @@
-import {TEST_COMPLETE, TEST_RUN} from '../types';
+import {TEST_COMPLETE, TEST_LOAD, TEST_RUN} from '../types';
 import loadTaskTests from './load';
 import runTaskTests from './run';
 
@@ -21,26 +21,25 @@ export default function runTest(
 ): IRunTest {
   switch (action.type) {
 
+    case TEST_LOAD:
+      loadTaskTests(action.payload);
+      // add extra time, as page loading takes longer
+      return {
+        running: false,
+        time: performance.now() + pageSetTimeout,
+      };
+
     case TEST_RUN:
-      const {taskTests, dir, tutorial, taskPosition} = action.payload;
       // call test runner
       return {
         running: true,
-        time: runTaskTests(taskTests, dir, tutorial, taskPosition),
+        time: runTaskTests(action.payload),
       };
 
     case TEST_COMPLETE:
       return {
         running: false,
         time: performance.now() + testCompleteTimeout,
-      };
-
-    case 'PAGE_SET':
-      loadTaskTests();
-      // add extra time, as page loading takes longer
-      return {
-        running: false,
-        time: performance.now() + pageSetTimeout,
       };
 
     default:

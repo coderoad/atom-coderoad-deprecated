@@ -16,11 +16,14 @@ export function tutorialConfig(
   const runnerOptions: Object = config.runnerOptions || {};
   const configEdit: boolean = tutorialPj.config.edit;
 
+  const getRunner = configRunner(name, config.runner, dir);
+
   return {
     dir: tutorialDir,
     runner,
     runnerOptions,
-    run: configRunner(name, config.runner, dir),
+    run: getRunner.run,
+    load: getRunner.load,
     testSuffix: configTestSuffix(config.testSuffix),
     issuesPath: configIssuesPath(tutorialPj.bugs),
     repo,
