@@ -11,7 +11,6 @@ export default class SelectTutorial extends React.Component<{
   public render() {
     const {tutorial, tutorialSet} = this.props;
     const {name, version} = tutorial;
-    console.log(name, version);
     return (
       <FlatButton
         label={this.displayName(name)}
