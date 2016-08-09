@@ -21,7 +21,7 @@ const styles = {
 
 @connect(state => ({
   page: pageSelector(state),
-  tasksCompleted: taskProgressSelector(state) === 100,
+  isCompleted: taskProgressSelector(state) === 100,
 }))
 export default class Page extends React.Component<{
   page?: CR.Page, isCompleted?: boolean
