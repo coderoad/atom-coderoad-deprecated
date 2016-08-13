@@ -8,7 +8,7 @@ declare module 'coderoad-cli' {
     dir: string, name: string
   ): boolean | Promise<boolean>;
 
-  export function tutorials(dir: string): Tutorial.Info[];
+  export function tutorials({ dir: string}): Tutorial.Info[];
 
   export function validatePacakgeJson(): Validation.Object;
 }

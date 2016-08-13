@@ -12,7 +12,7 @@ export default function tutorialsReducer(
     /* falls through */
 
     case TUTORIALS_FIND:
-      const tuts = tutorials(action.payload.dir);
+      const tuts = tutorials({ dir: action.payload.dir });
       return tuts ? tuts : t;
 
     default:

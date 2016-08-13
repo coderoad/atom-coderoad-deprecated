@@ -35,7 +35,7 @@ export default function configRunner(name: string, runner: string, dir: string):
   let pathToMain = join(runnerRoot, runnerMain);
 
   return {
-    load: require(pathToMain).load,
-    run: require(pathToMain).run,
+    load: require(pathToMain).load || { load: () => console.log('invalid test loader')},
+    run: require(pathToMain).run || { run: () => console.log('invalid test runner')},
   };
 }

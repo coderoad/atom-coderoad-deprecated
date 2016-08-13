@@ -16,7 +16,7 @@ export default function setupVerify(
     hasPackageJson = !!packageJson;
   }
   if (hasDir && hasPackageJson) {
-    hasTutorial = !!tutorials(dir);
+    hasTutorial = !!tutorials({ dir });
   }
 
   let checks: CR.Checks = {

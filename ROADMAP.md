@@ -7,7 +7,8 @@
     1. Video Player
     1. Visualize html
 1. More test runners
-    1. Ruby
+    1. Elixir
+    1. Fix Python
     1. Java
 1. User Accounts
     1. Sync Progress
