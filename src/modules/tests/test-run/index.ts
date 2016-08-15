@@ -3,8 +3,8 @@ import loadTaskTests from './load';
 import runTaskTests from './run';
 
 // timeouts = throttle test runs
-const pageSetTimeout = 1200;
-const testCompleteTimeout = 800;
+const pageSetTimeout = 300;
+const testCompleteTimeout = 700;
 
 interface IRunTest {
   running: boolean;
