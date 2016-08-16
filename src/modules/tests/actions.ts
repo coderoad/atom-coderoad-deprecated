@@ -56,7 +56,8 @@ export function testResult(result: Test.Result): ReduxThunk.ThunkInterface {
       dispatch(progressCompletePage(false));
       alert = Object.assign({}, alert, {
         action: filter,
-        duration: 2200,
+        duration: result.msg && result.msg.length ?
+          (result.msg.length * 40) + 1000 : 2000
       });
     }
     dispatch({ type: TEST_RESULT, payload: { result, taskActions } });

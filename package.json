@@ -31,8 +31,8 @@
   "dependencies": {
     "atom-plugin-command-line": "1.0.2",
     "coderoad-cli": "0.8.0",
-    "core-coderoad": "0.6.2",
-    "material-ui": "0.15.3",
+    "core-coderoad": "0.7.0",
+    "material-ui": "0.15.4",
     "node-file-exists": "1.1.0",
     "react": "15.3.0",
     "react-dom": "15.3.0",
@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "tslint": "3.14.0",
-    "tslint-react": "0.4.0",
+    "tslint-react": "1.0.0",
     "typescript": "^2.0.0"
   }
 }
