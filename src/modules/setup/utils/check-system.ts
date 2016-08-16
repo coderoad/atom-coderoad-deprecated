@@ -1,44 +1,62 @@
 import commandLine from 'atom-plugin-command-line';
 
+const versions = {
+  node: '4.0.0',
+  atom: '1.8.0',
+  npm: '3.0.0'
+};
+
 function matchVersions(v: string): string[] {
   return v.match(/([0-9]+)\.([0-9]+)/);
+}
+
+function isAboveVersion(a: string, b: string): boolean {
+  if (a === b) { return true; }
+  const a_components = a.split('.');
+  const b_components = b.split('.');
+  const len = Math.min(a_components.length, b_components.length);
+  for (let i = 0; i < len; i++) {
+    const first = parseInt(a_components[i], 10);
+    const second = parseInt(b_components[i], 10);
+    if (first > second) { return true; }
+    if (first < second) { return false; }
+  }
+  if (a_components.length > b_components.length) { return true; }
+  if (a_components.length < b_components.length) { return false; }
+  return true;
 }
 
 function minVersion(command: string, minVersion: string): Promise<boolean> {
   return new Promise((resolve, reject) => {
     let minOrLater: Promise<boolean> = commandLine(command, '-v')
-      .then((res: string) => {
-        // not installed
-        if (parseInt(res, 10).toString() === 'NaN') {
-          return false;
-        }
-        // two digits, ex: 0.10
-        const mins = matchVersions(minVersion);
-        if (!!mins) {
-          const resMins = matchVersions(res);
-          const firstDigit = parseInt(resMins[1], 10);
-          const firstVersion = parseInt(mins[1], 10);
-          return firstDigit > firstVersion ||
-            firstDigit === firstVersion && parseInt(resMins[2], 10) >= parseInt(firstVersion[2], 10);
-        } else {
-          // single digit, ex: 3.0
-          return parseInt(res, 10) >= parseInt(minVersion, 10);
-        }
-      });
+      .then((res: string) => isAboveVersion(res, minVersion));
     if (!minOrLater) {
-      resolve(false);
+      resolve (false);
     } else {
       resolve(true);
     }
   });
 }
 
+export function atomMinVersion(): Promise<boolean> {
+  return new Promise((resolve, reject) => {
+    let minOrLater = commandLine('atom', '-v').then((res: string) => {
+      let match = res.match(/Atom\s+:\s+([0-9]\.[0-9]\.[0-9])/);
+      if (match && match[1] && isAboveVersion(match[1], versions.atom)) {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    });
+  });
+}
+
 export function npmMinVersion(): Promise<boolean> {
-  return minVersion('npm', '3');
+  return minVersion('npm', versions.npm);
 }
 
 export function nodeMinVersion(): Promise<boolean> {
-  return minVersion('node', '0.10');
+  return minVersion('node', versions.node);
 }
 
 export function requiresXCode(): Promise<boolean> | boolean {

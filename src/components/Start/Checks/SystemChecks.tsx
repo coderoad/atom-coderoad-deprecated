@@ -30,6 +30,7 @@ const SystemChecks: React.StatelessComponent<{
         completed={system.node}
       >
         <p>Install a newer version of <a style={{color: pink500}} href='https://nodejs.org'>NodeJS</a></p>
+        <p>Either version 4 (stable) or above.</p>
       </StepCheck>
 
       <StepCheck
@@ -38,11 +39,16 @@ const SystemChecks: React.StatelessComponent<{
       >
         Update your version of NPM.<br />
         <code>> npm update -g npm</code><br />
-        <FlatButton
-          label='Update NPM'
-          secondary={true}
-          /* onTouchTap={updateNpm} */
-        />
+      </StepCheck>
+
+      <StepCheck
+        label='Atom >= 1.8'
+        completed={system.atom}
+      >
+        <p>First make sure you have atom shell commands installed.
+        Click the atom menu and select "Istall Shell Commands".</p>
+        <p>Otherwise, update your version of Atom.<br />
+        Click on the blue "update" squirrel in the bottom right corner of your editor.</p>
       </StepCheck>
 
       <StepCheck

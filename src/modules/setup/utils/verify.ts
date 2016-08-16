@@ -1,4 +1,4 @@
-import {nodeMinVersion, npmMinVersion, requiresXCode} from './check-system';
+import {atomMinVersion, nodeMinVersion, npmMinVersion, requiresXCode} from './check-system';
 import {tutorials} from 'coderoad-cli';
 
 function allTrue(obj: Object): boolean {
@@ -24,6 +24,7 @@ export default function setupVerify(
       node: !!nodeMinVersion(),
       npm: !!npmMinVersion(),
       xcode: !!requiresXCode(),
+      atom: !!atomMinVersion(),
     },
     setup: {
       hasDir,

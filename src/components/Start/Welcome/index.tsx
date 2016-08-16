@@ -41,14 +41,14 @@ const Welcome: React.StatelessComponent<{
   title: string, tagline: string, firstRoute: string
 }> = ({title, tagline, firstRoute}) => (
   <div style={styles.header} className='cr-bg'>
-      <div style={styles.title}>{title}</div>
-      <div style={styles.tagline}>{tagline}</div>
-      <br /><br />
-      <RouteButton
-        label='Start'
-        route={firstRoute}
-        style={styles.button}
-      />
+    <div style={styles.title}>{title}</div>
+    <div style={styles.tagline}>{tagline}</div>
+    <br /><br />
+    <RouteButton
+      label='Start'
+      route={firstRoute}
+      style={styles.button}
+    />
   </div>
 );
 export default Welcome;
