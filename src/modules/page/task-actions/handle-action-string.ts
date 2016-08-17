@@ -1,12 +1,15 @@
-import {editorInsert, editorOpen, editorSave, editorSet} from '../../../actions';
+import {editorInsert, editorOpen, editorSave, editorSet, editorWriteFileFromContent, editorWriteFileFromFile} from '../../../actions';
 import store from '../../../store';
-import {getCommand, getOptions, getParams} from './parser';
+import actionWrite from '../@actions/write';
+import { getCommand, getOptions, getParams } from './parser';
 
 const Type = {
   OPEN: 'open',
   SET: 'set',
   INSERT: 'insert',
   OPEN_CONSOLE: 'openConsole',
+  WRITE: 'write',
+  WRITE_FROM_FILE: 'writeFromFile',
 };
 
 // parse task string for command/params
@@ -61,6 +64,25 @@ export default function handleActionString(
       //   }
       //   break;
 
+      case Type.WRITE:
+      case Type.WRITE_FROM_FILE:
+        if (params.length === 2) {
+
+          // write
+          if (command === 'write') {
+            const [to, content] = params;
+            store.dispatch(editorWriteFileFromContent(to, content));
+
+          // writeFromFile
+          } else if (command === 'writeFromFile') {
+            const [to, from] = params;
+            store.dispatch(editorWriteFileFromFile(to, from));
+          }
+          resolve();
+        }
+        reject('Invalid write params');
+        break;
+
       default:
         console.log('Invalid editor action command');
         reject(false);
@@ -68,4 +90,9 @@ export default function handleActionString(
   }).catch((err) => {
     console.error('Error handling action string', err);
   });
+}
+
+function isValidPath(filePath: string): boolean {
+  // should not go above users tutorial directory for security reasons
+  return !filePath.match(/^\.\./);
 }

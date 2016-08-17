@@ -2,10 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# [0.12.0] - 2016-08-16
+- add 'write' & 'writeFileFrom' actions
+
 # [0.11.0] - 2016-08-09
 - break runner calls into two steps:
   - load
   - run
+- require Atom 1.8+, Node 4+
 
 # [0.10.10] - 2016-07-30
 - performance increase

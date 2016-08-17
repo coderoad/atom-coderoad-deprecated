@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "atom-plugin-command-line": "1.0.2",
-    "coderoad-cli": "0.8.0",
-    "core-coderoad": "0.7.0",
+    "coderoad-cli": "0.9.0",
+    "core-coderoad": "0.8.0",
     "material-ui": "0.15.4",
     "node-file-exists": "1.1.0",
     "react": "15.3.0",
