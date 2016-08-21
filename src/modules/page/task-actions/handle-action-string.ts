@@ -1,6 +1,5 @@
 import {editorInsert, editorOpen, editorSave, editorSet, editorWriteFileFromContent, editorWriteFileFromFile} from '../../../actions';
 import store from '../../../store';
-import actionWrite from '../@actions/write';
 import { getCommand, getOptions, getParams } from './parser';
 
 const Type = {

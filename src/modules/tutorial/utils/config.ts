@@ -18,6 +18,10 @@ export function tutorialConfig(
 
   const getRunner = configRunner(name, config.runner, dir);
 
+  if (!getRunner || !getRunner.run || !getRunner.load) {
+    console.log('Error loading test runner', getRunner);
+  }
+
   return {
     dir: tutorialDir,
     runner,
