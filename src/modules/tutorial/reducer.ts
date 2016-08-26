@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import { join } from 'path';
 
 import { TUTORIAL_SET } from './types';
 import { tutorialConfig } from './utils/config';
@@ -24,11 +24,11 @@ export default function tutorialReducer(
       const {name, dir, version} = action.payload;
 
       // get tutorial package.json
-      const packagePath: string = resolve(dir, 'node_modules', name);
-      const packageJson: PackageJson = require(resolve(packagePath, 'package.json'));
+      const packagePath: string = join(dir, 'node_modules', name);
+      const packageJson: PackageJson = require(join(packagePath, 'package.json'));
 
       const config: Tutorial.Config = tutorialConfig(packageJson, dir);
-      const coderoadJsonPath = resolve(packagePath, packageJson.main);
+      const coderoadJsonPath = join(packagePath, packageJson.main);
       let {info, pages} = require(coderoadJsonPath);
 
       // configure test paths to absolute paths. Only once.

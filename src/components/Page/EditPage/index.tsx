@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import { join } from 'path';
 import * as React from 'react';
 
 import ModeEdit from 'material-ui/svg-icons/editor/mode-edit';
@@ -14,7 +14,7 @@ const EditPage: React.StatelessComponent<{
   tutorial: Tutorial.Config
 }> = ({tutorial}) => {
   if (tutorial && tutorial.edit && tutorial.repo) {
-    const repoPath = resolve(tutorial.repo, 'edit', 'master', tutorial.repo);
+    const repoPath = join(tutorial.repo, 'edit', 'master', tutorial.repo);
     return (
       <a href={repoPath}>
         <ModeEdit style={editStyle}/>

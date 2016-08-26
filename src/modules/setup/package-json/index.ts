@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { resolve } from 'path';
+import { join } from 'path';
 
 import { SETUP_PACKAGE } from '../types';
 import fileExists from 'node-file-exists';
@@ -12,7 +12,7 @@ export default function packageJson(
   switch (action.type) {
 
     case SETUP_PACKAGE:
-      const pathToPackageJson = resolve(action.payload.dir, 'package.json');
+      const pathToPackageJson = join(action.payload.dir, 'package.json');
       return fileExists(pathToPackageJson)
         ? readParse(pathToPackageJson)
         : null;

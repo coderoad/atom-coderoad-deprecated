@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import { join } from 'path';
 
 import { open, openFolder, openTerminal, set } from '../../../selectors';
 import { setupVerify } from '../actions';
@@ -11,7 +11,7 @@ const packageData = `{
 }`;
 
 export function createPackageJson(dir: string): Promise<void> {
-  const packagePath = resolve(dir, 'package.json');
+  const packagePath = join(dir, 'package.json');
   return new Promise((resolve, reject) => {
     open(packagePath);
     setTimeout(() => resolve());

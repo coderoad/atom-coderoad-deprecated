@@ -1,4 +1,4 @@
-import {resolve} from 'path';
+import { join } from 'path';
 import * as React from 'react';
 
 import {RouteButton} from '../../index';
@@ -31,7 +31,7 @@ let styles = {
 // due to url parse/replacing providing
 // invalid path
 if (!navigator.platform.match(/Win/)) {
-  const imagePath = resolve(
+  const imagePath = join(
     __dirname, '..', '..', '..', '..', 'img', 'coderoad.jpg'
   );
   styles.header.backgroundImage = `url(${imagePath})`;
