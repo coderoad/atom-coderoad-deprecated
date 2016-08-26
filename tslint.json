@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint:latest", "tslint-react"],
+  "extends": ["tslint", "tslint-react"],
   "rules": {
     "jsx-alignment": true,
     "jsx-no-lambda": true,

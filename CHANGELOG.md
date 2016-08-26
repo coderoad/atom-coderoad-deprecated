@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.12.2] - WIP
+- drop "core-coderoad" dependency. 
+
 ## [0.12.1] - 2016-08-18
 - remove devDependencies, as Atom installs them and slows the install time significantly
 - create folders if they do not already exist when writing files

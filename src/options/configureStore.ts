@@ -1,9 +1,8 @@
 import { applyMiddleware, createStore } from 'redux';
 import * as createLogger from 'redux-logger';
-import throttleActions from 'redux-throttle-actions';
 import thunk from 'redux-thunk';
 
-const configureStore = ({reducer, devMode, throttle}) => {
+const configureStore = ({reducer, devMode}) => {
 
   const middlewares = [thunk];
 
@@ -13,16 +12,6 @@ const configureStore = ({reducer, devMode, throttle}) => {
     middlewares.push(logger);
   } else {
     process.env.NODE_ENV = 'production';
-  }
-
-  // throttle save
-  if (throttle) {
-    const toThrottle = Object.keys(throttle);
-    toThrottle.forEach((action: string) => {
-        middlewares.push(
-          throttleActions([].concat(action), throttle[action])
-        );
-    });
   }
 
   // create store with middlewares

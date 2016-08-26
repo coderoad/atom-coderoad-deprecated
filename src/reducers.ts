@@ -4,7 +4,7 @@ import {combineReducers} from 'redux';
 import {default as alert} from './modules/alert';
 import {default as dir} from './modules/dir';
 import {reducer as editor} from './modules/editor';
-import {reducer as hintPosition} from './modules/hints';
+import {default as hintPosition} from './modules/hints';
 import {pagePosition, taskActions, taskTests} from './modules/page';
 import {reducer as progress} from './modules/progress';
 import {reducer as route} from './modules/route';
