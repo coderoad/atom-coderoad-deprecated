@@ -1,4 +1,4 @@
-import {routeSet} from '../../selectors';
+import {routeSet} from '../../actions';
 import {TUTORIAL_SET} from './types';
 
 export function tutorialSet({name, version}): ReduxThunk.ThunkInterface {
