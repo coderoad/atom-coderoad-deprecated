@@ -4,9 +4,9 @@ import * as ReactDOM from 'react-dom';
 import {SideRoot, sideElement} from './components/SidePanel';
 import addToStatusBar from './components/StatusBar';
 import {setupVerify} from './modules/setup';
+import loadPolyfills from './polyfills';
 import store from './store';
 import Subscriptions from './subscriptions';
-import {loadPolyfills, render} from 'core-coderoad';
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
 
 // React optimization

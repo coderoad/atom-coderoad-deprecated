@@ -1,5 +1,3 @@
-import {join} from 'path';
-
 import handleResult from './handle-result';
 
 export default function runTaskTests({

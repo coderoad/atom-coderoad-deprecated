@@ -1,7 +1,7 @@
-import {join} from 'path';
+import { resolve } from 'path';
 
-import {setupVerify} from '../actions';
-import {open, openFolder, openTerminal, set} from 'core-coderoad';
+import { open, openFolder, openTerminal, set } from '../../../selectors';
+import { setupVerify } from '../actions';
 
 const packageData = `{
   "name": "demo",
@@ -11,7 +11,7 @@ const packageData = `{
 }`;
 
 export function createPackageJson(dir: string): Promise<void> {
-  const packagePath = join(dir, 'package.json');
+  const packagePath = resolve(dir, 'package.json');
   return new Promise((resolve, reject) => {
     open(packagePath);
     setTimeout(() => resolve());

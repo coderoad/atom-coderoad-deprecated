@@ -5,6 +5,7 @@
     "jsx-no-lambda": true,
     "jsx-no-string-ref": true,
     "jsx-self-close": true,
+    "jsx-no-multiline-js": false,
     "align": [true, "parameters", "statements"],
     "class-name": true,
     "comment-format": [true, "check-space"],

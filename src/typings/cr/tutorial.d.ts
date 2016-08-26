@@ -18,6 +18,7 @@ declare namespace Tutorial {
     runner: string;
     runnerOptions?: Object;
     run: any;
+    load: any;
     testSuffix?: string;
     issuesPath?: string;
     repo?: string;

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
+import {pageSelector, taskProgressSelector} from '../../selectors';
 import {ContentCard} from '../index';
 import Hints from './Hints';
 import PageToolbar from './PageToolbar';
 import ProgressBar from './ProgressBar';
 import Tasks from './Tasks';
 import TasksComplete from './TasksComplete';
-import {pageSelector, taskProgressSelector} from 'core-coderoad';
 import {Card} from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 

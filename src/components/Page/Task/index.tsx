@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
+import {taskByIndexSelector} from '../../../selectors';
 import {Markdown} from '../../index';
 import TaskCheckbox from './taskCheckbox';
-import {taskByIndexSelector} from 'core-coderoad';
 import {ListItem} from 'material-ui/List';
 import {lightGreen200, orange200} from 'material-ui/styles/colors';
 

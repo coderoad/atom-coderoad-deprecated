@@ -1,10 +1,11 @@
 export {alertOpen, alertClose, alertReplay} from './modules/alert/actions';
+export {editorDevToolsToggle, editorOpen, editorInsert, editorSave, editorSet, editorWriteFileFromFile, editorWriteFileFromContent} from './modules/editor/actions';
 export {hintPositionSet} from './modules/hints/actions';
 export {pageSet, pageNext} from './modules/page/actions';
 export {progressLoad, progressCompletePage} from './modules/progress/actions';
-export {testLoad, testRun, testResult, testComplete} from './modules/tests/actions';
+export {routeSet} from './modules/route/actions';
 export {setupVerify, setupPackage} from './modules/setup/actions';
-export {tutorialSet} from './modules/tutorial';
-export {tutorialsFind, tutorialUpdate} from './modules/tutorials';
-
-export {editorDevToolsToggle, editorOpen, editorInsert, editorSave, editorSet, routeSet, windowToggle, quit, editorWriteFileFromContent, editorWriteFileFromFile} from 'core-coderoad';
+export {testLoad, testRun, testResult, testComplete} from './modules/tests/actions';
+export {tutorialSet} from './modules/tutorial/actions';
+export {tutorialsFind, tutorialUpdate} from './modules/tutorials/actions';
+export { windowToggle, quit} from './modules/window/actions';

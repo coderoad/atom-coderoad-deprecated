@@ -44,6 +44,7 @@ declare namespace CR {
     pages: CR.Page[];
     packageJson: PackageJson;
     config: Tutorial.Config;
+    version?: string;
   }
 
   type PagePosition = number;

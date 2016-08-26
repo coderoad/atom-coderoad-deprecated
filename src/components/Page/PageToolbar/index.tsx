@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
+import {taskProgressSelector} from '../../../selectors';
 import Continue from './Continue';
 import Save from './Save';
 import ToggleDevTools from './ToggleDevTools';
-import {taskProgressSelector} from 'core-coderoad';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 
 const styles = {

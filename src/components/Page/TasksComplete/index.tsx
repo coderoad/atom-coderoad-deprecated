@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
+import {pageSelector} from '../../../selectors';
 import {Markdown} from '../../index';
-import {pageSelector} from 'core-coderoad';
 import {Card, CardText} from 'material-ui/Card';
 import {cyan500, grey100} from 'material-ui/styles/colors';
 

@@ -2,12 +2,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 
+import {pageCompletedSelector, visibleTasksSelector} from '../../../selectors';
 import Task from '../Task';
-import {pageCompletedSelector, visibleTasksSelector} from 'core-coderoad';
 import {Card} from 'material-ui/Card';
 import {List} from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
 import {lightGreen200} from 'material-ui/styles/colors';
+import Subheader from 'material-ui/Subheader';
 
 const margin = '10px 5px';
 

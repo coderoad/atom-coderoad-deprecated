@@ -1,5 +1,3 @@
-import { join } from 'path';
-
 const twoDigitify = n => n > 9 ? '' + n : '0' + n;
 
 export default function getTestName({tutorial, pagePosition}): string {

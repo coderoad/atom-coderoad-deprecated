@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
+import {hintSelector} from '../../../selectors';
 import {Markdown} from '../../index';
 import HintButton from './HintButton';
-import {hintSelector} from 'core-coderoad';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import Help from 'material-ui/svg-icons/action/help';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {taskProgressSelector} from 'core-coderoad';
+import {taskProgressSelector} from '../../../selectors';
 import LinearProgress from 'material-ui/LinearProgress';
 
 const style = {
