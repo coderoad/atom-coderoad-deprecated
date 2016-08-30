@@ -1,4 +1,4 @@
-export function configRepo(repo?: { url: string }): string {
+export function configRepo(repo?: { url: string }): string|null {
   if (repo && repo.url) {
     let url: string = repo.url;
     if (!!url.match(/\.git$/)) {
@@ -9,6 +9,6 @@ export function configRepo(repo?: { url: string }): string {
   return null;
 }
 
-export function configIssuesPath(bugs?: { url: string }): string {
+export function configIssuesPath(bugs?: { url: string }): string|null {
   return bugs && bugs.url ? bugs.url : null;
 }

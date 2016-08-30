@@ -10,11 +10,11 @@ export function tutorialConfig(
 ): Tutorial.Config {
   // package.json: name, config
   const {config, name} = tutorialPj;
-  const repo: string = configRepo(tutorialPj.repo);
+  const repo = configRepo(tutorialPj.repo);
   const tutorialDir: string = join(dir, 'node_modules', name, config.dir);
   const runner: string = config.runner;
   const runnerOptions: Object = config.runnerOptions || {};
-  const configEdit: boolean = tutorialPj.config.edit;
+  const configEdit = tutorialPj.config.edit;
 
   const getRunner = configRunner(name, config.runner, dir);
 

@@ -24,7 +24,7 @@ export function writeFileFromFile({to, from, dir, tutorialDir}) {
       const err = `Error: tried to write '${fromAbs}' to '${toAbs}' but failed.`;
       if (readErr) { console.log(err, readErr); }
       writeFile(toAbs, data, (writeErr) => {
-        if (err, writeErr) { console.log(writeErr); }
+        if (writeErr) { console.log(writeErr); }
         console.log(`wrote file contents of ${to} to ${from}`);
       });
     });
@@ -38,9 +38,9 @@ function createFolders({dir, to}) {
     if (folders.length === 0) {
       resolve();
     } else {
-      let current = [];
+      let current: string[] = [];
       // write each missing folder
-      folders.forEach(x => {
+      folders.forEach((x: string) => {
         current.push(x);
         const folderPath = join(dir, current.join('/'));
         if (!fileExists(folderPath)) {
