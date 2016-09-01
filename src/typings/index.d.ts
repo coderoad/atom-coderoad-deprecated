@@ -17,14 +17,13 @@
 /// <reference path="globals/text-buffer/index.d.ts" />
 
 // Custom
+/// <reference path="cli/index.d.ts" />
 /// <reference path="globals/node-file-exists/index.d.ts" />
 /// <reference path="globals/redux-throttle-actions/index.d.ts" />
 /// <reference path="globals/sort-package-json/index.d.ts" />
 
 // Local
-/// <reference path="cr/cli.d.ts" />
-/// <reference path="cr/core.d.ts" />
-/// <reference path="cr/cr.d.ts" />
-/// <reference path="cr/globals.d.ts" />
-/// <reference path="cr/test.d.ts" />
-/// <reference path="cr/tutorial.d.ts" />
+/// <reference path="common/index.d.ts" />
+/// <reference path="coderoad/index.d.ts" />
+/// <reference path="tests/index.d.ts" />
+/// <reference path="tutorial/index.d.ts" />

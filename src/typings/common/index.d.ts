@@ -1,25 +1,5 @@
-interface Action {
-  type: string;
-  payload?;
-  error?: boolean;
-  meta?;
-  filter?: string;
-}
-
-interface PackageJson {
-  name: string;
-  main: string;
-  version: string;
-  dependencies?: Object;
-  devDependencies?: Object;
-  config: Tutorial.Config;
-  bugs?: {
-    url: string;
-  };
-  repo?: {
-    url: string;
-  };
-}
+import { Action } from './action.d.ts';
+import { PackageJson } from './package-json.d.ts';
 
 interface ObjectConstructor {
   assign(target: any, ...sources: any[]): any;

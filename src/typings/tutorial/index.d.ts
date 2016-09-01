@@ -1,18 +1,18 @@
 declare namespace Tutorial {
-  interface Item {
+  export interface Item {
     name: string;
     version: string;
     latest?: boolean;
   }
 
-  interface Info {
+  export interface Info {
     title: string;
     description?: string;
     keywords?: string[];
     version?: string;
   }
 
-  interface Config {
+  export interface Config {
     language?: string;
     dir: string;
     runner: string;
@@ -25,12 +25,12 @@ declare namespace Tutorial {
     edit?: boolean;
   }
 
-  interface Output {
+  export interface Output {
     info: CR.Info;
     pages: CR.Page[];
   }
 
-  interface PJ {
+  export interface PJ {
     name: string;
     repository?: Object;
     bugs?: Object;
@@ -54,6 +54,6 @@ declare namespace Tutorial {
     contributers?: string[];
   }
 
-  interface RunnerOptions { }
+  export interface RunnerOptions { }
 
 }
