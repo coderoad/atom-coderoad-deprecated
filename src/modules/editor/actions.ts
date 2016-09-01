@@ -14,7 +14,8 @@ export function editorInsert(content: string): Action {
 }
 
 // opens file within a directory
-export function editorOpen(file: string, options: Object) {
+export function editorOpen(file: string, options: Object):
+  Redux.ThunkAction<any, {dir: string}, {}> {
   return (dispatch, getState) => {
     file = join(getState().dir, file);
     dispatch({ type: EDITOR_OPEN, payload: { file, options } });
@@ -33,7 +34,8 @@ export function editorScroll(content: string): Action {
   return { type: EDITOR_SCROLL, payload: { content } };
 }
 
-export function editorWriteFileFromContent(to: string, content: string) {
+export function editorWriteFileFromContent(to: string, content: string):
+  Redux.ThunkAction<any, {dir: string}, {}> {
   return (dispatch, getState) => {
     const { dir } = getState();
     dispatch({
@@ -43,7 +45,8 @@ export function editorWriteFileFromContent(to: string, content: string) {
   };
 }
 
-export function editorWriteFileFromFile(to: string, from: string) {
+export function editorWriteFileFromFile(to: string, from: string):
+  Redux.ThunkAction<any, any, {}> {
   return (dispatch, getState) => {
     const { dir, tutorial } = getState();
     const tutorialDir = tutorial.config.dir;

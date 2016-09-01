@@ -1,14 +1,14 @@
 import {hintPositionSet, routeSet, testLoad} from '../../actions';
 import {PAGE_SET} from './types';
 
-export function pageNext(): ReduxThunk.ThunkInterface | Action {
+export function pageNext(): Redux.ThunkAction<any, any, {}> {
   return (dispatch, getState): void => {
     let {pagePosition} = getState();
     dispatch(pageSet(pagePosition + 1));
   };
 }
 
-export function pageSet(pagePosition = 0): ReduxThunk.ThunkInterface {
+export function pageSet(pagePosition = 0): Redux.ThunkAction<any, any, {}> {
   return (dispatch, getState): void => {
     const state = getState();
     const {progress, tutorial, route} = state;

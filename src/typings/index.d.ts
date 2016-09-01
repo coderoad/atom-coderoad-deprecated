@@ -1,12 +1,11 @@
 // Globals
 /// <reference path="globals/atom/index.d.ts" />
 /// <reference path="globals/es6-promise/index.d.ts" />
-/// <reference path="globals/node/index.d.ts" />
-/// <reference path="globals/react-dom/index.d.ts" />
-/// <reference path="globals/react/index.d.ts" />
-/// <reference path="globals/es6-promise/index.d.ts" />
 /// <reference path="globals/marked/index.d.ts" />
 /// <reference path="globals/material-ui/index.d.ts" />
+/// <reference path="globals/node/index.d.ts" />
+/// <reference path="globals/react/index.d.ts" />
+/// <reference path="globals/react-dom/index.d.ts" />
 /// <reference path="globals/react-redux/index.d.ts" />
 /// <reference path="globals/react-tap-event-plugin/index.d.ts" />
 /// <reference path="globals/redux/index.d.ts" />

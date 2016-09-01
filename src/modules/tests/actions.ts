@@ -2,11 +2,10 @@ import {alertOpen, hintPositionSet, progressCompletePage} from '../../actions';
 import getTestName from './test-run/testName';
 import {TEST_COMPLETE, TEST_LOAD, TEST_RESULT, TEST_RUN} from './types';
 
-export function testLoad() {
+export function testLoad(): Redux.ThunkAction<any, any, {}> {
   return (dispatch, getState): void => {
     const { dir, pagePosition, tutorial, taskTests } = getState();
     const testFile = getTestName({tutorial, pagePosition});
-
     dispatch({
       type: TEST_LOAD, payload: {
         dir,
@@ -18,7 +17,7 @@ export function testLoad() {
   };
 }
 
-export function testRun(): ReduxThunk.ThunkInterface {
+export function testRun(): Redux.ThunkAction<any, any, {}> {
   return (dispatch, getState): void => {
     // less than a second since the last test run, skip
     const timeSinceLastTestRun = performance.now() - getState().testRun.time;
@@ -35,7 +34,8 @@ export function testRun(): ReduxThunk.ThunkInterface {
   };
 }
 
-export function testResult(result: Test.Result): ReduxThunk.ThunkInterface {
+export function testResult(result: Test.Result):
+  Redux.ThunkAction<any, any, {}> {
   return (dispatch, getState): void => {
     const {taskActions, progress, pagePosition} = getState();
     const filter: string = getTestFilter(result);
@@ -76,8 +76,9 @@ function getTestFilter(result: Test.Result): string {
   }
 }
 
-export function testComplete(result: Test.Result) {
-  return (dispatch, getState): void => {
+export function testComplete(result: Test.Result):
+  Redux.ThunkAction<any, any, {}> {
+  return (dispatch): void => {
     switch (true) {
       // all complete
       case result.completed:

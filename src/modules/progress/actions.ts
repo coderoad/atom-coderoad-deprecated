@@ -3,7 +3,7 @@ import {
   PROGRESS_COMPLETE_PAGE, PROGRESS_COMPLETE_TUTORIAL, PROGRESS_LOAD, PROGRESS_PAGE_POSITION
 } from './types';
 
-export function progressLoad(): ReduxThunk.ThunkInterface {
+export function progressLoad(): Redux.ThunkAction<any, any, {}> {
   return (dispatch, getState) => {
     const {tutorial} = getState();
     dispatch({ type: PROGRESS_LOAD, payload: { tutorial } });
@@ -12,14 +12,15 @@ export function progressLoad(): ReduxThunk.ThunkInterface {
   };
 }
 
-function _progressPagePosition() {
+function _progressPagePosition(): Redux.ThunkAction<any, any, {}> {
   return (dispatch, getState) => {
     const {progress} = getState();
     dispatch({ type: PROGRESS_PAGE_POSITION, payload: { progress } });
   };
 }
 
-export function progressCompletePage(completed = true): ReduxThunk.ThunkInterface {
+export function progressCompletePage(completed = true):
+  Redux.ThunkAction<any, any, any> {
   return (dispatch, getState) => {
     const {pagePosition, progress, tutorial} = getState();
     // all pages are true, tutorial complete
@@ -35,7 +36,8 @@ export function progressCompletePage(completed = true): ReduxThunk.ThunkInterfac
   };
 }
 
-export function progressCompleteTutorial(completed = true): ReduxThunk.ThunkInterface {
+export function progressCompleteTutorial(completed = true):
+  Redux.ThunkAction<any, any, any> {
   return (dispatch, getState) => {
     const {tutorial} = getState();
     dispatch({ type: PROGRESS_COMPLETE_TUTORIAL, payload: { tutorial, completed } });
