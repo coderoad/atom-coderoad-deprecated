@@ -1,29 +1,31 @@
-/// <reference path="assertion-error/assertion-error.d.ts" />
-/// <reference path="atom/atom.d.ts" />
-/// <reference path="es6-promise/es6-promise.d.ts" />
-/// <reference path="node/node.d.ts" />
-/// <reference path="react-dom/react-dom.d.ts" />
-/// <reference path="react-redux/react-redux.d.ts" />
-/// <reference path="react/react-addons-css-transition-group.d.ts" />
-/// <reference path="react/react-tap-event-plugin.d.ts" />
-/// <reference path="react/react.d.ts" />
-/// <reference path="redux/redux.d.ts" />
-/// <reference path="reselect/reselect.d.ts" />
-/// <reference path="redux-form/redux-form.d.ts" />
-/// <reference path="redux-thunk/redux-thunk.d.ts" />
-/// <reference path="redux-logger/index.d.ts" />
-/// <reference path="redux-throttle-actions/index.d.ts" />
-/// <reference path="text-buffer/text-buffer.d.ts" />
-/// <reference path="marked/marked.d.ts" />
-/// <reference path="material-ui/material-ui.d.ts" />
-/// <reference path="atom-plugin-command-line/index.d.ts" />
-/// <reference path="node-file-exists/index.d.ts" />
-/// <reference path="highlights/index.d.ts" />
-/// <reference path="sort-package-json/index.d.ts" />
+// Globals
+/// <reference path="globals/atom/index.d.ts" />
+/// <reference path="globals/es6-promise/index.d.ts" />
+/// <reference path="globals/node/index.d.ts" />
+/// <reference path="globals/react-dom/index.d.ts" />
+/// <reference path="globals/react/index.d.ts" />
+/// <reference path="globals/es6-promise/index.d.ts" />
+/// <reference path="globals/marked/index.d.ts" />
+/// <reference path="globals/material-ui/index.d.ts" />
+/// <reference path="globals/react-redux/index.d.ts" />
+/// <reference path="globals/react-tap-event-plugin/index.d.ts" />
+/// <reference path="globals/redux/index.d.ts" />
+/// <reference path="globals/redux-form/index.d.ts" />
+/// <reference path="globals/redux-logger/index.d.ts" />
+/// <reference path="globals/redux-thunk/index.d.ts" />
+/// <reference path="globals/reselect/index.d.ts" />
+/// <reference path="globals/status-bar/index.d.ts" />
+/// <reference path="globals/text-buffer/index.d.ts" />
 
-/// <reference path="cr/cr.d.ts" />
+// Custom
+/// <reference path="globals/node-file-exists/index.d.ts" />
+/// <reference path="globals/redux-throttle-actions/index.d.ts" />
+/// <reference path="globals/sort-package-json/index.d.ts" />
+
+// Local
 /// <reference path="cr/cli.d.ts" />
-/// <reference path="cr/globals.d.ts" />
 /// <reference path="cr/core.d.ts" />
-/// <reference path="cr/tutorial.d.ts" />
+/// <reference path="cr/cr.d.ts" />
+/// <reference path="cr/globals.d.ts" />
 /// <reference path="cr/test.d.ts" />
+/// <reference path="cr/tutorial.d.ts" />
