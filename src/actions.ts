@@ -1,5 +1,6 @@
 export {alertOpen, alertClose, alertReplay} from './modules/alert/actions';
-export {editorDevToolsToggle, editorOpen, editorInsert, editorSave, editorSet, editorWriteFileFromFile, editorWriteFileFromContent} from './modules/editor/actions';
+export {editorDevToolsToggle, editorOpen, editorInsert} from './modules/editor/actions';
+export {editorSave, editorSet, editorWriteFileFromFile, editorWriteFileFromContent} from './modules/editor/actions';
 export {hintPositionSet} from './modules/hints/actions';
 export {pageSet, pageNext} from './modules/page/actions';
 export {progressLoad, progressCompletePage} from './modules/progress/actions';

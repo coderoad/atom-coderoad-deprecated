@@ -17,7 +17,6 @@
   "strictNullChecks": true
  },
  "filesGlob": [
-  "typings.d.ts",
   "*.ts",
   "**/*.ts",
   "**/*.tsx",
