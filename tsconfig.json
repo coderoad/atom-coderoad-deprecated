@@ -20,8 +20,12 @@
   "*.ts",
   "**/*.ts",
   "**/*.tsx",
+  "!coverage",
+  "!__tests__",
   "!**/*.spec.ts",
-  "!**/*.spec.tsx"
+  "!**/*.spec.tsx",
+  "!**/*.test.ts",
+  "!**/*.test.tsx"
  ],
  "exclude": [
   "node_modules"

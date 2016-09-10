@@ -26,7 +26,7 @@
   "repository": "https://github.com/coderoad/atom-coderoad",
   "scripts": {
     "compile": "tsc",
-    "test": "tsc test/*.ts src/typings.d.ts && ava"
+    "test": "jest"
   },
   "dependencies": {
     "atom-plugin-command-line": "1.0.2",
@@ -44,6 +44,13 @@
     "redux-thunk": "2.1.0",
     "reselect": "2.5.3"
   },
+  "devDependencies": {
+    "enzyme": "^2.4.1",
+    "jest": "^15.1.1",
+    "react-addons-test-utils": "^15.3.1",
+    "react-test-renderer": "^15.3.1",
+    "tslint": "^3.15.1"
+  },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
@@ -57,16 +64,30 @@
       }
     }
   },
-  "devDependencies": {
-    "enzyme": "^2.4.1",
-    "jest": "^15.1.1",
-    "react-addons-test-utils": "^15.3.1",
-    "react-test-renderer": "^15.3.1",
-    "tslint": "^3.15.1"
-  },
   "jest": {
+    "verbose": true,
     "scriptPreprocessor": "<rootDir>/src/__tests__/preprocessor.js",
-    "moduleFileExtensions": ["ts", "tsx", "js"],
-    "testRegex": "/src/*/.*\\.test\\.(ts|tsx|js)$"
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testRegex": "/src/*/.*\\.test\\.(ts|tsx|js)$",
+    "coverageDirectory": "src/coverage",
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/typings/",
+      "__tests__"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "cacheDirectory": "src/__tests__/__cache__"
   }
 }

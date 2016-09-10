@@ -2,3 +2,7 @@
 node_modules
 npm-debug.log
 test
+.vscode
+src/coverage
+src/__tests__/__cache__
+src/__tests__/__snapshots__
