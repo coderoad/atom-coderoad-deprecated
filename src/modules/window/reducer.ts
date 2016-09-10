@@ -1,5 +1,11 @@
 import {QUIT, WINDOW_TOGGLE} from './types';
 
+/**
+ * Window open status reducer
+ * @param  {} open=false
+ * @param  {Action} action
+ * @returns boolean window open status
+ */
 export default function windowReducer(
   open = false, action: Action
 ): boolean {
