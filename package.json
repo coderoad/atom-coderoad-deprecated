@@ -39,7 +39,7 @@
     "react-redux": "4.4.5",
     "react-router-sans-urls": "0.1.2",
     "react-tap-event-plugin": "1.0.0",
-    "redux": "3.5.2",
+    "redux": "3.6.0",
     "redux-logger": "2.6.1",
     "redux-thunk": "2.1.0",
     "reselect": "2.5.3"
@@ -56,5 +56,17 @@
         "1.0.0": "consumeStatusBar"
       }
     }
+  },
+  "devDependencies": {
+    "enzyme": "^2.4.1",
+    "jest": "^15.1.1",
+    "react-addons-test-utils": "^15.3.1",
+    "react-test-renderer": "^15.3.1",
+    "tslint": "^3.15.1"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/src/__tests__/preprocessor.js",
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "testRegex": "/src/*/.*\\.test\\.(ts|tsx|js)$"
   }
 }

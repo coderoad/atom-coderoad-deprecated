@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/f77d4a03c47c8953fa6aab76b95fbab5121454da/enzyme/enzyme.d.ts",
+    "raw": "registry:dt/enzyme#2.4.1+20160709041153",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/f77d4a03c47c8953fa6aab76b95fbab5121454da/enzyme/enzyme.d.ts"
+  }
+}
