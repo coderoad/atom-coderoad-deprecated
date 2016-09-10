@@ -1,12 +1,14 @@
 import {ALERT_CLOSE,  ALERT_OPEN, ALERT_REPLAY} from './types';
 
+// alert styles
 const colors = {
   PASS: '#73C990', // green
   FAIL: '#FF4081', // red
   NOTE: '#9DA5B4', // blue
 };
 
-const _alert: CR.Alert = {
+// default alert
+export const _alert: CR.Alert = {
   message: '',
   open: false,
   action: 'NOTE',
@@ -30,6 +32,12 @@ function setAlert(a: CR.Alert): CR.Alert {
   return Object.assign({}, open, a);
 }
 
+/**
+ * snackbar Alert reducer
+ * @param  {} alert=_alert
+ * @param  {Action} action
+ * @returns CR
+ */
 export default function alert(
   alert = _alert, action: Action
 ): CR.Alert {
