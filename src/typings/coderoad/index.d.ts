@@ -39,11 +39,11 @@ declare namespace CR {
 
   interface Tutorial {
     name: string;
+    version?: string;
     info: Tutorial.Info;
     pages: CR.Page[];
-    packageJson: PackageJson;
-    config: Tutorial.Config;
-    version?: string;
+    packageJson: PackageJson|null;
+    config: Tutorial.Config|null;
   }
 
   type PagePosition = number;

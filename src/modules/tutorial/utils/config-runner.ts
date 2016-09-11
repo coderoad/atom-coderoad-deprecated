@@ -1,13 +1,20 @@
 import {join} from 'path';
-
 import {isWindows} from './system';
 import fileExists from 'node-file-exists';
 
+/**
+ * sets tutorial runner (load & run)
+ * @param  {string} name
+ * @param  {string} runner
+ * @param  {string} dir
+ */
 export default function configRunner(name: string, runner: string, dir: string): { run: () => any, load: () => any } {
-  // test runner dir
+  
+  // flat dep in NPM 3
   let flatDep = join(
     dir, 'node_modules', runner, 'package.json'
   );
+  // tree dep occurs in NPM 2 & when using npm link
   let treeDep = join(
     dir, 'node_modules', name, 'node_modules', runner, 'package.json'
   );

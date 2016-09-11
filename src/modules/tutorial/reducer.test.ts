@@ -1,3 +1,5 @@
+/// <reference path="../../typings/globals/jest/index.d.ts" />
+
 import reducer, { _tutorial } from './reducer';
 
 describe('tutorial reducer', () => {

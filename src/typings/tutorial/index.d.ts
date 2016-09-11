@@ -13,15 +13,15 @@ declare namespace Tutorial {
   }
 
   export interface Config {
-    language?: string;
     dir: string;
+    language?: string;
     runner: string;
     runnerOptions?: Object;
-    run: any;
-    load: any;
-    testSuffix?: string;
-    issuesPath?: string;
-    repo?: string;
+    run: (options) => any;
+    load: (options) => any;
+    testSuffix?: string|null;
+    issuesPath?: string|null;
+    repo?: string|null;
     edit?: boolean;
   }
 
