@@ -14,7 +14,7 @@ process.env.NODE_ENV = 'production';
 
 class Main {
   private side: HTMLElement;
-  private statusBarTile: StatusBar.IStatusBarView;
+  private statusBarTile: StatusBar.IStatusBarView|null;
   private subscriptions: any;
   constructor() {
     injectTapEventPlugin(); // remove later
