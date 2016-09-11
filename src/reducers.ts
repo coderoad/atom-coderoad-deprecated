@@ -5,7 +5,7 @@ import {default as alert} from './modules/alert';
 import {default as dir} from './modules/dir';
 import {reducer as editor} from './modules/editor';
 import {default as hintPosition} from './modules/hints';
-import {pagePosition, taskActions, taskTests} from './modules/page';
+import {pagePosition, taskActions} from './modules/page';
 import {reducer as progress} from './modules/progress';
 import {reducer as route} from './modules/route';
 import {checks, packageJson} from './modules/setup';
@@ -18,5 +18,5 @@ export default combineReducers({
   alert, checks, editor, dir, hintPosition,
   packageJson, pagePosition, progress, route,
   tutorial, tutorials,
-  taskActions, taskPosition, taskTests, testRun, window
+  taskActions, taskPosition, testRun, window
 });

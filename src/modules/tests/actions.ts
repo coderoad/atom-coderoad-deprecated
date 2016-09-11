@@ -4,12 +4,13 @@ import {TEST_COMPLETE, TEST_LOAD, TEST_RESULT, TEST_RUN} from './types';
 
 export function testLoad(): Redux.ThunkAction<any, any, {}> {
   return (dispatch, getState): void => {
-    const { dir, pagePosition, tutorial, taskTests } = getState();
+    const { dir, pagePosition, tutorial } = getState();
+    const tasks = tutorial.pages[pagePosition].tasks || [];
     const testFile = getTestName({tutorial, pagePosition});
     dispatch({
       type: TEST_LOAD, payload: {
         dir,
-        tests: taskTests,
+        tasks,
         load: tutorial.config.load,
         testFile,
       }
@@ -24,12 +25,14 @@ export function testRun(): Redux.ThunkAction<any, any, {}> {
     if (timeSinceLastTestRun < 1000) {
       return;
     }
-    const {taskTests, dir, tutorial, taskPosition, pagePosition} = getState();
+    const {dir, tutorial, taskPosition, pagePosition} = getState();
+    const tasks = tutorial.pages[pagePosition].tasks;
+    const hasTasks = tasks && tasks.length > 0;
     const testFile = getTestName({tutorial, pagePosition});
 
     dispatch({
       type: TEST_RUN,
-      payload: { taskTests, dir, tutorial, taskPosition, testFile }
+      payload: { hasTasks, dir, tutorial, taskPosition, testFile }
     });
   };
 }

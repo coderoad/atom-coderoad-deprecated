@@ -27,7 +27,6 @@ declare namespace CR {
     page: Page;
     progress: Progress;
     tasks: Task[];
-    taskTests: string[];
     taskPosition: number;
     hintPosition: number;
     taskActions: string[];

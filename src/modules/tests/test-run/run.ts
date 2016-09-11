@@ -1,10 +1,10 @@
 import handleResult from './handle-result';
 
 export default function runTaskTests({
-  taskTests, dir, tutorial, taskPosition, testFile
+  hasTasks, dir, tutorial, taskPosition, testFile
 }): number {
 
-  if (taskTests && taskTests.length) {
+  if (hasTasks) {
     // call test runner
     tutorial.config.run({dir, taskPosition, handleResult, testFile});
   }
