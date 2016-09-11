@@ -1,4 +1,5 @@
 /// <reference path="../../typings/globals/jest/index.d.ts" />
+
 import reducer from './reducer';
 import * as types from './types';
 
