@@ -5,5 +5,5 @@ npm-debug.log
 .vscode
 
 # Testing
-src/coverage
+src/__coverage__
 src/__tests__/__cache__

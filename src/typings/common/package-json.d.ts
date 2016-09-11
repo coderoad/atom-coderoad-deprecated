@@ -1,4 +1,4 @@
-export interface PackageJson {
+interface PackageJson {
   name: string;
   main: string;
   version: string;

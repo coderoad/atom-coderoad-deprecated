@@ -8,6 +8,7 @@ export default function dirReducer(
 ): string {
   if (!atom) {
     throw new Error('No project directory found. Atom may not be initialized.');
+    return '';
   }
   if (atom && atom.project.rootDirectories.length > 0) {
     return atom.project.rootDirectories[0].path;

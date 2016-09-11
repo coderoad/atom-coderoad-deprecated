@@ -1,6 +1,3 @@
-import { Action } from './action.d.ts';
-import { PackageJson } from './package-json.d.ts';
-
 interface ObjectConstructor {
   assign(target: any, ...sources: any[]): any;
   values(obj: Object): any[];

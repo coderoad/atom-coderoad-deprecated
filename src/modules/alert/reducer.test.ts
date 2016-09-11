@@ -1,3 +1,6 @@
+/// <reference path="../../typings/globals/jest/index.d.ts" />
+/// <reference path="../../typings/common/global.d.ts" />
+
 import reducer, { _alert } from './index';
 
 describe('alert reducer', () => {
@@ -8,7 +11,7 @@ describe('alert reducer', () => {
   const originalDocument = global.document;
 
   beforeEach(() => {
-    global.document = Object.assign(document, {
+    global.document = (<any>Object).assign(document, {
       getElementsByClassName: (selector) => [{
         style: {
           color: 'blue'

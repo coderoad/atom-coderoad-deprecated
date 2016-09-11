@@ -23,7 +23,7 @@ xdescribe('<Checks />', () => {
           hasTutorial: false,
         }
       }
-    })
+    });
     const tree = renderer.create(
       <Provider store={store} >
         <Checks />

@@ -1,5 +1,7 @@
 # Atom CodeRoad Roadmap
 
+1. Improved Unit Test Coverage
+1. Improved parsing of markdown -> `coderoad.json`
 1. Coderoad-language packages
     1. Native import/exports
 1. UI Improvements
@@ -17,5 +19,3 @@
     1. Users
     1. Analytics
     1. Tutorial ratings/feedback
-1. Improved Unit Test Coverage
-1. Improved parsing of markdown -> `coderoad.json`
