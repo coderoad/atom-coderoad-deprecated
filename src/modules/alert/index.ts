@@ -1,7 +1,7 @@
 import {ALERT_CLOSE,  ALERT_OPEN, ALERT_REPLAY} from './types';
 
 // alert styles
-const colors = {
+export const colors = {
   PASS: '#73C990', // green
   FAIL: '#FF4081', // red
   NOTE: '#9DA5B4', // blue
@@ -23,7 +23,11 @@ const open = {
 };
 
 let current: CR.Alert = _alert;
-
+/**
+ * sets alert color on snackbar DOM element
+ * @param  {CR.Alert} a alert
+ * @returns CR.Alert alert
+ */
 function setAlert(a: CR.Alert): CR.Alert {
   a.color = colors[a.action] || colors.NOTE;
   let statusBarAlert = <HTMLElement>document.getElementsByClassName('cr-alert-replay')[0];
@@ -35,8 +39,8 @@ function setAlert(a: CR.Alert): CR.Alert {
 /**
  * snackbar Alert reducer
  * @param  {} alert=_alert
- * @param  {Action} action
- * @returns CR
+ * @param  {Action} action { type: string, payload: { alert } }
+ * @returns CR.Alert alert
  */
 export default function alert(
   alert = _alert, action: Action
