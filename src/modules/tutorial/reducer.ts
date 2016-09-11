@@ -4,7 +4,7 @@ import { TUTORIAL_SET } from './types';
 import { tutorialConfig } from './utils/config';
 import configPaths from './utils/config-paths';
 
-const _tutorial: CR.Tutorial = {
+export const _tutorial: CR.Tutorial = {
   name: null,
   version: null,
   info: null,

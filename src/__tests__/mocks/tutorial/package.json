@@ -1,0 +1,7 @@
+{
+  "name": "coderoad-demo-mock",
+  "version": "0.1.0",
+  "devDependencies": {
+    "coderoad-tutorial-mock": "0.1.0"
+  }
+}
