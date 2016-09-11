@@ -45,11 +45,18 @@
     "reselect": "2.5.3"
   },
   "devDependencies": {
+    "electron-chromedriver": "^1.3.2",
     "enzyme": "^2.4.1",
     "jest": "^15.1.1",
+    "jest-cli": "^15.1.1",
     "react-addons-test-utils": "^15.3.1",
     "react-test-renderer": "^15.3.1",
-    "tslint": "^3.15.1"
+    "redux-mock-store": "^1.2.0",
+    "selenium-webdriver": "^3.0.0-beta-2",
+    "spectron": "^3.3.0",
+    "tslint": "^3.15.1",
+    "tslint-react": "^1.0.0",
+    "typescript": "^2.0.0"
   },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
@@ -67,13 +74,14 @@
   "jest": {
     "verbose": true,
     "scriptPreprocessor": "<rootDir>/src/__tests__/preprocessor.js",
+    "mocksPattern": "src/__tests__/mocks",
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js"
     ],
-    "testRegex": "/src/*/.*\\.test\\.(ts|tsx|js)$",
-    "coverageDirectory": "src/coverage",
+    "testRegex": "src/*/.*\\.test\\.(ts|tsx|js)$",
+    "coverageDirectory": "src/__coverage__",
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
       "/node_modules/",

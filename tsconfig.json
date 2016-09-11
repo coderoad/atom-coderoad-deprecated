@@ -1,36 +1,32 @@
 {
- "compileOnSave": true,
- "buildOnSave": true,
  "compilerOptions": {
   "target": "ES5",
   "module": "commonjs",
   "declaration": false,
   "noImplicitAny": false,
   "removeComments": true,
-  "noLib": false,
   "jsx": "react",
   "experimentalDecorators": true,
   "emitDecoratorMetadata": true,
   "outDir": "lib",
   "moduleResolution": "node",
-  "rootDirs": ["src"],
-  "strictNullChecks": true
+  "strictNullChecks": true,
+  "rootDirs": [
+    "src"
+  ]
  },
  "filesGlob": [
-  "*.ts",
-  "**/*.ts",
-  "**/*.tsx",
-  "!coverage",
-  "!__tests__",
-  "!**/*.spec.ts",
-  "!**/*.spec.tsx",
-  "!**/*.test.ts",
-  "!**/*.test.tsx"
+   "*.ts",
+   "*.tsx",
+   "**/*.ts",
+   "**/*.tsx"
  ],
  "exclude": [
-  "node_modules"
- ],
- "atom": {
-  "rewriteTsconfig": false
-  }
+    "node_modules",
+    "src/__tests__",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx"
+  ]
 }

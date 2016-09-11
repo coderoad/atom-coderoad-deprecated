@@ -1,13 +1,10 @@
+# Common
 .DS_Store
 node_modules
 npm-debug.log
-test
-src
-tsconfig.json
-tsd.json
-tslint.json
 .gitattributes
 .vscode
-src/coverage
-src/__tests__/__cache__
-src/__tests__/__snapshots__
+
+# Project
+src
+.eslintrc

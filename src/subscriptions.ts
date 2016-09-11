@@ -5,7 +5,7 @@ import {CompositeDisposable} from 'atom';
 export default class Subscriptions {
   private subscriptions = new CompositeDisposable();
 
-  public onActivate(store: Redux.Store): AtomCore.Disposable {
+  public onActivate(store: Redux.Store<any>): AtomCore.Disposable {
     this.subscriptions.add(
       atom.commands.add('atom-workspace', {
         'cr-viewer:toggle': () => store.dispatch(windowToggle())
@@ -19,7 +19,7 @@ export default class Subscriptions {
     return this.subscriptions;
   }
 
-  public onDeactivate(store: Redux.Store): void {
+  public onDeactivate(store: Redux.Store<any>): void {
     // unsubscribe from Redux store
     store.subscribe(() => null);
     // cleanup subscriptions
