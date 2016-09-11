@@ -1,7 +1,17 @@
 import { readFileSync } from 'fs';
 
+/**
+ * read files from paths and concat a data file together
+ * save the test data file to the test runner .tmp directory
+ * @param  {} {dir
+ * @param  {} tasks
+ * @param  {} load
+ * @param  {} testFile}
+ */
 export default function loadTaskTests({dir, tasks, load, testFile}) {
   
+  // first read files from paths and concat data together
+
   // map over task tests from coderoad.json
   const tests = [].concat.apply([], tasks.map(
       task => task.tests || []
@@ -17,5 +27,7 @@ export default function loadTaskTests({dir, tasks, load, testFile}) {
     return output;
   }, '');
   
+
+  // save the file
   load({dir, tests, testFile});
 }

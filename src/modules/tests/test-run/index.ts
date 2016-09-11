@@ -16,6 +16,12 @@ const defaultTestRun: IRunTest = {
   time: performance.now(),
 };
 
+/**
+ * runs unit tests
+ * @param  {} testRun=defaultTestRun
+ * @param  {Action} action
+ * @returns IRunTest
+ */
 export default function runTest(
   testRun = defaultTestRun, action: Action
 ): IRunTest {

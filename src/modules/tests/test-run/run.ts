@@ -1,5 +1,14 @@
 import handleResult from './handle-result';
 
+/**
+ * call test runner
+ * @param  {} {hasTasks
+ * @param  {} dir
+ * @param  {} tutorial
+ * @param  {} taskPosition
+ * @param  {} testFile}
+ * @returns number
+ */
 export default function runTaskTests({
   hasTasks, dir, tutorial, taskPosition, testFile
 }): number {

@@ -4,6 +4,9 @@ import { join } from 'path';
 import { SETUP_PACKAGE } from '../types';
 import fileExists from 'node-file-exists';
 
+/** 
+ * read a file and return contents as JSON
+ */
 const readParse = p => JSON.parse(readFileSync(p, 'utf8'));
 
 /**

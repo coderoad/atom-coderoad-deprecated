@@ -1,4 +1,4 @@
-import {atomMinVersion, nodeMinVersion, npmMinVersion, requiresXCode} from './check-system';
+import {atomMinVersion, minVersion, requiresXCode} from './check-system';
 import {tutorials} from 'coderoad-cli';
 
 /**
@@ -32,8 +32,8 @@ export default function setupVerify(
 
   let checks: CR.Checks = {
     system: {
-      node: !!nodeMinVersion(),
-      npm: !!npmMinVersion(),
+      node: !!minVersion('node'),
+      npm: !!minVersion('npm'),
       xcode: !!requiresXCode(),
       atom: !!atomMinVersion(),
     },

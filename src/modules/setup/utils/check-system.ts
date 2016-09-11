@@ -6,10 +6,22 @@ const versions = {
   npm: '3.0.0'
 };
 
-function matchVersions(v: string): string[] {
+/**
+ * extracts versions intro array from a string
+ * "0.1.0" -> ['0', '1', '0']
+ * or returns null
+ * @param  {string} v
+ */
+function matchVersions(v: string): string[]|null {
   return v.match(/([0-9]+)\.([0-9]+)/);
 }
 
+/**
+ * checks that a version is >= b version
+ * @param  {string} a
+ * @param  {string} b
+ * @returns boolean
+ */
 function isAboveVersion(a: string, b: string): boolean {
   if (a === b) { return true; }
   const a_components = a.split('.');
@@ -26,7 +38,14 @@ function isAboveVersion(a: string, b: string): boolean {
   return true;
 }
 
-function minVersion(command: string, minVersion: string): Promise<boolean> {
+/**
+ * calls command line to check that system version is above requirement
+ * @param  {string} command
+ * @param  {string} minVersion
+ * @returns Promise
+ */
+export function minVersion(command: string): Promise<boolean> {
+  const minVersion = versions[command];
   return new Promise((resolve, reject) => {
     let minOrLater: Promise<boolean> = commandLine(command, '-v')
       .then((res: string) => isAboveVersion(res, minVersion));
@@ -38,6 +57,10 @@ function minVersion(command: string, minVersion: string): Promise<boolean> {
   });
 }
 
+/**
+ * checks that the version of atom is above a minimum version
+ * @returns Promise
+ */
 export function atomMinVersion(): Promise<boolean> {
   return new Promise((resolve, reject) => {
     let minOrLater = commandLine('atom', '-v').then((res: string) => {
@@ -49,14 +72,6 @@ export function atomMinVersion(): Promise<boolean> {
       }
     });
   });
-}
-
-export function npmMinVersion(): Promise<boolean> {
-  return minVersion('npm', versions.npm);
-}
-
-export function nodeMinVersion(): Promise<boolean> {
-  return minVersion('node', versions.node);
 }
 
 /**
