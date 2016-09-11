@@ -71,6 +71,7 @@ declare namespace CR {
       node: boolean;
       npm: boolean;
       xcode: boolean;
+      atom: boolean;
     };
     setup: {
       passed?: boolean;
