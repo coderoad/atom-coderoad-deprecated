@@ -1,20 +1,34 @@
-function getLocalStorageKey(tutorial: CR.Tutorial) {
+/**
+ * create a key for saving progress in local storage
+ * @param  {CR.Tutorial} tutorial
+ * @returns tutorial
+ */
+export function getLocalStorageKey(tutorial: CR.Tutorial): string {
   return 'coderoad:' + tutorial.name;
 }
 
+/**
+ * save progress to local storage
+ * @param  {CR.Tutorial} tutorial
+ * @param  {CR.Progress} progress
+ * @returns void
+ */
 export function saveToLocalStorage(
   tutorial: CR.Tutorial, progress: CR.Progress
-): void {
+): void|Error {
   try {
   window.localStorage
     .setItem(getLocalStorageKey(tutorial), JSON.stringify(progress));
   } catch (e) {
-    console.log('Error saving progress:', e);
+    throw new Error(`Error saving progress. Invalid progress: ${progress}. ${e}`);
   }
 }
-
-export function loadProgressFromLocalStorage(tutorial: CR.Tutorial) {
-  const savedProgress: CR.Progress = JSON.parse(
+/**
+ * load progress from local storage
+ * @param  {CR.Tutorial} tutorial
+ */
+export function loadProgressFromLocalStorage(tutorial: CR.Tutorial): CR.Progress|null {
+  const savedProgress = JSON.parse(
     window.localStorage.getItem(getLocalStorageKey(tutorial)) || null
   );
   if (savedProgress) {

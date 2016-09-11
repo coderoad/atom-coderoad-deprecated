@@ -6,9 +6,15 @@ import fileExists from 'node-file-exists';
 
 const readParse = p => JSON.parse(readFileSync(p, 'utf8'));
 
+/**
+ * package.json reducer
+ * @param  {} pj=null
+ * @param  {Action} action
+ * @returns PackageJson
+ */
 export default function packageJson(
   pj = null, action: Action
-): PackageJson {
+): PackageJson|null {
   switch (action.type) {
 
     case SETUP_PACKAGE:

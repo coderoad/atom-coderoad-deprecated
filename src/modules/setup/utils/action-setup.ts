@@ -1,15 +1,20 @@
 import { join } from 'path';
-
-import { open, openFolder, openTerminal, set } from '../../../selectors';
-import { setupVerify } from '../actions';
+import { open, openFolder, openTerminal, set } from '../../editor';
 
 const packageData = `{
   "name": "demo",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "coderoad-functional-school": "^0.2.2"
+    "coderoad-functional-school": "^1.1.3"
   }
 }`;
 
+/**
+ * creates a basic package.json file in the users directory
+ * @param  {string} dir
+ * @returns Promise
+ */
 export function createPackageJson(dir: string): Promise<void> {
   const packagePath = join(dir, 'package.json');
   return new Promise((resolve, reject) => {
@@ -17,10 +22,13 @@ export function createPackageJson(dir: string): Promise<void> {
     setTimeout(() => resolve());
   }).then(() => {
     set(packageData);
-    // store.dispatch(setupVerify());
   });
 }
 
+/**
+ * opens a directory
+ * @returns void
+ */
 export function openDirectory(): void {
   openFolder();
 }

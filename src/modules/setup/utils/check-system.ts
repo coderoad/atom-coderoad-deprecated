@@ -59,6 +59,12 @@ export function nodeMinVersion(): Promise<boolean> {
   return minVersion('node', versions.node);
 }
 
+/**
+ * checks if is a mac
+ * checks if xcode is installed
+ * sets true if mac & !xcode, else false
+ * @returns Promise
+ */
 export function requiresXCode(): Promise<boolean> | boolean {
   if (!navigator.platform.match(/Mac/)) {
     return true;

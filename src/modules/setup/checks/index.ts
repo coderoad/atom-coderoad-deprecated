@@ -1,12 +1,13 @@
 import {SETUP_VERIFY} from '../types';
 import setupVerify from '../utils/verify';
 
-const _checks: CR.Checks = {
+export const _checks: CR.Checks = {
   passed: false,
   system: {
     node: false,
     npm: false,
     xcode: false,
+    atom: false,
   },
   setup: {
     hasDir: false,
@@ -15,6 +16,12 @@ const _checks: CR.Checks = {
   }
 };
 
+/**
+ * setup and system checks reducer
+ * @param  {} checks=_checks
+ * @param  {Action} action
+ * @returns CR.Checks
+ */
 export default function checks(
   checks = _checks, action: Action
 ): CR.Checks {

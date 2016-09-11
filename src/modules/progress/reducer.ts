@@ -1,11 +1,17 @@
 import {PROGRESS_COMPLETE_PAGE, PROGRESS_COMPLETE_TUTORIAL, PROGRESS_LOAD} from './types';
 import {loadProgressFromLocalStorage, saveToLocalStorage} from './utils/local-storage';
 
-const _progress: CR.Progress = {
+export const _progress: CR.Progress = {
   completed: false,
   pages: []
 };
 
+/**
+ * Progress reducer saves local tutorial progress
+ * @param  {} progress=_progress
+ * @param  {Action} action
+ * @returns CR.Progress
+ */
 export default function progress(
   progress = _progress, action: Action
 ): CR.Progress {

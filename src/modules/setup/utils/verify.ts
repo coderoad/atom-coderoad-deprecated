@@ -1,10 +1,21 @@
 import {atomMinVersion, nodeMinVersion, npmMinVersion, requiresXCode} from './check-system';
 import {tutorials} from 'coderoad-cli';
 
+/**
+ * Returns true if all object key values are true
+ * @param  {Object} obj
+ * @returns boolean
+ */
 function allTrue(obj: Object): boolean {
   return Object.values(obj).every(x => x === true);
 }
 
+/**
+ * verifies setup of system & project
+ * @param  {string} dir
+ * @param  {PackageJson} packageJson
+ * @returns CR
+ */
 export default function setupVerify(
   dir: string, packageJson: PackageJson
 ): CR.Checks {
