@@ -3,28 +3,44 @@ import {unlink} from 'fs';
 import {getEditor} from './editor';
 import fileExists from 'node-file-exists';
 
+/**
+ * Open a new folder in atom
+ * @returns void
+ */
 export function openFolder(): void {
   atom.open();
 }
 
-export function save() {
+/**
+ * Saves the current editor
+ * @returns void
+ */
+export function save(): void {
   getEditor().then(editor => editor.save());
 }
 
+/**
+ * Opens a file
+ * https://atom.io/docs/api/v1.10.2/Workspace#instance-open
+ * @param  {string} file file name
+ * @param  {} options={} file open options
+ * @returns Promise
+ */
 export function open(file: string, options = {}): Promise<any> {
   return new Promise((resolve, reject) => {
-    // delete file first, to avoid bug
-    // if (fileExists(file)) {
-    //   unlink(file);
-    // }
-    // delay necessary since opening a file is slow
-    const openTimeout = 300;
     atom.workspace.open(file, options);
-    setTimeout(() => resolve(), openTimeout);
+    // resolve when file opens
+    // https://atom.io/docs/api/v1.10.2/Workspace#instance-onDidOpen
+    atom.workspace.onDidOpen(() => resolve());
   });
 }
 
-export function scroll(content: string): Promise<void> {
+/**
+ * Scroll to cursor position
+ * @param  {string} content text editor content
+ * @returns Promise
+ */
+export function scroll(content: string): any {
   return getEditor().then((editor: AtomCore.IEditor) => {
     const regex = new RegExp(
       content.replace(/[\\\.\+\*\?\^\$\[\]\(\)\{\}\/\'\#\:\!\=\|]/ig, '\\$&'), 'gm'

@@ -1,3 +1,7 @@
+/**
+ * Get the current active atom editor
+ * @returns Promise
+ */
 export function getEditor(): Promise<AtomCore.IEditor> {
   return new Promise((resolve, reject) => {
     const editor = atom.workspace.getActiveTextEditor();

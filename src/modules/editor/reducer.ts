@@ -3,6 +3,12 @@ import {
 } from './types';
 import {insert, open, save, scroll, set, toggleDevTools, writeFileFromContent, writeFileFromFile} from './index';
 
+/**
+ * Editor Reducer triggers editor actions
+ * @param  {} editor='atom'
+ * @param  {Action} action 
+ * @returns string editor name
+ */
 export default function editor(
   editor = 'atom', action: Action
 ): string {
