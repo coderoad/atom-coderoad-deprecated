@@ -1,5 +1,10 @@
 import handleActionString from './handle-action-string';
 
+/**
+ * call each task action in sequential order
+ * @param  {string[][]} actions
+ * @returns void
+ */
 export default function handleTaskActions(actions: string[][]): void {
   const next = actions.shift();
   if (next && next.length) {

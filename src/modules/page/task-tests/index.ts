@@ -2,13 +2,20 @@ import {readFileSync} from 'fs';
 
 import {PAGE_SET} from '../types';
 
+/**
+ * task test reducer
+ * @param  {} taskTests=''
+ * @param  {Action} action
+ * @returns string
+ */
 export default function taskTestsReducer(
   taskTests = '', action: Action
 ): string {
   switch (action.type) {
 
     case PAGE_SET:
-      const {tutorial, tasks} = action.payload;
+      const {tasks} = action.payload;
+      
       // map over task tests from coderoad.json
       return [].concat.apply([], tasks.map(
           task => task.tests || []
@@ -20,7 +27,7 @@ export default function taskTestsReducer(
         } catch (e) {
           console.log('Error reading test file', e);
         }
-        // return concatted test files
+        // return concatenated test files
         return output;
       }, '');
 

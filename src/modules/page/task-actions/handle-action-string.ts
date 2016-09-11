@@ -14,7 +14,7 @@ const Type = {
 // parse task string for command/params
 export default function handleActionString(
   actionString: string
-): Promise<void> {
+): Promise<any> {
   return new Promise((resolve, reject) => {
     if (typeof actionString !== 'string') {
       reject(actionString);

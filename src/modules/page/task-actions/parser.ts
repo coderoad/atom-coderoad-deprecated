@@ -1,5 +1,11 @@
 import ParseParams from './parse-params';
 
+/**
+ * gets the command from the front of an action
+ * example: open('file.js') -> open
+ * @param  {string} actionString
+ * @returns string action command
+ */
 export function getCommand(actionString: string): string {
   // content before bracket
   let command = actionString.substring(0, actionString.indexOf('('));
@@ -10,6 +16,12 @@ export function getCommand(actionString: string): string {
   return command;
 }
 
+/**
+ * gets the params from an action
+ * example: open('file.js') -> file.js
+ * @param  {string} actionString
+ * @returns string action params
+ */
 export function getParams(actionString: string): string[] {
   // content in brackets, split by comma
   let parser = new ParseParams();
@@ -23,6 +35,11 @@ export function getParams(actionString: string): string[] {
   return paramsList;
 }
 
+/**
+ * 
+ * @param  {string} text
+ * @returns Object
+ */
 function createObjectFromKeyValString(text: string): Object {
   let keyValList: string[] = text.split(/[:,]/);
   let obj = {};
@@ -41,6 +58,11 @@ function createObjectFromKeyValString(text: string): Object {
   return obj;
 }
 
+/**
+ * get options from an action string
+ * @param  {string} paramString
+ * @returns Object
+ */
 export function getOptions(paramString: string): { param: string, options: Object } {
   let hasOptions = paramString.match(/\{(.+)?\}/);
   let options = {};

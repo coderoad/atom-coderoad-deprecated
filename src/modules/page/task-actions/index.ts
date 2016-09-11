@@ -3,7 +3,12 @@ import handleTaskActions from './handle-actions';
 
 // trigger actions only once, moving fowards
 let taskPositionTracker = 0;
-
+/**
+ * task action reducer
+ * @param  {} t=[]
+ * @param  {Action} action
+ * @returns string[][] array of array of actions
+ */
 export default function taskActionsReducer(
   t = [], action: Action
 ): string[][] {
