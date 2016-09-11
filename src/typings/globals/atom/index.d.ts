@@ -655,7 +655,7 @@ declare namespace AtomCore {
 		bufferRangeForBufferRow(row:any, options:any):TextBuffer.IRange;
 		lineForBufferRow(row:number):string;
 		lineLengthForBufferRow(row:number):number;
-		scan():any;
+		scan(regex: RegExp, callback: Function):any;
 		scanInBufferRange():any;
 		backwardsScanInBufferRange():any;
 		isModified():boolean;
@@ -762,7 +762,7 @@ declare namespace AtomCore {
 		getSelectionsOrderedByBufferPosition():ISelection[];
 		getLastSelectionInBuffer():ISelection;
 		selectionIntersectsBufferRange(bufferRange:any):any;
-		setCursorScreenPosition(position:TextBuffer.IPoint, options?:any):any;
+		setCursorScreenPosition(position:TextBuffer.IPoint|number[], options?:any):any;
 		getCursorScreenPosition():TextBuffer.IPoint;
 		getCursorScreenRow():number;
 		setCursorBufferPosition(position:any, options?:any):any;
@@ -1091,6 +1091,7 @@ declare namespace AtomCore {
 		openSync(uri:string, options:any):any;
 		openUriInPane(uri: string, pane: any, options: any): Q.Promise<View>;
 		observeTextEditors(callback: Function): Disposable;
+    onDidOpen(callback: Function): any;
 		reopenItemSync():any;
 		registerOpener(opener:(urlToOpen:string)=>any):void;
 		unregisterOpener(opener:Function):void;
