@@ -1,5 +1,5 @@
 import {join} from 'path';
-import {isWindows} from './system';
+import {isWindows} from '../../../polyfills/system';
 import fileExists from 'node-file-exists';
 
 /**
@@ -42,7 +42,7 @@ export default function configRunner(name: string, runner: string, dir: string):
   let pathToMain = join(runnerRoot, runnerMain);
 
   return {
-    load: require(pathToMain).load || { load: () => console.log('invalid test loader')},
-    run: require(pathToMain).run || { run: () => console.log('invalid test runner')},
+    load: require(pathToMain).load || { load: () => console.log('Invalid test loader')},
+    run: require(pathToMain).run || { run: () => console.log('Invalid test runner')},
   };
 }

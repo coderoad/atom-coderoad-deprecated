@@ -21,7 +21,7 @@ const styles = {
   alert: state.alert || defaultAlert,
 }), {alertClose})
 export default class Alert extends React.Component<{
-  alert?: CR.Alert, alertClose?: () => Redux.ActionCreator
+  alert?: CR.Alert, alertClose?: () => Redux.ActionCreator<any>
 }, {}> {
   public render() {
     const {alert, alertClose} = this.props;

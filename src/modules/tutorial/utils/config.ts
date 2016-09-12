@@ -2,7 +2,7 @@ import {join} from 'path';
 
 import {configIssuesPath, configRepo} from './config-repo';
 import configRunner from './config-runner';
-import {isWindows} from './system';
+import {isWindows} from '../../../polyfills/system';
 import fileExists from 'node-file-exists';
 
 /**
@@ -21,18 +21,18 @@ export function tutorialConfig(
   const runnerOptions: Object = config.runnerOptions || {};
   const configEdit = tutorialPj.config.edit;
 
-  const getRunner = configRunner(name, config.runner, dir);
+  const { run, load } = configRunner(name, runner, dir);
 
-  if (!getRunner || !getRunner.run || !getRunner.load) {
-    console.log('Error loading test runner', getRunner);
+  if (!run || !load) {
+    console.log('Error loading test runner', `run: ${run}, load: ${load}`);
   }
 
   return {
     dir: join(dir, 'node_modules', name, config.dir),
     runner,
     runnerOptions,
-    run: getRunner.run,
-    load: getRunner.load,
+    run,
+    load,
     testSuffix: configTestSuffix(config.testSuffix || 'js'),
     issuesPath: configIssuesPath(tutorialPj.bugs),
     repo,

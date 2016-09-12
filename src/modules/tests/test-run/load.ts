@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs';
+import configPath from './config-path';
 
 /**
  * read files from paths and concat a data file together
@@ -8,7 +9,7 @@ import { readFileSync } from 'fs';
  * @param  {} load
  * @param  {} testFile}
  */
-export default function loadTaskTests({dir, tasks, load, testFile}) {
+export default function loadTaskTests({dir, tasks, tutorial, testFile}) {
   
   // first read files from paths and concat data together
 
@@ -19,7 +20,12 @@ export default function loadTaskTests({dir, tasks, load, testFile}) {
   // concat test files together
   ).reduce((output: string, file: string): string => {
     try {
-      output += readFileSync(file, 'utf8') + '\n';
+      const absoluteFilePath = configPath({
+        dir,
+        tutorial,
+        testPath: file,
+      });
+      output += readFileSync(absoluteFilePath, 'utf8') + '\n';
     } catch (e) {
       console.log('Error reading test file', e);
     }
@@ -29,5 +35,5 @@ export default function loadTaskTests({dir, tasks, load, testFile}) {
   
 
   // save the file
-  load({dir, tests, testFile});
+  tutorial.config.load({dir, tests, testFile});
 }

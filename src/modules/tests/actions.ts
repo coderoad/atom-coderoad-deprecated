@@ -11,7 +11,7 @@ export function testLoad(): Redux.ThunkAction<any, any, {}> {
       type: TEST_LOAD, payload: {
         dir,
         tasks,
-        load: tutorial.config.load,
+        tutorial,
         testFile,
       }
     });
@@ -20,11 +20,13 @@ export function testLoad(): Redux.ThunkAction<any, any, {}> {
 
 export function testRun(): Redux.ThunkAction<any, any, {}> {
   return (dispatch, getState): void => {
+    
     // less than a second since the last test run, skip
     const timeSinceLastTestRun = performance.now() - getState().testRun.time;
     if (timeSinceLastTestRun < 1000) {
       return;
     }
+
     const {dir, tutorial, taskPosition, pagePosition} = getState();
     const tasks = tutorial.pages[pagePosition].tasks;
     const hasTasks = tasks && tasks.length > 0;
