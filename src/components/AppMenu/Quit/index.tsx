@@ -11,9 +11,8 @@ const styles = {
   },
 };
 
-@connect(null, {quit})
-export default class Quit extends React.Component<{
-  quit?: () => Redux.ActionCreator
+class Quit extends React.Component<{
+  quit: () => Redux.ActionCreator<any>
 }, {}> {
   public render() {
     return (
@@ -28,6 +27,10 @@ export default class Quit extends React.Component<{
   }
 }
 
-Quit.propTypes = {
-  quit: React.PropTypes.func.optional,
-};
+// Quit.propTypes = {
+//   quit: React.PropTypes.func.optional,
+// };
+
+const mapDispatchToProps = {quit};
+
+export default connect(null, mapDispatchToProps)(Quit)

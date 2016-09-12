@@ -11,11 +11,8 @@ const styles = {
   padding: '10px',
 };
 
-@connect(state => ({
-  checks: state.checks,
-}))
-export default class Checks extends React.Component<{
-  checks?: CR.Checks
+class Checks extends React.Component<{
+  checks: CR.Checks
 }, {}> {
   public render() {
     const {checks} = this.props;
@@ -31,3 +28,9 @@ export default class Checks extends React.Component<{
     );
   }
 }
+
+const mapStateToProps = state => ({
+  checks: state.checks,
+});
+
+export default connect(mapStateToProps)(Checks);

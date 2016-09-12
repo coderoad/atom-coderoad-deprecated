@@ -13,8 +13,7 @@ const styles = {
   },
 };
 
-@connect(null, null)
-export default class FinalPage extends React.Component<{}, {}> {
+class FinalPage extends React.Component<{}, {}> {
   public render() {
     return (
       <Card style={styles.card}>
@@ -43,4 +42,4 @@ export default class FinalPage extends React.Component<{}, {}> {
   }
 }
 
-FinalPage.propTypes = {};
+export default FinalPage;

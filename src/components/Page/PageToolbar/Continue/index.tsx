@@ -12,9 +12,8 @@ const styles = {
   top: '10px',
 };
 
-@connect(null, {pageNext})
-export default class Continue extends React.Component<{
-  pageNext?: any
+class Continue extends React.Component<{
+  pageNext: any
 }, {}> {
   public render() {
     return (
@@ -27,3 +26,7 @@ export default class Continue extends React.Component<{
     );
   }
 }
+
+const mapDispatchToProps = {pageNext};
+
+export default connect(null, mapDispatchToProps)(Continue);

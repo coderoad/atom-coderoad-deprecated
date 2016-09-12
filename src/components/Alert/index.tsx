@@ -17,11 +17,8 @@ const styles = {
   },
 };
 
-@connect(state => ({
-  alert: state.alert || defaultAlert,
-}), {alertClose})
-export default class Alert extends React.Component<{
-  alert?: CR.Alert, alertClose?: () => Redux.ActionCreator<any>
+class Alert extends React.Component<{
+  alert: CR.Alert, alertClose: () => Redux.ActionCreator<any>
 }, {}> {
   public render() {
     const {alert, alertClose} = this.props;
@@ -41,12 +38,20 @@ export default class Alert extends React.Component<{
   }
 }
 
-Alert.propTypes = {
-  alert: React.PropTypes.shape({
-    action: React.PropTypes.string,
-    message: React.PropTypes.string,
-    duration: React.PropTypes.number.optional,
-    color: React.PropTypes.string,
-  }),
-  alertClose: React.PropTypes.func.optional
-};
+// Alert.propTypes = {
+//   alert: React.PropTypes.shape({
+//     action: React.PropTypes.string,
+//     message: React.PropTypes.string,
+//     duration: React.PropTypes.number.optional,
+//     color: React.PropTypes.string,
+//   }),
+//   alertClose: React.PropTypes.func.optional
+// };
+
+const mapStateToProps = state => ({
+  alert: state.alert || defaultAlert,
+});
+
+const mapDispatchToProps = {alertClose};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Alert);

@@ -3,7 +3,7 @@ import * as React from 'react';
 import formatText from './formatText';
 
 const Markdown: React.StatelessComponent<{
-  children?: string, style?: Object
+  children: string, style?: Object
 }> = ({style, children}) => (
   <span
     className='cr-markdown'

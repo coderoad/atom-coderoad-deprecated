@@ -9,9 +9,8 @@ const styles = {
   padding: '0px 2px',
 };
 
-@connect(null, {routeSet})
-export default class MenuLink extends React.Component<{
-  route: string, title?: string, routeSet?: any
+class MenuLink extends React.Component<{
+  route: string, title?: string, routeSet: any
 }, {}> {
   public render() {
     const {route, title, routeSet} = this.props;
@@ -26,8 +25,12 @@ export default class MenuLink extends React.Component<{
   }
 }
 
-MenuLink.propTypes = {
-  route: React.PropTypes.string,
-  title: React.PropTypes.string.optional,
-  routeSet: React.PropTypes.func.optional,
-};
+// MenuLink.propTypes = {
+//   route: React.PropTypes.string,
+//   title: React.PropTypes.string.optional,
+//   routeSet: React.PropTypes.func.optional,
+// };
+
+const mapDispatchToProps = {routeSet};
+
+export default connect()(MenuLink);

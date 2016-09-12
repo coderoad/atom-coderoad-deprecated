@@ -27,14 +27,9 @@ const styles = {
   },
 };
 
-@connect((state, props) => ({
-  testRun: state.testRun,
-  isCompletedTask: state.taskPosition > props.index,
-  task: taskByIndexSelector(state, props)
-}))
-export default class Task extends React.Component<{
-  task?: CR.Task, index: number, testRun?: boolean,
-  isCurrentTask?: boolean, isCompletedTask?: boolean
+class Task extends React.Component<{
+  task: CR.Task, index: number, testRun: boolean,
+  isCurrentTask: boolean, isCompletedTask: boolean
 }, {}> {
   public render() {
     const {testRun, task, index, isCurrentTask, isCompletedTask} = this.props;
@@ -53,3 +48,11 @@ export default class Task extends React.Component<{
     );
   }
 }
+
+const mapStateToProps = (state, props) => ({
+  testRun: state.testRun,
+  isCompletedTask: state.taskPosition > props.index,
+  task: taskByIndexSelector(state, props)
+});
+
+export default connect(mapStateToProps)(Task);

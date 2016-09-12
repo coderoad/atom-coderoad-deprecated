@@ -4,8 +4,7 @@ import {connect} from 'react-redux';
 import {routeSet} from '../../actions';
 import RaisedButton from 'material-ui/RaisedButton';
 
-@connect(null, {routeSet})
-export default class RouteButton extends React.Component<{
+class RouteButton extends React.Component<{
   label: string, route: string, routeSet?: any, style?: Object
 }, {}> {
   public render() {
@@ -21,9 +20,13 @@ export default class RouteButton extends React.Component<{
   }
 }
 
-RouteButton.propTypes = {
-  label: React.PropTypes.string,
-  route: React.PropTypes.string,
-  routeSet: React.PropTypes.func.optional,
-  style: React.PropTypes.object.optional,
-};
+// RouteButton.propTypes = {
+//   label: React.PropTypes.string,
+//   route: React.PropTypes.string,
+//   routeSet: React.PropTypes.func.optional,
+//   style: React.PropTypes.object.optional,
+// };
+
+const mapDispatchToProps = {routeSet};
+
+export default connect(null, mapDispatchToProps)(RouteButton);

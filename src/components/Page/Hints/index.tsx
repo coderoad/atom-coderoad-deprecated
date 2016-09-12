@@ -14,11 +14,8 @@ const styles = {
   textAlign: 'center',
 };
 
-@connect(state => ({
-  hint: hintSelector(state),
-}))
-export default class Hints extends React.Component<{
-  hintsLength?: number, hint?: string
+class Hints extends React.Component<{
+  hintsLength: number, hint: string
 }, {}> {
   public render() {
     const {hint} = this.props;
@@ -57,3 +54,9 @@ export default class Hints extends React.Component<{
     );
   }
 }
+
+const mapStateToProps = state => ({
+  hint: hintSelector(state),
+});
+
+export default connect(mapStateToProps)(Hints);

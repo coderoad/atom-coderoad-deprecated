@@ -13,11 +13,7 @@ const styles = {
   },
 };
 
-@connect((state, props) => ({
-  isRunning: state.testRun.running,
-  isCurrentTask: state.taskPosition === props.index,
-}))
-export default class TaskCheckbox extends React.Component<{
+class TaskCheckbox extends React.Component<{
   isRunning?: boolean, isCurrentTask?: boolean, index: number
 }, {}> {
   public render() {
@@ -29,3 +25,10 @@ export default class TaskCheckbox extends React.Component<{
     />;
   }
 }
+
+const mapStateToProps = (state, props) => ({
+  isRunning: state.testRun.running,
+  isCurrentTask: state.taskPosition === props.index,
+});
+
+export default connect(mapStateToProps)(TaskCheckbox);

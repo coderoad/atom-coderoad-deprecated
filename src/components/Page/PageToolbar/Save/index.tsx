@@ -12,9 +12,8 @@ const styles = {
   top: '10px',
 };
 
-@connect(null, {editorSave})
-export default class Save extends React.Component<{
-  editorSave?: any
+class Save extends React.Component<{
+  editorSave: any
 }, {}> {
   public render() {
     return (
@@ -27,3 +26,7 @@ export default class Save extends React.Component<{
     );
   }
 }
+
+const mapDispatchToProps = {editorSave};
+
+export default connect(null, mapDispatchToProps)(Save);

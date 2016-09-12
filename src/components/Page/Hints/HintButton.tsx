@@ -5,15 +5,11 @@ import {hintPositionSet} from '../../../actions';
 import {hintsSelector} from '../../../selectors';
 import FlatButton from 'material-ui/FlatButton';
 
-@connect(state => ({
-  hintPosition: state.hintPosition,
-  hintsLength: hintsSelector(state).length,
-}), {hintPositionSet})
-export default class HintButton extends React.Component<{
-  hintPosition?: number, hintsLength?: number, type: 'next'|'prev', label: string
-  hintPositionSet?: any
+class HintButton extends React.Component<{
+  hintPosition: number, hintsLength: number, type: 'next'|'prev',
+  label: string, hintPositionSet: any
 }, {}> {
-  public render() {
+  render() {
     const {hintPosition, hintsLength, label, type, hintPositionSet} = this.props;
     switch (type) {
       case 'next':
@@ -37,3 +33,12 @@ export default class HintButton extends React.Component<{
     }
   }
 }
+
+const mapStateToProps = state => ({
+  hintPosition: state.hintPosition,
+  hintsLength: hintsSelector(state).length,
+});
+
+const mapDispatchToProps = {hintPositionSet};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HintButton);

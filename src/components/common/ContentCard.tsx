@@ -21,7 +21,7 @@ const ContentCard: React.StatelessComponent<{
 );
 export default ContentCard;
 
-ContentCard.propTypes = {
-  title: React.PropTypes.string,
-  content: React.PropTypes.string.optional,
-};
+// ContentCard.propTypes = {
+//   title: React.PropTypes.string,
+//   content: React.PropTypes.string.optional,
+// };

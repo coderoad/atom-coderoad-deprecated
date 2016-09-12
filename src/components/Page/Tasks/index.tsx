@@ -11,12 +11,8 @@ import Subheader from 'material-ui/Subheader';
 
 const margin = '10px 5px';
 
-@connect(state => ({
-  tasks: visibleTasksSelector(state),
-  completed: pageCompletedSelector(state),
-}))
-export default class Tasks extends React.Component<{
-    tasks?: CR.Task[], completed?: boolean, page?: CR.Page
+class Tasks extends React.Component<{
+    tasks: CR.Task[], completed: boolean, page: CR.Page
 }, {}> {
   public refs: {
     [key: string]: (Element);
@@ -43,3 +39,10 @@ export default class Tasks extends React.Component<{
     ReactDOM.findDOMNode<HTMLElement>(this.refs.listEnd).scrollIntoView();
   }
 }
+
+const mapStateToProps = state => ({
+  tasks: visibleTasksSelector(state),
+  completed: pageCompletedSelector(state),
+});
+
+export default connect(mapStateToProps)(Tasks);

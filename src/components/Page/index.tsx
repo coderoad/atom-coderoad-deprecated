@@ -19,12 +19,8 @@ const styles = {
   },
 };
 
-@connect(state => ({
-  page: pageSelector(state),
-  isCompleted: taskProgressSelector(state) === 100,
-}))
-export default class Page extends React.Component<{
-  page?: CR.Page, isCompleted?: boolean
+class Page extends React.Component<{
+  page: CR.Page, isCompleted: boolean
 }, {}> {
   public render() {
     const {page, isCompleted} = this.props;
@@ -43,3 +39,10 @@ export default class Page extends React.Component<{
     );
   }
 }
+
+const mapStateToProps = state => ({
+  page: pageSelector(state),
+  isCompleted: taskProgressSelector(state) === 100,
+});
+
+export default connect(mapStateToProps)(Page);

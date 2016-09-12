@@ -10,10 +10,7 @@ const style = {
   margin: '0px',
 };
 
-@connect(state => ({
-  taskProgress: (state.taskPosition / state.tutorial.pages[state.pagePosition].tasks.length) * 100
-}))
-export default class ProgressBar extends React.Component<{
+class ProgressBar extends React.Component<{
   taskProgress?: number
 }, {}> {
   public render() {
@@ -27,3 +24,9 @@ export default class ProgressBar extends React.Component<{
     );
   }
 }
+
+const mapStateToProps = state => ({
+  taskProgress: (state.taskPosition / state.tutorial.pages[state.pagePosition].tasks.length) * 100
+});
+
+export default connect(mapStateToProps)(ProgressBar);

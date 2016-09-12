@@ -4,9 +4,8 @@ import {connect} from 'react-redux';
 import {tutorialSet} from '../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 
-@connect(null, {tutorialSet})
-export default class SelectTutorial extends React.Component<{
-  tutorial: Tutorial.Item, tutorialSet?: any
+class SelectTutorial extends React.Component<{
+  tutorial: Tutorial.Item, tutorialSet: any
 }, {}> {
   public render() {
     const {tutorial, tutorialSet} = this.props;
@@ -27,3 +26,7 @@ export default class SelectTutorial extends React.Component<{
     }
   }
 }
+
+const mapDispatchToProps = {tutorialSet};
+
+export default connect(null, mapDispatchToProps)(SelectTutorial);

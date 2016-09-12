@@ -58,7 +58,7 @@ declare namespace CR {
   interface Alert {
     message: string;
     action: string;
-    open?: boolean;
+    open: boolean;
     duration?: number;
     color: string;
   }

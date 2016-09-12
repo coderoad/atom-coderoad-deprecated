@@ -11,15 +11,9 @@ const styles = {
   marginTop: '0px',
 };
 
-@connect(null, dispatch => ({
-  selectPage(pagePosition: CR.PagePosition) {
-    dispatch(pageSet(pagePosition));
-    dispatch(routeSet('page'));
-  },
-}))
-export default class ProgressPage extends React.Component<{
+class ProgressPage extends React.Component<{
   page: CR.Page, progress: CR.Progress,
-  pagePosition: CR.PagePosition, index: number, selectPage?: () => void}, {}> {
+  pagePosition: CR.PagePosition, index: number, selectPage: () => void}, {}> {
   public doNothing() {
     return;
   }
@@ -38,3 +32,12 @@ export default class ProgressPage extends React.Component<{
     );
   };
 };
+
+const mapDispatchToProps = dispatch => ({
+  selectPage(pagePosition: CR.PagePosition) {
+    dispatch(pageSet(pagePosition));
+    dispatch(routeSet('page'));
+  },
+});
+
+export default connect(null, mapDispatchToProps)(ProgressPage);

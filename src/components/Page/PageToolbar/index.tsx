@@ -17,11 +17,8 @@ const styles = {
     margin: '0px',
 };
 
-@connect(state => ({
-  tasksComplete: taskProgressSelector(state) === 100
-}))
-export default class PageToolbar extends React.Component<{
-  tasksComplete?: boolean, children?: any
+class PageToolbar extends React.Component<{
+  tasksComplete: boolean, children: any
 }, {}> {
   public render() {
     const {tasksComplete, children} = this.props;
@@ -40,3 +37,9 @@ export default class PageToolbar extends React.Component<{
     );
   }
 }
+
+const mapStateToProps = state => ({
+  tasksComplete: taskProgressSelector(state) === 100
+});
+
+export default connect(mapStateToProps)(PageToolbar);

@@ -10,11 +10,8 @@ const styles = {
   zIndex: '1',
 };
 
-@connect(state => ({
-  route: state.route,
-}))
-export default class AppMenu extends React.Component<{
-  route?: string
+class AppMenu extends React.Component<{
+  route: string
 }, {}> {
   public render() {
     const {route} = this.props;
@@ -30,6 +27,12 @@ export default class AppMenu extends React.Component<{
   }
 }
 
-AppMenu.propTypes = {
-  route: React.PropTypes.string.optional,
-};
+// AppMenu.propTypes = {
+//   route: React.PropTypes.string.optional,
+// };
+
+const mapStateToProps = state => ({
+  route: state.route,
+});
+
+export default connect(mapStateToProps)(AppMenu);

@@ -15,9 +15,8 @@ const styles = {
   },
 };
 
-@connect(null, {tutorialUpdate})
-export default class UpdateTutorial extends React.Component<{
-  tutorial: Tutorial.Item, tutorialUpdate?: any
+class UpdateTutorial extends React.Component<{
+  tutorial: Tutorial.Item, tutorialUpdate: any
 }, {}> {
   public render() {
     const {tutorial, tutorialUpdate} = this.props;
@@ -33,3 +32,7 @@ export default class UpdateTutorial extends React.Component<{
     );
   }
 }
+
+const mapDispatchToProps = {tutorialUpdate};
+
+export default connect(null, mapDispatchToProps)(UpdateTutorial);

@@ -16,15 +16,9 @@ const styles = {
   },
 };
 
-@connect(state => ({
-  progress: state.progress,
-  pagePosition: state.pagePosition,
-  info: state.tutorial.info,
-  tutorial: state.tutorial
-}), {progressLoad})
-export default class Progress extends React.Component<{
-    progress?: CR.Progress, pagePosition?: CR.PagePosition,
-    info?: Tutorial.Info, tutorial?: CR.Tutorial, progressLoad?: () => any;
+class Progress extends React.Component<{
+    progress: CR.Progress, pagePosition: CR.PagePosition,
+    info: Tutorial.Info, tutorial: CR.Tutorial, progressLoad: () => any;
 }, {}> {
   public render() {
     const {progress, pagePosition, info, tutorial} = this.props;
@@ -50,3 +44,15 @@ export default class Progress extends React.Component<{
     this.props.progressLoad();
   }
 }
+
+
+const mapStateToProps = state => ({
+  progress: state.progress,
+  pagePosition: state.pagePosition,
+  info: state.tutorial.info,
+  tutorial: state.tutorial,
+});
+
+const mapDispatchToProps = {progressLoad};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Progress);

@@ -17,11 +17,8 @@ const styles = {
   },
 };
 
-@connect(state => ({
-  onPageComplete: pageSelector(state).onPageComplete,
-}))
-export default class TasksComplete extends React.Component<{
-  onPageComplete?: string
+class TasksComplete extends React.Component<{
+  onPageComplete: string
 }, {}> {
   public render() {
     const {onPageComplete} = this.props;
@@ -34,3 +31,9 @@ export default class TasksComplete extends React.Component<{
     );
   }
 }
+
+const mapStateToProps = state => ({
+  onPageComplete: pageSelector(state).onPageComplete,
+});
+
+export default connect(mapStateToProps)(TasksComplete);

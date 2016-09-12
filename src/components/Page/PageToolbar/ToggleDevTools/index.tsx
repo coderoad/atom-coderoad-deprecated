@@ -10,8 +10,7 @@ const styles = {
   top: '10px',
 };
 
-@connect(null, {editorDevToolsToggle})
-export default class ToggleDevTools extends React.Component<{
+class ToggleDevTools extends React.Component<{
   editorDevToolsToggle?: any
 }, {}> {
   public render() {
@@ -24,3 +23,7 @@ export default class ToggleDevTools extends React.Component<{
     );
   };
 }
+
+const mapDispatchToProps = {editorDevToolsToggle};
+
+export default connect(null, mapDispatchToProps)(ToggleDevTools);

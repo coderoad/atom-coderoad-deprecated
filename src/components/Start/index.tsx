@@ -11,11 +11,8 @@ const headerStyles = {
   color: '#f8f8f8',
 };
 
-@connect(state => ({
-  ready: state.checks.passed,
-}))
-export default class Start extends React.Component<{
-  ready?: CR.Checks
+class Start extends React.Component<{
+  ready: CR.Checks
 }, {}> {
   public render() {
     const {ready} = this.props;
@@ -35,3 +32,9 @@ export default class Start extends React.Component<{
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ready: state.checks.passed,
+});
+
+export default connect(mapStateToProps)(Start);

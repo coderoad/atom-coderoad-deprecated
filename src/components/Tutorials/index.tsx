@@ -14,11 +14,8 @@ const styles = {
   textAlign: 'center',
 };
 
-@connect(state => ({
-  tutorials: state.tutorials,
-}), {tutorialsFind})
-export default class Tutorials extends React.Component<{
-  tutorials?: Tutorial.Item[], tutorialsFind?: any
+class Tutorials extends React.Component<{
+  tutorials: Tutorial.Item[], tutorialsFind: any
 }, {}> {
   constructor(props) {
     super(props);
@@ -73,3 +70,11 @@ export default class Tutorials extends React.Component<{
     this.props.tutorialsFind();
   }
 }
+
+const mapStateToProps = state => ({
+  tutorials: state.tutorials,
+});
+
+const mapDispatchToProps = {tutorialsFind};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tutorials);

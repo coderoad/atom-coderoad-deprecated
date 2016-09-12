@@ -5,8 +5,7 @@ import {windowToggle} from '../../actions';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
-@connect(null, { windowToggle })
-export default class CloseWindow extends React.Component<{
+class CloseWindow extends React.Component<{
   windowToggle?: any}, {}> {
   public render() {
     return (
@@ -17,6 +16,10 @@ export default class CloseWindow extends React.Component<{
   }
 }
 
-CloseWindow.propTypes = {
-  windowToggle: React.PropTypes.func.optional,
-};
+// CloseWindow.propTypes = {
+//   windowToggle: React.PropTypes.func.optional,
+// };
+
+const mapDispatchToProps = { windowToggle };
+
+export default connect(null, mapDispatchToProps)(CloseWindow);

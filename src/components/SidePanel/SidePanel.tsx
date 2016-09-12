@@ -6,12 +6,8 @@ import {Alert, AppMenu, FinalPage, Page, Progress, Start, Tutorials} from '../in
 import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 
-@connect(state => ({
-  isWindowOpen: state.window,
-  route: state.route,
-}))
-export default class SidePanel extends React.Component<{
-  isWindowOpen?: boolean
+class SidePanel extends React.Component<{
+  isWindowOpen: boolean, route: string
 }, {}> {
   public render(): React.ReactElement<{}> {
     const {isWindowOpen, route} = this.props;
@@ -58,3 +54,10 @@ export default class SidePanel extends React.Component<{
     };
   }
 };
+
+const mapStateToProps = state => ({
+  isWindowOpen: state.window,
+  route: state.route,
+});
+
+export default connect(mapStateToProps)(SidePanel);
