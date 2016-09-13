@@ -3,5 +3,5 @@ import reducer from './reducers';
 
 export default configureStore({
   reducer,
-  devMode: true,
+  devMode: false,
 });
