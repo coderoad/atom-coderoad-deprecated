@@ -43,12 +43,12 @@ declare namespace ReactRedux {
   export function connect(): InferableComponentDecorator;
 
   export function connect<TStateProps, TDispatchProps, TOwnProps>(
-    mapStateToProps: FuncOrSelf<MapStateToProps<TStateProps, TOwnProps>>,
+    mapStateToProps: FuncOrSelf<MapStateToProps<TStateProps, TOwnProps>> | null,
     mapDispatchToProps?: FuncOrSelf<MapDispatchToPropsFunction<TDispatchProps, TOwnProps>|MapDispatchToPropsObject>
   ): ComponentDecorator<TStateProps & TDispatchProps, TOwnProps>;
 
   export function connect<TStateProps, TDispatchProps, TOwnProps>(
-    mapStateToProps: FuncOrSelf<MapStateToProps<TStateProps, TOwnProps>>,
+    mapStateToProps: FuncOrSelf<MapStateToProps<TStateProps, TOwnProps>> | null,
     mapDispatchToProps: FuncOrSelf<MapDispatchToPropsFunction<TDispatchProps, TOwnProps>|MapDispatchToPropsObject>,
     mergeProps: MergeProps<TStateProps, TDispatchProps, TOwnProps>,
     options?: Options
@@ -57,7 +57,7 @@ declare namespace ReactRedux {
   type FuncOrSelf<T> = T | (() => T);
 
   interface MapStateToProps<TStateProps, TOwnProps> {
-    (state: any, ownProps?: TOwnProps): TStateProps;
+    (state: any|null, ownProps?: TOwnProps): TStateProps;
   }
 
   interface MapDispatchToPropsFunction<TDispatchProps, TOwnProps> {

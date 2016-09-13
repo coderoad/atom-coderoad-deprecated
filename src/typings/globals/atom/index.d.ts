@@ -605,7 +605,9 @@ declare namespace AtomCore {
 
 		mini: any;
 
+    getElement(): any;
 		serializeParams():{id:number; softTabs:boolean; scrollTop:number; scrollLeft:number; displayBuffer:any;};
+    setPlaceholderText(text: string): any;
 		deserializeParams(params:any):any;
 		subscribeToBuffer():void;
 		subscribeToDisplayBuffer():void;
@@ -929,9 +931,14 @@ declare namespace AtomCore {
 		registry: any;
 		repository: Object;
 		scopeName: string;
+    tokenizeLines(text: string): any;
 		// TBD
 
 	}
+
+  interface IGrammars {
+    grammarForScopeName(scope: string): IGrammar;
+  }
 
 	interface IPane /* extends Theorist.Model */ {
 		itemForURI: (uri:string)=>IEditor;
@@ -1081,7 +1088,7 @@ declare namespace AtomCore {
 		addTopPanel(options:IWorkspacePanelOptions):Panel;
 		addModalPanel(options:IWorkspacePanelOptions):Panel;
 		addOpener(opener: Function): any;
-
+    buildTextEditor(): IEditor;
 		deserializeParams(params:any):any;
 		serializeParams():{paneContainer:any;fullScreen:boolean;};
 		eachEditor(callback: Function): void;
@@ -1286,6 +1293,7 @@ declare namespace AtomCore {
 		deserializers:IDeserializerManager;
 		config: IConfig;
 		commands: ICommandRegistry;
+    grammars: IGrammars;
 		keymaps: IKeymapManager;
 		keymap: IKeymapManager;
 		packages: IPackageManager;
@@ -1402,6 +1410,7 @@ declare namespace AtomCore {
 	}
 
 	interface IToken {
+    value: string;
 		// TBD
 	}
 

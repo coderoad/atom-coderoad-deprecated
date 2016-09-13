@@ -10,7 +10,7 @@ const styles = {
 };
 
 class MenuLink extends React.Component<{
-  route: string, title?: string, routeSet: any
+  route: string, title?: string, routeSet?: any
 }, {}> {
   public render() {
     const {route, title, routeSet} = this.props;

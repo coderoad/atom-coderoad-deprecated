@@ -15,7 +15,7 @@ const ContentCard: React.StatelessComponent<{
   <Card style={styles.card}>
     {title ? <CardHeader title={title} /> : null}
     <CardText>
-      <Markdown>{content || ''}</Markdown>
+      <Markdown children={content || ''} />
     </CardText>
   </Card>
 );

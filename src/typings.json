@@ -9,7 +9,7 @@
     "jest": "registry:dt/jest#0.9.0+20160706021812",
     "jquery": "registry:dt/jquery#1.10.0+20160908203239",
     "marked": "registry:dt/marked#0.0.0+20160325085301",
-    "material-ui": "registry:dt/material-ui#0.15.1+20160824122606",
+    "material-ui": "registry:dt/material-ui#0.15.1+20160908103128",
     "mixto": "registry:dt/mixto#0.0.0+20160317120654",
     "node": "registry:dt/node#6.0.0+20160831021119",
     "pathwatcher": "registry:dt/pathwatcher#0.0.0+20160317120654",

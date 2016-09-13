@@ -19,6 +19,7 @@
 /// <reference path="globals/react-addons-test-utils/index.d.ts" />
 /// <reference path="globals/react-dom/index.d.ts" />
 /// <reference path="globals/react-redux/index.d.ts" />
+/// <reference path="globals/react-router-sans-urls/index.d.ts" />
 /// <reference path="globals/react-tap-event-plugin/index.d.ts" />
 /// <reference path="globals/react-test-renderer/index.d.ts" />
 /// <reference path="globals/react/index.d.ts" />

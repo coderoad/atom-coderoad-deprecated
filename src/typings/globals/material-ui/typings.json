@@ -1,8 +1,8 @@
 {
   "resolution": "main",
   "tree": {
-    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/d0d8127eaa52ec102d65ba7c217ae948d275f8aa/material-ui/material-ui.d.ts",
-    "raw": "registry:dt/material-ui#0.15.1+20160824122606",
-    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/d0d8127eaa52ec102d65ba7c217ae948d275f8aa/material-ui/material-ui.d.ts"
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/facde8c11601788f42a373f06ad0dbf3d9e193c1/material-ui/material-ui.d.ts",
+    "raw": "registry:dt/material-ui#0.15.1+20160908103128",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/facde8c11601788f42a373f06ad0dbf3d9e193c1/material-ui/material-ui.d.ts"
   }
 }

@@ -7,6 +7,9 @@ import HintButton from './HintButton';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import Help from 'material-ui/svg-icons/action/help';
 
+import {hintPositionSet} from '../../../actions';
+import {hintsSelector} from '../../../selectors';
+
 const styles = {
   position: 'relative',
   margin: '5px auto 10px',
@@ -15,10 +18,10 @@ const styles = {
 };
 
 class Hints extends React.Component<{
-  hintsLength: number, hint: string
+  hint: string, hintPosition: number, hintsLength: number, hintPositionSet: any,
 }, {}> {
-  public render() {
-    const {hint} = this.props;
+  render(): any {
+    const {hint, hintPosition, hintsLength, hintPositionSet} = this.props;
     if (!hint) {
       return null;
     }
@@ -34,7 +37,7 @@ class Hints extends React.Component<{
           className='cr-task-hint'
           expandable={true}
         >
-          <Markdown>{hint}</Markdown>
+          <Markdown children={hint} />
         </CardText>
         <CardActions
           style={{paddingBottom: '30px !important'}}
@@ -44,10 +47,16 @@ class Hints extends React.Component<{
           <HintButton
             type='prev'
             label='Previous'
+            hintPosition={hintPosition}
+            hintsLength={hintsLength}
+            hintPositionSet={hintPositionSet}
           />
           <HintButton
             type='next'
             label='Next'
+            hintPosition={hintPosition}
+            hintsLength={hintsLength}
+            hintPositionSet={hintPositionSet}
           />
         </CardActions>
       </Card>
@@ -57,6 +66,11 @@ class Hints extends React.Component<{
 
 const mapStateToProps = state => ({
   hint: hintSelector(state),
+  hintPosition: state.hintPosition,
+  hintsLength: hintsSelector(state).length,
 });
 
-export default connect(mapStateToProps)(Hints);
+const mapDispatchToProps = {hintPositionSet};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hints);
+
