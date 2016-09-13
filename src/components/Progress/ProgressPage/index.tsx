@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
+import {pageSet, routeSet} from '../../../actions';
 import progressIcon from '../progressIcon';
 import {ListItem} from 'material-ui/List';
 import {grey400} from 'material-ui/styles/colors';
@@ -34,6 +35,18 @@ class ProgressPage extends React.Component<{
   };
 };
 
+const mapStateToProps = (state, props) => ({
+  progress: state.progress,
+  pagePosition: state.pagePosition,
+  page: props.page,
+  index: props.index,
+});
 
+const mapDispatchToProps = dispatch => ({
+  selectPage(pagePosition: CR.PagePosition) {
+    dispatch(pageSet(pagePosition));
+    dispatch(routeSet('page'));
+  }
+});
 
-export default ProgressPage;
+export default connect(mapStateToProps, mapDispatchToProps)(ProgressPage);
