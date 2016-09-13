@@ -5,6 +5,7 @@ import {RouteButton} from '../../index';
 
 let styles = {
   header: {
+    backgroundImage: '',
     backgroundRepeat: 'no-repeat',
     backgroundColor: 'inherit',
     height: '350px',

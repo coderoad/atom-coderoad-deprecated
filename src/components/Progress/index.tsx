@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {progressLoad} from '../../modules/progress/actions';
+import {pageSet, routeSet, progressLoad} from '../../actions';
 import ProgressPage from './ProgressPage';
 import {List} from 'material-ui/List';
 import Paper from 'material-ui/Paper';
@@ -18,10 +18,11 @@ const styles = {
 
 class Progress extends React.Component<{
     progress: CR.Progress, pagePosition: CR.PagePosition,
-    info: Tutorial.Info, tutorial: CR.Tutorial, progressLoad: () => any;
+    info: Tutorial.Info, tutorial: CR.Tutorial, progressLoad: () => any,
+    selectPage: (pagePosition: CR.PagePosition) => any,
 }, {}> {
   public render() {
-    const {progress, pagePosition, info, tutorial} = this.props;
+    const {progress, pagePosition, info, tutorial, selectPage} = this.props;
     return (
       <Paper style={styles.page}>
         <List style={styles.list}>
@@ -33,6 +34,7 @@ class Progress extends React.Component<{
               page={page}
               pagePosition={pagePosition}
               progress={progress}
+              selectPage={selectPage}
             />
          ))
         }
@@ -45,7 +47,6 @@ class Progress extends React.Component<{
   }
 }
 
-
 const mapStateToProps = state => ({
   progress: state.progress,
   pagePosition: state.pagePosition,
@@ -53,6 +54,12 @@ const mapStateToProps = state => ({
   tutorial: state.tutorial,
 });
 
-const mapDispatchToProps = {progressLoad};
+const mapDispatchToProps = dispatch => ({
+  selectPage(pagePosition: CR.PagePosition) {
+    dispatch(pageSet(pagePosition));
+    dispatch(routeSet('page'));
+  },
+  progressLoad
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Progress);

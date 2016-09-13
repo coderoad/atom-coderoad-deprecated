@@ -27,6 +27,9 @@ class SelectTutorial extends React.Component<{
   }
 }
 
+const mapStateToProps = (state, props) => ({
+  tutorial: props.tutorial
+});
 const mapDispatchToProps = {tutorialSet};
 
-export default connect(null, mapDispatchToProps)(SelectTutorial);
+export default connect(mapStateToProps, mapDispatchToProps)(SelectTutorial);

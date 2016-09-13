@@ -5,7 +5,7 @@ import {routeSet} from '../../actions';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class RouteButton extends React.Component<{
-  label: string, route: string, routeSet?: any, style?: Object
+  label: string, route: string, routeSet: any, style: Object
 }, {}> {
   public render() {
     const {label, route, style, routeSet} = this.props;
@@ -27,6 +27,11 @@ class RouteButton extends React.Component<{
 //   style: React.PropTypes.object.optional,
 // };
 
+const mapStateToProps = (state, props) => ({
+  label: props.label,
+  route: props.route,
+  style: props.style || {}
+});
 const mapDispatchToProps = {routeSet};
 
-export default connect(null, mapDispatchToProps)(RouteButton);
+export default connect(mapStateToProps, mapDispatchToProps)(RouteButton);

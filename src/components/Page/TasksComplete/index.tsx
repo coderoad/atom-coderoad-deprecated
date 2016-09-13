@@ -25,7 +25,7 @@ class TasksComplete extends React.Component<{
     return (
       <Card style={styles.card}>
         <CardText>
-          <Markdown style={styles.text}>{onPageComplete}</Markdown>
+          <Markdown style={styles.text} children={onPageComplete} />
         </CardText>
       </Card>
     );

@@ -11,7 +11,7 @@ const style = {
 };
 
 class ProgressBar extends React.Component<{
-  taskProgress?: number
+  taskProgress: number
 }, {}> {
   public render() {
     const {taskProgress} = this.props;

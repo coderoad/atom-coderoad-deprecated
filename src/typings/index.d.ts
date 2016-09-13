@@ -7,6 +7,7 @@
 /// <reference path="globals/atom/custom.d.ts" />
 /// <reference path="globals/atom/index.d.ts" />
 /// <reference path="globals/core-js/index.d.ts" />
+/// <reference path="globals/electron/index.d.ts" />
 /// <reference path="globals/enzyme/index.d.ts" />
 /// <reference path="globals/jest/index.d.ts" />
 /// <reference path="globals/jquery/index.d.ts" />

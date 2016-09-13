@@ -42,7 +42,7 @@ class Task extends React.Component<{
         <TaskCheckbox index={index} />
         <span style={styles.index}>{index + 1}.</span>
         <div style={styles.description}>
-          <Markdown>{task.description}</Markdown>
+          <Markdown children={task.description} />
         </div>
       </ListItem>
     );

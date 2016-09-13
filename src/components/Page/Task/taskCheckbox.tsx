@@ -14,9 +14,9 @@ const styles = {
 };
 
 class TaskCheckbox extends React.Component<{
-  isRunning?: boolean, isCurrentTask?: boolean, index: number
+  isRunning: boolean, isCurrentTask: boolean, index: number
 }, {}> {
-  public render() {
+  public render(): any {
     const {isRunning, isCurrentTask} = this.props;
     if (!isCurrentTask || !isRunning) { return null; }
     return <IndeterminateCheckBox

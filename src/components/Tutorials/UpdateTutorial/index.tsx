@@ -33,6 +33,9 @@ class UpdateTutorial extends React.Component<{
   }
 }
 
+const mapStateToProps = (state, props) => ({
+  tutorial: props.tutorial
+});
 const mapDispatchToProps = {tutorialUpdate};
 
-export default connect(null, mapDispatchToProps)(UpdateTutorial);
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateTutorial);
