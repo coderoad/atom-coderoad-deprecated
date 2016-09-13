@@ -47,7 +47,7 @@ checks: CR.Checks
           completed={system.atom}
         >
           <p>First make sure you have atom shell commands installed.
-          Click the atom menu and select "Istall Shell Commands".</p>
+          Click the atom menu and select "Install Shell Commands".</p>
           <p>Otherwise, update your version of Atom.<br />
           Click on the blue "update" squirrel in the bottom right corner of your editor.</p>
         </StepCheck>

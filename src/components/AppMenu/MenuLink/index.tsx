@@ -10,7 +10,7 @@ const styles = {
 };
 
 class MenuLink extends React.Component<{
-  route: string, title?: string, routeSet?: any
+  route: string, title: string|null, routeSet?: any
 }, {}> {
   public render() {
     const {route, title, routeSet} = this.props;
@@ -30,7 +30,10 @@ class MenuLink extends React.Component<{
 //   title: React.PropTypes.string.optional,
 //   routeSet: React.PropTypes.func.optional,
 // };
-
+const mapStateToProps = (state, props) => ({
+  route: props.route,
+  title: props.title || null,
+})
 const mapDispatchToProps = {routeSet};
 
-export default connect()(MenuLink);
+export default connect(mapStateToProps, mapDispatchToProps)(MenuLink);
