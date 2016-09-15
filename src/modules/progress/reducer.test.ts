@@ -1,6 +1,6 @@
 /// <reference path="../../typings/globals/jest/index.d.ts" />
 
-import reducer, { _progress } from './reducer';
+import reducer, { _progress } from './index';
 
 describe('progress reducer', () => {
 

@@ -6,7 +6,7 @@ import {default as dir} from './modules/dir';
 import {reducer as editor} from './modules/editor';
 import {default as hintPosition} from './modules/hints';
 import {pagePosition, taskActions} from './modules/page';
-import {reducer as progress} from './modules/progress';
+import {default as progress} from './modules/progress';
 import {reducer as route} from './modules/route';
 import {checks, packageJson} from './modules/setup';
 import {taskPosition, testRun} from './modules/tests';

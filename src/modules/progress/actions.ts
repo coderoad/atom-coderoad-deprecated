@@ -1,6 +1,7 @@
 import {alertOpen, testRun} from '../../actions';
 import {
-  PROGRESS_COMPLETE_PAGE, PROGRESS_COMPLETE_TUTORIAL, PROGRESS_LOAD, PROGRESS_PAGE_POSITION
+  PROGRESS_COMPLETE_PAGE, PROGRESS_COMPLETE_TUTORIAL, PROGRESS_LOAD,
+  PROGRESS_PAGE_POSITION, PROGRESS_RESET
 } from './types';
 
 export function progressLoad(): Redux.ThunkAction<any, any, {}> {
@@ -45,5 +46,12 @@ export function progressCompleteTutorial(completed = true):
       message: 'Tutorial Complete',
       action: 'PASS',
     }));
+  };
+}
+
+export function progressReset() {
+  return (dispatch, getState) => {
+    const { tutorial } = getState();
+    dispatch({ type: PROGRESS_RESET, payload: { tutorial } });
   };
 }
