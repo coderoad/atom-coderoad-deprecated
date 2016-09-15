@@ -6,6 +6,13 @@ export const _progress: CR.Progress = {
   pages: []
 };
 
+function getReset(pages: boolean[]) {
+  return {
+    completed: false,
+    pages: pages.map(() => false)
+  };
+}
+
 /**
  * Progress reducer saves local tutorial progress
  * @param  {} progress=_progress
@@ -22,10 +29,7 @@ export default function progress(
       const saved = loadProgressFromLocalStorage(action.payload.tutorial);
       if (saved) { return saved; }
       // set progress defaults
-      return {
-        completed: false,
-        pages: action.payload.tutorial.pages.map(() => false)
-      };
+      return getReset(action.payload.tutorial.pages);
 
     case PROGRESS_COMPLETE_PAGE:
       const {tutorial, pagePosition, completed} = action.payload;
@@ -39,8 +43,9 @@ export default function progress(
       return progress;
 
     case PROGRESS_RESET:
-      saveToLocalStorage(action.payload.tutorial, _progress);
-      return _progress;
+      const reset = getReset(action.payload.tutorial.pages);
+      saveToLocalStorage(action.payload.tutorial, reset);
+      return reset;
 
     default:
       return progress;

@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.12.3] - WIP
 - improved page open. uses `onDidOpen` callback
+- progress reset button
 - improved documentation, tests
 
 ## [0.12.2] - 2016-08-25
