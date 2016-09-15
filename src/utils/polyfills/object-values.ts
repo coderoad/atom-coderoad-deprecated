@@ -1,3 +1,8 @@
+/**
+ * Object.values polyfill
+ * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Object/values
+ * @returns void
+ */
 export default function polyfillObjectValues(): void {
 // Object.values (ES7)
   if (typeof Object.values !== 'function') {

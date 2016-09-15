@@ -1,5 +1,5 @@
 import {join} from 'path';
-import {isWindows} from '../../../polyfills/system';
+import {isWindows} from '../../../utils/system';
 import fileExists from 'node-file-exists';
 
 /**

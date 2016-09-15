@@ -1,6 +1,6 @@
 import {join} from 'path';
 
-import {isWindows} from '../../../polyfills/system';
+import {isWindows} from '../../../utils/system';
 
 /**
  * set paths to tests as absolute paths 

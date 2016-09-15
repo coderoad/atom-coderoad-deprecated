@@ -2,7 +2,7 @@ import {join} from 'path';
 
 import {configIssuesPath, configRepo} from './config-repo';
 import configRunner from './config-runner';
-import {isWindows} from '../../../polyfills/system';
+import {isWindows} from '../../../utils/system';
 import fileExists from 'node-file-exists';
 
 /**
