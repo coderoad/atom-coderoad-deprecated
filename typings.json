@@ -1,5 +1,0 @@
-{
-  "globalDependencies": {
-    "react-addons-test-utils": "registry:dt/react-addons-test-utils#0.14.0+20160427035638"
-  }
-}
