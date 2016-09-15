@@ -48,6 +48,7 @@ declare namespace jest {
         toBeDefined(): boolean;
         toBeUndefined(): boolean;
         toMatch(expected: RegExp): boolean;
+        toMatchSnapshot(): boolean;
         toContain(expected: string): boolean;
         toBeCloseTo(expected: number, delta: number): boolean;
         toBeGreaterThan(expected: number): boolean;
