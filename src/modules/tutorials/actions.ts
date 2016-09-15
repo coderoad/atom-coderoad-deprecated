@@ -1,5 +1,5 @@
 import {alertOpen} from '../alert/actions';
-import {TUTORIALS_FIND, TUTORIAL_UPDATE} from './types';
+import {TUTORIALS_FIND, TUTORIALS_UPDATE, TUTORIAL_UPDATE} from './types';
 export {tutorialSet} from '../tutorial/actions';
 
 export function tutorialUpdate(title: string):
@@ -15,9 +15,14 @@ export function tutorialUpdate(title: string):
   };
 }
 
+export function tutorialsUpdate(): Action {
+  return { type: TUTORIALS_UPDATE };
+}
+
 export function tutorialsFind(): Redux.ThunkAction<any, {dir: string}, {}> {
   return (dispatch, getState) => {
     const {dir} = getState();
     dispatch({ type: TUTORIALS_FIND, payload: { dir } });
+    dispatch(tutorialsUpdate());
   };
 }

@@ -3,7 +3,7 @@
  * @param  {string} url
  * @returns Promise
  */
-const fetch = function fetch (url: string): Promise<Object> {
+const fetch = (url: string) => {
   return new Promise((resolve, reject) => {
     const lib = url.startsWith('https') ? require('https') : require('http');
     const request = lib.get(url, (response) => {
@@ -13,13 +13,13 @@ const fetch = function fetch (url: string): Promise<Object> {
        }
       const body = [];
       // on every content chunk, push it to the data array
-      response.on('data', (chunk) => body.push(chunk));
+      response.on('data', (chunk: never) => body.push(chunk));
       // we are done, resolve promise with those joined chunks
       response.on('end', () => resolve(body.join('')));
     });
     // handle connection errors of the request
-    request.on('error', (err) => reject(err))
-    })
+    request.on('error', (err) => reject(err));
+    });
 };
 
 export default fetch;

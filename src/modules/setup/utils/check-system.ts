@@ -1,3 +1,5 @@
+import {isAboveVersion} from '../../../utils/compareVersions';
+import {isMac} from '../../../utils/system';
 import commandLine from 'atom-plugin-command-line';
 
 const versions = {
@@ -6,37 +8,6 @@ const versions = {
   npm: '3.0.0'
 };
 
-/**
- * extracts versions intro array from a string
- * "0.1.0" -> ['0', '1', '0']
- * or returns null
- * @param  {string} v
- */
-function matchVersions(v: string): string[]|null {
-  return v.match(/([0-9]+)\.([0-9]+)/);
-}
-
-/**
- * checks that a version is >= b version
- * @param  {string} a
- * @param  {string} b
- * @returns boolean
- */
-function isAboveVersion(a: string, b: string): boolean {
-  if (a === b) { return true; }
-  const a_components = a.split('.');
-  const b_components = b.split('.');
-  const len = Math.min(a_components.length, b_components.length);
-  for (let i = 0; i < len; i++) {
-    const first = parseInt(a_components[i], 10);
-    const second = parseInt(b_components[i], 10);
-    if (first > second) { return true; }
-    if (first < second) { return false; }
-  }
-  if (a_components.length > b_components.length) { return true; }
-  if (a_components.length < b_components.length) { return false; }
-  return true;
-}
 
 /**
  * calls command line to check that system version is above requirement
@@ -80,8 +51,8 @@ export function atomMinVersion(): Promise<boolean> {
  * sets true if mac & !xcode, else false
  * @returns Promise
  */
-export function requiresXCode(): Promise<boolean> | boolean {
-  if (!navigator.platform.match(/Mac/)) {
+export function hasOrDoesNotRequireXCode(): Promise<boolean> | boolean {
+  if (!isMac) {
     return true;
   }
   return commandLine('xcode-select', '-v').then((res: string) => {

@@ -11,7 +11,7 @@ import {reducer as route} from './modules/route';
 import {checks, packageJson} from './modules/setup';
 import {taskPosition, testRun} from './modules/tests';
 import {reducer as tutorial} from './modules/tutorial';
-import {reducer as tutorials} from './modules/tutorials';
+import {default as tutorials} from './modules/tutorials';
 import {reducer as window} from './modules/window';
 
 export default combineReducers({

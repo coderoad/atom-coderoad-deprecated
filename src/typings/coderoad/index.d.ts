@@ -40,6 +40,7 @@ declare namespace CR {
   interface Tutorial {
     name: string;
     version?: string;
+    isLatest?: boolean;
     info: Tutorial.Info;
     pages: CR.Page[];
     packageJson: PackageJson|null;

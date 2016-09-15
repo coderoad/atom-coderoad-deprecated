@@ -2,14 +2,15 @@ declare namespace Tutorial {
   export interface Item {
     name: string;
     version: string;
-    latest?: boolean;
+    isLatest?: boolean;
   }
 
   export interface Info {
-    title: string;
+    name: string;
     description?: string;
     keywords?: string[];
     version?: string;
+    latest?: boolean;
   }
 
   export interface Config {
@@ -51,7 +52,7 @@ declare namespace Tutorial {
     devDependencies?: Object;
     peerDependencies?: Object;
     license?: string;
-    contributers?: string[];
+    contributors?: string[];
   }
 
   export interface RunnerOptions { }

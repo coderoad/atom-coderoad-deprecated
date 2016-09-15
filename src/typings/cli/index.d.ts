@@ -10,5 +10,5 @@ declare module 'coderoad-cli' {
 
   export function tutorials({ dir: string}): Tutorial.Info[];
 
-  export function validatePacakgeJson(): Validation.Object;
+  export function validatePackageJson(): Validation.Object;
 }

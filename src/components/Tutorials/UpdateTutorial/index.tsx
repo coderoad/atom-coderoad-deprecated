@@ -16,7 +16,7 @@ const styles = {
 };
 
 class UpdateTutorial extends React.Component<{
-  tutorial: Tutorial.Item, tutorialUpdate: any
+  tutorial: Tutorial.Info, tutorialUpdate: any
 }, {}> {
   public render() {
     const {tutorial, tutorialUpdate} = this.props;
@@ -26,8 +26,7 @@ class UpdateTutorial extends React.Component<{
           style={styles.icon}
           color={pink500}
           onTouchTap={tutorialUpdate.bind(this, tutorial.name)}
-        />``
-        <span style={styles.latest}>{tutorial.latest}</span>
+        />
       </span>
     );
   }

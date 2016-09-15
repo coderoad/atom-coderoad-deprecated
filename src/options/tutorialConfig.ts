@@ -6,7 +6,6 @@ const tutorialConfigOptions = {
     ],
     language: {
       suffix: 'js',
-      comments: '//',
     }
   },
   Python: {
@@ -15,7 +14,6 @@ const tutorialConfigOptions = {
     ],
     language: {
       suffix: 'py',
-      comments: '#',
     }
   },
 };

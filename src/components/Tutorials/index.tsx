@@ -15,7 +15,7 @@ const styles = {
 };
 
 class Tutorials extends React.Component<{
-  tutorials: Tutorial.Item[], tutorialsFind: any
+  tutorials: Tutorial.Info[], tutorialsFind: any
 }, {}> {
   constructor(props) {
     super(props);
@@ -38,7 +38,7 @@ class Tutorials extends React.Component<{
 
       <TableBody displayRowCheckbox={false}>
         {tutorials.map(function tutorialRow(
-          tutorial: Tutorial.Item, index: number
+          tutorial: Tutorial.Info, index: number
         ) {
         return (
           <TableRow key={index}>
@@ -48,7 +48,7 @@ class Tutorials extends React.Component<{
               <TableRowColumn>
                 {tutorial.version}
 
-                {!!tutorial.latest
+                {!tutorial.latest
                   ? <UpdateTutorial tutorial={tutorial} />
                   : null
                 }

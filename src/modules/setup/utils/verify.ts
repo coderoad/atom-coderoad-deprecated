@@ -1,4 +1,4 @@
-import {atomMinVersion, minVersion, requiresXCode} from './check-system';
+import {atomMinVersion, hasOrDoesNotRequireXCode, minVersion} from './check-system';
 import {tutorials} from 'coderoad-cli';
 
 /**
@@ -34,7 +34,7 @@ export default function setupVerify(
     system: {
       node: !!minVersion('node'),
       npm: !!minVersion('npm'),
-      xcode: !!requiresXCode(),
+      xcode: !!hasOrDoesNotRequireXCode,
       atom: !!atomMinVersion(),
     },
     setup: {
