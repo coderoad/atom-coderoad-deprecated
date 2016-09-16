@@ -1,6 +1,6 @@
 // import {tutorialUpdate} from './utils/update';
-import isLatestVersion from './latestVersion';
-import {TUTORIALS_FIND, TUTORIALS_UPDATE} from './types';
+import {TUTORIALS_FIND, TUTORIALS_UPDATE, TUTORIAL_VERSION} from './types';
+import isLatestVersion from './utils/latestVersion';
 import {tutorials} from 'coderoad-cli';
 
 /**
@@ -31,9 +31,16 @@ export default function tutorialsReducer(
     case TUTORIALS_UPDATE:
       return t.map((tutorial: Tutorial.Info) => {
         const { name, version } = tutorial;
-        if (version) {
-          isLatestVersion({name, version})
-            .then(x => tutorial.latest = x);
+        isLatestVersion({name, version});
+        return tutorial;
+      });
+
+    case TUTORIAL_VERSION:
+      const { name, latest } = action.payload;
+      t.map((tutorial: Tutorial.Info) => {
+        if (tutorial.name === name) {
+          tutorial.isLatest = false;
+          tutorial.latest = latest;
         }
         return tutorial;
       });

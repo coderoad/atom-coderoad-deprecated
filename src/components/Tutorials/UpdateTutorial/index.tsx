@@ -27,6 +27,7 @@ class UpdateTutorial extends React.Component<{
           color={pink500}
           onTouchTap={tutorialUpdate.bind(this, tutorial.name)}
         />
+        <span>{tutorial.latest}</span>
       </span>
     );
   }

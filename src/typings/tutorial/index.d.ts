@@ -10,7 +10,8 @@ declare namespace Tutorial {
     description?: string;
     keywords?: string[];
     version?: string;
-    latest?: boolean;
+    latest?: string;
+    isLatest: boolean;
   }
 
   export interface Config {

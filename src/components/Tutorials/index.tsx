@@ -48,7 +48,7 @@ class Tutorials extends React.Component<{
               <TableRowColumn>
                 {tutorial.version}
 
-                {!tutorial.latest
+                {!tutorial.isLatest
                   ? <UpdateTutorial tutorial={tutorial} />
                   : null
                 }
