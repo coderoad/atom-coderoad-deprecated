@@ -1,7 +1,7 @@
 import store from '../../../store';
 import {isAboveVersion} from '../../../utils/compareVersions';
 import {json, status} from '../../../utils/fetch';
-import {tutorialVersion} from './actions';
+import {tutorialVersion} from '../actions';
 
 const npmApiCall = name => `https://registry.npmjs.org/${name}`;
 
@@ -27,7 +27,7 @@ function isLatestVersion({name, version}): void {
     .then(getLatest.bind(this, version))
     .then(latest => {
       if (!isAboveVersion(version, latest)) {
-        store.dispatch(tutorialVersion({name, latest}))
+        store.dispatch(tutorialVersion({name, latest}));
       }
     })
     .catch((err) => console.log(`Error fetching tutorial "${name}": ${err}`));

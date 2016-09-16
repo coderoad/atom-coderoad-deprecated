@@ -37,7 +37,7 @@ export default function tutorialsReducer(
 
     case TUTORIAL_VERSION:
       const { name, latest } = action.payload;
-      t.map((tutorial: Tutorial.Info) => {
+      return t.map((tutorial: Tutorial.Info) => {
         if (tutorial.name === name) {
           tutorial.isLatest = false;
           tutorial.latest = latest;

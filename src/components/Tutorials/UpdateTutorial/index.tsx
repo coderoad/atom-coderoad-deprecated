@@ -12,6 +12,7 @@ const styles = {
   },
   latest: {
     marginLeft: '10px',
+    opacity: '0.5',
   },
 };
 
@@ -27,7 +28,7 @@ class UpdateTutorial extends React.Component<{
           color={pink500}
           onTouchTap={tutorialUpdate.bind(this, tutorial.name)}
         />
-        <span>{tutorial.latest}</span>
+        <span style={styles.latest}>{`(${tutorial.latest})` ? tutorial.latest : ''}</span>
       </span>
     );
   }

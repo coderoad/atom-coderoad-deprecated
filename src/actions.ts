@@ -8,5 +8,5 @@ export {routeSet} from './modules/route/actions';
 export {setupVerify, setupPackage} from './modules/setup/actions';
 export {testLoad, testRun, testResult, testComplete} from './modules/tests/actions';
 export {tutorialSet} from './modules/tutorial/actions';
-export {tutorialsFind, tutorialUpdate, tutorialsUpdate} from './modules/tutorials/actions';
+export {tutorialsFind, tutorialUpdate, tutorialsUpdate, tutorialVersion} from './modules/tutorials/actions';
 export { windowToggle, quit} from './modules/window/actions';
