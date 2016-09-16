@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.13.1] - 2016-09-15
+## [0.13.2] - 2016-09-15
 - tutorial list shows latest tutorial version
 - fix empty directory issue
 
