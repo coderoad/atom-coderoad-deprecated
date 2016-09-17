@@ -22,6 +22,9 @@ class TasksComplete extends React.Component<{
 }, {}> {
   public render() {
     const {onPageComplete} = this.props;
+    if (!onPageComplete || !onPageComplete.length) {
+      return <div />;
+    }
     return (
       <Card style={styles.card}>
         <CardText>
