@@ -1,9 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
+import {finalPageSelector} from '../../selectors';
+import {Markdown} from '../index';
+import SeeMore from './SeeMore';
 import {Card, CardActions, CardText, CardTitle} from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
-import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 
 const styles = {
@@ -13,8 +15,11 @@ const styles = {
   },
 };
 
-class FinalPage extends React.Component<{}, {}> {
+class FinalPage extends React.Component<{
+  page: { description: string }
+}, {}> {
   public render() {
+    const { page } = this.props;
     return (
       <Card style={styles.card}>
         <CardTitle
@@ -22,19 +27,9 @@ class FinalPage extends React.Component<{}, {}> {
           subtitle='Tutorial Complete!'
         />
         <CardText>
-          What's next?
-          <br /><br />
-          <a href='https://coderoad.github.io/tutorials.html'>
-            <FlatButton
-              label='See More Tutorials'
-              disabled={true}
-            />
-          </a>
-          <span> (coming soon)</span>
-          <br /><br />
-          <a href='https://coderoad.github.io/builder-coderoad.html'>
-            <FlatButton label='Learn how to Create a Tutorial' />
-          </a>
+          {page && page.description ? <Markdown children={page.description} /> : null}
+          {page && page.description ? <Divider /> : null}
+          <SeeMore />
         </CardText>
 
       </Card>
@@ -42,4 +37,8 @@ class FinalPage extends React.Component<{}, {}> {
   }
 }
 
-export default FinalPage;
+const mapStateToProps = state => ({
+  page: finalPageSelector(state)
+})
+
+export default connect(mapStateToProps)(FinalPage);

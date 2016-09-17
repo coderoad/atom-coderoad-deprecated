@@ -17,6 +17,10 @@ declare namespace CR {
     completed?: boolean;
   }
 
+  interface Final {
+    description: string;
+  }
+
   interface State {
     dir: string;
     route: string;
@@ -43,6 +47,7 @@ declare namespace CR {
     isLatest?: boolean;
     info: Tutorial.Info;
     pages: CR.Page[];
+    final?: Final;
     packageJson: PackageJson|null;
     config: Tutorial.Config|null;
   }

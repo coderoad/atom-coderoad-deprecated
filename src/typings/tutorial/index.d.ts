@@ -30,6 +30,7 @@ declare namespace Tutorial {
   export interface Output {
     info: CR.Info;
     pages: CR.Page[];
+    final?: CR.Final;
   }
 
   export interface PJ {
