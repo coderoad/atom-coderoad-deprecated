@@ -30,6 +30,7 @@
 /// <reference path="globals/redux-thunk/index.d.ts" />
 /// <reference path="globals/redux/index.d.ts" />
 /// <reference path="globals/reselect/index.d.ts" />
+/// <reference path="globals/rx/index.d.ts" />
 /// <reference path="globals/sort-package-json/index.d.ts" />
 /// <reference path="globals/status-bar/index.d.ts" />
 /// <reference path="globals/text-buffer/index.d.ts" />

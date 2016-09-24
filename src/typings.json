@@ -26,6 +26,7 @@
     "redux-logger": "registry:dt/redux-logger#2.6.0+20160619033847",
     "redux-thunk": "registry:dt/redux-thunk#2.1.0+20160703120921",
     "reselect": "registry:dt/reselect#2.0.2+20160319031821",
+    "rx": "registry:dt/rx#0.0.0+20160317120654",
     "space-pen": "registry:dt/space-pen#0.0.0+20160316155526",
     "status-bar": "registry:dt/status-bar#0.0.0+20160317120654",
     "text-buffer": "registry:dt/text-buffer#0.0.0+20160317120654"
