@@ -61,8 +61,9 @@ export function testResult(result: Test.Result):
       dispatch(progressCompletePage(false));
       alert = Object.assign({}, alert, {
         action: filter,
+        // adjust duration based on length of message
         duration: result.msg && result.msg.length ?
-          (result.msg.length * 40) + 1000 : 2000
+          (result.msg.length * 50) + 1000 : 2000
       });
     }
     dispatch({ type: TEST_RESULT, payload: { result, taskActions } });
@@ -105,6 +106,6 @@ export function testComplete(result: Test.Result):
       default:
         return;
     }
-    dispatch({ type: TEST_COMPLETE });
+    dispatch({ type: TEST_COMPLETE, payload: { error: result.error } });
   };
 }

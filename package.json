@@ -34,31 +34,31 @@
     "marked": "0.3.6",
     "material-ui": "0.15.4",
     "node-file-exists": "1.1.0",
-    "react": "15.3.1",
-    "react-dom": "15.3.1",
+    "react": "15.3.2",
+    "react-dom": "15.3.2",
     "react-redux": "4.4.5",
     "react-router-sans-urls": "0.1.2",
     "react-tap-event-plugin": "1.0.0",
     "redux": "3.6.0",
     "redux-logger": "2.6.1",
     "redux-thunk": "2.1.0",
-    "reselect": "2.5.3"
+    "reselect": "2.5.4"
   },
   "devDependencies": {
     "coderoad-cli": "^0.10.0",
-    "electron-chromedriver": "^1.3.2",
-    "eslint": "^3.5.0",
-    "eslint-plugin-react": "^6.2.2",
+    "electron-chromedriver": "^1.4.0",
+    "eslint": "^3.6.0",
+    "eslint-plugin-react": "^6.3.0",
     "jest": "^15.1.1",
     "jest-cli": "^15.1.1",
-    "react-addons-test-utils": "15.3.1",
-    "react-test-renderer": "15.3.1",
-    "redux-mock-store": "^1.2.0",
-    "selenium-webdriver": "^3.0.0-beta-2",
-    "spectron": "^3.3.0",
+    "react-addons-test-utils": "15.3.2",
+    "react-test-renderer": "15.3.2",
+    "redux-mock-store": "^1.2.1",
+    "selenium-webdriver": "^3.0.0-beta-3",
+    "spectron": "^3.4.0",
     "tslint": "^3.15.1",
     "tslint-react": "^1.0.0",
-    "typescript": "^2.0.0"
+    "typescript": "^2.0.3"
   },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
@@ -87,8 +87,8 @@
     "collectCoverage": false,
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/typings/",
-      "__tests__"
+      "src/typings/",
+      "src/__tests__"
     ],
     "coverageThreshold": {
       "global": {

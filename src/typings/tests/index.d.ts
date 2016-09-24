@@ -6,6 +6,7 @@ declare namespace Test {
     timedOut?: boolean;
     change: number;
     completed: boolean;
+    error: boolean;
   }
 
   export interface Config {

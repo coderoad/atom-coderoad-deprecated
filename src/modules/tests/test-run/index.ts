@@ -9,11 +9,13 @@ const testCompleteTimeout = 700;
 interface IRunTest {
   running: boolean;
   time: number;
+  error: boolean;
 }
 
 const defaultTestRun: IRunTest = {
   running: false,
   time: performance.now(),
+  error: false,
 };
 
 /**
@@ -33,6 +35,7 @@ export default function runTest(
       return {
         running: false,
         time: performance.now() + pageSetTimeout,
+        error: false,
       };
 
     case TEST_RUN:
@@ -40,12 +43,15 @@ export default function runTest(
       return {
         running: true,
         time: runTaskTests(action.payload),
+        error: false,
       };
 
     case TEST_COMPLETE:
+    console.log(action.payload.error);
       return {
         running: false,
         time: performance.now() + testCompleteTimeout,
+        error: action.payload.error || false,
       };
 
     default:
