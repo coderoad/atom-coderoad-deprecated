@@ -1,6 +1,6 @@
 import * as action from './actions';
 import { directory } from './directory';
-import { getGrammar, tokenizeLines } from './grammar';
+import { getFromScope, tokenizeLines } from './grammar';
 import {
   isAboveMinVersion, issuesPath, minVersion, name,
   versionFailMessage, versionLabel
@@ -12,15 +12,17 @@ const editor = {
   action,
   directory,
   name,
-  getGrammar,
-  tokenizeLines,
-  isAboveMinVersion,
+  grammar: {
+    getFromScope,
+    tokenizeLines,
+  },
   version: {
+    minVersion,
     label: versionLabel,
-    failMessage: versionFailMessage, 
+    failMessage: versionFailMessage,
+    isAboveMinVersion,
   },
   issuesPath,
-  minVersion,
   Subscriptions,
   addRightPanel,
 };

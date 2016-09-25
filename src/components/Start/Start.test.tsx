@@ -2,8 +2,10 @@
 
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
+
 import Start from './index';
 import { Provider } from 'react-redux';
+
 
 import '../../__tests__/mocks';
 import mockStore from '../../__tests__/mocks/store';

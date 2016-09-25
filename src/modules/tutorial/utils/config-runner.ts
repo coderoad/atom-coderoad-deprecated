@@ -1,4 +1,4 @@
-import editor from '../../../index';
+import {editor} from '../../../index';
 import {isWindows} from '../../../utils/system';
 import fileExists from 'node-file-exists';
 import {join} from 'path';

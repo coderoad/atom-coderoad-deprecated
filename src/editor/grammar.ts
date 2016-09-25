@@ -1,4 +1,4 @@
-export const getGrammar = (scopeName: string) => {
+export const getFromScope = (scopeName: string) => {
   return atom.grammars.grammarForScopeName(scopeName);
 }
 

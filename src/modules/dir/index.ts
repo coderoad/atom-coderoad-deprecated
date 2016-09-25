@@ -1,4 +1,4 @@
-import editor from '../../index';
+import {editor} from '../../index';
 
 /**
  * User directory path Redux reducer

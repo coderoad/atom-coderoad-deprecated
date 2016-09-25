@@ -1,5 +1,5 @@
-import editor from '../../../index';
-import { join } from 'path';
+import {editor} from '../../../index';
+import {join} from 'path';
 
 const packageData = `{
   "name": "demo",

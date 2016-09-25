@@ -3,7 +3,7 @@ import * as React from 'react';
 class InstallGuide extends React.Component<{
   checks: CR.Checks
 }, {}> {
-  render(): any {
+  public render(): any {
     const { checks } = this.props;
     if (!checks || !checks.passed) {
       return null;

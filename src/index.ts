@@ -1,8 +1,8 @@
-import editor from './editor';
+import ed from './editor';
 import Main from './main';
 
 // for access
-export default editor;
+export const editor = ed;
 
 // "modules.exports" is needed for loading commonjs in Atom
 module.exports = (() => new Main(editor))();

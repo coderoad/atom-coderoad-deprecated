@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
 class VerifyButton extends React.Component<{
   setupVerify: any
 }, {}> {
-  render() {
+  public render() {
     return (
       <FlatButton
         label='Verify Setup Complete'
