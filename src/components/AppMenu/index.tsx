@@ -6,8 +6,8 @@ import CloseWindow from './CloseWindow';
 import menuRight from './menuRight';
 import AppBar from 'material-ui/AppBar';
 
-const styles = {
-  zIndex: '1',
+const styles: React.CSSProperties = {
+  zIndex: 1,
 };
 
 class AppMenu extends React.Component<{

@@ -6,7 +6,12 @@ import {Markdown} from '../../index';
 import {Card, CardText} from 'material-ui/Card';
 import {cyan500, grey100} from 'material-ui/styles/colors';
 
-const styles = {
+interface IStyles {
+  card: React.CSSProperties;
+  text: React.CSSProperties;
+};
+
+const styles: IStyles = {
   card: {
     backgroundColor: cyan500,
     margin: '10px 5px',

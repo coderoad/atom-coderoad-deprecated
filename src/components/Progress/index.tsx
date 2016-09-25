@@ -8,7 +8,13 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Subheader from 'material-ui/Subheader';
 
-const styles = {
+interface IStyles {
+  page: React.CSSProperties;
+  list: React.CSSProperties;
+  options: React.CSSProperties;
+};
+
+const styles: IStyles = {
   page: {
     width: '100%',
   },
@@ -19,7 +25,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     marginTop: '10px',
-    opacity: '0.6',
+    opacity: 0.6,
   },
 };
 

@@ -6,7 +6,7 @@ import progressIcon from '../progressIcon';
 import {ListItem} from 'material-ui/List';
 import {grey400} from 'material-ui/styles/colors';
 
-const styles = {
+const styles: React.CSSProperties = {
   paddingLeft: '15px',
   marginTop: '0px',
 };

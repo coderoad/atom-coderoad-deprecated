@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import Quit from './Quit';
 import menuIconRight from './menuIconRight';
 import menuRightRouteOptions from './menuRightRouteOptions';
+import Quit from './Quit';
 import Divider from 'material-ui/Divider';
 import IconMenu from 'material-ui/IconMenu';
 // import issuesLink from './issuesLink';

@@ -5,7 +5,7 @@ import {routeSet} from '../../actions';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class RouteButton extends React.Component<{
-  label: string, route: string, routeSet: any, style: Object
+  label: string, route: string, routeSet: any, style: React.CSSProperties
 }, {}> {
   public render() {
     const {label, route, style, routeSet} = this.props;

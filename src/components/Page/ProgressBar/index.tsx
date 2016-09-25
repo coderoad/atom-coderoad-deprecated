@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {taskProgressSelector} from '../../../selectors';
 import LinearProgress from 'material-ui/LinearProgress';
 
-const style = {
+const style: React.CSSProperties = {
   height: '10px',
   position: 'relative',
   margin: '0px',

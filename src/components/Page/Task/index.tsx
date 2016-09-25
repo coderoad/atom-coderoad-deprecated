@@ -7,7 +7,13 @@ import TaskCheckbox from './taskCheckbox';
 import {ListItem} from 'material-ui/List';
 import {lightGreen200, orange200} from 'material-ui/styles/colors';
 
-const styles = {
+interface IStyles {
+  task: React.CSSProperties;
+  index: React.CSSProperties;
+  description: React.CSSProperties;
+};
+
+const styles: IStyles = {
   task: {
     margin: '5px',
     padding: '5px',

@@ -1,5 +1,5 @@
-import { readFileSync } from 'fs';
 import configPath from './config-path';
+import { readFileSync } from 'fs';
 
 /**
  * read files from paths and concat a data file together

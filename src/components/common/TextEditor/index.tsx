@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-const styles = {
+interface IStyles {
+  editor: React.CSSProperties;
+};
+
+const styles: IStyles = {
   editor: {
     textAlign: 'left',
   },

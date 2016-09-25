@@ -11,7 +11,11 @@ import TasksComplete from './TasksComplete';
 import {Card} from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 
-const styles = {
+interface IStyles {
+  page: React.CSSProperties;
+};
+
+const styles: IStyles = {
   page: {
     height: '100%',
     width: '100%',

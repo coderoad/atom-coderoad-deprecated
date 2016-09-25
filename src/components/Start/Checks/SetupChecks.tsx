@@ -12,7 +12,7 @@ import {Step, StepContent, StepLabel} from 'material-ui/Stepper';
 class SetupChecks extends React.Component<{
   checks: CR.Checks
 }, {}> {
-  render(): any {
+  public render(): any {
     const {setup} = this.props.checks;
     if (setup.passed) {
       return null;

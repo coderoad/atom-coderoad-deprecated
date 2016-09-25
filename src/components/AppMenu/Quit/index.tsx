@@ -4,8 +4,12 @@ import {connect} from 'react-redux';
 import {quit} from '../../../actions';
 import MenuItem from 'material-ui/MenuItem';
 
-const styles = {
-    menuItem: {
+interface IStyles {
+  menuItem: React.CSSProperties;
+};
+
+const styles: IStyles = {
+  menuItem: {
     textAlign: 'center',
     padding: '0px 2px',
   },

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {routeSet} from '../../../actions';
 import MenuItem from 'material-ui/MenuItem';
 
-const styles = {
+const styles: React.CSSProperties = {
   textAlign: 'center',
   padding: '0px 2px',
 };

@@ -1,5 +1,5 @@
+import editor from '../../../index';
 import { join } from 'path';
-import { open, openFolder, openTerminal, set } from '../../editor';
 
 const packageData = `{
   "name": "demo",
@@ -21,7 +21,7 @@ export function createPackageJson(dir: string): Promise<void> {
     open(packagePath);
     setTimeout(() => resolve());
   }).then(() => {
-    set(packageData);
+    editor.action.set(packageData);
   });
 }
 
@@ -30,5 +30,5 @@ export function createPackageJson(dir: string): Promise<void> {
  * @returns void
  */
 export function openDirectory(): void {
-  openFolder();
+  editor.action.openFolder();
 }

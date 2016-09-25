@@ -26,9 +26,7 @@ class Tasks extends React.Component<{
         <List>
           <Subheader>Tasks</Subheader>
 
-        {tasks.map((task, index: number) => {
-          return <Task key={index} index={index} />;
-        })}
+        {tasks.map((task, index: number) => <Task key={index} index={index} />)}
 
         </List>
         <div ref='listEnd' />

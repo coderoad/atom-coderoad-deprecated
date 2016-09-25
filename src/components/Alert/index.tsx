@@ -10,7 +10,11 @@ const defaultAlert = {
   action: 'NOTE',
 };
 
-const styles = {
+interface IStyles {
+  snackbar: React.CSSProperties;
+}
+
+const styles: IStyles = {
   snackbar: {
     display: 'inline-block',
     margin: '0px 10px',

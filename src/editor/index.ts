@@ -2,8 +2,8 @@ import * as action from './actions';
 import { directory } from './directory';
 import { getGrammar, tokenizeLines } from './grammar';
 import {
-  editorIssuesPath, editorMinVersion, editorVersionFailMessage,
-  editorVersionLabel, minVersion, name
+  isAboveMinVersion, issuesPath, minVersion, name,
+  versionFailMessage, versionLabel
 } from './setup';
 import Subscriptions from './subscriptions';
 import {addRightPanel} from './ui';
@@ -14,10 +14,12 @@ const editor = {
   name,
   getGrammar,
   tokenizeLines,
-  editorMinVersion,
-  editorVersionLabel,
-  editorVersionFailMessage,
-  editorIssuesPath,
+  isAboveMinVersion,
+  version: {
+    label: versionLabel,
+    failMessage: versionFailMessage, 
+  },
+  issuesPath,
   minVersion,
   Subscriptions,
   addRightPanel,

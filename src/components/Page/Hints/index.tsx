@@ -10,7 +10,7 @@ import Help from 'material-ui/svg-icons/action/help';
 import {hintPositionSet} from '../../../actions';
 import {hintsSelector} from '../../../selectors';
 
-const styles = {
+const styles: React.CSSProperties = {
   position: 'relative',
   margin: '5px auto 10px',
   width: '360px',
@@ -20,7 +20,7 @@ const styles = {
 class Hints extends React.Component<{
   hint: string, hintPosition: number, hintsLength: number, hintPositionSet: any,
 }, {}> {
-  render(): any {
+  public render(): any {
     const {hint, hintPosition, hintsLength, hintPositionSet} = this.props;
     if (!hint) {
       return null;

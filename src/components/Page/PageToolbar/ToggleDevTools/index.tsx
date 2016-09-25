@@ -5,7 +5,7 @@ import {editorDevToolsToggle} from '../../../../actions';
 import FlatButton from 'material-ui/FlatButton';
 import Code from 'material-ui/svg-icons/action/code';
 
-const styles = {
+const styles: React.CSSProperties = {
   position: 'relative',
   top: '10px',
 };

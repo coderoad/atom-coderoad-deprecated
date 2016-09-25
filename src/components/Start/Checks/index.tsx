@@ -6,7 +6,7 @@ import InstallGuide from './InstallGuide';
 import SetupChecks from './SetupChecks';
 import SystemChecks from './SystemChecks';
 
-const styles = {
+const styles: React.CSSProperties = {
   margin: '5px',
   padding: '10px',
 };

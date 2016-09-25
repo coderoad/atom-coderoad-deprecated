@@ -9,7 +9,7 @@ import {
   Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn
 } from 'material-ui/Table';
 
-const styles = {
+const styles: React.CSSProperties = {
   padding: '10px',
   textAlign: 'center',
 };

@@ -1,4 +1,4 @@
-import { editor } from '../../index';
+import editor from '../../index';
 
 /**
  * User directory path Redux reducer
@@ -8,7 +8,6 @@ import { editor } from '../../index';
 export default function dirReducer(
   dir: string
 ): string {
-  console.log(editor);
   // editor may not be created on startup
   return editor ? editor.directory() : '';
 }

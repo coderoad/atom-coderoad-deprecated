@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {editorVersionFailMessage, editorVersionLabel} from '../../../editor/setup';
+import editor from '../../../index';
 import DynamicStepper from './DynamicStepper';
 import StepCheck from './StepCheck';
 import VerifyButton from './VerifyButton';
@@ -13,7 +13,7 @@ import {pink500} from 'material-ui/styles/colors';
 class SystemChecks extends React.Component<{
 checks: CR.Checks
 }, {}> {
-  render(): any {
+  public render(): any {
     const {system} = this.props.checks;
     if (system.passed) {
       return null;
@@ -44,10 +44,10 @@ checks: CR.Checks
         </StepCheck>
 
         <StepCheck
-          label={editorVersionLabel}
+          label={editor.version.label}
           completed={system.editor}
         >
-          {editorVersionFailMessage}
+          {editor.version.failMessage}
         </StepCheck>
 
         <StepCheck

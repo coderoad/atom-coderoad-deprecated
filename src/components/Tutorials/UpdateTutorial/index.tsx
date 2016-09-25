@@ -5,14 +5,19 @@ import {tutorialUpdate} from '../../../actions';
 import {pink500} from 'material-ui/styles/colors';
 import Update from 'material-ui/svg-icons/action/update';
 
-const styles = {
+interface IStyles {
+  icon: React.CSSProperties;
+  latest: React.CSSProperties;
+};
+
+const styles: IStyles = {
   icon: {
     width: '18px',
     marginLeft: '10px',
   },
   latest: {
     marginLeft: '10px',
-    opacity: '0.5',
+    opacity: 0.5,
   },
 };
 

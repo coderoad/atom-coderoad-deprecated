@@ -47,7 +47,6 @@ export default function runTest(
       };
 
     case TEST_COMPLETE:
-    console.log(action.payload.error);
       return {
         running: false,
         time: performance.now() + testCompleteTimeout,

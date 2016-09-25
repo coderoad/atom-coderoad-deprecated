@@ -13,9 +13,7 @@ const StepCheck: React.StatelessComponent<{
     active={!completed}
   >
     <StepLabel
-      icon={completed
-        ? <FontIcon>✓</FontIcon>
-        : <WarningIcon color={red500} />}
+      icon={completed ? <FontIcon>✓</FontIcon> : <WarningIcon color={red500} />}
     >
         {label}
     </StepLabel>

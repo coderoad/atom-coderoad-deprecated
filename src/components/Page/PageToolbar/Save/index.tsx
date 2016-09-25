@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {editorSave} from '../../../../actions';
 import RaisedButton from 'material-ui/RaisedButton';
 
-const styles = {
+const styles: React.CSSProperties = {
   border: '0px',
   boxShadow: 'none',
   backgroundColor: 'inherit',

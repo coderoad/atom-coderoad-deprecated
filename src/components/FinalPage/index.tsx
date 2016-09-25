@@ -8,7 +8,11 @@ import {Card, CardActions, CardText, CardTitle} from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 
-const styles = {
+interface IStyles {
+  card: React.CSSProperties;
+};
+
+const styles: IStyles = {
   card: {
     margin: '5px',
     padding: '10px',

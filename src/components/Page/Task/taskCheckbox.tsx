@@ -6,7 +6,11 @@ import CheckBox from 'material-ui/svg-icons/toggle/check-box';
 import CheckBoxOutlineBlank from 'material-ui/svg-icons/toggle/check-box-outline-blank';
 import IndeterminateCheckBox from 'material-ui/svg-icons/toggle/indeterminate-check-box';
 
-const styles = {
+interface IStyles {
+  checkbox: React.CSSProperties;
+};
+
+const styles: IStyles = {
   checkbox: {
     position: 'absolute',
     top: '15px',

@@ -1,4 +1,4 @@
-import {editorIssuesPath} from '../../../editor/setup';
+import editor from '../../../index';
 import {isWindows} from '../../../utils/system';
 import fileExists from 'node-file-exists';
 import {join} from 'path';
@@ -29,7 +29,7 @@ export default function configRunner(name: string, runner: string, dir: string):
     runnerMain = require(treeDep).main;
     runnerRoot = treeDep;
   } else {
-    let message = `Error loading test runner. Post an issue. ${editorIssuesPath}`;
+    let message = `Error loading test runner. Post an issue. ${editor.issuesPath}`;
     console.log(message);
     throw message;
   }

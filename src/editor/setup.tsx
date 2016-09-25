@@ -6,9 +6,9 @@ import commandLine from 'atom-plugin-command-line';
 export const name = 'Atom';
 export const minVersion = '1.8';
 
-export const editorVersionLabel = `${name} >= ${minVersion}`;
+export const versionLabel = `${name} >= ${minVersion}`;
 
-export const editorVersionFailMessage = (
+export const versionFailMessage = (
   <div>
     <p>First make sure you have atom shell commands installed.
     Click the atom menu and select "Install Shell Commands".</p>
@@ -21,7 +21,7 @@ export const editorVersionFailMessage = (
  * checks that the version of atom is above a minimum version
  * @returns Promise
  */
-export function editorMinVersion(): Promise<boolean> {
+export function isAboveMinVersion(): Promise<boolean> {
   return new Promise((resolve, reject) => {
     let minOrLater = commandLine('atom', '-v').then((res: string) => {
       let match = res.match(/Atom\s+:\s+([0-9]\.[0-9]\.[0-9])/);
@@ -34,4 +34,4 @@ export function editorMinVersion(): Promise<boolean> {
   });
 }
 
-export const editorIssuesPath = 'https://github.com/coderoad/atom-coderoad/issues';
+export const issuesPath = 'https://github.com/coderoad/atom-coderoad/issues';

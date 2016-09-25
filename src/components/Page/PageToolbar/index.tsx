@@ -7,8 +7,8 @@ import Save from './Save';
 import ToggleDevTools from './ToggleDevTools';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 
-const styles = {
-    zIndex: '5',
+const styles: React.CSSProperties = {
+    zIndex: 5,
     position: 'relative',
     bottom: '0px',
     right: '0px',
