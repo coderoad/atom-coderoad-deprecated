@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import {addRightPanel} from './editor/ui';
-
+import * as actions from './actions';
 import {SideRoot, sideElement} from './components/SidePanel';
 import addToStatusBar from './components/StatusBar';
 import Subscriptions from './editor/subscriptions';
+import {addRightPanel} from './editor/ui';
 import {setupVerify} from './modules/setup';
 import store from './store';
 import loadPolyfills from './utils/polyfills';
@@ -30,7 +30,7 @@ class Main {
     // create editor panel
     addRightPanel(this.side);
     // activate subscriptions
-    this.subscriptions.onActivate(store);
+    this.subscriptions.onActivate(store, actions);
     // render React component
     ReactDOM.render(SideRoot(store), this.side);
   }
