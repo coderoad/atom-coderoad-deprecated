@@ -7,7 +7,7 @@ export const _checks: CR.Checks = {
     node: false,
     npm: false,
     xcode: false,
-    atom: false,
+    editor: false,
   },
   setup: {
     hasDir: false,

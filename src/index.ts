@@ -1,11 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+import {addRightPanel} from './editor/ui';
+
 import {SideRoot, sideElement} from './components/SidePanel';
 import addToStatusBar from './components/StatusBar';
+import Subscriptions from './editor/subscriptions';
 import {setupVerify} from './modules/setup';
 import store from './store';
-import Subscriptions from './subscriptions';
 import loadPolyfills from './utils/polyfills';
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -25,11 +27,8 @@ class Main {
     this.subscriptions = new Subscriptions();
   }
   public activate(): void {
-    // create atom panel
-    atom.workspace.addRightPanel({
-      item: this.side,
-      priority: 0,
-    });
+    // create editor panel
+    addRightPanel(this.side);
     // activate subscriptions
     this.subscriptions.onActivate(store);
     // render React component

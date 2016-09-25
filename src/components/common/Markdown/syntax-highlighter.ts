@@ -1,13 +1,15 @@
+import {getGrammar, tokenizeLines} from '../../../editor/grammar';
+
 export default function highlight(text: string, lang: string): string {
   const scopeName = `source.${lang}`;
   // get grammar
-  const grammar = atom.grammars.grammarForScopeName(scopeName);
+  const grammar = getGrammar(scopeName);
   // no grammar, return text
   if (!grammar) {
     return text;
   }
   // get tokens
-  const lineTokens = grammar.tokenizeLines(text);
+  const lineTokens = tokenizeLines(grammar, text);
   if (lineTokens.length > 0) {
     const lastLineTokens = lineTokens[lineTokens.length - 1];
     if (lastLineTokens.length === 1 && lastLineTokens[0].value === '') {

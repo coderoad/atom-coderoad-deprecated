@@ -1,16 +1,21 @@
+import {editorName} from '../../editor/setup';
 import {
-  EDITOR_DEVTOOLS_TOGGLE, EDITOR_INSERT, EDITOR_OPEN, EDITOR_SAVE, EDITOR_SCROLL, EDITOR_SET, EDITOR_WRITE_FILE_FROM_CONTENT, EDITOR_WRITE_FILE_FROM_FILE
+  insert, open, save, scroll, set, toggleDevTools,
+  writeFileFromContent, writeFileFromFile
+} from './index';
+import {
+  EDITOR_DEVTOOLS_TOGGLE, EDITOR_INSERT, EDITOR_OPEN, EDITOR_SAVE,
+  EDITOR_SCROLL, EDITOR_SET, EDITOR_WRITE_FILE_FROM_CONTENT, EDITOR_WRITE_FILE_FROM_FILE
 } from './types';
-import {insert, open, save, scroll, set, toggleDevTools, writeFileFromContent, writeFileFromFile} from './index';
 
 /**
  * Editor Reducer triggers editor actions
- * @param  {} editor='atom'
+ * @param  {} editor='atom'|'vscode'
  * @param  {Action} action 
  * @returns string editor name
  */
 export default function editor(
-  editor = 'atom', action: Action
+  editor = editorName, action: Action
 ): string {
   switch (action.type) {
 

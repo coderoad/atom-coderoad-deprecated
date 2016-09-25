@@ -1,6 +1,7 @@
-import {join} from 'path';
+import {editorIssuesPath} from '../../../editor/setup';
 import {isWindows} from '../../../utils/system';
 import fileExists from 'node-file-exists';
+import {join} from 'path';
 
 /**
  * sets tutorial runner (load & run)
@@ -28,7 +29,7 @@ export default function configRunner(name: string, runner: string, dir: string):
     runnerMain = require(treeDep).main;
     runnerRoot = treeDep;
   } else {
-    let message = 'Error loading test runner. Post an issue. https://github.com/coderoad/atom-coderoad/issues';
+    let message = `Error loading test runner. Post an issue. ${editorIssuesPath}`;
     console.log(message);
     throw message;
   }

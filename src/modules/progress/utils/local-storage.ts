@@ -28,7 +28,7 @@ export function saveToLocalStorage(
  * @param  {CR.Tutorial} tutorial
  */
 export function loadProgressFromLocalStorage(tutorial: CR.Tutorial): CR.Progress|null {
-  const item = window.localStorage.getItem(getLocalStorageKey(tutorial))
+  const item = window.localStorage.getItem(getLocalStorageKey(tutorial));
   let savedProgress;
   if (item) {
     savedProgress = JSON.parse(item);

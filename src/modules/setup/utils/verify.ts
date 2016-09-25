@@ -1,4 +1,5 @@
-import {atomMinVersion, hasOrDoesNotRequireXCode, minVersion} from './check-system';
+import {editorMinVersion} from '../../../editor/setup'; 
+import {hasOrDoesNotRequireXCode, minVersion} from './check-system';
 import {tutorials} from 'coderoad-cli';
 
 /**
@@ -35,7 +36,7 @@ export default function setupVerify(
       node: !!minVersion('node'),
       npm: !!minVersion('npm'),
       xcode: !!hasOrDoesNotRequireXCode,
-      atom: !!atomMinVersion(),
+      editor: !!editorMinVersion(),
     },
     setup: {
       hasDir,

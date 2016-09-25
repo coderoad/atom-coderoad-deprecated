@@ -1,5 +1,5 @@
-import {alertReplay, testRun, windowToggle} from './actions';
-import store from './store';
+import {alertReplay, testRun, windowToggle} from '../actions';
+import store from '../store';
 import {CompositeDisposable} from 'atom';
 
 export default class Subscriptions {

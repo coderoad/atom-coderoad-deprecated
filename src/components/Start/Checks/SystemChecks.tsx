@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import {editorVersionFailMessage, editorVersionLabel} from '../../../editor/setup';
 import DynamicStepper from './DynamicStepper';
 import StepCheck from './StepCheck';
 import VerifyButton from './VerifyButton';
@@ -43,13 +44,10 @@ checks: CR.Checks
         </StepCheck>
 
         <StepCheck
-          label='Atom >= 1.8'
-          completed={system.atom}
+          label={editorVersionLabel}
+          completed={system.editor}
         >
-          <p>First make sure you have atom shell commands installed.
-          Click the atom menu and select "Install Shell Commands".</p>
-          <p>Otherwise, update your version of Atom.<br />
-          Click on the blue "update" squirrel in the bottom right corner of your editor.</p>
+          {editorVersionFailMessage}
         </StepCheck>
 
         <StepCheck

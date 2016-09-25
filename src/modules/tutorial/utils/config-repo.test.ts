@@ -1,6 +1,6 @@
 /// <reference path="../../../typings/globals/jest/index.d.ts" />
 
-import {configRepo, configIssuesPath} from './config-repo';
+import {configIssuesPath, configRepo} from './config-repo';
 
 describe('config functions:', () => {
 

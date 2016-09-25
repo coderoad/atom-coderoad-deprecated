@@ -1,5 +1,5 @@
 components: ContentCard
 
-atom
+editor/setup
 
 modules/editor/{open, set, openFolder, openTerminal}

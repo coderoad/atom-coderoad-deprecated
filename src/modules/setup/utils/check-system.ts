@@ -4,7 +4,6 @@ import commandLine from 'atom-plugin-command-line';
 
 const versions = {
   node: '4.0.0',
-  atom: '1.8.0',
   npm: '3.0.0'
 };
 
@@ -28,22 +27,7 @@ export function minVersion(command: string): Promise<boolean> {
   });
 }
 
-/**
- * checks that the version of atom is above a minimum version
- * @returns Promise
- */
-export function atomMinVersion(): Promise<boolean> {
-  return new Promise((resolve, reject) => {
-    let minOrLater = commandLine('atom', '-v').then((res: string) => {
-      let match = res.match(/Atom\s+:\s+([0-9]\.[0-9]\.[0-9])/);
-      if (match && match[1] && isAboveVersion(match[1], versions.atom)) {
-        resolve(true);
-      } else {
-        resolve(false);
-      }
-    });
-  });
-}
+
 
 /**
  * checks if is a mac
