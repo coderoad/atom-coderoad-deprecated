@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {isAboveVersion} from '../utils/compareVersions';
+import {isAboveVersion} from './compareVersions';
 import commandLine from 'atom-plugin-command-line';
 
 export const editorName = 'Atom';
