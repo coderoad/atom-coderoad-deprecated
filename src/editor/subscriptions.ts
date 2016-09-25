@@ -24,3 +24,4 @@ export default class Subscriptions {
     this.subscriptions.dispose();
   }
 }
+

@@ -3,10 +3,10 @@ import * as React from 'react';
 import {isAboveVersion} from './compareVersions';
 import commandLine from 'atom-plugin-command-line';
 
-export const editorName = 'Atom';
+export const name = 'Atom';
 export const minVersion = '1.8';
 
-export const editorVersionLabel = `${editorName} >= ${minVersion}`;
+export const editorVersionLabel = `${name} >= ${minVersion}`;
 
 export const editorVersionFailMessage = (
   <div>

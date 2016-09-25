@@ -88,6 +88,7 @@
     "src/editor/actions/console.ts",
     "src/editor/actions/editor.ts",
     "src/editor/actions/file.ts",
+    "src/editor/actions/index.ts",
     "src/editor/actions/quit.ts",
     "src/editor/actions/tabs.ts",
     "src/editor/actions/terminal.ts",

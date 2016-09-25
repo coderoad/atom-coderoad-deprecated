@@ -1,4 +1,4 @@
-import {editorName} from '../../editor/setup';
+import {editor} from '../../index';
 import {
   insert, open, save, scroll, set, toggleDevTools,
   writeFileFromContent, writeFileFromFile
@@ -14,45 +14,45 @@ import {
  * @param  {Action} action 
  * @returns string editor name
  */
-export default function editor(
-  editor = editorName, action: Action
+export default function editorReducer(
+  ed = editor.name, action: Action
 ): string {
   switch (action.type) {
 
     case EDITOR_DEVTOOLS_TOGGLE:
-      toggleDevTools();
-      return editor;
+      editor.action.toggleDevTools();
+      return ed;
 
     case EDITOR_SAVE:
-      save();
-      return editor;
+      editor.action.save();
+      return ed;
 
     case EDITOR_OPEN:
       const {file, options} = action.payload;
-      open(file, options);
-      return editor;
+      editor.action.open(file, options);
+      return ed;
 
     case EDITOR_INSERT:
-      insert(action.payload.content);
-      return editor;
+      editor.action.insert(action.payload.content);
+      return ed;
 
     case EDITOR_SET:
-      set(action.payload.content);
-      return editor;
+      editor.action.set(action.payload.content);
+      return ed;
 
     case EDITOR_SCROLL:
-      scroll(action.payload.content);
-      return editor;
+      editor.action.scroll(action.payload.content);
+      return ed;
 
     case EDITOR_WRITE_FILE_FROM_FILE:
-      writeFileFromFile(action.payload);
-      return editor;
+      editor.action.writeFileFromFile(action.payload);
+      return ed;
 
     case EDITOR_WRITE_FILE_FROM_CONTENT:
-      writeFileFromContent(action.payload);
-      return editor;
+      editor.action.writeFileFromContent(action.payload);
+      return ed;
 
     default:
-      return editor;
+      return ed;
   }
 }

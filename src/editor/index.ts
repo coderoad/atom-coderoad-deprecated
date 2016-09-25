@@ -1,24 +1,26 @@
+import * as action from './actions';
 import { directory } from './directory';
 import { getGrammar, tokenizeLines } from './grammar';
 import {
-  editorIssuesPath, editorMinVersion, editorName,
-  editorVersionFailMessage, editorVersionLabel, minVersion
+  editorIssuesPath, editorMinVersion, editorVersionFailMessage,
+  editorVersionLabel, minVersion, name
 } from './setup';
 import Subscriptions from './subscriptions';
 import {addRightPanel} from './ui';
 
 const editor = {
+  action,
   directory,
+  name,
   getGrammar,
   tokenizeLines,
-  editorName,
   editorMinVersion,
   editorVersionLabel,
   editorVersionFailMessage,
   editorIssuesPath,
   minVersion,
   Subscriptions,
-  addRightPanel
-}
+  addRightPanel,
+};
 
 export default editor;
