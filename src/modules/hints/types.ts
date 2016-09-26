@@ -1,1 +1,0 @@
-export const HINT_POSITION_SET = 'HINT_POSITION_SET';

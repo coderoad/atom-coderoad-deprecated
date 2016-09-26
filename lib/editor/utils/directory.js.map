@@ -1,0 +1,1 @@
+{"version":3,"file":"directory.js","sourceRoot":"","sources":["../../../src/editor/utils/directory.ts"],"names":[],"mappings":";AAAa,iBAAS,GAAG;IACvB,EAAE,CAAC,CAAC,IAAI,IAAI,IAAI,CAAC,OAAO,CAAC,eAAe,CAAC,MAAM,GAAG,CAAC,CAAC,CAAC,CAAC;QACpD,MAAM,CAAC,IAAI,CAAC,OAAO,CAAC,eAAe,CAAC,CAAC,CAAC,CAAC,IAAI,CAAC;IAC9C,CAAC;IACD,MAAM,CAAC,EAAE,CAAC;AACZ,CAAC,CAAA"}

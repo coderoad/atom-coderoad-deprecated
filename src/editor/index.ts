@@ -1,12 +1,12 @@
 import * as action from './actions';
-import { directory } from './directory';
-import { getFromScope, tokenizeLines } from './grammar';
+import { directory } from './utils/directory';
+import { getFromScope, tokenizeLines } from './utils/grammar';
 import {
   isAboveMinVersion, issuesPath, minVersion, name,
   versionFailMessage, versionLabel
-} from './setup';
-import Subscriptions from './subscriptions';
-import {addRightPanel} from './ui';
+} from './utils/setup';
+import Subscriptions from './utils/subscriptions';
+import {addRightPanel} from './utils/ui';
 
 const editor = {
   action,

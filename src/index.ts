@@ -1,9 +1,5 @@
-import ed from './editor';
-import Main from './main';
+import atomEditor from './editor';
+import main from 'core-coderoad';
 
-// for access
-export const editor = ed;
-
-// "modules.exports" is needed for loading commonjs in Atom
-module.exports = (() => new Main(editor))();
-
+// module.exports needed to load commonjs Atom module
+module.exports = main(atomEditor);

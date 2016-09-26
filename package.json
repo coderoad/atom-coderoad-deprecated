@@ -1,6 +1,6 @@
 {
   "name": "atom-coderoad",
-  "version": "0.13.3",
+  "version": "0.14.0",
   "description": "Interactive tutorial plugin for Atom",
   "keywords": [
     "atom",
@@ -25,37 +25,14 @@
   "main": "./lib/index.js",
   "repository": "https://github.com/coderoad/atom-coderoad",
   "scripts": {
-    "compile": "tsc",
-    "test": "jest"
+    "compile": "tsc"
   },
   "dependencies": {
-    "atom-plugin-command-line": "1.0.2",
-    "coderoad-cli": "0.10.0",
-    "marked": "0.3.6",
-    "material-ui": "0.15.4",
-    "node-file-exists": "1.1.0",
-    "react": "15.3.2",
-    "react-dom": "15.3.2",
-    "react-redux": "4.4.5",
-    "react-router-sans-urls": "0.1.2",
-    "react-tap-event-plugin": "1.0.0",
-    "redux": "3.6.0",
-    "redux-logger": "2.6.1",
-    "redux-thunk": "2.1.0",
-    "reselect": "2.5.4"
+    "atom-plugin-command-line": "^1.0.2",
+    "core-coderoad": "1.0.0",
+    "node-file-exists": "^1.1.0"
   },
   "devDependencies": {
-    "coderoad-cli": "^0.10.0",
-    "electron-chromedriver": "^1.4.0",
-    "eslint": "^3.6.0",
-    "eslint-plugin-react": "^6.3.0",
-    "jest": "^15.1.1",
-    "jest-cli": "^15.1.1",
-    "react-addons-test-utils": "15.3.2",
-    "react-test-renderer": "15.3.2",
-    "redux-mock-store": "^1.2.1",
-    "selenium-webdriver": "^3.0.0-beta-3",
-    "spectron": "^3.4.0",
     "tslint": "^3.15.1",
     "tslint-react": "^1.0.0",
     "typescript": "^2.0.3"
@@ -72,33 +49,5 @@
         "1.0.0": "consumeStatusBar"
       }
     }
-  },
-  "jest": {
-    "verbose": true,
-    "scriptPreprocessor": "<rootDir>/src/__tests__/preprocessor.js",
-    "mocksPattern": "src/__tests__/mocks",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "testRegex": "src/*/.*\\.test\\.(ts|tsx|js)$",
-    "coverageDirectory": "src/__coverage__",
-    "collectCoverage": false,
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "src/typings/",
-      "src/__tests__",
-      "src/__coverage__"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 30,
-        "functions": 30,
-        "lines": 30,
-        "statements": 30
-      }
-    },
-    "cacheDirectory": "src/__tests__/__cache__"
   }
 }
