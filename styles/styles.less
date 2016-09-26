@@ -1,1 +1,52 @@
-@import '../node_modules/core-coderoad/src/components/styles/index';
+@import 'ui-variables';
+
+#crv {
+  position: relative;
+  overflow-y: scroll;
+  font-size: @input-font-size;
+  pre {
+    margin-bottom: 10px !important;
+    padding-bottom: 0;
+  }
+  code {
+    background-color: @input-background-color;
+    border-radius: @component-border-radius;
+  }
+  a,
+  a:hover,
+  a:visited {
+    text-decoration: none;
+  }
+  .cr-bg {
+    height: 100%;
+    background-color: @syntax-background-color;
+  }
+  .cr-start {
+    height: calc(100% - 300px);
+    background-color: @syntax-background-color;
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .cr-page {
+    height: calc(100% - 200px);
+    background-color: @syntax-background-color;
+  }
+  .cr-menu-bar {
+    a, a:visited, a:link, a:hover {
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
+
+/* Style Alert Button */
+.cr-alert.PASS > div > div > button > div > span {
+  color: #73C990; // green
+}
+.cr-alert.FAIL > div > div > button > div > span {
+  color: #FF4081; // pink
+}
+.cr-alert.NOTE > div > div > button > div > span {
+  color: #9DA5B4; // blue
+}

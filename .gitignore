@@ -6,5 +6,3 @@ npm-debug.log
 
 # Testing
 e2e
-src/__coverage__
-src/__tests__/__cache__

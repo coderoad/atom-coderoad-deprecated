@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.14.0] - 2016-09-25
+- extract core-coderoad
+- minimized atom-coderoad to only Atom specific code
+
 ## [0.13.3] - 2016-09-16
 - display editable Final page
 
