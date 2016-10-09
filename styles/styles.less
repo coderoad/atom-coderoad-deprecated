@@ -17,8 +17,13 @@
   }
   a,
   a:hover,
-  a:visited {
+  a:link {
+    font-weight: bold;
     text-decoration: none;
+    color: rgb(0, 188, 212);
+  }
+  a:visited {
+    font-weight: normal;
   }
   .cr-bg {
     height: 100%;
@@ -34,12 +39,6 @@
   .cr-page {
     height: calc(100% - 200px);
     background-color: @syntax-background-color;
-  }
-  .cr-menu-bar {
-    a, a:visited, a:link, a:hover {
-      color: black;
-      text-decoration: none;
-    }
   }
 }
 
